@@ -1,0 +1,88 @@
+
+
+
+// 0. Layout
+// ==========================================================================
+
+$small-screen-up    : 461px;
+$medium-screen-up   : 761px;
+$large-screen-up    : 1201px;
+$small-screen       : 460px;
+$medium-screen      : 760px;
+$large-screen       : 1200px;
+
+$base-margin        : calc(0.8rem + 0.5vw);
+$double-margin      : calc(1.6rem + 1vw);
+$quad-margin        : calc(3.2rem + 2vw);
+$sexta-margin        :calc(4.8rem + 3vw);
+$okto-margin        : calc(6.4rem + 4vw);
+$half-margin        : calc(0.4rem + 0.25vw);
+$quarter-margin     : calc(0.2rem + 0.15vw);
+$reduced-margin     : 1rem;
+
+$h1                 : calc(2rem + 0.5vw);
+$h1-h2              : calc(1.8rem + 0.4vw);
+$h2                 : calc(1.6rem + 0.3vw);
+$h3                 : calc(1.4rem + 0.2vw);
+$h4                 : calc(1.2rem + 0.1vw);
+$h5                 : calc(0.9rem + 0.1vw);
+$h6                 : calc(0.7rem + 0.08vw);
+
+$big-text           : calc(2.5rem + 0.7vw);
+$bigger-text        : calc(2.9rem + 0.9vw);
+$biggest-text       : calc(3.2rem + 1.2vw);
+$huge-text          : calc(6.4rem + 2.2vw);
+
+$h4-lineheight      : calc(1.7rem + 0.2vw);
+$h4-padding         : calc(1.7rem + 0.2vw) 0;
+
+$tiny-icon          : calc(1.8rem + 0.4vw);
+$small-icon         : calc(2rem + 0.5vw);
+$medium-icon        : calc(2.6rem + 0.8vw);
+$big-icon           : calc(4rem + 1vw);
+$huge-icon          : calc(6rem + 1.6vw);
+$mega-font          : calc(2rem + 2vw);
+
+$lg-button: calc(4rem + 2vw);
+$md-button: calc(2rem + 1vw);
+$sm-button: calc(1rem + 0.5vw);
+
+// 1. Colors
+// ==========================================================================
+
+$primary-color              : color("essblue", "base");
+$primary-color-hover        : color("essblue", "darken-1");
+
+$primary-text               : color("grey", "base");
+
+$secondary-color            : color("grey", "base");
+
+$ess-blue-lightest          : color("essblue", "lighten-4");
+
+
+$white                      : color("shades", "white");
+
+//SYSTEM
+$success-color              : color("green", "base");
+$error-color                : color("red", "base");
+
+$link-color                 : color("essblue", "base");
+$ess-base-green             : color("green", "base");
+
+$card-link-color            : color("essblue", "base");
+$footer-font-color          : color("grey", "base");
+$footer-bg-color            : color("grey", "lighten-4");
+$footer-copyright-font-color: color("grey", "lighten-2");
+$footer-copyright-bg-color  : none;
+$ess-blue-transp            : rgba(15, 42, 86, 0.2);
+
+
+
+// GRADIENT
+$ess-blue-gradient          : linear-gradient(to left, color('grey', 'base'), color('grey', 'lighten-1'));
+$ess-blue-gradient-reverse  : linear-gradient(to right, $ess-blue-supplementary, $ess-blue-dark);
+
+
+// button colors 
+$primary-button-bg          : $primary-color;
+$primary-button-bg-hover    : color('essblue', 'darken-1');

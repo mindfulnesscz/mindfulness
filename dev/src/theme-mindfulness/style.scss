@@ -1,0 +1,71 @@
+
+/*
+ Theme Name:   Mindfulness
+ Theme URI:    https://essteyr.com
+ Description:  ESS - Engineering Software Steyr Wordpress Theme
+ Author:       Petr Mucha
+ Author URI:   http://petrmucha.cz
+ Template:     Mindfulness
+ Version:      1.0.1
+*/
+
+/* SETTINGS */
+
+
+/* ===================================== */
+
+@import './components/colors';
+@import './components/variables';
+@import './components/typography';
+@import './components/layout';
+@import './components/helpers';
+@import './components/buttons';
+@import './components/forms';
+@import './components/color_classes';
+
+/* COMPONENTS */
+
+
+/* ===================================== */
+
+@import './components/navbar';
+@import './components/navbar_classic';
+@import './components/icons';
+@import './components/headers';
+@import './components/transitions';
+@import './components/homepage';
+@import './components/keypage';
+@import './components/footer';
+@import './components/logo_cube';
+@import './components/navbar_cube';
+@import './components/mind_slider';
+@import './components/sidebar_contact';
+@import './components/articles_feed';
+@import './components/download_area';
+@import './components/icon_headline';
+@import './components/dark_block';
+@import './components/single';
+@import './components/breadcrumbs';
+@import './components/wordpress_fixes';
+@import './components/modals';
+@import './components/out_team';
+@import './components/images';
+@import './components/filter';
+@import './components/cess_cube';
+@import './components/alerts';
+@import './components/industry_icons';
+@import './components/events';
+@import './components/sidebars';
+@import './components/homebanner';
+@import './components/m_links';
+@import './components/m_layout';
+@import './components/career_opportunities';
+
+
+/* FLEXBOXGRID =====================================*/
+
+@import './components/flexboxgrid';
+
+/* MATERIALIZE ===================================== */
+
+@import '~materialize-css/sass/materialize';

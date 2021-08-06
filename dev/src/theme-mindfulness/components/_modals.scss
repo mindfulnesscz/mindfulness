@@ -1,0 +1,29 @@
+.modal.ess-modal {
+    position: fixed;
+    left: 0;
+    right: 0;
+    background-color: $white;
+    max-height: 80%;
+    min-width: 300px;
+    max-width: 600px;
+    width: 55%;
+
+    .modal-header {
+        background: $ess-blue-gradient;
+        padding: $double-margin;
+        h3{
+            margin:0;padding:0;
+            color: $white;
+            line-height: $big-icon;
+        }
+    }
+
+    .modal-content {
+        padding: $double-margin;
+        padding-bottom: 0;
+    }
+}
+
+.modal-overlay {
+    background-color: $secondary-color !important;
+}

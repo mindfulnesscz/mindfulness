@@ -1,0 +1,180 @@
+
+
+#ess-header {
+
+    &.fullsize {
+        .ess-keypage-header {
+            min-height: 85vh;
+            .row-container {
+                min-height: 85vh;
+            }
+        }
+    }
+    &.halfsize {
+        .ess-keypage-header {
+            min-height: 40vh;
+            .row-container {
+                min-height: 40vh;
+            }
+        }
+    }
+    &.basic {
+        .ess-keypage-header {
+            min-height: 10vh;
+            .row-container {
+                min-height: 10vh;
+            }
+        }
+    }
+    .single-thumbnail {
+        max-width: 100%;
+        max-height: 900px;
+        display: block;
+        margin: auto;
+        position :relative;
+        padding: $base-margin;
+        border: 1px solid $secondary-color;
+    }
+}
+
+
+
+
+/* ----------------------- TOP NAV ---------------------------------------- */
+html #ess-body {
+    nav {
+        line-height: 3rem;
+    }
+}
+
+#ess-home-header {
+    height: 100vh;
+    background: $nav-cube-background;
+
+    .container {
+        height: 100%;
+
+        >.row {
+            height: 100%;
+
+            h1 {
+                color: $primary-text;
+                padding-left: 2rem;
+                font-weight: 100;
+            }
+            #logo-text {
+                margin: 0;
+                font-size: 6rem;
+                padding: 0 0 0 2rem ; 
+                margin-left: 1.5rem;
+                font-weight: normal;
+                animation: opacity-up 4s;
+                animation-fill-mode: forwards;
+                opacity: 0;
+            }
+            #ess-header-claim {
+                font-size: 4rem;
+                span {
+                    line-height: calc(2.3rem + 2vw);
+                    position: relative;
+                    opacity: 0;
+                    animation: ess-header-claim-keys .5s;
+                    animation-delay: 1.5s;
+                    animation-fill-mode: forwards;
+                    animation-timing-function: ease-out;
+
+                    &:first-child {
+                        animation-delay: 1s;
+                    }
+                    &:last-child {
+                        animation-delay: 2s;
+                    }
+                        
+                }
+            }
+        }
+    }
+    #ess-cube-canvas {display: none; }//sets the canvas disply to none so the intro can happen
+    #ess-cube-canvas.on-stage {
+        animation: opacity-up 1s;
+        animation-fill-mode: forwards;
+    }
+    #ess-cube-canvas.off-stage {
+        animation: opacity-up 1s;
+        animation-fill-mode: forwards;
+        animation-direction: reverse;
+    }
+
+}
+
+
+
+.ess-keypage-header {
+    h2 {
+        font-size: $h1;
+        font-weight: bold;
+        color: $white;
+    }
+    .container {
+        &>.row {
+            align-content: center;
+            align-items: center;
+            h1 {
+                border: none;
+            }
+        }
+        .row>div {z-index: 1;}
+    }
+    &#about-us {
+        h1 { color: $secondary-color; }
+    }
+}
+
+.ess-blured-content {
+    filter: blur(.5rem);
+}
+@keyframes ess-header-claim-keys {
+    0% {opacity:0; left: -5rem;}
+    100% {opacity:1; left: 0;}
+}
+
+
+
+@media only screen and (max-width: $medium-screen) {
+    #ess-home-header {
+
+        .container {
+            >.row {
+                height: 100%;
+
+                h1 {
+                    padding-left: 0;
+                    text-align: center;
+                }
+
+                >.col {
+                    align-self: flex-end;
+                    img {padding: 0 3rem 0 1rem; width: 100%; max-width: 100%; height: auto;}
+                }
+
+                >.col+.col {
+                    align-self: flex-start;
+                }
+                #logo-text {
+                    margin-left: 0;
+                    padding-left: 0;
+                    padding-top: 3rem;
+                }
+                #ess-header-claim {
+                    margin-top: 0rem;
+                    margin-bottom: 0rem;
+                    line-height: $h1;
+                    font-size: $h1-h2;
+                    font-weight: normal;
+                }
+            }
+
+        }
+
+    }
+}

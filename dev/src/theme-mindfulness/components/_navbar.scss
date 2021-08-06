@@ -1,0 +1,91 @@
+   #ess-top-nav {
+       //padding: $base-margin;
+       position: fixed;
+       height: 0;
+       background: transparent;
+       box-shadow: none;
+       z-index: 100;
+       #ess-menu-toggle {
+           margin: 0;
+           position: relative;
+           width: $lg-button;
+           height: $lg-button;
+           line-height: $lg-button;
+           text-align: center;
+           font-size: 4rem;
+           margin: $quarter-margin $base-margin;
+           cursor: pointer;
+           @include ess-fade(0.3s ease-in-out);
+           //background-color: rgba(12, 22, 46, 0.5);
+           &:hover {
+               //background-color: rgba(12, 22, 46, 1);
+           }
+       }
+       #ess-top-menu-features {
+           font-size: 0.8rem;
+           position: absolute;
+           right: .5rem;
+           top: .5rem;
+           max-width: 100%;
+           z-index: 100;
+           .item {
+				&::before {
+				display: none;
+				}
+               margin: 0;
+               list-style: none;
+               cursor: pointer;
+               line-height: 3rem;;
+               height: 3rem;
+               padding: 0 $base-margin;
+               color: $white;
+               float: right;
+               @include ess-fade(0.3s ease-in-out);
+               background-color: rgba(66,66,66,0.5);
+               &:hover {
+                background-color: rgba(66,66,66,0.7);
+               }
+               .ess-icon {
+                   font-size: calc(1.5rem + 1vw);
+                   line-height: 3rem;
+                   float: left;
+               }
+               .content {
+                   line-height: 3rem;;
+               }
+           }
+           .item.ess-active {
+               background: $ess-sand;
+               color: $secondary-color;
+           }
+       }
+   }
+   #ess-searchbar-holder {
+    min-width: 300px;
+
+}
+
+#ess-searchbar {
+    padding: $half-margin;
+    background: $ess-sand;
+    display: flex;
+    width: 100%;
+    flex-flow: row nowrap;
+
+    .input-holder {
+        flex-grow: 3;
+
+        input {
+            width: 100%;
+        }
+    }
+
+    .button-holder {
+        flex-grow: 1;
+    }
+
+    #search-button {
+        width: 100%;
+    }
+}
+   

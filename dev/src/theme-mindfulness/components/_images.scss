@@ -1,0 +1,79 @@
+
+html body img { width: auto; height: auto; }
+
+.pattern {background: url('assets/images/pattern.gif')};
+.pattern-b {background: url('assets/images/pattern-2.gif')};
+ul.image-logo li {
+    list-style-image: url('assets/images/bullet_ess.svg');
+}
+ul.image-logo {
+    &.list-processing {
+        border-top: 1px solid color('processing', 'darken-2');
+
+        li {
+            list-style-image: url('assets/images/bullet_processing.svg');
+        }
+    }
+    &.list-paintshop {
+        border-top: 1px solid color('paintshop', 'base');
+
+        li {
+            list-style-image: url('assets/images/bullet_paintshop.svg');
+        }
+    }
+    &.list-washing {
+        border-top: 1px solid color('washing', 'base');
+
+        li {
+            list-style-image: url('assets/images/bullet_washing.svg');
+        }
+    }
+    &.list-oil-gas {
+        border-top: 1px solid color('oil-gas', 'base');
+
+        li {
+            list-style-image: url('assets/images/bullet_oil_gas.svg');
+        }
+    }
+    &.list-data-cleaning {
+        border-top: 1px solid color('data-cleaning', 'base');
+
+        li {
+            list-style-image: url('assets/images/bullet_data_cleaning.svg');
+        }
+    }
+    &.list-mobility {
+        border-top: 1px solid color('mobility', 'base');
+
+        li {
+            list-style-image: url('assets/images/bullet_mobility.svg');
+        }
+    }
+    &.list-environment {
+        border-top: 1px solid color('environment', 'base');
+
+        li {
+            list-style-image: url('assets/images/bullet_environment.svg');
+        }
+    }
+}
+
+.cube-image-header .ess-keypage-header>img {
+    height: 90%;
+    top: 5%;
+    right: 5%;
+    mask: url('assets/images/ess-mask.svg');
+    -webkit-mask: url('assets/images/ess-mask.svg');
+}
+
+@font-face {
+    font-family: 'essicons';
+    src:  url('assets/icons/icomoon.eot?a5ha1t');
+    src:  url('assets/icons/icomoon.eot?a5ha1t#iefix') format('embedded-opentype'),
+      url('assets/icons/icomoon.ttf?a5ha1t') format('truetype'),
+      url('assets/icons/icomoon.woff?a5ha1t') format('woff'),
+      url('assets/icons/icomoon.svg?a5ha1t#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}

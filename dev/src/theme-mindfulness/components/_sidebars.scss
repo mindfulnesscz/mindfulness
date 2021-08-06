@@ -1,0 +1,16 @@
+.single-container {
+    .single-row {
+        .sidebar-right {
+            padding-top: $quad-margin;
+        }
+    }
+}
+#ess-body .sidebar-right h4 {
+    padding: $half-margin 0;
+    border-top: 1px solid color('grey', 'lighten-2');
+}
+
+@media only screen and (max-width: $medium-screen) {
+    
+    .sidebar-right { padding-top: $base-margin; }
+}

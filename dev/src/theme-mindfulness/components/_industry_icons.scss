@@ -1,0 +1,15 @@
+.ess-anim-icon {
+    //fill: color("essblue", "lighten-2");
+    fill: color("grey", "base");
+    //stroke: $white;
+    stroke: color("grey", "base");
+    stroke-width: 6px;
+    transition: all .5s ease;
+}
+.ess-anim-icon-transp { fill: color('grey', 'lighten-2')-light-iv; stroke: none;}
+
+.ess-svg-icon {
+    width: 100%;
+    height: auto;
+    padding-bottom: $base-margin;
+}

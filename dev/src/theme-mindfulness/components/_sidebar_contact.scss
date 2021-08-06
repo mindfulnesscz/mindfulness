@@ -1,0 +1,93 @@
+$sidebar-thickness: 2.5rem;
+
+#ess-side-contact {
+    width: 30vw;
+    background: white;
+    display: flex;
+    align-items: center;
+
+    #ess-side-contact-form-holder {
+        background: white;
+        padding: $double-margin;
+        position: relative;
+        flex: 2;
+        flex-shrink: 0;
+
+        .input-field {
+            margin-top: $base-margin;
+        }
+    }
+}
+
+#sidebar-contact-toggler {
+    position: absolute;
+    cursor: pointer;
+    width: $double-margin;
+    background-color: $ess-base-green;
+    top: 0;
+    height: 12rem;
+    right: 0;
+    text-align: center; 
+    transition: background-color .3s, width .3s;
+    z-index: 10;
+    
+    &:hover {
+        background-color: $ess-blue-supplementary;
+        width: 4rem;
+    }
+    
+    .ess-icon {
+        font-size: 2rem;
+        display: block;
+        position: absolute;
+        line-height: $sidebar-thickness;
+        border-right: 1px solid $ess-blue-supplementary;
+        height: $sidebar-thickness;
+        width: $sidebar-thickness;
+        color: white;
+        line-height: $sidebar-thickness;
+        //background: $ess-blue-supplementary;
+        //display: none; // HIDDEN
+    }
+
+    #sidebar-contact-text {
+        transform-origin: 0 0;
+        transform: rotate(-90deg);
+        position: relative;
+     
+        bottom:-100%;
+        //left: 50%;
+        
+        //position: absolute;
+        
+        //right: 100%;
+        //top:$sidebar-thickness;
+        height: $sidebar-thickness;
+
+        h4 {
+            //background: $ess-blue-supplementary;
+            width: 10rem;
+            float: left;
+            margin:0;
+            padding: 0;
+            padding-left: 3rem;
+            color: white;
+            font-size: 1rem !important;
+            line-height: $sidebar-thickness;
+            //padding-left: 3rem;
+            //display:inline;
+
+        }
+    }
+}
+#sidebar-contact-toggler.contact-fixed {
+    position: fixed;
+    top: 50%;
+}
+
+@media only screen and (max-width: $medium-screen) {
+    
+    #sidebar-contact-toggler {
+        display: none;
+    }
+}

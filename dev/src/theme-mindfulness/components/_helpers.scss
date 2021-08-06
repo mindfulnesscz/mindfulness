@@ -1,0 +1,97 @@
+@mixin flex-center () {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.center-margin {
+    margin: auto;
+}
+
+.ess-depth-1 {
+    @include shadow(0rem 0.5rem 0.8rem 0rem rgba(0, 0, 0, 0.5));
+}
+
+.ess-depth-5 {
+    @include shadow(0rem 2rem 3rem 0rem rgba(0, 0, 0, 0.3));
+}
+
+.align-center {
+    text-align: center;
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.grow {
+    flex-grow: 1
+}
+
+@media only screen and (min-width: $large-screen) {
+    .ess-show-on-med-and-down {
+        display: none !important;
+    }
+}
+@media only screen and (min-width: $medium-screen){
+    .ess-show-on-small-and-down {
+        display: none !important;
+    }
+}
+
+.ess-horizontal-reveal {
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+    opacity: 0;
+}
+
+.ess-vertical-reveal {
+    width: 0;
+    overflow: hidden;
+}
+.bg-white-transp { background: rgba(255,255,255,0.5); }
+
+.bg-secondary-transp {}
+
+.bkg-semi-transparent {
+    opacity: 0.7;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    background: $secondary-color;
+}
+
+.ess-dark-hover-link {
+    
+    position: relative;
+
+    &::before{
+        content: "";
+        background: $secondary-color;
+        opacity: 0;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        height: 100%;
+        transition: opacity .5s ease;
+        z-index: 2;
+    }
+    &:hover::before {
+        opacity: 0.06;
+    }
+}
+
+
+
+

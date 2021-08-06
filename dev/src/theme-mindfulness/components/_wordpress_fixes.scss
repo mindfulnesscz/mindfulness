@@ -1,0 +1,16 @@
+.wp-block-mindfulness-blocks-flexbox-col h3 {
+    line-height: $h1;
+}
+.wp-block-mindfulness-blocks-flexbox-row.wp-just-center >.container > .row {
+    justify-content: center;
+    justify-items: center;
+}
+.wp-block-mindfulness-blocks-flexbox-row.wp-align-items-center >.container > .row {
+    align-items: center;
+} 
+
+.wp-block-mindfulness-blocks-flexbox-row {
+    &.wp-align-content-center   >.container>.row{ align-content: center; }
+    &.wp-align-items-center     >.container>.row{ align-items: center; }
+}
+#ess-body .wp-block-image {margin: 0;}

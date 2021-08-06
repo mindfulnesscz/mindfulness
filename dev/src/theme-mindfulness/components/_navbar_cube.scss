@@ -1,0 +1,135 @@
+
+$nav_cube_side_width: 2.6rem;
+$nav_cube_side_shift: 1.5rem;
+$nav_cube_side_shift_2: 3rem;
+@keyframes navrot {
+    to {
+        transform: rotateY(360deg)
+    }
+}
+#ess-navcube-hamburger {
+    background: $ess-darkest-transp;
+    display: block;
+}
+.ess-navcube-cube {
+    display: none;
+
+    .navcube-scene {
+        animation: opacity-up 4s;
+        animation-fill-mode: forwards;
+        opacity: 0;
+        perspective: 100rem;
+        position: relative;
+
+
+
+        .navcube-rotator {
+            width: $nav_cube_side_shift_2;
+            height: $nav_cube_side_shift_2;
+            position: relative;
+            transform-style: preserve-3d;
+            margin: 0 auto;
+            float: none;
+            padding-top: calc(0.9rem + 1.2vw);
+
+            animation: navrot 8s linear infinite;
+
+
+
+            .navcube {
+                transform: rotateX(45deg) rotateZ(45deg);
+                transform-style: preserve-3d;
+                width: $nav_cube_side_shift_2;
+                height: $nav_cube_side_shift_2;
+                position: relative;
+
+                .navcube-front,
+                .navcube-left,
+                .navcube-right,
+                .navcube-back,
+                .navcube-top,
+                .navcube-bottom {
+                    background-color: color('grey', 'lighten-4');
+                    //border: 2px solid color('grey', 'lighten-2');
+                    position: absolute;
+                    backface-visibility: hidden;
+                    width: $nav_cube_side_width;
+                    height: $nav_cube_side_width;
+                    transition: all .5s ease;
+                }
+                .navcube-top { background-color: color( 'essblue', 'base' ); }
+                .navcube-left { background-color: color( 'essblue', 'lighten-2' ); }
+                .navcube-right { background-color: color( 'grey', 'base' ); }
+                .navcube-back { background-color: color( 'grey', 'lighten-1' ); }
+                .navcube-bottom { background-color: color( 'grey', 'lighten-1' ); }
+                .navcube-front { background-color: color( 'essblue', 'lighten-1' ); }
+
+
+                .navcube-front {
+
+                    transform: translateZ($nav_cube_side_shift);
+                }
+
+                .navcube-left {
+
+                    transform: rotateY(-90deg) translateZ($nav_cube_side_shift)
+                }
+
+                .navcube-right {
+
+                    transform: rotateY(90deg) translateZ($nav_cube_side_shift)
+                }
+
+                .navcube-back {
+
+                    transform: rotateY(180deg) translateZ($nav_cube_side_shift)
+                }
+
+                .navcube-top {
+
+                    transform: rotatex(90deg) translateZ($nav_cube_side_shift)
+                }
+
+                .navcube-bottom {
+                    transform: rotatex(-90deg) translateZ($nav_cube_side_shift)
+                }
+
+            }
+        }
+    }
+
+}
+#ess-menu-toggle {
+    &:hover{
+        .ess-navcube-cube {
+            .navcube {
+                .navcube-front,
+                .navcube-left,
+                .navcube-right,
+                .navcube-back,
+                .navcube-top,
+                .navcube-bottom {
+                    background-color: color("essblue", "base");
+                    //border: 2px solid color("essblue", "darken-2");
+                }
+            }
+
+        }
+    }
+}
+
+
+.dark-block .ess-navcube-cube {
+    cursor: pointer;
+    display: block;
+
+
+}
+#bottom-cube {
+    width: 150px;
+    margin: 0 auto;
+}
+@media only screen and (min-width: $medium-screen) {
+    .cubic .ess-navcube-cube {display: block;}
+    .cubic #ess-navcube-hamburger {display: none;}
+}

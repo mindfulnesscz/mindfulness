@@ -1,0 +1,13 @@
+.alert {
+    padding: $half-margin;
+    &.alert-error {
+
+        border: 1px solid color('red', 'base');
+        color: color('red', 'base');
+    }
+    &.alert-success {
+
+        border: 1px solid color('green', 'base');
+        color: color('green', 'base');
+    }
+}
