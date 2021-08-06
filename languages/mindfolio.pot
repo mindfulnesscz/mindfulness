@@ -1,0 +1,117 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Mindfolio\n"
+"POT-Creation-Date: 2016-02-22 14:10+0100\n"
+"PO-Revision-Date: 2016-02-22 14:11+0100\n"
+"Last-Translator: \n"
+"Language-Team: Mindfulness <pcmmucha@gmail.com>\n"
+"Language: cs_CZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: index.php\n"
+
+#: functions.php:33
+msgid "Primary Menu"
+msgstr "Primární menu"
+
+#: functions.php:478
+msgid "Students"
+msgstr "Studenti"
+
+#: functions.php:479
+msgid "Student"
+msgstr "Student"
+
+#: index.php:25 single.php:78
+msgid "News"
+msgstr "Novinky"
+
+#: single.php:62
+msgid ""
+"<span class=\"meta-nav\">Published in</span><span class=\"post-title\">"
+"%title</span>"
+msgstr ""
+"<span class=\"meta-nav\">Publikováno</span><span class=\"post-title\">"
+"%title</span>"
+
+#: single.php:67
+msgid "Next"
+msgstr "Další"
+
+#: single.php:68
+msgid "Next post:"
+msgstr "Další článek"
+
+#: single.php:70
+msgid "Previous"
+msgstr "Předchozí"
+
+#: single.php:71
+msgid "Previous post:"
+msgstr "Předchozí článek"
+
+#: template-parts/biography.php:28
+msgid "Author:"
+msgstr "Autor"
+
+#: template-parts/biography.php:33
+#, php-format
+msgid "View all posts by %s"
+msgstr "Všechny články uživatele %s"
+
+#: template-parts/content-none.php:13
+msgid "Nothing Found"
+msgstr "Nenalezeno nic"
+
+#: template-parts/content-none.php:19
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"Připraveni publikovat první příspěvek? <a href=\"%1$s\">Začněte zde</a>."
+
+#: template-parts/content-none.php:23
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Je nám líto, ale vašemu požadavku neodpovídá žádný výsledek. Prosím zkuste "
+"to znovu s jinými klíčovými slovy."
+
+#: template-parts/content-none.php:28
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr "Není co dodat"
+
+#: template-parts/content-page.php:22 template-parts/content.php:33
+msgid "Pages:"
+msgstr "Stránky"
+
+#: template-parts/content-page.php:26 template-parts/content.php:37
+msgid "Page"
+msgstr "Stránka"
+
+#: template-parts/content-page.php:36 template-parts/content-search.php:28
+#: template-parts/content-search.php:43 template-parts/content.php:49
+#, php-format
+msgid "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Editovat<span class=\"screen-reader-text\"> \"%s\"</span>"
+
+#: template-parts/content.php:14
+msgid "Featured"
+msgstr "Doporučené"
+
+#: template-parts/content.php:28
+#, php-format
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Pokračujte ve čtení<span class=\"screen-reader-text\"> \"%s\"</span>"
+
+#~ msgid "Studenti"
+#~ msgstr "Studenti"
