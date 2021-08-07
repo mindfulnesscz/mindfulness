@@ -389,11 +389,11 @@
                   <ul id="ess-home-banner" class="mind-slider">
                     <li id="ess-cube-banner-its" class="slide ess-cube-banner-item" style="background: #e8e9ee">
                       <a href="<?php echo home_url() . '/vishal'; ?>">
-                        <div class="banner-image-part">
+                        <div style="padding-left: 30px;" class="banner-image-part">
                           <img src="<?php echo home_url() . '/ess-media/home-banner/210808_vishal/vishal.jpg'; ?>">
                         </div>
                         <div class="banner-text-part">
-                          <h3 class="alignleft" style="text-align: left">Thank You<br>Vishal Nair<br>1984 - 2021</h3>
+                          <h3>Thank You<br>Vishal Nair<br>1984 - 2021</h3>
                         </div>
                       </a>
                     </li>
