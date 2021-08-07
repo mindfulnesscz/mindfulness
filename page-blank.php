@@ -3,7 +3,7 @@
 /**
  * The template for Custom build Pages
  *
- * Template Name: Custom Page
+ * Template Name: Blank Page
  *
  *
  * @package WordPress
@@ -30,14 +30,6 @@ endwhile;
 
 
 ?>
-
-<!-- ========================================== CONTACT STRIP ========================================== -->
-
-
-<?php
-get_template_part('template-parts/content/content', 'contactstrip');
-?>
-
 
 </main>
 
