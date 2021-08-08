@@ -178,15 +178,15 @@ $posts = get_posts($args);
 	<div class="container">
 		<div class="row p-top-double p-bot-double">
 			<a href="<?php echo get_home_url(); ?>/alsim-cloud" class="p-top-double p-bot-quad col-xs-12 col-lg-4 ess-link-wrapper mf-scale-link aligncenter">
-				<img style="max-width: 400px;" src="<?php echo get_template_directory_uri(); ?>/theme-mindfulness/assets/images/product-logos/full_logo_cloud.svg">
+				<img style="max-width: 400px;" src="<?php echo get_template_directory_uri(); ?>/assets/images/product-logos/full_logo_cloud.svg">
 				<div class='m-spacer-iv'></div>
 			</a>
 			<a href="<?php echo get_home_url(); ?>/alsim-platform" class="p-top-double p-bot-quad col-xs-12 col-lg-4 ess-link-wrapper mf-scale-link aligncenter">
-				<img style="max-width: 400px;" src="<?php echo get_template_directory_uri(); ?>/theme-mindfulness/assets/images/product-logos/full_logo_platform.svg">
+				<img style="max-width: 400px;" src="<?php echo get_template_directory_uri(); ?>/assets/images/product-logos/full_logo_platform.svg">
 				<div class='m-spacer-iv'></div>
 			</a>
 			<a href="<?php echo get_home_url(); ?>/alsim-services" class="p-top-double p-bot-quad col-xs-12 col-lg-4 ess-link-wrapper mf-scale-link aligncenter">
-				<img style="max-width: 400px;" src="<?php echo get_template_directory_uri(); ?>/theme-mindfulness/assets/images/product-logos/full_logo_services.svg">
+				<img style="max-width: 400px;" src="<?php echo get_template_directory_uri(); ?>/assets/images/product-logos/full_logo_services.svg">
 				<div class='m-spacer-iv'></div>
 			</a>
 		</div>
