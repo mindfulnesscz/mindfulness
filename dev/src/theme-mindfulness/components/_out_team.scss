@@ -57,10 +57,12 @@
     }
 
     .people_person {
+		padding-bottom: $double-margin;
         text-align: center;
 
         h4 {
             margin-bottom: 0;
+			padding-bottom: $half-margin;
         }
 
         h5 {
