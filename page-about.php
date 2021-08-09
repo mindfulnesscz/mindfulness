@@ -48,7 +48,7 @@ endwhile;
 			<?php 
 					
 $args  = array(
-    'orderby'         => 'order',
+    'orderby'         => 'menu_order',
     'order'           => 'ASC',
     'post_type'       => 'team_member',
 	'posts_per_page'  => 1000
