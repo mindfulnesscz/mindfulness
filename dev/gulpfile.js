@@ -1,7 +1,8 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 const gulp = require( 'gulp' );
-const sass = require( 'gulp-sass' )(require('sass'));
+const sass = require( 'gulp-sass' )( require( 'sass' ) );
 const del = require( 'del' );
 const plumber = require( 'gulp-plumber' );
 const autoprefixer = require( 'gulp-autoprefixer' );
@@ -13,21 +14,25 @@ const cssDestPath = '../assets/css';
 sass.compiler = require( 'node-sass' );
 
 gulp.task( 'styles', () => {
-
 	return gulp
 		.src( sassSourcePath )
 		.pipe( sourcemaps.init() )
 		.pipe(
-			sass.sync( {
-				includePaths: [ 'node_modules' ],
-				outputStyle: 'compressed'
-			} )
-				.on( 'error', sass.logError ) )
+			sass
+				.sync( {
+					includePaths: [ 'node_modules' ],
+					outputStyle: 'compressed',
+				} )
+				.on( 'error', sass.logError )
+		)
 		.pipe( plumber() )
-		.pipe( autoprefixer( { overrideBrowserslist: [ 'last 2 version', '> 5%' ] } ) )
+		.pipe(
+			autoprefixer( {
+				overrideBrowserslist: [ 'last 2 version', '> 5%' ],
+			} )
+		)
 		.pipe( sourcemaps.write( '.' ) )
 		.pipe( gulp.dest( cssDestPath ) );
-
 } );
 
 gulp.task( 'clean', () => {
@@ -37,7 +42,7 @@ gulp.task( 'clean', () => {
 			'../assets/css/mindfulness.css.map',
 		],
 		{
-			force: true // wm: cleans outside of current project directory otherwise throws error
+			force: true, // wm: cleans outside of current project directory otherwise throws error
 		}
 	);
 } );
@@ -55,4 +60,3 @@ gulp.task( 'watch', () => {
 } );
 
 gulp.task( 'default', gulp.series( [ 'clean', 'styles' ] ) );
-

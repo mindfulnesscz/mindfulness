@@ -387,13 +387,14 @@
               <div class="css_block w_xii h_iv x_0 y_xi">
                 <div class="mind-slider-holder no-padding">
                   <ul id="ess-home-banner" class="mind-slider">
-                    <li id="ess-cube-banner-its" class="slide ess-cube-banner-item" style="background: #e8e9ee">
-                      <a href="<?php echo home_url() . '/vishal'; ?>">
-                        <div style="padding-left: 30px;" class="banner-image-part">
-                          <img src="<?php echo home_url() . '/ess-media/home-banner/210808_vishal/vishal.jpg'; ?>">
+                    <li id="ess-cube-banner-its" class="slide ess-cube-banner-item">
+                      <a href="https://www.essteyr.com/aboutaerosols/">
+                        <div class="banner-image-part">
+                          <img src="<?php echo home_url() . '/ess-media/home-banner/210617_environment/environment_cube_banner.jpg'; ?>">
                         </div>
                         <div class="banner-text-part">
-                          <h3>Thank You<br>Vishal Nair<br>1984 - 2021</h3>
+                          <h3>#aboutaerosols</h3>
+                          <p>Find out how aerosols behave and how to mitigate risks posed by them!</p>
                         </div>
                       </a>
                     </li>

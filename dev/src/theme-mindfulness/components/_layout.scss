@@ -168,6 +168,26 @@ a:hover {
     margin: base-margin !important;
   }
 
+  .m-top-minus-base {
+    margin-top: $minus-base-margin !important;
+  }
+
+  .m-top-minus-double {
+    margin-top: $minus-double-margin !important;
+  }
+
+  .m-top-minus-quad {
+    margin-top: $minus-quad-margin !important;
+  }
+
+  .m-top-minus-sexta {
+    margin-top: $minus-sexta-margin !important;
+  }
+
+  .m-top-minus-okto {
+    margin-top: $minus-okto-margin !important;
+  }
+
   strong {
     font-weight: bold;
   }
@@ -290,6 +310,7 @@ a:hover {
 main {
   position: relative;
   padding: $quad-margin 0;
+  z-index: 2;
 
   .row {
     justify-content: center

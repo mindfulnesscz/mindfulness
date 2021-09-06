@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable @typescript-eslint/no-var-requires */
 /*jshint esversion: 9 */
 
 /*
@@ -7,20 +9,19 @@ Uses spread syntax „...” for object thus esversion 9
 Should be used for all the custom gutenberg plugins 
 */
 
-const path = require('path');
-const defaultConfig = require("@wordpress/scripts/config/webpack.config");
+const path = require( 'path' );
+const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 
 module.exports = {
-    ...defaultConfig,
+	...defaultConfig,
 
-    entry: {
-        '../../essteyr.com/wp-content/plugins/ess-blocks/build/index' : './src/plugins/ess-blocks/index.js',
-    },
+	entry: {
+		'../../../../plugins/ess-blocks/build/index': './src/plugins/ess-blocks/index.js',
+	},
 
-    output: {
-        // filename: '[name].[hash:4].js',
-        filename: '[name].js',
-        path: path.resolve(__dirname, 'dist')
-    }
-
-  };
+	output: {
+		// filename: '[name].[hash:4].js',
+		filename: '[name].js',
+		path: path.resolve( __dirname, 'dist' ),
+	},
+};
