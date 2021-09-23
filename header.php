@@ -353,7 +353,7 @@
             <div id="csscube-bottom">
               <div class="css_block w_xii h_v x_o y_o css-grey-lighter">
                 <a href="<?php echo home_url(); ?>">
-                  <img style="max-height: 80%;" src="<?php echo get_template_directory_uri() . '/assets/images/ess_logo.svg'; ?>">
+                  <img alt="ESS" style="max-height: 80%; width: 100%;" src="<?php echo get_template_directory_uri() . '/assets/images/ess_logo.svg'; ?>">
                 </a>
               </div>
 
