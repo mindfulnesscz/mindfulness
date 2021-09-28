@@ -86,13 +86,14 @@ endwhile;
     <div class="col-xs-12 col-lg-10 no-padding no-margin">
       <div class="mind-slider-holder">
         <ul id="ess-home-banner-classic" class="mind-slider">
-          <li id="ess-cube-banner-its" class="slide ess-cube-banner-item" style="background: #e8e9ee; padding-bottom: 0 !important;">
-            <a href="<?php echo home_url() . '/vishal'; ?>" style="padding-bottom: 0 !important;">
+          <li id="ess-cube-banner-its" class="slide ess-cube-banner-item" style=" padding-bottom: 0 !important;">
+            <a href="https://www.essteyr.com/aboutaerosols/" style="padding-bottom: 0 !important;">
               <div class="banner-image-part" style="max-width: 100%">
-                <img src="<?php echo home_url() . '/ess-media/home-banner/210808_vishal/vishal.jpg'; ?>">
+                <img style="max-width: 100%" src="<?php echo home_url() . '/ess-media/home-banner/210617_environment/environment_cube_whole.jpg'; ?>">
               </div>
-              <div class="banner-text-part" style="background-color: #333; color: white; padding: 2rem 0 !important">
-                <h3 style="color: white">Thank You<br>Vishal Nair<br>1984 - 2021</h3>
+              <div class="banner-text-part" style="background-color: #e6e7e8; color: white; padding: 2rem 0 !important">
+                <h3>#aboutaerosols</h3>
+                <p>Find out how aerosols behave and how to mitigate risks posed by them!</p>
               </div>
             </a>
           </li>
