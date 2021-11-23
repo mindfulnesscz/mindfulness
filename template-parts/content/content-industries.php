@@ -14,7 +14,7 @@ $cats = get_the_category(0);
       if (empty($cats) || $cats[0]->slug != 'automotive') :
 
       ?>
-        <a href="<?php echo get_home_url(); ?>/automotive-industry" class="ess-industry-card col-xs-12 col-md-6 col-lg-3 align-center ">
+        <a href="<?php echo get_home_url(); ?>/automotive" class="ess-industry-card col-xs-12 col-md-6 col-lg-3 align-center ">
           <?php
           get_template_part('template-parts/content/industries/content', 'automotive');
           ?>
