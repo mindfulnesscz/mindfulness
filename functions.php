@@ -14,7 +14,7 @@
  * 
  */
 
-define("MINDFULNESS_VERSION", "2.0.1");
+define("MINDFULNESS_VERSION", "2.0.2");
 define("DEFAULT_IMAGE_ID", 155);
 
 
@@ -91,16 +91,16 @@ function mindfulness_scripts()
     wp_register_script('filter-izotope', 'https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js', array('jquery'));
     wp_enqueue_script('filter-izotope');
 
-    wp_enqueue_script('ess-filter', get_template_directory_uri() . '/js/ess-filter.js', array(), mindfulness_version());
+    wp_enqueue_script('ess-filter', get_template_directory_uri() . '/assets/js/ess-filter.js', array(), mindfulness_version());
 
   endif;
 
   if (is_page_template('page-bampaper.php')) :
 
-    wp_register_script('bam-filter-paper', get_template_directory_uri() . '/js/bamfilter.js', array('TweenMax', 'ess'), mindfulness_version());
+    wp_register_script('bam-filter-paper', get_template_directory_uri() . '/assets/js/bamfilter.js', array('TweenMax', 'ess'), mindfulness_version());
     wp_enqueue_script('bam-filter-paper');
 
-    wp_register_style('bam-filter-paper-style', get_template_directory_uri() . '/css/bamfilter.css', array(), mindfulness_version());
+    wp_register_style('bam-filter-paper-style', get_template_directory_uri() . '/assets/css/bamfilter.css', array(), mindfulness_version());
     wp_enqueue_style('bam-filter-paper-style');
 
   endif;
