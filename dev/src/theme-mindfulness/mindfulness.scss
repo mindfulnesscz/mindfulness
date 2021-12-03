@@ -68,3 +68,10 @@
 /* MATERIALIZE ===================================== */
 
 @import 'materialize-css/sass/materialize';
+
+
+
+/* FOUNDATION UTILITY ===================================== */
+
+@import 'foundation-sites/scss/foundation';
+@include foundation-prototype-classes;

@@ -80,7 +80,7 @@
 
 </head>
 
-<body id="ess-body" <?php echo ((is_front_page() ? 'class="ess-homepage"' : '')); ?>>
+<body id="ess-body" class="ess-body-frontend" <?php echo ((is_front_page() ? 'class="ess-homepage"' : '')); ?>>
 
   <?php $cs_args  = array(
     'numberposts'      => 4,

@@ -555,59 +555,60 @@ ul li {
 
 }
 
+#ess-body.ess-body-frontend {
+  ul {
 
-ul {
+    list-style: none;
 
-  list-style: none;
+    li::before {
+      color: color('essblue', 'base');
+      font-weight: bold;
+      display: inline-block;
+      width: 1rem;
+      margin-left: -1rem;
+    }
 
-  li::before {
-    color: color('essblue', 'base');
-    font-weight: bold;
-    display: inline-block;
-    width: 1rem;
-    margin-left: -1rem;
-  }
+    &.list-processing li::before {
 
-  &.list-processing li::before {
+      color: color('processing', 'darken-2');
 
-    color: color('processing', 'darken-2');
+    }
 
-  }
+    &.list-paintshop li::before {
 
-  &.list-paintshop li::before {
+      color: color('paintshop', 'base');
 
-    color: color('paintshop', 'base');
+    }
 
-  }
+    &.list-washing li::before {
 
-  &.list-washing li::before {
+      color: color('washing', 'base');
 
-    color: color('washing', 'base');
+    }
 
-  }
+    &.list-oil-gas li::before {
 
-  &.list-oil-gas li::before {
+      color: color('oil-gas', 'base');
 
-    color: color('oil-gas', 'base');
+    }
 
-  }
+    &.list-data-cleaning li::before {
 
-  &.list-data-cleaning li::before {
+      color: color('data-cleaning', 'base');
 
-    color: color('data-cleaning', 'base');
+    }
 
-  }
+    &.list-mobility li::before {
 
-  &.list-mobility li::before {
+      color: color('mobility', 'base');
 
-    color: color('mobility', 'base');
+    }
 
-  }
+    &.list-environment li::before {
 
-  &.list-environment li::before {
+      color: color('environment', 'base');
 
-    color: color('environment', 'base');
-
+    }
   }
 }
 

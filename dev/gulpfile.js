@@ -8,7 +8,7 @@ const plumber = require( 'gulp-plumber' );
 const autoprefixer = require( 'gulp-autoprefixer' );
 const sourcemaps = require( 'gulp-sourcemaps' );
 
-const sassSourcePath = 'src/theme-mindfulness/mindfulness.scss';
+const sassSourcePath = ['src/theme-mindfulness/mindfulness.scss', 'src/theme-mindfulness/mindfulness-backend.scss' ];
 const cssDestPath = '../assets/css';
 
 sass.compiler = require( 'node-sass' );
@@ -40,6 +40,8 @@ gulp.task( 'clean', () => {
 		[
 			'../assets/css/mindfulness.css',
 			'../assets/css/mindfulness.css.map',
+			'../assets/css/mindfulness-backend.css',
+			'../assets/css/mindfulness-backend.css.map',
 		],
 		{
 			force: true, // wm: cleans outside of current project directory otherwise throws error
