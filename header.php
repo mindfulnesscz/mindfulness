@@ -393,8 +393,8 @@
                           <img src="<?php echo home_url() . '/ess-media/home-banner/210617_environment/environment_cube_banner.jpg'; ?>">
                         </div>
                         <div class="banner-text-part">
-                          <h3>#aboutaerosols</h3>
-                          <p>Find out how aerosols behave and how to mitigate risks posed by them!</p>
+                          <h3 id="dynairix_countdown"></h3>
+
                         </div>
                       </a>
                     </li>
@@ -410,7 +410,26 @@
 
     </div>
   </div>
+<script type="text/javascript">
+  var el_dynairix_countdown = document.querySelector('#dynairix_countdown');
+  var countDownDate = new Date("Jan 21, 2022 12:00:00").getTime();
+  var coundDown = setInterval(function() {
+    var now = new Date().getTime();
+    var timeleft = countDownDate - now;
+    
+    var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
 
+    var echo = days + ', '+hours+', '+minutes+', '+seconds;
+    console.log(echo);
+    console.log(el_dynairix_countdown);
+    el_dynairix_countdown.innerHTML = days + ', '+hours+', '+minutes+', '+seconds;
+}, 1000);
+
+  
+</script>
   <?php
   //endif;
   ?>
