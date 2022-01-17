@@ -1,149 +1,132 @@
+$ess-blue: #00adef;
+$ess-blue-dark: #0f2a56;
+$ess-blue-supplementary: #174f72;
+$ess-sand: #e1e0d4;
 
-$ess-blue					: #00adef;
-$ess-blue-dark				: #0f2a56;
-$ess-blue-supplementary		: #174f72;
-$ess-sand					: #e1e0d4;
-
-$primary-color-transp		: rgba(60, 180, 255, 0.5);
-$secondary-color-transp		: rgba(15, 42, 86, 0.5);
-$ess-darkest-transp			: rgba(12, 22, 46, 0.5);
-$ess-darkest-full			: rgba(12, 22, 46, 1);
+$primary-color-transp: rgba(60, 180, 255, 0.5);
+$secondary-color-transp: rgba(15, 42, 86, 0.5);
+$ess-darkest-transp: rgba(12, 22, 46, 0.5);
+$ess-darkest-full: rgba(12, 22, 46, 1);
 // background of the navigation cube on pages 
-$light-gray: rgb(240,240,240);
-$nav-cube-background: radial-gradient(circle, rgba(230,230,230,1) 0%, rgba(211,211,211,0.85) 77%);
+$light-gray: rgb(240, 240, 240);
+$nav-cube-background: radial-gradient(circle, rgba(230, 230, 230, 1) 0%, rgba(211, 211, 211, 0.85) 77%);
 
-.bg-psp-gradient{background:radial-gradient(#d5d1d5, #aea3b3)}
-.bg-merge-gradient{background:radial-gradient(#c5cccb, #83a5a0)}
-.bg-sense-gradient{background:radial-gradient(#d2cabe, #b2a386)}
+.bg-psp-gradient {
+  background: radial-gradient(#d5d1d5, #aea3b3)
+}
+
+.bg-merge-gradient {
+  background: radial-gradient(#c5cccb, #83a5a0)
+}
+
+.bg-sense-gradient {
+  background: radial-gradient(#d2cabe, #b2a386)
+}
 
 
-$essblue: (
-    "base" : #14bef0, 
-    "lighten-1" : #59cbf2, 
-    "lighten-2" : #87c8ff, 
-    "lighten-3" : #b3e3f6, 
-    "lighten-4" : #d4effc, 
-    "lighten-5" : #eff4f4, 
-    "darken-1" : #0c86c5, 
-    "darken-2" : #2c77ca, 
-    "darken-3" : #1e3a6c, 
-    "darken-4" : #0f2a56, 
-    "darken-5" : #0f203e, 
+$essblue: ("base" : #14bef0,
+  "lighten-1" : #59cbf2,
+  "lighten-2" : #87c8ff,
+  "lighten-3" : #b3e3f6,
+  "lighten-4" : #d4effc,
+  "lighten-5" : #eff4f4,
+  "darken-1" : #0c86c5,
+  "darken-2" : #2c77ca,
+  "darken-3" : #1e3a6c,
+  "darken-4" : #0f2a56,
+  "darken-5" : #0f203e,
 );
 
-$green: (
-    "base" : #86b755, 
-    "lighten-5" : #E8F5E9, 
-    "lighten-4" : #C8E6C9, 
-    "lighten-3" : #A5D6A7, 
-    "lighten-2" : #81C784, 
-    "lighten-1" : #66BB6A, 
-    "darken-1" : #43A047, 
-    "darken-2" : #388E3C, 
-    "darken-3" : #2E7D32, 
-    "darken-4" : #1B5E20, 
-    "accent-1" : #B9F6CA, 
-    "accent-2" : #69F0AE, 
-    "accent-3" : #00E676, 
-    "accent-4" : #00C853
-);
+$green: ("base" : #86b755,
+  "lighten-5" : #E8F5E9,
+  "lighten-4" : #C8E6C9,
+  "lighten-3" : #A5D6A7,
+  "lighten-2" : #81C784,
+  "lighten-1" : #66BB6A,
+  "darken-1" : #43A047,
+  "darken-2" : #388E3C,
+  "darken-3" : #2E7D32,
+  "darken-4" : #1B5E20,
+  "accent-1" : #B9F6CA,
+  "accent-2" : #69F0AE,
+  "accent-3" : #00E676,
+  "accent-4" : #00C853);
 
-$red: (
-    "base" : #F44336, 
-    "lighten-5" : #FFEBEE, 
-    "lighten-4" : #FFCDD2, 
-    "lighten-3" : #EF9A9A, 
-    "lighten-2" : #E57373, 
-    "lighten-1" : #EF5350, 
-    "darken-1" : #E53935, 
-    "darken-2" : #D32F2F, 
-    "darken-3" : #C62828, 
-    "darken-4" : #B71C1C, 
-    "accent-1" : #FF8A80, 
-    "accent-2" : #FF5252, 
-    "accent-3" : #FF1744, 
-    "accent-4" : #D50000);
+$red: ("base" : #F44336,
+  "lighten-5" : #FFEBEE,
+  "lighten-4" : #FFCDD2,
+  "lighten-3" : #EF9A9A,
+  "lighten-2" : #E57373,
+  "lighten-1" : #EF5350,
+  "darken-1" : #E53935,
+  "darken-2" : #D32F2F,
+  "darken-3" : #C62828,
+  "darken-4" : #B71C1C,
+  "accent-1" : #FF8A80,
+  "accent-2" : #FF5252,
+  "accent-3" : #FF1744,
+  "accent-4" : #D50000);
 
-$grey: (
-    "base" : #504d50, 
-    "darken-1"  : #30383b,
-    "lighten-5" : #eeeeee, 
-    "lighten-4" : #e6e7e8, 
-    "lighten-3" : #d3d4d5, 
-    "lighten-2" : #bfbfc0,
-    "lighten-1" : #787a7a
-    );
+$grey: ("base" : #504d50,
+  "darken-1" : #30383b,
+  "lighten-5" : #eeeeee,
+  "lighten-4" : #e6e7e8,
+  "lighten-3" : #d3d4d5,
+  "lighten-2" : #bfbfc0,
+  "lighten-1" : #787a7a);
 
-$processing: (
-    "base"              : #d4cba4, 
-    "darken-1"          : #c2b98e, 
-    "darken-2"          : #9d906f
-);
+$processing: ("base" : #d4cba4,
+  "darken-1" : #c2b98e,
+  "darken-2" : #9d906f);
 
-$paintshop: (
-    "base"              : #9b64aa,
-    "darken-1"          : #895aa4,
-    "darken-2"          : #5b266c
-);
+$paintshop: ("base" : #9b64aa,
+  "darken-1" : #895aa4,
+  "darken-2" : #5b266c);
 
-$data-cleaning: (
-    "base"              : #0ea285,
-    "darken-1"          : #108673,
-    "darken-2"          : #006654   
- );
- $mobility: (
-    "base"              : #eeaa32,
-    "darken-1"          : #be8b37,
-    "darken-2"          : #ae7d36    
- );
- $washing: (
-    "base"              : #9ad9eb,
-    "darken-1"          : #68b2c6,
-    "darken-2"          : #43888d    
- );
- $environment: (
-    "base"              : #a4d06e,
-    "darken-1"          : #78a94e,
-    "darken-2"          : #577d40    
- );
- $oil-gas: (
-    "base"              : #52656e,
-    "darken-1"          : #294146,
-    "darken-2"          : #001d27    
- );
+$data-cleaning: ("base" : #0ea285,
+  "darken-1" : #108673,
+  "darken-2" : #006654);
+$mobility: ("base" : #eeaa32,
+  "darken-1" : #be8b37,
+  "darken-2" : #ae7d36);
+$washing: ("base" : #9ad9eb,
+  "darken-1" : #68b2c6,
+  "darken-2" : #43888d);
+$environment: ("base" : #a4d06e,
+  "darken-1" : #78a94e,
+  "darken-2" : #577d40);
+$oil-gas: ("base" : #52656e,
+  "darken-1" : #294146,
+  "darken-2" : #001d27);
 
-$shades: (
-    "black" : #000000,
-    "white" : #FFFFFF, 
-    "transparent" : transparent
-);
+$shades: ("black" : #000000,
+  "white" : #FFFFFF,
+  "transparent" : transparent);
 
-$colors-ess: (
-    "essblue": $essblue, 
-    "red": $red, 
-    "green": $green, 
-    "grey": $grey, 
-    "shades": $shades, 
-    "processing":$processing, 
-    "data-cleaning": $data-cleaning, 
-    "paintshop": $paintshop, 
-    "mobility": $mobility,
-    "washing": $washing,
-    "environment": $environment,
-    "oil-gas": $oil-gas
-);
+$colors-ess: ("essblue": $essblue,
+  "red": $red,
+  "green": $green,
+  "grey": $grey,
+  "shades": $shades,
+  "processing":$processing,
+  "data-cleaning": $data-cleaning,
+  "paintshop": $paintshop,
+  "mobility": $mobility,
+  "washing": $washing,
+  "environment": $environment,
+  "oil-gas": $oil-gas);
 
 @function color($color, $type) {
-    @if map-has-key($colors-ess, $color) {
-        $curr_color: map-get($colors-ess, $color);
+  @if map-has-key($colors-ess, $color) {
+    $curr_color: map-get($colors-ess, $color);
 
-        @if map-has-key($curr_color, $type) {
-            @return map-get($curr_color, $type);
-        }
+    @if map-has-key($curr_color, $type) {
+      @return map-get($curr_color, $type);
     }
+  }
 
-    @warn "Unknown `#{$color}` - `#{$type}` in $colors.";
-    @return null;
+  @warn "Unknown `#{$color}` - `#{$type}` in $colors.";
+  @return null;
 }
 
 
@@ -152,69 +135,76 @@ $colors-ess: (
 // COLOR CLASSES ---------------------------------------------------
 
 
-@each $color_name, $color in $colors-ess {
+@each $color_name,
+$color in $colors-ess {
 
-    @each $color_type, $color_value in $color {
-        @if $color_type=="base" {
-            .#{$color_name} {
-                background-color: $color_value;
-            }
-            .has-#{$color_name}-background-color {
-                background-color: $color_value !important;
-            }
+  @each $color_type,
+  $color_value in $color {
+    @if $color_type=="base" {
+      .#{$color_name} {
+        background-color: $color_value;
+      }
 
-            .#{$color_name}-color {
-                color: $color_value;
-            }
-            .outlined-#{$color_name} {
-                color: $color_value !important;
-                border: 1px solid $color_value !important;
-            }
-            .ess-dark-hover-link:hover .outlined-#{$color_name} {
-                background-color: $color_value !important;
-                color: white !important;
-            }
-        }
+      .has-#{$color_name}-background-color {
+        background-color: $color_value !important;
+      }
 
-        @else {
-            .#{$color_name}.#{$color_type} {
-                background-color: $color_value;
-            }
+      .has-#{$color_name}-color {
+        color: $color_value;
+      }
 
-            .#{$color_name}-text.text-#{$color_type} {
-                color: $color_value;
-            }
-        }
+      .outlined-#{$color_name} {
+        color: $color_value !important;
+        border: 1px solid $color_value !important;
+      }
+
+      .ess-dark-hover-link:hover .outlined-#{$color_name} {
+        background-color: $color_value !important;
+        color: white !important;
+      }
     }
+
+    @else {
+      .#{$color_name}.#{$color_type} {
+        background-color: $color_value;
+      }
+
+      .#{$color_name}-text.text-#{$color_type} {
+        color: $color_value;
+      }
+    }
+  }
 }
 
 
 // SHADES CLASSES ---------------------------------------------------
 
 
-@each $color, $color_value in $shades {
-    .#{$color} {
-        background-color: $color_value !important;
-    }
+@each $color,
+$color_value in $shades {
+  .#{$color} {
+    background-color: $color_value !important;
+  }
 
-    .#{$color}-text {
-        color: $color_value !important;
-    }
+  .#{$color}-text {
+    color: $color_value !important;
+  }
 }
 
 
 // GREY CLASSES ---------------------------------------------------
 
 
-@each $color, $color_value in $grey {
+@each $color,
+$color_value in $grey {
 
-    .has-grey-#{$color}-background-color {
-        background-color: $color_value !important;
-    }
+  .has-grey-#{$color}-background-color {
+    background-color: $color_value !important;
+  }
 
-    .grey-#{$color}-text-color {
-        color: $color_value !important;
-    }
+  .grey-#{$color}-text-color {
+    color: $color_value !important;
+  }
 }
 
 
@@ -222,9 +212,9 @@ $colors-ess: (
 
 
 @mixin opacity($value) {
-    opacity: $value;
+  opacity: $value;
 }
 
 @mixin radial-gradient($outer_color, $inner_color) {
-    background: radial-gradient($outer_color, $inner_color);
+  background: radial-gradient($outer_color, $inner_color);
 }

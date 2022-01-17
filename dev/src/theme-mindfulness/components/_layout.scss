@@ -49,8 +49,36 @@ a:hover {
 /* ============ margins and spaces ===================== */
 
 
+.m-auto {
+  margin: auto
+}
+
 .w-100 {
   width: 100%;
+}
+
+.max-w-100px {
+  max-width: 100px;
+}
+
+.max-w-200px {
+  max-width: 200px;
+}
+
+.max-w-300px {
+  max-width: 300px;
+}
+
+.max-w-400px {
+  max-width: 400px;
+}
+
+.max-w-500px {
+  max-width: 500px;
+}
+
+.max-w-600px {
+  max-width: 600px;
 }
 
 .h-100 {
@@ -166,6 +194,26 @@ a:hover {
 
   .m-all-base {
     margin: base-margin !important;
+  }
+
+  .m-top-minus-base {
+    margin-top: $minus-base-margin !important;
+  }
+
+  .m-top-minus-double {
+    margin-top: $minus-double-margin !important;
+  }
+
+  .m-top-minus-quad {
+    margin-top: $minus-quad-margin !important;
+  }
+
+  .m-top-minus-sexta {
+    margin-top: $minus-sexta-margin !important;
+  }
+
+  .m-top-minus-okto {
+    margin-top: $minus-okto-margin !important;
   }
 
   strong {
@@ -290,6 +338,7 @@ a:hover {
 main {
   position: relative;
   padding: $quad-margin 0;
+  z-index: 2;
 
   .row {
     justify-content: center
@@ -506,59 +555,60 @@ ul li {
 
 }
 
+#ess-body.ess-body-frontend {
+  ul {
 
-ul {
+    list-style: none;
 
-  list-style: none;
+    li::before {
+      color: color('essblue', 'base');
+      font-weight: bold;
+      display: inline-block;
+      width: 1rem;
+      margin-left: -1rem;
+    }
 
-  li::before {
-    color: color('essblue', 'base');
-    font-weight: bold;
-    display: inline-block;
-    width: 1rem;
-    margin-left: -1rem;
-  }
+    &.list-processing li::before {
 
-  &.list-processing li::before {
+      color: color('processing', 'darken-2');
 
-    color: color('processing', 'darken-2');
+    }
 
-  }
+    &.list-paintshop li::before {
 
-  &.list-paintshop li::before {
+      color: color('paintshop', 'base');
 
-    color: color('paintshop', 'base');
+    }
 
-  }
+    &.list-washing li::before {
 
-  &.list-washing li::before {
+      color: color('washing', 'base');
 
-    color: color('washing', 'base');
+    }
 
-  }
+    &.list-oil-gas li::before {
 
-  &.list-oil-gas li::before {
+      color: color('oil-gas', 'base');
 
-    color: color('oil-gas', 'base');
+    }
 
-  }
+    &.list-data-cleaning li::before {
 
-  &.list-data-cleaning li::before {
+      color: color('data-cleaning', 'base');
 
-    color: color('data-cleaning', 'base');
+    }
 
-  }
+    &.list-mobility li::before {
 
-  &.list-mobility li::before {
+      color: color('mobility', 'base');
 
-    color: color('mobility', 'base');
+    }
 
-  }
+    &.list-environment li::before {
 
-  &.list-environment li::before {
+      color: color('environment', 'base');
 
-    color: color('environment', 'base');
-
+    }
   }
 }
 

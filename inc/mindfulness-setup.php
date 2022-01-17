@@ -33,7 +33,7 @@ class Mindfulness_Setup
       'color_palette',
       'wp_supports',
       'nav_menus',
-      'mindfulness_i18n'
+      'mindfulness_i18n',
     );
 
     foreach ($actions as $action) {
