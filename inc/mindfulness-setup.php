@@ -12,6 +12,7 @@
  *
  */
 
+
 class Mindfulness_Setup
 {
 
@@ -67,91 +68,13 @@ class Mindfulness_Setup
   public function color_palette()
   {
 
+    require_once('mindfulness_color_palette.php');
 
     // Disable Custom Colors
     add_theme_support('disable-custom-colors');
 
     // Editor Color Palette
-    add_theme_support(
-      'editor-color-palette',
-      array(
-        array(
-          'name'  => __('ESS Blue', 'mindfulness'),
-          'slug'  => 'essblue',
-          'color'  => '#3cb4ff',
-        ),
-        array(
-          'name'  => __('Paintshop', 'mindfulness'),
-          'slug'  => 'paintshop',
-          'color'  => '#9b64aa',
-        ),
-        array(
-          'name'  => __('Data Cleaning', 'mindfulness'),
-          'slug'  => 'data-cleaning',
-          'color'  => '#0ea285',
-        ),
-        array(
-          'name'  => __('Processing', 'mindfulness'),
-          'slug'  => 'processing',
-          'color'  => '#d4cba4',
-        ),
-        array(
-          'name'  => __('Mobility', 'mindfulness'),
-          'slug'  => 'mobility',
-          'color'  => '#eeaa32',
-        ),
-        array(
-          'name'  => __('Washing', 'mindfulness'),
-          'slug'  => 'washing',
-          'color'  => '#9ad9eb',
-        ),
-        array(
-          'name'  => __('Environment', 'mindfulness'),
-          'slug'  => 'environment',
-          'color'  => '#a4d06e',
-        ),
-        array(
-          'name'  => __('Oil & Gas', 'mindfulness'),
-          'slug'  => 'oil-gas',
-          'color'  => '#52656e',
-        ),
-        array(
-          'name'  => __('Grey - Base', 'mindfulness'),
-          'slug'  => 'grey-base',
-          'color'  => '#504d50',
-        ),
-        array(
-          'name'  => __('Grey - Lighten 1', 'mindfulness'),
-          'slug'  => 'grey-lighten-1',
-          'color'  => '#787a7a',
-        ),
-        array(
-          'name'  => __('Grey - Lighten 2', 'mindfulness'),
-          'slug'  => 'grey-lighten-2',
-          'color'  => '#bfbfc0',
-        ),
-        array(
-          'name'  => __('Grey - Lighten 3', 'mindfulness'),
-          'slug'  => 'grey-lighten-3',
-          'color'  => '#d3d4d5',
-        ),
-        array(
-          'name'  => __('Grey - Lighten 4', 'mindfulness'),
-          'slug'  => 'grey-lighten-4',
-          'color'  => '#e6e7e8',
-        ),
-        array(
-          'name'  => __('Grey - Lighten 5', 'mindfulness'),
-          'slug'  => 'grey-lighten-5',
-          'color'  => '#eeeeee',
-        ),
-        array(
-          'name'  => __('Grey - Darken 1', 'mindfulness'),
-          'slug'  => 'grey-darken-1',
-          'color'  => '#30383b',
-        )
-      )
-    );
+    add_theme_support('editor-color-palette', $mindfulness_color_palette);
   }
 
 

@@ -1,17 +1,24 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true,
+  "prettier/prettier": [
+    "error",
+    {
+      "endOfLine": "auto",
+    }
+  ],
+  "env": {
+    "browser": true,
+    "es2021": true,
 		"node": true
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@wordpress/eslint-plugin/recommended"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@wordpress/eslint-plugin/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "endOfLine": "auto",
+  "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
         },
@@ -23,6 +30,7 @@
         "@typescript-eslint"
     ],
     "rules": {
+      "endOfLine": "auto",
         "indent": [
             "error",
             "tab"

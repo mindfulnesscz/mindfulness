@@ -28,3 +28,16 @@
 .components-base-control__field>div {
   max-height: 100px !important;
 }
+
+#wpadminbar {
+  display: none !important
+}
+
+html#mindfulness {
+  margin-top: 0 !important;
+}
+
+.wp-block-mindfulness-blocks-flexbox-col figure img {
+  display: block;
+  margin: auto;
+}

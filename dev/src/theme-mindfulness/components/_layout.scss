@@ -224,6 +224,7 @@ a:hover {
 
 .aligncenter,
 .textalign-center,
+.text-center,
 .center-align {
   text-align: center !important;
 }
@@ -452,13 +453,14 @@ a.icon-headline:hover {
   }
 }
 
-.no-decoration {
-  text-decoration: none;
+#mindfulness .no-decoration {
+  text-decoration: red !important;
 
   &:hover {
-    text-decoration: none;
+    text-decoration: none !important
   }
 }
+
 
 .max-width-image {
   @include max-width-image();

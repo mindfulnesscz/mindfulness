@@ -65,4 +65,8 @@ function mindfulness_scripts()
     wp_enqueue_style('bam-filter-paper-style');
 
   endif;
+
+  if (is_front_page()) :
+    wp_enqueue_style('home-banner', get_template_directory_uri() . '/assets/css/home-banner.css', array(), mindfulness_version());
+  endif;
 }

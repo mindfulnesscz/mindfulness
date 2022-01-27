@@ -8,7 +8,7 @@ const plumber = require( 'gulp-plumber' );
 const autoprefixer = require( 'gulp-autoprefixer' );
 const sourcemaps = require( 'gulp-sourcemaps' );
 
-const sassSourcePath = ['src/theme-mindfulness/mindfulness.scss', 'src/theme-mindfulness/mindfulness-backend.scss' ];
+const sassSourcePath = ['src/theme-mindfulness/mindfulness.scss', 'src/theme-mindfulness/mindfulness-backend.scss', 'src/theme-mindfulness/home-banner.scss' ];
 const cssDestPath = '../assets/css';
 
 sass.compiler = require( 'node-sass' );

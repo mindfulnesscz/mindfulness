@@ -16,7 +16,7 @@
 ?>
 
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html id="mindfulness" <?php language_attributes(); ?>>
 
 
 <!--	
@@ -80,7 +80,7 @@
 
 </head>
 
-<body id="ess-body" class="ess-body-frontend" <?php echo ((is_front_page() ? 'class="ess-homepage"' : '')); ?>>
+<body id="ess-body" class="ess-body-frontend<?php echo ((is_front_page() ? ' ess-homepage' : '')); ?>">
 
   <?php $cs_args  = array(
     'numberposts'      => 4,
@@ -386,19 +386,22 @@
               </div>
               <div class="css_block w_xii h_iv x_0 y_xi">
                 <div class="mind-slider-holder no-padding">
-                  <ul id="ess-home-banner" class="mind-slider">
-                    <li id="ess-cube-banner-its" class="slide ess-cube-banner-item">
-                      <a href="https://www.essteyr.com/aboutaerosols/">
-                        <div class="banner-image-part">
-                          <img src="<?php echo home_url() . '/ess-media/home-banner/210617_environment/environment_cube_banner.jpg'; ?>">
-                        </div>
-                        <div class="banner-text-part">
-                          <h3 id="dynairix_countdown"></h3>
 
+                  <!-- ******************************************* HOME CUBE BANNER ******************************************* -->
+
+                  <div class="home-banner-cube" id="hbc-dynairix">
+                    <a href=" https://dynairix.com" target="_blank">
+                      <div class="dynairix-logo-cont">
+                        <img src="<?php echo home_url() . '/ess-media/home-banner/dynairix/dynairix_logo_basic_250x85.svg'; ?>">
+
+                        <div class="dynairix-logo-tagline">
+                          <h3>Simulate together<br>for a safer world</h3>
                         </div>
-                      </a>
-                    </li>
-                  </ul>
+                      </div>
+                    </a>
+                  </div>
+
+
                 </div>
               </div>
             </div>
@@ -410,26 +413,7 @@
 
     </div>
   </div>
-<script type="text/javascript">
-  var el_dynairix_countdown = document.querySelector('#dynairix_countdown');
-  var countDownDate = new Date("Jan 21, 2022 12:00:00").getTime();
-  var coundDown = setInterval(function() {
-    var now = new Date().getTime();
-    var timeleft = countDownDate - now;
-    
-    var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
 
-    var echo = days + ', '+hours+', '+minutes+', '+seconds;
-    console.log(echo);
-    console.log(el_dynairix_countdown);
-    el_dynairix_countdown.innerHTML = days + ', '+hours+', '+minutes+', '+seconds;
-}, 1000);
-
-  
-</script>
   <?php
   //endif;
   ?>

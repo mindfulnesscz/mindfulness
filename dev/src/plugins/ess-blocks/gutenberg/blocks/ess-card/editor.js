@@ -67,7 +67,7 @@ const block = registerBlockType( 'mindfulness-blocks/ess-card', {
 				id="ess-card"
 				className= { 'card-holder' }
 			>
-				<div className={ 'card' + ' ' + 'has-' + backgroundColor + '-background-color' }>
+				<div className={ 'card' + ' ' + 'has-' + backgroundColor.slug + '-background-color' }>
 					<div className={ 'card-content' }>
 						<InnerBlocks />
 					</div>

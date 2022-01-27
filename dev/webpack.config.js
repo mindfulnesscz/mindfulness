@@ -30,20 +30,27 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.js$/,
+				test: /\.jsx?$/,
 				exclude: /node_modules/,
-				use: [
-					{
-						loader: 'source-map-loader',
-					},
-					{
-						loader: 'babel-loader',
-						options: {
-							presets: [ '@babel/preset-env' ],
-						},
-					},
+				use: [{
+					loader: 'source-map-loader'
+				},
+				{
+					loader: 'babel-loader',
+					options: {
+						presets: [
+							'@babel/preset-react'
+						]
+					}
+				}
 				],
-				enforce: 'pre',
+				enforce: 'pre'
+			},
+
+			{
+				test: /\.tsx?$/,
+				use: 'ts-loader',
+				exclude: /node_modules/,
 			},
 		],
 	},

@@ -39,7 +39,7 @@ endwhile;
 
   <section class="wp-block-mindfulness-blocks-ess-section ess-section no-margin no-padding p-top-base">
     <div class="container">
-      <h2 class="textalign-center">OUR TEAM:</h2>
+      <h3 class="subsection-headline text-center">OUR TEAM:</h3>
     </div>
   </section>
   <section class="">
@@ -178,7 +178,7 @@ endwhile;
 <section class="bg-grey-lightest wp-block-mindfulness-blocks-ess-section ess-section no-margin no-padding p-top-base">
   <div class="container">
     <div class="justify-center center p-bot-base">
-      <h2 class="has-secondary-color has-text-color">OUR SOLUTIONS:</h2>
+      <h3 class="text-center subsection-headline">OUR SOLUTIONS:</h3>
     </div>
   </div>
 </section>

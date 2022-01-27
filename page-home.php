@@ -69,38 +69,41 @@ while (have_posts()) : the_post();
 endwhile;
 
 ?>
-<section>
-  <div class="row main-block">
-    <div class="col-xs-12 align-center">
-      <a href="<?php echo get_home_url() . '/about-us' ?>" class="ess-lg-button ess-hover-shadow">read more about
-        us</a>
-    </div>
-  </div>
-</section>
 
 
 <!--   BANNER  =======================================================================================================================-->
 
-<div class="container" id="homepage-banner">
-  <div class="row just-center">
-    <div class="col-xs-12 col-lg-10 no-padding no-margin">
-      <div class="mind-slider-holder">
-        <ul id="ess-home-banner-classic" class="mind-slider">
-          <li id="ess-cube-banner-its" class="slide ess-cube-banner-item" style=" padding-bottom: 0 !important;">
-            <a href="https://www.essteyr.com/aboutaerosols/" style="padding-bottom: 0 !important;">
-              <div class="banner-image-part" style="max-width: 100%">
-                <img style="max-width: 100%" src="<?php echo home_url() . '/ess-media/home-banner/210617_environment/environment_cube_whole.jpg'; ?>">
-              </div>
-              <div class="banner-text-part" style="background-color: #e6e7e8; color: white; padding: 2rem 0 !important">
-                <h3>#aboutaerosols</h3>
-                <p>Find out how aerosols behave and how to mitigate risks posed by them!</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<div class="mind-slider-holder">
+  <ul id="ess-home-banner-classic" class="mind-slider">
+
+
+    <li id="ess-cube-banner-its" class="slide ess-cube-banner-item" style=" padding-bottom: 2rem !important;">
+
+      <a href="https://www.essteyr.com/aboutaerosols/" style="padding-bottom: 0 !important;">
+        <div class="top-border"></div>
+        <div class="bottom-border"></div>
+
+        <div class="banner-image-part" style="max-width: 80%; width: 400px; height: 135px;">
+          <img width="400" height="130" style="max-width: 100%" src="<?php echo home_url() . '/ess-media/home-banner/dynairix/dynairix_logo_bw_400x135.svg'; ?>">
+        </div>
+
+        <div class="banner-text-part">
+          <h3>Simulate together<br>for a safer World</h3>
+          <div class="circle-tagline">
+            <h3>check now!<br>live</h3>
+          </div>
+        </div>
+
+        <div class="banner-mannequin"><img src="<?php echo home_url() . '/ess-media/home-banner/dynairix/mannequin_165x400.png'; ?>"></div>
+
+      </a>
+
+
+
+    </li>
+
+
+  </ul>
 </div>
 
 <!--   INDUSTRIES  =========================================================================================================================-->

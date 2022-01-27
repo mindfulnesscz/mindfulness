@@ -1,7 +1,9 @@
-$ess-blue: #00adef;
+$ess-blue: #00C0F3;
 $ess-blue-dark: #0f2a56;
 $ess-blue-supplementary: #174f72;
 $ess-sand: #e1e0d4;
+$dynairix-cyan: #00f0f0;
+$dynairix-cyan-darker: #0ac4f3;
 
 $primary-color-transp: rgba(60, 180, 255, 0.5);
 $secondary-color-transp: rgba(15, 42, 86, 0.5);
@@ -203,6 +205,10 @@ $color_value in $grey {
   }
 
   .grey-#{$color}-text-color {
+    color: $color_value !important;
+  }
+
+  .has-grey-#{$color}-color {
     color: $color_value !important;
   }
 }
