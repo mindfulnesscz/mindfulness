@@ -14,7 +14,7 @@
  * 
  */
 
-define("MINDFULNESS_VERSION", "2.0.4");
+define("MINDFULNESS_VERSION", "2.0.5");
 define("DEFAULT_IMAGE_ID", 155);
 
 

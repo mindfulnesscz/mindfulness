@@ -11,7 +11,8 @@
   &:hover {
     background: white;
   }
-  &>a{
+
+  &>a {
     justify-content: space-between;
   }
 
@@ -48,11 +49,14 @@
   .dynairix-banner-cube-mannequin {
     max-height: 100%;
     position: relative;
+    max-width: 20%;
+
     img {
       max-height: 100%;
       z-index: 100;
       position: relative;
     }
+
     .green-circle {
       width: 100px;
       height: 100px;
@@ -66,6 +70,7 @@
       animation-iteration-count: infinite;
       animation-name: green-circle-levitation;
     }
+
     .blue-circle {
       width: 75px;
       height: 75px;
@@ -79,7 +84,8 @@
       animation-iteration-count: infinite;
       animation-name: green-circle-levitation;
     }
-    .violet-circle{
+
+    .violet-circle {
       width: 40px;
       height: 40px;
       border-radius: 20px;
@@ -94,6 +100,7 @@
 
     }
   }
+
   .blue-button {
     width: 140px;
     height: 140px;
