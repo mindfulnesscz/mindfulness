@@ -79,7 +79,7 @@ endwhile;
 
     <li id="ess-cube-banner-its" class="slide ess-cube-banner-item" style=" padding-bottom: 2rem !important;">
 
-      <a href="https://www.essteyr.com/aboutaerosols/" style="padding-bottom: 0 !important;">
+      <a href="https://dynairix.com" style="padding-bottom: 0 !important;">
         <div class="top-border"></div>
         <div class="bottom-border"></div>
 
