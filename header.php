@@ -398,6 +398,15 @@
                           <h3>Simulate together<br>for a safer world</h3>
                         </div>
                       </div>
+                      <div class="dynairix-banner-cube-mannequin">
+                        <img src="<?php echo home_url() . '/ess-media/home-banner/dynairix/mannequin_basic_545x750.png'; ?>" width="545" height="750">
+                        <div class="green-circle"></div>
+                        <div class="blue-circle"></div>
+                        <div class="violet-circle"></div>
+                      </div>
+                      <span class="blue-button">
+                      check now<br>live
+                      </span>
                     </a>
                   </div>
 
