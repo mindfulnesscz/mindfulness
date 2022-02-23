@@ -14,6 +14,7 @@
     "mergestart": "webpack --config webpack.mergedemo.js --watch --mode=development",
     "mergebuild": "webpack --config webpack.mergedemo.js --mode=production",
     "essblocks": "wp-scripts build --config webpack.essblocks.js",
+    "start:essblocks": "wp-scripts start --config webpack.essblocks.js",
     "essevents": "wp-scripts build --config webpack.essevents.js"
   },
   "keywords": [],

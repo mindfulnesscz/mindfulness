@@ -1,54 +1,98 @@
 /*jshint esversion: 6 */
 
-const {registerBlockType} = wp.blocks;
-const {InnerBlocks} = wp.blockEditor;
+const { registerBlockType } = wp.blocks;
 
+const {
+  InspectorControls,
+
+  PanelColorSettings,
+
+  InnerBlocks,
+
+  withColors,
+
+  getColorClassName,
+} = wp.blockEditor;
+
+const { PanelBody, PanelRow, SelectControl } = wp.components;
+
+const { Fragment } = wp.element;
 
 const block = registerBlockType('mindfulness-blocks/keypage-body', {
-    title: 'Keypage Body',
-    icon: 'format-image',
-    category: 'layout',
+  title: 'Keypage Body',
+  icon: 'format-image',
+  category: 'layout',
 
-    attributes: {
+  attributes: {
+    backgroundColor: {
+      type: 'string',
+      default: 'white',
     },
+  },
 
-    edit(props) {
+  edit: withColors('backgroundColor')((props) => {
 
-        const { className } = props;
+    const {
+      className,
+      backgroundColor,
+      setBackgroundColor,
+    } = props;
 
-        let classes = className + ' ' + 'ess-main mindfulness-wp-block';
-        console.log ( classes );
-        console.log ( className );
-        console.log (' ------------------------------ ttttttttttttttttttttttttttttttttttttt ');
-        return ([
+    const colorBlockClasses = (backgroundColor.class || '').trim();
+
+    console.log(backgroundColor);
+    console.log(' ------------------------------ ttttttttttttttttttttttttttttttttttttt ');
+    return ([
+
+      <Fragment key={"keypage-body-" + Math.round(Math.random() * 10000)}>
+        <InspectorControls>
+          <PanelBody title={'Keypage Body'} initalOpen={true}>
+            <PanelRow>
+              <PanelColorSettings
+                title={'Background Color'}
+                colorSettings={[
+                  {
+                    value: backgroundColor.color,
+
+                    onChange: setBackgroundColor,
+
+                    label: 'Click to pick',
+                  },
+                ]}
+              ></PanelColorSettings>
+            </PanelRow>
+          </PanelBody>
+        </InspectorControls>
+      </Fragment>,
+
+      <main className={colorBlockClasses} >
+        <div class={'container'}>
+
+          <InnerBlocks />
+
+        </div>
+      </main>
+    ]);
+  }),
+
+  save(props) {
+
+    const { attributes, className } = props;
+    const { backgroundColor } = attributes;
+
+    const colorBlockClasses = (getColorClassName('background-color', backgroundColor) || '').trim();
+
+    return (
+      <main className={colorBlockClasses} >
+        <div class={'container'}>
 
 
-        
-        <main className={ classes } >
-             <div class="container">
+          <InnerBlocks.Content />
 
-                <InnerBlocks />
-
-            </div>
-        </main>
-        ]);
-    },
-
-    save(props) {
-
-        const {setAttributes, attributes, className} = props;
-
-        return (
-            <main className={className} >
-                <div class="container">
-
-
-			        <InnerBlocks.Content />
-
-                </div>
-            </main>
-        );
-    }
+        </div>
+      </main>
+    );
+  }
 });
 
-export {block}
+export { block }
