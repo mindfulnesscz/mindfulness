@@ -24,28 +24,23 @@ const block = registerBlockType('mindfulness-blocks/keypage-body', {
   category: 'layout',
 
   attributes: {
+    backgroundColor: {
+      type: 'string',
+      default: 'white',
+    },
   },
 
   edit: withColors('backgroundColor')((props) => {
 
     const {
       className,
-      attributes,
-      setAttributes,
       backgroundColor,
       setBackgroundColor,
     } = props;
 
-    const colorBlockClasses = (
-      'container ess-color-block-bkg' +
-      ' ' +
-      (backgroundColor.class || '')
-    ).trim();
+    const colorBlockClasses = (backgroundColor.class || '').trim();
 
-
-    let classes = className + ' ' + 'ess-main mindfulness-wp-block';
-    console.log(classes);
-    console.log(className);
+    console.log(backgroundColor);
     console.log(' ------------------------------ ttttttttttttttttttttttttttttttttttttt ');
     return ([
 
@@ -54,14 +49,14 @@ const block = registerBlockType('mindfulness-blocks/keypage-body', {
           <PanelBody title={'Keypage Body'} initalOpen={true}>
             <PanelRow>
               <PanelColorSettings
-                title={'Choose Color'}
+                title={'Background Color'}
                 colorSettings={[
                   {
                     value: backgroundColor.color,
 
                     onChange: setBackgroundColor,
 
-                    label: 'Background Color',
+                    label: 'Click to pick',
                   },
                 ]}
               ></PanelColorSettings>
@@ -70,7 +65,7 @@ const block = registerBlockType('mindfulness-blocks/keypage-body', {
         </InspectorControls>
       </Fragment>,
 
-      <main className={classes + ' ' + colorBlockClasses} >
+      <main className={colorBlockClasses} >
         <div class={'container'}>
 
           <InnerBlocks />
@@ -85,14 +80,10 @@ const block = registerBlockType('mindfulness-blocks/keypage-body', {
     const { attributes, className } = props;
     const { backgroundColor } = attributes;
 
-    const colorBlockClasses = (
-      'ess-color-block-bkg' +
-      ' ' +
-      (getColorClassName('background-color', backgroundColor) || '')
-    ).trim();
+    const colorBlockClasses = (getColorClassName('background-color', backgroundColor) || '').trim();
 
     return (
-      <main className={className + ' ' + colorBlockClasses} >
+      <main className={colorBlockClasses} >
         <div class={'container'}>
 
 
