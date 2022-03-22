@@ -156,19 +156,19 @@ endwhile;
               <h4><?php echo $peasant->post_title ?></h4>
               <h5><?php echo $peasant->post_excerpt ?></h5>
             </div>
-            <?php
-            // line break after first two and than three members
-            if ($tm_count == 2 || $tm_count == 5) :
+        <?php
+          // line break after first two and than three members - removed 22.3.2022
+          /* if ($tm_count == 2 || $tm_count == 5) :
             ?>
         </div>
         <div class="row team-row">
     <?php
-            endif;
+            endif;*/
 
           endforeach;
         endif;
-    ?>
-    <div class="ess-double-margin"></div>
+        ?>
+        <div class="ess-double-margin"></div>
         </div>
   </section>
 </main>
