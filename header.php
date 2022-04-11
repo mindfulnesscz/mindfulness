@@ -389,26 +389,8 @@
 
                   <!-- ******************************************* HOME CUBE BANNER ******************************************* -->
 
-                  <div class="home-banner-cube" id="hbc-dynairix">
-                    <a href=" https://dynairix.com" target="_blank">
-                      <div class="dynairix-logo-cont">
-                        <img src="<?php echo home_url() . '/ess-media/home-banner/dynairix/dynairix_logo_basic_250x85.svg'; ?>">
 
-                        <div class="dynairix-logo-tagline">
-                          <h3>Simulate together<br>for a safer world</h3>
-                        </div>
-                      </div>
-                      <div class="dynairix-banner-cube-mannequin">
-                        <img src="<?php echo home_url() . '/ess-media/home-banner/dynairix/mannequin_basic_545x750.png'; ?>" width="545" height="750">
-                        <div class="green-circle"></div>
-                        <div class="blue-circle"></div>
-                        <div class="violet-circle"></div>
-                      </div>
-                      <span class="blue-button">
-                      check now<br>live
-                      </span>
-                    </a>
-                  </div>
+                  <?php get_template_part('template-parts/navigation/navigation', 'cube-banner'); ?>
 
 
                 </div>
