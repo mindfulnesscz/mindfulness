@@ -4,7 +4,7 @@
 
 <div class="home-banner-cube" id="hbc-dynairix">
 
-  <a href=" https://dynairix.com" target="_blank">
+  <a href=" https://alsimcloud.com" target="_blank">
     <!--<div class="dynairix-logo-cont">
       <img src="<?php echo home_url() . '/ess-media/home-banner/dynairix/dynairix_logo_basic_250x85.svg'; ?>">
 
