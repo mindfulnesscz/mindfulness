@@ -1,11 +1,11 @@
 /*jshint esversion: 6 */
 
-import EssReveals from "./js/reveal";
-import FooterSlider from "./js/footer-sliders";
-import ess_forms from './js/forms';
+import EssReveals from "./components/reveal";
+import FooterSlider from "./components/footer-sliders";
+import ess_forms from './components/forms';
 import 'materialize-css/dist/js/materialize';
-import { mind_global } from './js/helpers';
-import MindCookie from './js/mind-helpers/MindCookies';
+import { mind_global } from './components/helpers';
+import MindCookie from './components/mind-helpers/MindCookies';
 
 mind_global();
 window.MindCookiesHandler = new MindCookie('./');

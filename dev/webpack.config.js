@@ -13,9 +13,9 @@ module.exports = {
 	devtool: isDevelopment ? 'inline-source-map' : 'source-map',
 
 	entry: {
-		'js/index': './src/theme-mindfulness/index.js',
-		'js/index_desktop': './src/theme-mindfulness/index_desktop.js',
-		'js/index_mobile': './src/theme-mindfulness/index_mobile.js',
+		'../assets/js/index': './src/index.js',
+		'../assets/js/index_desktop': './src/index_desktop.js',
+		'../assets/js/index_mobile': './src/index_mobile.js',
 	},
 
 	output: {

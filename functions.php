@@ -725,9 +725,14 @@ add_action('wp_ajax_nopriv_subscribe_action', 'ajax_subscribe_mail');
 function ajax_subscribe_mail()
 {
   $email = $_POST['email'];
-  $api_key = 'c659a93451194539318d8a335463b1e5-us7';
+  /*$api_key = 'c659a93451194539318d8a335463b1e5-us7';
   $server_key = 'us7';
-  $list_key = 'eb291157ad';
+  $list_key = 'eb291157ad';*/
+
+  $api_key = 'cc73800496b5bcb17bc3be942fc376fa-us4';
+  $server_key = 'us4';
+  $list_key = '2fe6da3e0e';
+
 
   $url = 'https://' . $server_key . '.api.mailchimp.com/3.0/lists/' . $list_key . '/members';
 
