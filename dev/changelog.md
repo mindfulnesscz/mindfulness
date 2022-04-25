@@ -3,7 +3,13 @@
 - clean styles and make html view of all possible classes
 - add the onscroll features on ess blocks
 
-## "2.0.6" - 2022-02-22 (Date of Last Commit)
+## "2.0.8" - 2022-04-25 (Date of Last Commit)
+
+* Typography updated to responsive
+* homepage cards css updated accordingly
+
+
+## "2.0.6" - 2022-02-22
 
 * Detached essblocks javascripts from the development environment to better sync
 * Added changelog structure
