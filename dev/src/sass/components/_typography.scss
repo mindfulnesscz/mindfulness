@@ -12,8 +12,9 @@ body {
   font-size: 95%;
 
   p {
-    font-size: 1.2rem;
-    line-height: 2.2rem;
+    font-size: calc(1rem + 0.2vw);
+    line-height: calc(1.5rem + 0.35vw);
+    margin: $base-margin 0;
   }
 
   h1,
@@ -36,6 +37,7 @@ body {
 
   h2 {
     font-size: $h2;
+    margin: $double-margin 0;
 
   }
 

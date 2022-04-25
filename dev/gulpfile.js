@@ -8,7 +8,7 @@ const plumber = require( 'gulp-plumber' );
 const autoprefixer = require( 'gulp-autoprefixer' );
 const sourcemaps = require( 'gulp-sourcemaps' );
 
-const sassSourcePath = ['src/theme-mindfulness/mindfulness.scss', 'src/theme-mindfulness/mindfulness-backend.scss', 'src/theme-mindfulness/home-banner.scss' ];
+const sassSourcePath = ['src/sass/mindfulness.scss', 'src/sass/mindfulness-backend.scss', 'src/sass/home-banner.scss' ];
 const cssDestPath = '../assets/css';
 
 sass.compiler = require( 'node-sass' );
@@ -52,8 +52,8 @@ gulp.task( 'clean', () => {
 gulp.task( 'watch', () => {
 	gulp.watch(
 		[
-			'src/theme-mindfulness/**/*.sass',
-			'src/theme-mindfulness/**/*.scss',
+			'src/sass/**/*.sass',
+			'src/sass/**/*.scss',
 		],
 		( done ) => {
 			gulp.series( [ 'clean', 'styles' ] )( done );
