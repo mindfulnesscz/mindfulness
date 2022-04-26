@@ -1,3 +1,8 @@
+#mindfulness {
+  width: 100%;
+  overflow-x: hidden
+}
+
 html,
 body {
   background-color: color("shades", "white");
@@ -338,6 +343,11 @@ a:hover {
 main {
   position: relative;
   padding: $quad-margin 0;
+
+  @media only screen and (max-width: $medium-screen) {
+    padding: $base-margin;
+  }
+
   z-index: 2;
 
   .row {
