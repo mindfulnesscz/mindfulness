@@ -1,9 +1,20 @@
 ## [2.1] - TODOs
+- get rid of materialize framework at all
+- New Header in general
+- New mobile menu
+- New footer with news and events slider to be wmwp-slider
+- get rid of jquery
+- Cube redesign
 - split all the plugins to have separate git repos
 - clean styles and make html view of all possible classes
 - add the onscroll features on ess blocks
 
-## "2.0.8" - 2022-04-25 (Date of Last Commit)
+## "2.0.9" - 2022-04-25 (Date of Last Commit)
+
+* Typography updated to responsive
+* homepage cards css updated accordingly
+
+## "2.0.8" - 2022-04-25
 
 * Typography updated to responsive
 * homepage cards css updated accordingly
