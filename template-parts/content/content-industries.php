@@ -19,7 +19,7 @@ $cats = get_the_category(0);
           get_template_part('template-parts/content/industries/content', 'automotive');
           ?>
           <!--<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico_automation.jpg" class="ess-industry-icon max-width-image">-->
-          <h2>AUTOMOTIVE</h2>
+          <h4>AUTOMOTIVE</h4>
 
           <span class="ess-icon icon_circle_arrow_right"></span>
         </a>
@@ -39,7 +39,7 @@ $cats = get_the_category(0);
           get_template_part('template-parts/content/industries/content', 'oil-gas');
           ?>
 
-          <h2>OIL AND GAS</h2>
+          <h4>OIL AND GAS</h4>
 
           <span class="ess-icon icon_circle_arrow_right"></span>
         </a>
@@ -62,7 +62,7 @@ $cats = get_the_category(0);
           get_template_part('template-parts/content/industries/content', 'environment-energy');
           ?>
 
-          <h2>ENERGY AND ENVIRONMENT</h2>
+          <h4>ENERGY AND ENVIRONMENT</h4>
 
           <span class="ess-icon icon_circle_arrow_right"></span>
         </a>
@@ -83,7 +83,7 @@ $cats = get_the_category(0);
           get_template_part('template-parts/content/industries/content', 'processing');
           ?>
 
-          <h2>PROCESSING</h2>
+          <h4>PROCESSING</h4>
 
           <span class="ess-icon icon_circle_arrow_right"></span>
         </a>

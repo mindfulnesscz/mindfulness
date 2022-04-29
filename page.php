@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying About page
  *
@@ -12,25 +13,26 @@
  */
 
 get_header(); ?>
-	
+
 
 
 <header id="ess-header">
-	<div class="ess-tiny-header">
+  <!-- since 2.1. get rid of the header on top of the generic page -->
+  <!-- <div class="ess-tiny-header">
 				<h1 class="ess-cut-corners"><?php the_title(); ?></h1>
 				<div style="clear: both;"></div>
-	</div>
+	</div> -->
 </header>
 
 
-<?php 
+<?php
 
 
 
- while ( have_posts() ) : the_post();
- 
-            // Include the page content template.
-            get_template_part( 'template-parts/content/content', 'page' );
+while (have_posts()) : the_post();
+
+  // Include the page content template.
+  get_template_part('template-parts/content/content', 'page');
 endwhile;
 
 ?>
@@ -41,15 +43,10 @@ endwhile;
 
 
 
-<?php 
-	get_template_part( 'template-parts/content/content', 'contactstrip' );
+<?php
+get_template_part('template-parts/content/content', 'contactstrip');
 ?>
 
 
 
-<?php get_footer();?>
-
-
-
-
-
+<?php get_footer(); ?>

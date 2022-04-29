@@ -2,7 +2,7 @@
 - get rid of materialize framework at all
 - New Header in general
 - New mobile menu
-- New footer with news and events slider to be wmwp-slider
+- New footer with news and events slider to be wmwp-slider (go for react based one)
 - get rid of jquery
 - Cube redesign
 - split all the plugins to have separate git repos

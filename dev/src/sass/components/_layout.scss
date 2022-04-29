@@ -125,6 +125,18 @@ a:hover {
     padding-bottom: 0 !important;
   }
 
+  .p-left-0 {
+    padding-left: 0 !important;
+  }
+
+  .p-right-0 {
+    padding-right: 0 !important;
+  }
+
+  .p-top-0 {
+    padding-top: 0 !important;
+  }
+
   .p-bot-half {
     padding-bottom: $half-margin !important;
   }
@@ -342,7 +354,7 @@ a:hover {
 
 main {
   position: relative;
-  padding: $quad-margin 0;
+  padding: $quad-margin;
 
   @media only screen and (max-width: $medium-screen) {
     padding: $base-margin;

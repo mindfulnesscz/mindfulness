@@ -228,9 +228,18 @@ $alpha-inactive : 0.1;
           font-weight: 400;
         }
 
+        .cbl-industry h2 {
+          padding-bottom: $base-margin !important;
+          font-weight: bold;
+        }
+
         h3 {
           padding: $half-margin;
           text-align: center;
+        }
+
+        h4 {
+          margin: $half-margin 0 $quarter-margin 0 !important;
         }
 
         #csscube-front,

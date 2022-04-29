@@ -143,7 +143,7 @@ export default class CessCube {
             SmHeader = ' 2.6vh !important;';
             TinyHeader = ' 1.8vh !important;';*/
             BigHeader = ' '+unit_w/1.4+'px !important;';
-            SmHeader = ' '+unit_w/2+'px !important;';
+            SmHeader = ' '+unit_w/2.4+'px !important;';
             TinyHeader = ' '+unit_w/3+'px !important;';
             SmallestHeader = ' '+unit_w/4+'px !important;';
             

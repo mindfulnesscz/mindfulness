@@ -35,6 +35,7 @@ class Mindfulness_Setup
       'wp_supports',
       'nav_menus',
       'mindfulness_i18n',
+      'init_wordpress'
     );
 
     foreach ($actions as $action) {
@@ -42,6 +43,28 @@ class Mindfulness_Setup
     }
   }
 
+  /**
+   * INIT_WORDPRESS - Initial edits to default Wordpress to better performance and security
+   *  @since 2.1
+   */
+  public function init_wordpress()
+  {
+    // get rid of ugly meta tags
+    remove_action('wp_head', 'wp_generator');
+    remove_action('wp_head', 'wlwmanifest_link');
+    remove_action('wp_head', 'rsd_link');
+
+    // get rid of unnecessary RSS
+    remove_action('wp_head', 'feed_links', 2);
+    remove_action('wp_head', 'feed_links_extra', 3);
+
+    // remove the admin bar
+    add_filter('show_admin_bar', '__return_false');
+
+    // remove emojis
+    remove_action('wp_head', 'print_emoji_detection_script', 7);
+    remove_action('admin_print_scripts', 'print_emoji_detection_script');
+  }
 
 
   /**

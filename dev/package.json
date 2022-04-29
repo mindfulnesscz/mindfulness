@@ -6,9 +6,9 @@
   "scripts": {
     "start:css": "gulp watch",
     "build:css": "gulp",
-    "start": "webpack --watch --mode=development",
+    "start:js": "webpack --watch --mode=development",
     "watch": "webpack --watch --mode=development",
-    "build": "webpack --mode=production"
+    "build:js": "webpack --mode=production"
   },
   "keywords": [],
   "author": "Petr Mucha",

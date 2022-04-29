@@ -9,13 +9,20 @@
   align-items: flex-end;
   align-content: flex-end;
 
-  h2 {
-    width: 100%;
+  @media only screen and (max-width: $medium-screen) {
+    padding-bottom: $double-margin !important;
+
+    .ess-icon {
+      display: none;
+    }
+  }
+
+  h4 {
     padding-top: $double-margin;
-    color: color('grey', 'lighten-2')-light-ii;
-    top: 0;
-    font-size: $h3;
     transition: color 0.5s, top 0.5s;
+    text-align: center;
+    margin: $double-margin auto;
+    width: 100%
   }
 
   //border: 2px solid white;
@@ -23,14 +30,23 @@
 
   +.ess-industry-card {
     border-left: 1px dotted color('grey', 'base');
+
+    @media only screen and (max-width: $medium-screen) {
+      border-left: none;
+      border-top: 1px dotted color('grey', 'base');
+    }
   }
 
   .ess-svg-icon {
     padding: 0;
-    max-width: 300px;
+    max-width: 250px;
     margin: auto;
 
+    @media only screen and (max-width: $medium-screen) {
+      max-width: 150px;
+    }
   }
+
 
   .ess-icon {
     //position: absolute;
@@ -59,8 +75,7 @@
       stroke: color('essblue', 'darken-2');
     }
 
-    h2 {
-      top: -1rem;
+    h4 {
       color: $primary-color;
     }
 
