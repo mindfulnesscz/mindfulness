@@ -35,7 +35,7 @@ endwhile;
 
 <!--   TEAM  =========================================================================================================================-->
 
-<main id="our-team">
+<main id="our-team" class="has-grey-lighten-5-background-color">
 
   <section class="wp-block-mindfulness-blocks-ess-section ess-section no-margin no-padding p-top-base">
     <div class="container">
@@ -168,7 +168,6 @@ endwhile;
           endforeach;
         endif;
         ?>
-        <div class="ess-double-margin"></div>
         </div>
   </section>
 </main>

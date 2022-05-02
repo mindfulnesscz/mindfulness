@@ -1,94 +1,113 @@
 .icon-headline {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+
+  .ess-icon {
+    display: block;
+
+    &.empty {
+      height: 0 !important;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    padding: 0;
+    padding-left: $half-margin;
+  }
+
+  img {
+    height: 100%;
+    display: block;
+  }
+
+  &.small-icon {
+
+    img {
+      //height: tiny-icon;
+      height: $tiny-icon;
+    }
 
     .ess-icon {
-        display: block;
-        &.empty {
-            height: 0 !important;
-        }
+      line-height: $tiny-icon;
+      height: $tiny-icon;
+      font-size: $tiny-icon;
     }
-    h1,h2,h3,h4,h5,h6 {
-        margin: 0; padding: 0;
-        padding-left: $half-margin;
-    }
-    img{ height: 100%; display: block; }
+  }
 
-    &.small-icon {
-
-        img {
-            //height: tiny-icon;
-            height: $tiny-icon;
-        }
-
-        .ess-icon {
-            line-height: $tiny-icon;
-            height: $tiny-icon;
-            font-size: $tiny-icon;
-        }
+  &.normal-icon {
+    img {
+      height: $small-icon;
     }
 
-    &.normal-icon {
-        img {
-            height: $small-icon;
-        }
+    .ess-icon {
+      line-height: $small-icon;
+      height: $small-icon;
+      font-size: $small-icon;
+    }
+  }
 
-        .ess-icon {
-            line-height: $small-icon;
-            height: $small-icon;
-            font-size: $small-icon;
-        }
+  &.medium-icon {
+    img {
+      height: $medium-icon;
     }
 
-    &.medium-icon {
-        img {
-            height: $medium-icon;
-        }
+    .ess-icon {
+      line-height: $medium-icon;
+      height: $medium-icon;
+      font-size: $medium-icon;
+    }
+  }
 
-        .ess-icon {
-            line-height: $medium-icon;
-            height: $medium-icon;
-            font-size: $medium-icon;
-        }
+  &.big-icon {
+    img {
+      height: $big-icon;
     }
 
-    &.big-icon {
-        img {
-            height: $big-icon;
-        }
-
-        .ess-icon {
-            line-height: $big-icon;
-            height: $big-icon;
-            font-size: $big-icon !important;
-        }
+    .ess-icon {
+      line-height: $big-icon;
+      height: $big-icon;
+      font-size: $big-icon !important;
     }
-    &.huge-icon {
-        img {
-            height: $huge-icon;
-        }
+  }
 
-        .ess-icon {
-            line-height: $huge-icon;
-            height: $huge-icon;
-            font-size: $huge-icon;
-        }
-    }
-    &.dir-column {
-        img { height: 100% !important; }
+  &.huge-icon {
+    img {
+      height: $huge-icon;
     }
 
-    &.ess-icon-center {
-        justify-content: center;
+    .ess-icon {
+      line-height: $huge-icon;
+      height: $huge-icon;
+      font-size: $huge-icon;
     }
+  }
 
-    &.ess-icon-left {
-        justify-content: left;
+  &.dir-column {
+    img {
+      height: 100% !important;
     }
+  }
 
-    &.ess-icon-right {
-        justify-content: right;
-    }
-    h1 {border: none;}
+  &.ess-icon-center {
+    justify-content: center;
+  }
+
+  &.ess-icon-left {
+    justify-content: left;
+  }
+
+  &.ess-icon-right {
+    justify-content: right;
+  }
+
+  h1 {
+    border: none;
+  }
 }

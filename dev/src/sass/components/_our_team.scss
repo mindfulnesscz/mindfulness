@@ -1,0 +1,81 @@
+#our-team {
+  .team-row {
+    justify-content: center;
+  }
+
+  .people_person {
+
+    img {
+      max-width: 80%;
+      margin: auto;
+    }
+  }
+
+  .ess-hover-block {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    padding: 0;
+    margin: 0 $half-margin;
+
+    img {
+      margin: 0;
+      padding: 0;
+      display: block;
+    }
+
+    .ess-hover-toshow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s;
+      padding: $double-margin;
+      background: $primary-color;
+      color: white;
+    }
+
+  }
+
+  .ess-hover-block:hover .ess-hover-toshow {
+    opacity: 1;
+  }
+
+  @media only screen and (max-width: $small-screen) {
+    .ess-hover-block {
+      h3 {
+        display: none;
+      }
+
+      .ess-hover-toshow {
+
+        h3 {
+          display: block;
+        }
+
+        position: relative;
+        opacity: 1;
+        height: auto;
+
+      }
+
+    }
+  }
+
+  .people_person {
+    padding-bottom: $double-margin;
+    text-align: center;
+
+    h4 {
+      margin-bottom: 0;
+      padding-bottom: $half-margin;
+    }
+
+    h5 {
+      margin-top: 0;
+    }
+  }
+}
