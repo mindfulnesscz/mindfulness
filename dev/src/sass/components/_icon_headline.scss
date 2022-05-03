@@ -89,6 +89,18 @@
     }
   }
 
+  &.mega-icon {
+    img {
+      height: $mega-icon;
+    }
+
+    .ess-icon {
+      line-height: $mega-icon;
+      height: $mega-icon;
+      font-size: $mega-icon;
+    }
+  }
+
   &.dir-column {
     img {
       height: 100% !important;

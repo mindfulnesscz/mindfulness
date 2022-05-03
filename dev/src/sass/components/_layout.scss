@@ -441,7 +441,7 @@ figure {
 }
 
 #ess-body .container ul {
-  padding: $half-margin 0 $half-margin $double-margin;
+  padding: $half-margin 0 $half-margin 0;
   margin: auto;
   max-width: 400px;
 }
@@ -649,7 +649,7 @@ ul li {
 }
 
 .opacity-heavy {
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
 .opacity-medium {

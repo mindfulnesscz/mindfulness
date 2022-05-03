@@ -9,7 +9,13 @@
 - clean styles and make html view of all possible classes
 - add the onscroll features on ess blocks
 
-## "2.0.9" - 2022-04-25 (Date of Last Commit)
+## "2.0.10" - 2022-05-03 (Date of Last Commit)
+
+* Typography heavy update
+* colors and spacings updated
+* content of all keypages rebuilt
+
+## "2.0.9" - 2022-04-25
 
 * Typography updated to responsive
 * homepage cards css updated accordingly

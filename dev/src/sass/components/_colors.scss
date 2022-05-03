@@ -165,11 +165,11 @@ $color in $colors-ess {
     }
 
     @else {
-      .#{$color_name}.#{$color_type} {
+      .has-#{$color_name}-#{$color_type}-background-color {
         background-color: $color_value;
       }
 
-      .#{$color_name}-text.text-#{$color_type} {
+      .has-#{$color_name}-#{$color_type}-color {
         color: $color_value;
       }
     }
