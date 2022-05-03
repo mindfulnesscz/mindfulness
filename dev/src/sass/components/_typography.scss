@@ -7,13 +7,14 @@ $headline_text: '';
 
 body {
 
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-family: $copy-font;
   font-weight: 200;
   font-size: 95%;
 
-  p {
-    font-size: calc(1rem + 0.2vw);
-    line-height: calc(1.5rem + 0.35vw);
+  p,
+  li {
+    font-size: calc(0.9rem + 0.15vw);
+    line-height: calc(1.4rem + 0.3vw);
     margin: $base-margin 0;
   }
 
@@ -25,7 +26,7 @@ body {
   h6,
   h7,
   h8 {
-    font-family: 'Exo', sans-serif;
+    font-family: $headline-font;
     color: color('grey', 'base');
     margin: $half-margin 0;
 

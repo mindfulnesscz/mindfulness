@@ -9,7 +9,7 @@ $mindfulness_color_palette =
     ),
     array(
       'name' => __('ESS Blue - dark', 'mindfulness'),
-      'slug' => 'essblue_dark',
+      'slug' => 'essblue-darken-1',
       'color' => '#00A0F0',
     ),
     array(

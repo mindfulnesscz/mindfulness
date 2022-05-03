@@ -6,6 +6,7 @@
 @import './components/wordpress_fixes';
 @import './components/flexboxgrid';
 @import './components/images';
+@import './components/buttons';
 
 
 .edit-post-layout {
@@ -13,7 +14,7 @@
 
   @import './components/layout';
   @import './components/helpers';
-  @import './components/buttons';
+
   @import './components/forms';
   @import './components/spacing';
 

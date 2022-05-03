@@ -12,29 +12,31 @@ export default class MindCookies {
     var expires = "expires=" + d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
-  
+
 
   static getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
+    console.log('cooookie ' + decodedCookie);
     var ca = decodedCookie.split(';');
     for (var i = 0; i < ca.length; i++) {
       var c = ca[i];
       while (c.charAt(0) == ' ') {
         c = c.substring(1);
+        console.log(c);
       }
       if (c.indexOf(name) == 0) {
         return c.substring(name.length, c.length);
       }
     }
-    return "";
+    return "none";
   }
 
 
 
-  static deleteCookie(name) {   
-    document.cookie = name+'=; Max-Age=-99999999;';  
-}
+  static deleteCookie(name) {
+    document.cookie = name + '=; Max-Age=-99999999;';
+  }
 
   createCookiesArray() {
     this.arr_cookies = [];

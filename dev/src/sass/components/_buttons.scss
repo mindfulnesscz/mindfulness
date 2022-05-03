@@ -1,161 +1,61 @@
 %ess-button {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    padding: $base-margin;
-    margin: $base-margin 0;
-    color: $white;
-    background: $primary-color;
-    border: none;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  padding: $base-margin;
+  margin: $base-margin 0;
+  color: $white;
+  background: $primary-color;
+  border: none;
+  font-family: $headline-font;
 
-    &.big-button {
-        font-size: $h3;
-        padding: $base-margin $double-margin !important;
-    }
 }
+
 %ess-button:hover {
 
-    color: $white;
-    background: $primary-color-hover;
+  color: $white;
+  background: $primary-color-hover;
 
 }
 
-
 .ess-button {
-    @extend %ess-button;
-    -webkit-transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    &.white {
-        background-color: $white;
-    }
-    &.psp {
-        color: $white;
-        background-color: color('paintshop', 'base');
-    }
-    &.psp:hover { 
-    }
-    &.merge {
-        color: $white;
-        background-color: color('data-cleaning', 'base');
-    }
-    &.merge:hover {
-    }
-    &.sense {
-        color: $white;
-        background-color: color('processing', 'darken-2');
-    }
-    &.sense:hover {
-    }
-    &.outlined {
-        
-        background: none;
-        border-width: 1px;
-        border-style: solid;
+  @extend %ess-button;
+  -webkit-transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 
-        &:hover {text-decoration: none; }
-        &.inversed:hover {
-            background: $primary-color
-        }    
+  &.sm {
+    font-size: $h5;
+    font-weight: 300;
+  }
 
-        &.white {
-            border-color: $white;
-        }
-        &.blue {
-            color: $primary-color;
-            border-color: $primary-color;
-        }
-        &.psp {
-            color: color('paintshop', 'base');
-            border-color: color('paintshop', 'base');;
-        }
-        &.psp:hover {
-            color: white;
-            background-color: color('paintshop', 'base');
+  &.md {
+    font-size: $h4;
+    font-weight: 300;
+  }
 
-        }
-        &.merge {
-            color: color('data-cleaning', 'base');
-            border-color: color('data-cleaning', 'base');
-        }
-        &.merge:hover {
-            color: white;
-            background-color: color('data-cleaning', 'base') !important;
-        }
-        &.sense {
-            color: color('processing', 'darken-2');
-            border-color: color('processing', 'darken-2');
-        }
-        &.sense:hover {
-            color: white;
-            background-color: color('processing', 'darken-2') !important;
-        }
-        &.lighten-hover {
-            &:hover {
-                background: $white;
-            }
-        }
-    }
+  &.lg {
+    font-size: $h3
+  }
+
+  &.xl {
+    font-size: $h2
+  }
+
+  &.rounded-full {
+    border-radius: 999px
+  }
+
+  &.rounded-slight {
+    border-radius: 4px;
+  }
+
+  &.rounded-none {
+    border-radius: 0;
+  }
+
 }
 
 .ess-button:hover {
-    color: white;
-    background: $primary-button-bg-hover;
-}
-.ess-gradient-button {
-    -webkit-transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  background: $primary-button-bg;
   color: white;
-  background-position: 0; 
-}
-.ess-gradient-button:hover{
-    background-position: 1px;
-}
-
-.ess-sm-button {
-    @extend %ess-button;
-    background: none;
-    border: 1px solid color('essblue', 'darken-2');
-    padding: 1rem;    
-    color: color('essblue', 'darken-2');;
-}
-
-.ess-lg-button {
-    @extend %ess-button;
-    padding: $base-margin;
-    //border-radius:  $double-margin;
-    
-}
-
-.shadow-anim {
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    position: relative;
-}
-.ess-hover-shadow {
-    position: relative;
-    display: inline-block;
-    transition: all 0.3s ease-in-out !important;
-  }
-  
-  /* Create the hidden pseudo-element */
-  /* include the shadow for the end state */
-  /*.ess-hover-shadow::after {
-    content: '';
-    top:0;
-    left: 0;
-    position: absolute;
-    //z-index: -1;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    box-shadow: 0 7px 14px rgba(0,0,0,0.3);
-    transition: opacity 0.3s ease-in-out;
-  }*/
-  .ess-hover-shadow:hover {
-    //transform: scale(1.1,1.1);
-  }
-  .ess-hover-shadow:hover::after {
-    content: '';
-    opacity: 1;
-    
+  background: $primary-button-bg-hover;
 }

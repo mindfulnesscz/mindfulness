@@ -90,7 +90,8 @@ $primary-button-bg-hover : color('essblue', 'darken-1');
 
 
 
-// marginS
+// 2. Spacings
+// ==========================================================================
 
 
 $spaces-map: ("zero" : 0,
@@ -101,3 +102,15 @@ $spaces-map: ("zero" : 0,
   "quad" : $quad-margin,
   "okta" : $okto-margin,
   "dodeca" : $dodeca-margin);
+
+
+// 2. Typography
+// ========================================================================== 
+
+
+$copy-font: 'Open Sans',
+Helvetica,
+Arial,
+sans-serif;
+$headline-font: 'Exo',
+sans-serif;

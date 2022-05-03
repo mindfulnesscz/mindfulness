@@ -1,25 +1,5 @@
 @import './variables';
 
-$base-margin : calc(0.8rem + 0.5vw);
-$double-margin : calc(1.6rem + 1vw);
-$quad-margin : calc(3.2rem + 2vw);
-$sexta-margin : calc(4.8rem + 3vw);
-$okto-margin : calc(6.4rem + 4vw);
-$dodeca-margin : calc(9.6rem + 6vw);
-$half-margin : calc(0.4rem + 0.25vw);
-$quarter-margin : calc(0.2rem + 0.15vw);
-$reduced-margin : 1rem;
-
-$spaces-map: ("0" : 0,
-  "quarter": $quarter-margin,
-  "half": $half-margin,
-  "base" : $base-margin,
-  "double" : $double-margin,
-  "quad" : $quad-margin,
-  "sexta": $sexta-margin,
-  "okta" : $okto-margin,
-  "dodeca" : $dodeca-margin);
-
 
 @each $space,
 $value in $spaces-map {
