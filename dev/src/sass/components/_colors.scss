@@ -27,16 +27,10 @@ $nav-cube-background: radial-gradient(circle, rgba(230, 230, 230, 1) 0%, rgba(21
 
 
 $essblue: ("base" : #14bef0,
-  "lighten-1" : #59cbf2,
-  "lighten-2" : #87c8ff,
-  "lighten-3" : #b3e3f6,
-  "lighten-4" : #d4effc,
-  "lighten-5" : #eff4f4,
+  "lighten-1" : #92e5ff,
+  "lighten-2" : #ecfaff,
   "darken-1" : #00A0F0,
   "darken-2" : #2c77ca,
-  "darken-3" : #1e3a6c,
-  "darken-4" : #0f2a56,
-  "darken-5" : #0f203e,
 );
 
 $green: ("base" : #86b755,
@@ -162,6 +156,10 @@ $color in $colors-ess {
       .has-#{$color_name}-color {
         color: $color_value;
       }
+
+      .has-border-#{$color_name} {
+        border: 1px solid $color_value
+      }
     }
 
     @else {
@@ -171,6 +169,10 @@ $color in $colors-ess {
 
       .has-#{$color_name}-#{$color_type}-color {
         color: $color_value;
+      }
+
+      .has-border-#{$color_name}-#{$color_type} {
+        border: 1px solid $color_value
       }
     }
   }
