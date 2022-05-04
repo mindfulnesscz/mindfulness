@@ -67,7 +67,7 @@ $nav_cube_side_shift_2: 3rem;
         }
 
         .navcube-left {
-          background-color: color('essblue', 'lighten-2');
+          background-color: color('essblue', 'base');
         }
 
         .navcube-right {
@@ -79,11 +79,11 @@ $nav_cube_side_shift_2: 3rem;
         }
 
         .navcube-bottom {
-          background-color: color('grey', 'lighten-1');
+          background-color: color('grey', 'base');
         }
 
         .navcube-front {
-          background-color: color('essblue', 'lighten-1');
+          background-color: color('essblue', 'darken-1');
         }
 
 
