@@ -8,6 +8,7 @@
   background: $primary-color;
   border: none;
   font-family: $headline-font;
+  font-weight: 500;
 
 }
 
@@ -25,12 +26,10 @@
 
   &.sm {
     font-size: $h5;
-    font-weight: 300;
   }
 
   &.md {
     font-size: $h4;
-    font-weight: 300;
   }
 
   &.lg {

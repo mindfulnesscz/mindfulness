@@ -26,11 +26,11 @@ $minus-okto-margin : calc((0.8rem + 0.5vw) * -8);
 
 
 
-$h1 : calc(2rem + 1.35vw);
+$h1 : calc(2.6rem + 1.4vw);
 $h1-h2 : calc(1.65rem + 1.1vw);
-$h2 : calc(1.5rem + 1vw);
-$h3 : calc(1.2rem + 0.8vw);
-$h4 : calc(1rem + 0.3vw);
+$h2 : calc(1.8rem + 1vw);
+$h3 : calc(1.4rem + 0.8vw);
+$h4 : calc(1.2rem + 0.4vw);
 $h5 : calc(0.9rem + 0.1vw);
 $h6 : calc(0.7rem + 0.08vw);
 
@@ -63,7 +63,6 @@ $primary-color : color("essblue", "base");
 $primary-color-hover : color("essblue", "darken-1");
 $primary-text : color("grey", "base");
 $secondary-color : color("grey", "base");
-$ess-blue-lightest : color("essblue", "lighten-4");
 $white : color("shades", "white");
 
 //SYSTEM

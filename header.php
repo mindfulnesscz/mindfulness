@@ -71,7 +71,7 @@
   <meta name="msapplication-navbutton-color" content="#eaeaea">
 
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <link href="https://fonts.googleapis.com/css?family=Exo:100,300,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Exo:300,500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,400&display=swap" rel="stylesheet">
 
   <meta name=“robots“ content=“index, follow“>

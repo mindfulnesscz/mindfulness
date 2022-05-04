@@ -16,7 +16,7 @@
                 transition: background-color .5s ease;
 
                 &:hover {
-                    background-color: $ess-blue-lightest;
+                    background-color: color('essblue', 'lighten-2');
                 }
             }
 
