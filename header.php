@@ -45,7 +45,7 @@
     $ex =  get_bloginfo('description');
 
   if (!$pt || empty($pt))
-    $pt = 'https://www.essteyr.com/ess-media/og_image_essteyr.webp'
+    $pt = 'https://www.essteyr.com/ess-media/og_image_essteyr.jpg'
   ?>
 
   <title>ESS - <?php the_title() ?></title>
@@ -439,29 +439,17 @@
 
       </div>
 
-
-      <!--          ***************************** v 2.1 REMOVE  ************************************** -->
-
-
-
-      <ul id="ess-top-menu-features" style="display:none;">
+      <ul id="ess-top-menu-features">
         <li id="ess-menu-type-toggle" class="item hide-on-small-and-down"><span>classic menu</span></li>
-
-
         <!--<li id="ess-client-zone-button" class="item ess-client-zone">
 					<div class="ess-icon icon_user"></div><span class="hide-on-small-and-down">login/register</span>
 				</li>-->
-
-
-        <!--
         <li class="item ess-search" id="ess-search">
           <div class="ess-icon icon_zoom"></div><span class="hide-on-small-and-down">search</span>
         </li>
 
--->
 
-
-        <!-- <div id="ess-searchbar-holder">
+        <div id="ess-searchbar-holder">
           <form role="search" method="get" id="searchform" action="<?php echo home_url('/'); ?>">
             <div class="ess-horizontal-reveal" trigger="ess-search">
 
@@ -476,12 +464,9 @@
 
             </div>
           </form>
-        </div>-->
+        </div>
       </ul>
     </nav>
-
-
-    <!-- ***************************  REWORK THIS IN 2.1. **************************** 
 
     <ul id="ess-side-menu" class="sidenav">
       <li id="ess-side-logo">
@@ -493,7 +478,7 @@
 
 
       <?php
-      /*
+
       wp_nav_menu([
         'menu'            => 'primary',
         'theme_location'  => 'primary',
@@ -505,12 +490,10 @@
         'depth'           => 3,
         'fallback_cb'     => 'ESS_Collapse_Walker::fallback',
         'walker'          => new ESS_Collapse_Walker()
-      ]);*/
+      ]);
       ?>
 
 
 
 
     </ul>
-
-    -->
