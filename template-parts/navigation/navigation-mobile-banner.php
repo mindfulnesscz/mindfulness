@@ -5,42 +5,32 @@
 <div class="mind-slider-holder">
 
 
-  <!--<ul id="ess-home-banner-classic" class="mind-slider">
+  <div id="ess-home-banner-classic" class="mind-slider">
 
+    <div id="" class="">
 
-    <li id="ess-cube-banner-its" class="slide ess-cube-banner-item" style=" padding-bottom: 2rem !important;">
-
-      <a href="https://dynairix.com" style="padding-bottom: 0 !important;">
+      <a style="text-decoration: none" href="<?php echo home_url() . '/ess-events/lange-nacht-der-forschung-long-night-of-research'; ?>">
         <div class="top-border"></div>
         <div class="bottom-border"></div>
 
-        <div class="banner-image-part" style="max-width: 80%; width: 400px; height: 135px;">
-          <img width="400" height="130" style="max-width: 100%" src="<?php echo home_url() . '/ess-media/home-banner/dynairix/dynairix_logo_bw_400x135.svg'; ?>">
-        </div>
+        <div class="row" style="background-color: #001431;">
 
-        <div class="banner-text-part">
-          <h3>Simulate together<br>for a safer World</h3>
-          <div class="circle-tagline">
-            <h3>check now!<br>live</h3>
+          <div class="col-xs-12 col-sm-6 p-hor-zero">
+            <img src="<?php echo home_url() . '/ess-media/home-banner/lange_nacht/langenacht_bkg_landscape_cut.webp'; ?>" alt="" width="" height="" class="show-sm" />
+            <img src="<?php echo home_url() . '/ess-media/home-banner/lange_nacht/langenacht_bkg_portrait_cut.webp'; ?>" alt="" width="" height="" class="hide-sm" />
+          </div>
+          <div class="col-xs-12 col-sm-6 first-sm flex alignitems-center wrap">
+            <div class="p-vert-double">
+              <h2 style="color: #ffe030;">Lange Nacht der Forschung</h2>
+              <h2 style="color: #ffe030;">22/5/2022</h2>
+            </div>
           </div>
         </div>
 
-        <div class="banner-mannequin"><img src="<?php echo home_url() . '/ess-media/home-banner/dynairix/mannequin_165x400.png'; ?>"></div>
-
       </a>
 
+    </div>
 
+  </div>
 
-    </li>
-
-
-  </ul>-->
-
-  <ul id="ess-home-banner-classic" class="mind-slider">
-    <li class="slide ess-cube-banner-item">
-      <a href="https://alsimcloud.com">
-        <img loading="lazy" class="hbc-banner-image" width="705" height="1386" src="<?php echo home_url() . '/ess-media/home-banner/220312_repair/hbc-repair-banner-mobile.webp'; ?>">
-      </a>
-    </li>
-  </ul>
 </div>

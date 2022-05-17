@@ -91,7 +91,7 @@ a:hover {
 }
 
 .force-margin {
-  padding: 0 $base-margin !important;
+  padding: 0 $base-margin  !important;
 }
 
 .ess-padding {
@@ -145,6 +145,14 @@ a:hover {
 }
 
 /* -------- FLEX BOX CLASSES ------------------- */
+
+.nowrap {
+  flex-wrap: nowrap;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
 
 .justify-center {
   justify-content: center;
@@ -350,7 +358,7 @@ a.icon-headline {
 a.icon-headline:hover {
   .ess-icon {
     left: -1rem;
-    color: $secondary-color !important;
+    color: $secondary-color  !important;
   }
 
   *:last-child {
@@ -409,42 +417,42 @@ figure {
 .mega-icon {
   img {
     width: 100%;
-    max-width: $dodeca-margin !important
+    max-width: $dodeca-margin  !important
   }
 }
 
 .huge-icon {
   img {
     width: 100%;
-    max-width: $okto-margin !important;
+    max-width: $okto-margin  !important;
   }
 }
 
 .big-icon {
   img {
     width: 100%;
-    max-width: $sexta-margin !important;
+    max-width: $sexta-margin  !important;
   }
 }
 
 .medium-icon {
   img {
     width: 100%;
-    max-width: $quad-margin !important;
+    max-width: $quad-margin  !important;
   }
 }
 
 .normal-icon {
   img {
     width: 100%;
-    max-width: $double-margin !important;
+    max-width: $double-margin  !important;
   }
 }
 
 .small-icon {
   img {
     width: 100%;
-    max-width: $base-margin !important;
+    max-width: $base-margin  !important;
   }
 }
 
@@ -679,12 +687,29 @@ ul li {
   font-size: 90%;
 }
 
-.show-on-mid-and-higher {
-  display: none;
+
+// VISIBILITY
+
+@media only screen and (max-width: $medium-screen) {
+  .show-md {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: $medium-screen) {
-  .show-on-mid-and-higher {
-    display: block;
+  .hide-md {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: $small-screen) {
+  .show-sm {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: $small-screen) {
+  .hide-sm {
+    display: none;
   }
 }
