@@ -18,10 +18,10 @@ get_header(); ?>
 <header id="ess-header">
   <div id="ess-home-header">
     <div id="ess-intro" class="container">
-      <div class="row start-xs middle-md">
-        <div class="col col-xs-12 col-md-4 col-xs-offset-0 col-md-offset-3">
-          <div class="row no-margin no-padding middle-xs">
-            <div class="col-xs-12 col-md-4 no-padding no-margin" style="text-align: center;">
+      <div class="row start-xs middle-lg">
+        <div class="col col-xs-12 col-lg-4 col-xs-offset-0 col-lg-offset-3">
+          <div class="row no-margin no-padding lg-xs">
+            <div class="col-xs-12 col-lg-4 no-padding no-margin text-center">
               <div id="scene">
                 <div id="rotator">
                   <div id="cube">
@@ -35,12 +35,12 @@ get_header(); ?>
                 </div>
               </div>
             </div>
-            <div class="col-xs-12 col-md-8 no-padding">
+            <div class="col-xs-12 col-lg-8 no-padding">
               <h1 id="logo-text">ess</h1>
             </div>
           </div>
         </div>
-        <div class="col col-xs-12 col-md-5">
+        <div class="col col-xs-12 col-lg-5">
           <h1 id="ess-header-claim">
             <span>painting the future</span><br>
             <span> of advanced</span><br>

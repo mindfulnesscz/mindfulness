@@ -78,10 +78,10 @@ html #ess-body {
       }
 
       #ess-header-claim {
-        font-size: 4rem;
+
+        font-size: $h2;
 
         span {
-          line-height: calc(2.3rem + 2vw);
           position: relative;
           opacity: 0;
           animation: ess-header-claim-keys .5s;
@@ -168,7 +168,7 @@ html #ess-body {
 
 
 
-@media only screen and (max-width: $medium-screen) {
+@media only screen and (max-width: $large-screen) {
   #ess-home-header {
 
     .container {

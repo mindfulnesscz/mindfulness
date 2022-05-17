@@ -48,7 +48,7 @@ $template_url = get_template_directory_uri();
 
       <!--   footer NEWS ............................................... -->
 
-      <div class="col-footer-news col-xs-12 col-sm-4 col-md-4 col-lg-2 ">
+      <div class="col-footer-news col-xs-6 col-sm-4 col-md-4 col-lg-2 ">
 
         <?php
 
@@ -121,7 +121,7 @@ $template_url = get_template_directory_uri();
 
       <!--   footer EVENTS  ............................................... -->
 
-      <div class="col-footer-events col-xs-12 col-sm-4 col-md-4 col-lg-2 ">
+      <div class="col-footer-events col-xs-6 col-sm-4 col-md-4 col-lg-2 ">
         <div class="darker-gray ess-divider ess-show-on-small-and-down "></div>
         <?php
 
