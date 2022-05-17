@@ -1,29 +1,36 @@
 <?php
-
+/*
+ Cube navigation Banner Template
+ The styling is transitional between v.2.0 to 2.1 and will 
+ need some fixing in css classes naming conventions later.
+*/
 ?>
+<style>
+  .banner-button * {
+    transition: all .2s ease-out;
+  }
 
-<div class="home-banner-cube" id="hbc-dynairix">
+  .banner-button:hover * {
 
-  <a href=" https://alsimcloud.com" target="_blank">
-    <!--<div class="dynairix-logo-cont">
-      <img src="<?php echo home_url() . '/ess-media/home-banner/dynairix/dynairix_logo_basic_250x85.svg'; ?>">
-
-      <div class="dynairix-logo-tagline">
-        <h3>Simulate together<br>for a safer world</h3>
+    transform: scale(1.05);
+    transform: translateY(50);
+  }
+</style>
+<a class="banner-button" style="text-decoration: none" href="<?php echo home_url() . '/ess-events/lange-nacht-der-forschung-long-night-of-research'; ?>">
+  <div class="row m-bot-zero" style="background-color: #001431;">
+    <div class="col-xs-6 p-left-double flex alignitems-center wrap">
+      <div class="py-sm-double">
+        <?php
+        // NOTE: Aligncenter class is used because of collision with materialize framework 
+        //(center has !important flag there and overrides media querried css). 
+        //Should be changed back to .center after getting rid of Materialize in v.2.1';
+        ?>
+        <h2 class="bold aligncenter left-sm" style="color: #ffe030;">Lange Nacht der Forschung</h2>
+        <h2 class="aligncenter left-sm" style="color: #ffe030;">22/5/2022</h2>
       </div>
     </div>
-    <div class="dynairix-banner-cube-mannequin">
-      <img src="<?php echo home_url() . '/ess-media/home-banner/dynairix/mannequin_basic_545x750.png'; ?>" width="545" height="750">
-      <div class="green-circle"></div>
-      <div class="blue-circle"></div>
-      <div class="violet-circle"></div>
+    <div class="col-xs-6 p-hor-zero">
+      <img loading="lazy" src="<?php echo home_url() . '/ess-media/home-banner/lange_nacht/langenacht_bkg_landscape_cut.webp'; ?>" alt="banner illustration" width="790" height="350" class="show-sm h-full cover" style="object-position: top left;" />
     </div>
-    <span class="blue-button">
-      check now<br>live
-    </span> -->
-
-
-    <div class="hbc-banner-overlay"></div>
-    <img class="hbc-banner-image" width="3004" height="815" src="<?php echo home_url() . '/ess-media/home-banner/220312_repair/hbc-repair-banner.webp'; ?>">
-  </a>
-</div>
+  </div>
+</a>

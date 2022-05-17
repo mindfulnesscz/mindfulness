@@ -118,20 +118,21 @@ a:hover {
 .aligncenter,
 .textalign-center,
 .text-center,
+.center,
 .center-align {
-  text-align: center !important;
+  text-align: center;
 }
 
-.alignright {
+.alignright, .right {
   text-align: right !important;
 }
 
-.alignleft {
-  text-align: left !important;
+.alignleft, .left {
+  text-align: left;
 }
 
 .align-left {
-  text-align: left !important
+  text-align: left;
 }
 
 .cl-both {
@@ -688,7 +689,7 @@ ul li {
 }
 
 
-// VISIBILITY
+// SCREEN SIZE DEPENDANTS VISIBILITY AND TEXT ALIGN
 
 @media only screen and (max-width: $medium-screen) {
   .show-md {
@@ -699,6 +700,12 @@ ul li {
 @media only screen and (min-width: $medium-screen) {
   .hide-md {
     display: none;
+  }
+  .center-md {
+    text-align: center;
+  }
+  .left-md {
+    text-align:center;
   }
 }
 
@@ -711,5 +718,11 @@ ul li {
 @media only screen and (min-width: $small-screen) {
   .hide-sm {
     display: none;
+  }
+  .center-sm {
+    text-align: center;
+  }
+  .left-sm {
+    text-align: left;
   }
 }

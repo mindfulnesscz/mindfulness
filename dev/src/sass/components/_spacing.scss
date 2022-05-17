@@ -1,5 +1,11 @@
 @import './variables';
 
+/*
+Basic styles yet to be changed to tailwindlike namespaces
+sm already done. md and lg to be added aswell.
+Maybe using functions since manually it's quite tedius
+*/
+
 
 @each $space,
 $value in $spaces-map {
@@ -121,5 +127,134 @@ $value in $spaces-map {
 
   .left-minus-#{$space} {
     left: calc(-1* (#{$value})) !important;
+  }
+}
+
+
+
+// SMALL SPACINGS -------------------------------------------
+
+@media only screen and (min-width: $small-screen) {
+  @each $space,
+  $value in $spaces-map {
+    .p-sm-#{$space} {
+      padding: $value !important;
+    }
+  
+    .px-sm-#{$space} {
+      padding-left: $value !important;
+      padding-right: $value !important;
+    }
+  
+    .py-sm-#{$space} {
+      padding-top: $value !important;
+      padding-bottom: $value !important;
+    }
+  
+    .pt-sm-#{$space} {
+      padding-top: $value !important;
+    }
+  
+    .pr-sm-#{$space} {
+      padding-right: $value !important;
+    }
+  
+    .pb-sm-#{$space} {
+      padding-bottom: $value !important;
+    }
+  
+    .pl-sm-#{$space} {
+      padding-left: $value !important;
+    }
+  
+  
+    .m-sm-#{$space} {
+      margin: $value !important;
+    }
+  
+    .mx-sm-#{$space} {
+      margin-left: $value !important;
+      margin-right: $value !important;
+    }
+  
+    .-mx-sm-#{$space} {
+      margin-left: calc(-1* (#{$value})) !important;
+      margin-right: calc(-1* (#{$value})) !important;
+    }
+  
+    .my-sm-#{$space} {
+      margin-top: $value !important;
+      margin-bottom: $value !important;
+    }
+  
+    .-my-sm-#{$space} {
+      margin-top: calc(-1* (#{$value})) !important;
+      margin-bottom: calc(-1* (#{$value})) !important;
+    }
+  
+    .mt-sm-#{$space} {
+      margin-top: $value !important;
+    }
+  
+    .-mt-sm-#{$space} {
+      margin-top: calc(-1* (#{$value})) !important;
+    }
+  
+  
+    .mr-sm-#{$space} {
+      margin-right: $value !important;
+    }
+  
+    .-mr-sm-#{$space} {
+      margin-right: calc(-1* (#{$value})) !important;
+    }
+  
+    .mb-sm-#{$space} {
+      margin-bottom: $value !important;
+    }
+  
+    .-mb-sm-#{$space} {
+      margin-bottom: calc(-1* (#{$value})) !important;
+    }
+  
+    .ml-sm-#{$space} {
+      margin-left: $value !important;
+    }
+  
+    .-ml-sm-#{$space} {
+      margin-left: calc(-1* (#{$value})) !important;
+    }
+  
+    .top-sm-#{$space} {
+      top: $value !important;
+    }
+  
+    .-top-sm-#{$space} {
+      top: calc(-1* (#{$value})) !important;
+    }
+  
+    .right-sm-#{$space} {
+      right: $value !important;
+    }
+  
+    .-right-sm-#{$space} {
+      right: calc(-1* (#{$value})) !important;
+    }
+  
+    .bottom-sm-#{$space} {
+      bottom: $value !important;
+    }
+  
+    .-bot-sm-#{$space} {
+      bottom: calc(-1* (#{$value})) !important;
+    }
+  
+    .left-sm-#{$space} {
+      left: $value !important;
+    }
+  
+    .-left-sm-#{$space} {
+      left: calc(-1* (#{$value})) !important;
+    }
   }
 }

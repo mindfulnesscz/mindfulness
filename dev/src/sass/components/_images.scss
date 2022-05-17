@@ -3,6 +3,11 @@ html body img {
   height: auto;
 }
 
+
+.cover {
+  object-fit: cover;
+}
+
 .pattern {
   background: url('../images/pattern.gif')
 }
