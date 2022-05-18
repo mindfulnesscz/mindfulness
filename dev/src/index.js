@@ -5,6 +5,8 @@ window.development = false;
 const src_desktop = '/assets/js/index_desktop.js';
 const src_mobile = '/assets/js/index_mobile.js';
 
+const EL_HTML = document.querySelector('html');
+
 let index_src = '';
 
 if (!window.template_url) {
@@ -26,6 +28,12 @@ if (window.innerWidth < 761)
   window.ismobile = true;
 if (/*@cc_on!@*/false || !!document.documentMode)
   window.ismobile = true;
+
+
+if (window.ismobile)
+  EL_HTML.classList.add('ess-device');
+else
+  EL_HTML.classList.add('ess-desktop');
 
 
 

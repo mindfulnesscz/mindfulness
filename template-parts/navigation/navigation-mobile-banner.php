@@ -8,7 +8,7 @@
 ?>
 
 
-<a class="hide-md" style="text-decoration: none" href="<?php echo home_url() . '/ess-events/lange-nacht-der-forschung-long-night-of-research'; ?>">
+<a class="hide-desktop" style="text-decoration: none" href="<?php echo home_url() . '/ess-events/lange-nacht-der-forschung-long-night-of-research'; ?>">
 
   <div class="row m-bot-zero" style="background-color: #001431;">
 

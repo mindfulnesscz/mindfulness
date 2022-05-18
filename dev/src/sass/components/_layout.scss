@@ -698,7 +698,15 @@ ul li {
 }
 
 
-// SCREEN SIZE DEPENDANTS VISIBILITY AND TEXT ALIGN
+// SCREEN DEPENDANTS VISIBILITY AND TEXT ALIGN
+
+.ess-desktop .hide-desktop {
+  display: none;
+}
+
+.ess-desktop .hide-device {
+  display: none;
+}
 
 @media only screen and (max-width: $medium-screen) {
   .show-md {
