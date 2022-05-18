@@ -9,7 +9,13 @@
 - clean styles and make html view of all possible classes
 - add the onscroll features on ess blocks
 
-## [2.0.10] - 2022-05-03 (Date of Last Commit)
+## [2.0.11] - 2022-05-18 (Date of Last Commit)
+
+* Spacing and Layout classes edited and added
+* New banner template created
+
+
+## [2.0.10] - 2022-05-03
 
 * Typography heavy update
 * colors and spacings updated
