@@ -1,0 +1,8 @@
+$z-indexes: 10, 20, 30, 40, 50;
+
+
+@each $i in $z-indexes {
+  .z-#{$i} {
+    z-index: $i;
+  }
+}

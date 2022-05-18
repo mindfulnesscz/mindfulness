@@ -11,7 +11,7 @@
 
 ## [2.0.11] - 2022-05-18 (Date of Last Commit)
 
-* Spacing and Layout classes edited and added
+* Spacing and Layout classes edited and added (_spacing.scss, _z-indexes.scss, layout.scss)
 * New banner template created
 
 

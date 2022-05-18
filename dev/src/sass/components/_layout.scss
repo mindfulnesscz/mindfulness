@@ -123,11 +123,13 @@ a:hover {
   text-align: center;
 }
 
-.alignright, .right {
+.alignright,
+.right {
   text-align: right !important;
 }
 
-.alignleft, .left {
+.alignleft,
+.left {
   text-align: left;
 }
 
@@ -385,12 +387,19 @@ a.icon-headline:hover {
 }
 
 
+/***** DISPLAY CLASSES ******************** */
 
-.ess-block {
+.block {
   display: block
 }
 
-;
+.inline-block {
+  display: inline-block
+}
+
+.flex {
+  display: flex
+}
 
 figure {
   width: 100%;
@@ -701,11 +710,13 @@ ul li {
   .hide-md {
     display: none;
   }
+
   .center-md {
     text-align: center;
   }
+
   .left-md {
-    text-align:center;
+    text-align: center;
   }
 }
 
@@ -719,9 +730,11 @@ ul li {
   .hide-sm {
     display: none;
   }
+
   .center-sm {
     text-align: center;
   }
+
   .left-sm {
     text-align: left;
   }
