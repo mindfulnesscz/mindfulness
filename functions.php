@@ -108,23 +108,6 @@ function mind_type()
       'supports'  =>  array('title', 'editor', 'page-attributes', 'thumbnail', 'excerpt')
     )
   );
-
-  register_post_type(
-    'opened_position',
-    array(
-      'labels' => array(
-        'name' => __('Career Opportunities'),
-        'singular_name' => __('Career Opportunity')
-      ),
-      'public' => true,
-      'has_archive' => true,
-      'capability_type'  =>  'post',
-      'hierarchical'  =>  false,
-      'rewrite'  => array('slug' => 'career-opportunities'),
-      'show_in_rest' => true,
-      'supports'  =>  array('title', 'editor', 'page-attributes', 'thumbnail', 'excerpt')
-    )
-  );
 }
 
 

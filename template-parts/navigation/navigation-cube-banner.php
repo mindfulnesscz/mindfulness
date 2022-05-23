@@ -26,7 +26,7 @@
         //Should be changed back to .center after getting rid of Materialize in v.2.1';
         ?>
         <h2 class="bold aligncenter left-sm" style="color: #ffe030;">Lange Nacht der Forschung</h2>
-        <h2 class="aligncenter left-sm" style="color: #ffe030;">22/5/2022</h2>
+        <h2 class="aligncenter left-sm" style="color: #ffe030;">20/5/2022</h2>
       </div>
     </div>
     <div class="col-xs-6 p-hor-zero z-0">
