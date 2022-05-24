@@ -69,7 +69,7 @@ $white : color("shades", "white");
 $success-color : color("green", "base");
 $error-color : color("red", "base");
 
-$link-color : color("essblue", "base");
+$link-color : color("grey", "base");
 $ess-base-green : color("green", "base");
 
 $card-link-color : color("essblue", "base");
@@ -96,14 +96,16 @@ $primary-button-bg-hover : color('essblue', 'darken-1');
 // ==========================================================================
 
 
-$spaces-map: ("zero" : 0,
+$spaces-map: (
+  "zero" : 0,
   "quarter": $quarter-margin,
   "half": $half-margin,
   "base" : $base-margin,
   "double" : $double-margin,
   "quad" : $quad-margin,
   "okta" : $okto-margin,
-  "dodeca" : $dodeca-margin);
+  "dodeca" : $dodeca-margin
+);
 
 
 // 2. Typography
@@ -111,8 +113,8 @@ $spaces-map: ("zero" : 0,
 
 
 $copy-font: 'Open Sans',
-Helvetica,
-Arial,
-sans-serif;
+  Helvetica,
+  Arial,
+  sans-serif;
 $headline-font: 'Exo',
-sans-serif;
+  sans-serif;

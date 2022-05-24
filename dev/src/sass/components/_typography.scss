@@ -6,8 +6,8 @@ body {
 
   p,
   li {
-    font-size: calc(1.2rem + 0.1vw);
-    line-height: calc(1.6rem + 0.4vw);
+    font-size: calc(1.1rem + 0.05vw);
+    line-height: calc(1.5rem + 0.14vw);
     margin: $base-margin 0;
 
     &.small {
@@ -49,15 +49,16 @@ body {
 
   h4 {
     font-size: $h4;
+    font-weight: light;
     margin: $base-margin 0;
   }
 
   h5 {
-    font-size: $h5 !important;
+    font-size: $h5  !important;
   }
 
   h6 {
-    font-size: $h6 !important;
+    font-size: $h6  !important;
   }
 
   .bold {
@@ -71,15 +72,15 @@ body {
   }
 
   .huge-text {
-    font-size: $huge-text !important;
+    font-size: $huge-text  !important;
   }
 
   .biggest-text {
-    font-size: $biggest-text !important;
+    font-size: $biggest-text  !important;
   }
 
   .bigger-text {
-    font-size: $bigger-text !important;
+    font-size: $bigger-text  !important;
   }
 
   .big-text {
@@ -96,7 +97,7 @@ body {
   }
 
   .huge-text {
-    font-size: $huge-text !important;
+    font-size: $huge-text  !important;
   }
 
   .thin-text {

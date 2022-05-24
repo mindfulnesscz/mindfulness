@@ -15,17 +15,13 @@ body {
 
   .ess-main {
     padding: $quad-margin 0 $quad-margin 0;
-  }
-}
 
-
-@media only screen and (max-width: $medium-screen) {
-  #ess-body {
-    .ess-main {
-      padding: $base-margin 0;
+    @media only screen and (max-width: $large-screen) {
+      padding: $base-margin
     }
   }
 }
+
 
 a:hover {
   text-decoration: underline;
@@ -248,12 +244,6 @@ a:hover {
 
 
 main {
-  position: relative;
-  padding: $quad-margin;
-
-  @media only screen and (max-width: $medium-screen) {
-    padding: $base-margin;
-  }
 
   z-index: 2;
 
