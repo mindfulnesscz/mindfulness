@@ -78,6 +78,11 @@ $mindfulness_color_palette =
       'color'  => '#eeeeee',
     ),
     array(
+      'name'  => __('Grey - Lighten 6', 'mindfulness'),
+      'slug'  => 'grey-lighten-6',
+      'color'  => '#f9f9f9',
+    ),
+    array(
       'name'  => __('Grey - Darken 1', 'mindfulness'),
       'slug'  => 'grey-darken-1',
       'color'  => '#30383b',

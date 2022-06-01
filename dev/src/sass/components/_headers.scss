@@ -214,3 +214,24 @@ html #ess-body {
 
   }
 }
+
+/* ======================= TINY HEADER ======================= */
+
+
+  .ess-tiny-header {
+    background: color('grey', 'lighten-4');
+    height: auto;
+    padding-top: $base-margin;
+    padding-bottom: $base-margin;
+
+    h1 {
+      border: none;
+      text-align: left;
+      padding: $base-margin;
+      margin: 0;
+      float: left;
+      margin-left: 110px;
+      font-size: $h3;
+    }
+
+  }

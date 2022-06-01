@@ -7,7 +7,7 @@ body {
   p,
   li {
     font-size: calc(1.1rem + 0.05vw);
-    line-height: calc(1.5rem + 0.14vw);
+    line-height: calc(1.6rem + 0.15vw);
     margin: $base-margin 0;
 
     &.small {
@@ -59,6 +59,24 @@ body {
 
   h6 {
     font-size: $h6  !important;
+  }
+
+
+  ul.dotted {
+    margin-left: 2.25rem !important;
+
+    li::before {
+      content: "•";
+      color: var(--wm-primary-color);
+      font-weight: bold;
+      font-size: 140%;
+      display: inline-block;
+      width: 1rem;
+      margin-left: -1.6rem!important;
+      margin-right: 0.4rem;
+      position: relative;
+      top: 0.2rem;
+    }
   }
 
   .bold {
