@@ -9,9 +9,9 @@
 @import './components/buttons';
 
 
-.edit-post-layout {
+.edit-post-visual-editor {
 
-
+  @import './components/typography';
   @import './components/layout';
   @import './components/helpers';
 
