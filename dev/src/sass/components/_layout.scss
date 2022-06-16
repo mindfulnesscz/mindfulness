@@ -14,7 +14,6 @@ body {
   overflow-x: hidden;
 
   .ess-main {
-    padding: $quad-margin 0 $quad-margin 0;
 
     @media only screen and (max-width: $large-screen) {
       padding: $base-margin
@@ -52,38 +51,6 @@ a:hover {
 
 .m-auto {
   margin: auto
-}
-
-.w-100 {
-  width: 100%;
-}
-
-.max-w-100px {
-  max-width: 100px !important;
-}
-
-.max-w-200px {
-  max-width: 200px !important;
-}
-
-.max-w-300px {
-  max-width: 300px !important;
-}
-
-.max-w-400px {
-  max-width: 400px !important;
-}
-
-.max-w-500px {
-  max-width: 500px !important;
-}
-
-.max-w-600px {
-  max-width: 600px !important;
-}
-
-.h-100 {
-  height: 100% !important;
 }
 
 .force-margin {
@@ -244,12 +211,11 @@ a:hover {
 
 
 main {
-
-  z-index: 2;
-
   .row {
     justify-content: center
   }
+
+  margin: $quad-margin 0;
 }
 
 section {
