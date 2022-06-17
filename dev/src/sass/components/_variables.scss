@@ -1,9 +1,21 @@
-// 0. Layout
+/* 
+TABLE OF CONTENTS
+
+  1. Sizes
+  2. Typography
+  3. Colors
+  4. Spacings
+
+*/
+
+
+// 1. Sizes
 // ==========================================================================
 
 $small-screen-up : 461px;
 $medium-screen-up : 761px;
 $large-screen-up : 1201px;
+
 $small-screen : 460px;
 $medium-screen : 760px;
 $large-screen : 1200px;
@@ -14,6 +26,7 @@ $quad-margin : calc(3.2rem + 2vw);
 $sexta-margin : calc(4.8rem + 3vw);
 $okto-margin : calc(6.4rem + 4vw);
 $dodeca-margin : calc(9.6rem + 6vw);
+
 $half-margin : calc(0.4rem + 0.25vw);
 $quarter-margin : calc(0.2rem + 0.15vw);
 $reduced-margin : 1rem;
@@ -25,6 +38,28 @@ $minus-sexta-margin : calc((0.8rem + 0.5vw) * -6);
 $minus-okto-margin : calc((0.8rem + 0.5vw) * -8);
 
 
+// 2. Typography
+// ========================================================================== 
+
+
+$copy-font: 'Open Sans', Helvetica, Arial, sans-serif;
+$headline-font: 'Exo', sans-serif;
+
+$bread-text-sm: 14px;
+$bread-text-md: 16px;
+$bread-text-lg: 18px;
+
+$tiny-text-sm: 10px;
+$tiny-text-md: 11px;
+$tiny-text-lg: 13px;
+
+$small-text-sm: 12px;
+$small-text-md: 12px;
+$small-text-lg: 14px;
+
+$huge-text-sm: 26px;
+$huge-text-md: 36px;
+$huge-text-lg: 54px;
 
 $h1 : calc(2.65rem + 1vw);
 $h1-h2 : calc(1.65rem + 1.1vw);
@@ -34,10 +69,10 @@ $h4 : calc(1.2rem + 0.4vw);
 $h5 : calc(0.9rem + 0.1vw);
 $h6 : calc(0.7rem + 0.08vw);
 
+
 $big-text : calc(2.5rem + 0.7vw);
 $bigger-text : calc(2.9rem + 0.9vw);
 $biggest-text : calc(3.2rem + 1.2vw);
-$huge-text : calc(6.4rem + 2.2vw);
 
 $h4-lineheight : calc(1.7rem + 0.2vw);
 $h4-padding : calc(1.7rem + 0.2vw) 0;
@@ -56,7 +91,7 @@ $lg-button: calc(4rem + 2vw);
 $md-button: calc(2rem + 1vw);
 $sm-button: calc(1rem + 0.5vw);
 
-// 1. Colors
+// 3. Colors
 // ==========================================================================
 
 $primary-color : color("essblue", "base");
@@ -83,7 +118,7 @@ $ess-blue-transp : rgba(15, 42, 86, 0.2);
 
 // GRADIENT
 $ess-blue-gradient : linear-gradient(to left, color('grey', 'base'), color('grey', 'lighten-1'));
-$ess-blue-gradient-reverse : linear-gradient(to right, $ess-blue-supplementary, $ess-blue-dark);
+$ess-blue-gradient-reverse : linear-gradient(to right, $primary-color, $secondary-color);
 
 
 // button colors 
@@ -92,7 +127,7 @@ $primary-button-bg-hover : color('essblue', 'darken-1');
 
 
 
-// 2. Spacings
+// 4. Spacings
 // ==========================================================================
 
 
@@ -107,14 +142,19 @@ $spaces-map: (
   "dodeca" : $dodeca-margin
 );
 
-
-// 2. Typography
-// ========================================================================== 
-
-
-$copy-font: 'Open Sans',
-  Helvetica,
-  Arial,
-  sans-serif;
-$headline-font: 'Exo',
-  sans-serif;
+$spaces-values: (
+  "m": ("margin"),
+  "m-top": ("margin-top"),
+  "m-right": ("margin-right"),
+  "m-bot": ("margin-bottom"),
+  "m-left": ("margin-left"),
+  "m-hor": ("margin-left", "margin-right"),
+  "m-vert": ("margin-top", "margin-bottom"),
+  "p":("padding"),
+  "p-top": ("padding-top"),
+  "p-right": ("padding-right"),
+  "p-bot": ("padding-bottom"),
+  "p-left": ("padding-left"),
+  "p-hor": ("padding-left", "padding-right"),
+  "p-vert": ("padding-top", "padding-bottom"),
+);

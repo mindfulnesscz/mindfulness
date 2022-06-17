@@ -2,16 +2,13 @@
  Theme Name:   Mindfulness
  Theme URI:    https://essteyr.com
  Description:  ESS - Engineering Software Steyr Wordpress Theme
- Author:       Petr Mucha
+ Author:       Webmind
  Author URI:   http://petrmucha.cz
  Template:     Mindfulness
- Version:      1.0.1
+ Version:      3.0
 */
 
 /* SETTINGS */
-
-
-/* ===================================== */
 
 @import './components/colors';
 @import './components/variables';
@@ -21,12 +18,9 @@
 @import './components/buttons';
 @import './components/forms';
 @import './components/color_classes';
-@import './components/spacing';
+//@import './components/spacing_sass'; -- moved to separate css for testing
 
 /* COMPONENTS */
-
-
-/* ===================================== */
 
 @import './components/navbar';
 @import './components/navbar_classic';
@@ -69,14 +63,3 @@
 /* FLEXBOXGRID =====================================*/
 
 @import './components/flexboxgrid';
-
-/* MATERIALIZE ===================================== */
-
-@import 'materialize-css/sass/materialize';
-
-
-
-/* FOUNDATION UTILITY ===================================== */
-
-@import 'foundation-sites/scss/foundation';
-@include foundation-prototype-classes;

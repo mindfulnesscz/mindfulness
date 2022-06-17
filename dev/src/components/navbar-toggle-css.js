@@ -209,8 +209,6 @@ export default class NavbarToggleCss {
 
   init_on_homepage() {
 
-    this.init_type_toggle();
-
 
     const intro = MindCookies.getCookie('intro');
 
@@ -255,10 +253,6 @@ export default class NavbarToggleCss {
 
     );
 
-
-    this.init_type_toggle();
-
-
     if (this.menu_type != 'classic') this.init_cubic_menu();
 
     else this.init_classic_menu();
@@ -271,35 +265,6 @@ export default class NavbarToggleCss {
   // distinguishes between menu types based on interaction and cookies
 
 
-  init_type_toggle() {
-
-    this.menu_type = MindCookies.getCookie('type_toggle');
-
-
-    if (this.menu_type == '') this.menu_type = 'cubic';
-
-
-    this.el_type_toggle = document.getElementById('ess-menu-type-toggle');
-
-    console.log(this.el_type_toggle);
-
-
-    this.el_type_toggle_text_el = this.el_type_toggle.querySelector(
-
-      'span'
-
-    );
-
-
-    this.el_type_toggle.addEventListener(
-
-      'click',
-
-      this.set_type_toggle.bind(this)
-
-    );
-
-  }
 
 
   set_type_toggle() {
@@ -311,24 +276,24 @@ export default class NavbarToggleCss {
 
       switch (this.menu_type) {
 
-        case 'classic':
+      case 'classic':
 
-          this.init_cubic_menu();
-
-
-          break;
+        this.init_cubic_menu();
 
 
-        case 'cubic':
-          this.init_classic_menu();
+        break;
 
 
-          break;
+      case 'cubic':
+        this.init_classic_menu();
 
 
-        default:
+        break;
 
-          break;
+
+      default:
+
+        break;
 
       }
 
@@ -384,6 +349,7 @@ export default class NavbarToggleCss {
     this.toggle.classList.remove('cubic');
 
 
+    // eslint-disable-next-line no-undef
     this.m_navbar = M.Sidenav.getInstance(this.el_sidemenu);
 
 
@@ -447,13 +413,6 @@ export default class NavbarToggleCss {
 
 
     MindCookies.setCookie('type_toggle', 'cubic', 1000 * 60 * 720);
-
-
-    this.el_type_toggle_text_el.innerHTML = 'classic menu';
-
-
-    this.toggle.classList.add('cubic');
-
 
     if (this.ishomepage) {
 

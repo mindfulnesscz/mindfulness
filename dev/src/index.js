@@ -1,12 +1,11 @@
 /*jshint esversion: 6 */
 
-window.development = false;
+window.development = true;
 
 const src_desktop = '/assets/js/index_desktop.js';
 const src_mobile = '/assets/js/index_mobile.js';
 
 const EL_HTML = document.querySelector('html');
-
 let index_src = '';
 
 if (!window.template_url) {
@@ -62,6 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   script.src = window.template_url + '/' + index_src + '?ver=' + window.mindfulness_version;
   document.head.appendChild(script);
+
+  console.log('template url is: ' + window.template_url );
+  console.log('version is '+window.mindfulness_version);
 
 
 });

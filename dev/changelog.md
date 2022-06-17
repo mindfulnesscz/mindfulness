@@ -1,13 +1,14 @@
-## [2.1] - TODOs
-- get rid of materialize framework at all
-- New Header in general
-- New mobile menu
-- New footer with news and events slider to be wmwp-slider (go for react based one)
-- get rid of jquery
-- Cube redesign
+
+## [3.1] - TODOs
+- Cube design review
+
+## [3.0] - TODOs
 - split all the plugins to have separate git repos
-- clean styles and make html view of all possible classes
-- add the onscroll features on ess blocks
+- get rid of materialize and foundation frameworks as well as jQuery (replace with React)
+- SCSS cleanup and make html view of all possible classes
+- New Classic Menu
+- News category support
+- New footer with news and events slider to be wmwp-slider (go for react based one)
 
 ## [2.0.11] - 2022-05-18 (Date of Last Commit)
 

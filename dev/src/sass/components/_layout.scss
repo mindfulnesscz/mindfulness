@@ -28,15 +28,10 @@ a:hover {
 
 
 @mixin ess-fade($value) {
-  -webkit-transition: $value;
-  -ms-transition: $value;
-  -o-transition: $value;
   transition: $value;
 }
 
 @mixin shadow($value) {
-  -moz-box-shadow: $value;
-  -webkit-box-shadow: $value;
   box-shadow: $value;
 }
 
@@ -660,7 +655,7 @@ ul li {
   display: none;
 }
 
-.ess-desktop .hide-device {
+.ess-device .hide-device {
   display: none;
 }
 

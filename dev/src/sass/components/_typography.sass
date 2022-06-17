@@ -1,0 +1,50 @@
+@import './typography/headlines'
+
+body
+  font-family: $copy-font
+  font-weight: 200
+  font-size: 95%
+  color: $primary-text
+
+p, li
+  font-size: $bread-text-sm
+  line-height: calc(1.6rem + 0.15vw)
+  margin: $base-margin 0
+
+  &.small
+    font-size: calc(1rem + 0.08vw)
+    line-height: calc(1.4rem + 0.2vw)
+
+ul
+  &.dotted
+    margin-left: 2.25rem !important
+
+    li::before
+      content: "•"
+      color: var(--wm-primary-color)
+      font-weight: bold
+      font-size: 140%
+      display: inline-block
+      width: 1rem
+      margin-left: -1.6rem!important
+      margin-right: 0.4rem
+      position: relative
+      top: 0.2rem
+
+/* font weights ------------------------------------- */
+
+.light
+  font-weight: 100
+.bold
+  font-weight: bold
+.normal
+  font-weight: normal
+
+/* font sizes ------------------------------------- */
+
+.tiny-text
+  font-size: $tiny-text-sm
+.small-text
+  font-size: $small-text-sm
+.huge-text
+  font-size: $huge-text-sm
