@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The main template file
  *
@@ -20,60 +21,60 @@ get_header(); ?>
 <!--   ESS HEADER ============================================================================================== -->
 
 
-		<header id="ess-header">
-            <div class="ess-tiny-header">
-                <div class="container">
-                    <div class="row row-container force-margin">
-                        <div class="col-xs-12 col-lg-9">
-                            <h1>
-                                NEWS - generic page
-                            </h1>
-                        </div>
-                    </div>
+<header id="ess-header">
+  <div class="ess-tiny-header">
+    <div class="container">
+      <div class="row row-container force-margin">
+        <div class="col-xs-12 col-lg-9">
+          <h1>
+            NEWS - generic page
+          </h1>
+        </div>
+      </div>
 
-                </div>
-            </div>
-        </header>
+    </div>
+  </div>
+</header>
 
-		<main class="ess-main has-grey-lighten-5-background-color">
-			<section>
-				<div class="container">
-                    <div class="row news-row">
+<main class="ess-main has-gray-lighten-5-background-color">
+  <section>
+    <div class="container">
+      <div class="row news-row">
 
-<?php 
+        <?php
 
- while ( have_posts() ) : the_post();
- 
-            // Include the page content template.
-            get_template_part( 'template-parts/content/content', 'archive' );
-endwhile;
-			
-		
+        while (have_posts()) : the_post();
 
-?>
-					</div>
-				</div>
-			</section>
-		</main>
-
-	
- <!-- ========================================== CONTACT STRIP ========================================== -->
-
-
-			<section class="dark-block">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <h2>GOT YOU INTERESTED?</h2>
-                            <button id="ess-contact-sales-button" class="ess-button ess-lg-button outlined">
-                                CONTACT SALES
-                            </button>
-                            <p><a href="#">or see our pricing list</a></p>
-                        </div>
-                    </div>
-                </div>
-            </section>   
+          // Include the page content template.
+          get_template_part('template-parts/content/content', 'archive');
+        endwhile;
 
 
 
-<?php get_footer();?>
+        ?>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+<!-- ========================================== CONTACT STRIP ========================================== -->
+
+
+<section class="dark-block">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>GOT YOU INTERESTED?</h2>
+        <button id="ess-contact-sales-button" class="ess-button ess-lg-button outlined">
+          CONTACT SALES
+        </button>
+        <p><a href="#">or see our pricing list</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<?php get_footer(); ?>

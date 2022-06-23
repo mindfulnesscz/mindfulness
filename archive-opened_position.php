@@ -27,7 +27,7 @@ get_header(); ?>
   </div>
 </header>
 
-<main class="ess-main has-grey-lighten-5-background-color">
+<main class="ess-main has-gray-lighten-5-background-color">
   <section>
     <div class="container">
       <div class="row news-row">

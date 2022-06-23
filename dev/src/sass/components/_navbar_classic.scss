@@ -9,27 +9,27 @@
         margin: 0;
         list-style: none;
         color: $white;
-        border-bottom: 1px solid color("grey", "lighten-4");
+        border-bottom: 1px solid color("gray", "lighten-4");
 
         &.active {
-            background: color("grey", "lighten-5");
+            background: color("gray", "lighten-5");
         }
         a { 
             height: auto;
             text-align: center;
-            color: color('grey', 'lighten-1');
+            color: color('gray', 'lighten-1');
             padding: $base-margin $double-margin;
         
         }
         li {
-            border-top: 1px solid color('grey', 'lighten-4');
+            border-top: 1px solid color('gray', 'lighten-4');
             a {
                 padding: $half-margin $double-margin;
             }
         }
     }
     h1 {
-        color: color("grey", "base");
+        color: color("gray", "base");
         font-size: 2.5rem !important;
         margin: 0;
         //font-weight: bold;
@@ -37,7 +37,7 @@
     h2 {
         font-size: 1.3rem !important;
         margin: 0;
-        color: color("grey", "lighten-2");
+        color: color("gray", "lighten-2");
         line-height: 1.8rem;
     }
     #ess-side-logo {
@@ -57,10 +57,10 @@
         }
     }
      .collapsible-body > ul:not(.collapsible) > li.active {
-         color: color('grey', 'lighten-1');
-         background: color("grey", "lighten-4");
+         color: color('gray', 'lighten-1');
+         background: color("gray", "lighten-4");
      }
      .collapsible-body {
-         background: color("grey", "lighten-5");
+         background: color("gray", "lighten-5");
      }
 }

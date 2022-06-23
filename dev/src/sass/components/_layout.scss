@@ -219,7 +219,7 @@ section {
   padding: $base-margin 0;
 
   &.bg-secondary {
-    border-bottom: 1px dotted color('grey', 'base');
+    border-bottom: 1px dotted color('gray', 'base');
 
     h3 {
       color: $secondary-color;
@@ -435,7 +435,7 @@ ul {
 ul li {
   list-style-position: outside;
   margin: $base-margin 0;
-  color: color('grey', 'base');
+  color: color('gray', 'base');
 
 }
 
@@ -551,7 +551,7 @@ ul li {
   border: 1px solid $primary-color;
 }
 
-.border-grey-accent {
+.border-gray-accent {
   border: 1px solid $primary-text
 }
 
@@ -563,16 +563,16 @@ ul li {
   border: 1px solid $secondary-color;
 }
 
-.border-grey {
-  border: 1px solid color('grey', 'lighten-2')
+.border-gray {
+  border: 1px solid color('gray', 'lighten-2')
 }
 
-.border-grey-lighter {
-  border: 1px solid color('grey', 'lighten-2');
+.border-gray-lighter {
+  border: 1px solid color('gray', 'lighten-2');
 }
 
-.border-grey-darker {
-  border: 1px solid color('grey', 'base');
+.border-gray-darker {
+  border: 1px solid color('gray', 'base');
 }
 
 .border-psp {
@@ -589,7 +589,7 @@ ul li {
 
 .border-outset {
   padding: $base-margin;
-  border: 1px solid color('grey', 'lighten-2');
+  border: 1px solid color('gray', 'lighten-2');
   margin: $base-margin;
   position: relative;
 }
@@ -604,19 +604,19 @@ ul li {
 }
 
 .border-bot-light {
-  border-bottom: 1px solid color('grey', 'lighten-4');
+  border-bottom: 1px solid color('gray', 'lighten-4');
 }
 
-.border-bot-grey {
-  border-bottom: 1px solid color('grey', 'lighten-2');
+.border-bot-gray {
+  border-bottom: 1px solid color('gray', 'lighten-2');
 }
 
-.border-bot-grey-accent {
+.border-bot-gray-accent {
   border-bottom: 1px solid $primary-text;
 }
 
 .border-top-light {
-  border-top: 1px solid color('grey', 'lighten-4');
+  border-top: 1px solid color('gray', 'lighten-4');
 }
 
 
@@ -645,7 +645,7 @@ ul li {
 // TYPOGRAPHY
 
 .label-small {
-  color: color('grey', 'lighten-2');
+  color: color('gray', 'lighten-2');
   font-size: 90%;
 }
 

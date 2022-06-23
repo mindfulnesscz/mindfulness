@@ -49,27 +49,27 @@ $case_solutions = get_posts($cs_args);
                 <h1>Contact</h1>
               </div>
             </div>
-            <div class="css_block w_viii h_viii x_o y_iii css-grey">
+            <div class="css_block w_viii h_viii x_o y_iii css-gray">
               <a href="<?php echo home_url() . '/contact'; ?>">
                 <h2>Contact Us</h2>
               </a>
             </div>
-            <div class="css_block w_iv h_viii x_viii y_iii css-grey">
+            <div class="css_block w_iv h_viii x_viii y_iii css-gray">
               <a id="cube_subscribe_button">
                 <h2>Subscribe</h2>
               </a>
             </div>
-            <div class="css_block w_iv h_iv x_o y_xi css-grey-lighter">
+            <div class="css_block w_iv h_iv x_o y_xi css-gray-lighter">
               <a href="https://www.facebook.com/essteyr" target="_blank">
                 <h2><span class="ess-icon icon_facebook biggest-text"></span></h2>
               </a>
             </div>
-            <div class="css_block w_iv h_iv x_iv y_xi css-grey-lighter">
+            <div class="css_block w_iv h_iv x_iv y_xi css-gray-lighter">
               <a href="https://twitter.com/ESSteyr" target="_blank">
                 <h2><span class="ess-icon icon_twitter biggest-text"></span></h2>
               </a>
             </div>
-            <div class="css_block w_iv h_iv x_viii y_xi css-grey-lighter">
+            <div class="css_block w_iv h_iv x_viii y_xi css-gray-lighter">
               <a href="https://www.linkedin.com/company/ess-engineeringsoftwaresteyr" target="_blank">
                 <h2><span class="ess-icon icon_linkedin biggest-text"></span></h2>
               </a>
@@ -115,21 +115,21 @@ $case_solutions = get_posts($cs_args);
 
             <!-- ROW II ................................... -->
 
-            <div id="cube-side-paintshop" class="css_block w_iv h_iv x_o y_vii css-grey-lighter product-block">
+            <div id="cube-side-paintshop" class="css_block w_iv h_iv x_o y_vii css-gray-lighter product-block">
               <a href="<?php echo home_url(); ?>/alsim-paintshop">
                 <?php get_template_part('template-parts/content/content', 'svg-cube'); ?>
                 <h4>alsim</h4>
                 <h3>Paint Shop</h3>
               </a>
             </div>
-            <div id="cube-side-data-cleaning" class="css_block w_iv h_iv x_iv y_vii css-grey-lighter product-block">
+            <div id="cube-side-data-cleaning" class="css_block w_iv h_iv x_iv y_vii css-gray-lighter product-block">
               <a href="<?php echo home_url(); ?>/alsim-data-cleaning">
                 <?php get_template_part('template-parts/content/content', 'svg-cube'); ?>
                 <h4>alsim</h4>
                 <h3>Data Cleaning</h3>
               </a>
             </div>
-            <div id="cube-side-processing" class="css_block w_iv h_iv x_viii y_vii css-grey-lighter product-block">
+            <div id="cube-side-processing" class="css_block w_iv h_iv x_viii y_vii css-gray-lighter product-block">
               <a href="<?php echo home_url(); ?>/alsim-processing">
                 <?php get_template_part('template-parts/content/content', 'svg-cube'); ?>
                 <h4>alsim</h4>
@@ -139,28 +139,28 @@ $case_solutions = get_posts($cs_args);
 
             <!-- ROW III ................................... -->
 
-            <div id="cube-side-mobility" class="css_block w_iii h_iv x_o y_xi css-grey-lighter product-block">
+            <div id="cube-side-mobility" class="css_block w_iii h_iv x_o y_xi css-gray-lighter product-block">
               <a href="<?php echo home_url(); ?>/alsim-mobility">
                 <?php get_template_part('template-parts/content/content', 'svg-cube'); ?>
                 <h4>alsim</h4>
                 <h3>Mobility</h3>
               </a>
             </div>
-            <div id="cube-side-environment" class="css_block w_iii h_iv x_iii y_xi css-grey-lighter product-block">
+            <div id="cube-side-environment" class="css_block w_iii h_iv x_iii y_xi css-gray-lighter product-block">
               <a href="<?php echo home_url(); ?>/alsim-environment">
                 <?php get_template_part('template-parts/content/content', 'svg-cube'); ?>
                 <h4>alsim</h4>
                 <h3>Environment</h3>
               </a>
             </div>
-            <div id="cube-side-washing" class="css_block w_iii h_iv x_vi y_xi css-grey-lighter product-block">
+            <div id="cube-side-washing" class="css_block w_iii h_iv x_vi y_xi css-gray-lighter product-block">
               <a href="<?php echo home_url(); ?>/alsim-washing">
                 <?php get_template_part('template-parts/content/content', 'svg-cube'); ?>
                 <h4>alsim</h4>
                 <h3>Washing</h3>
               </a>
             </div>
-            <div id="cube-side-oil-gas" class="css_block w_iii h_iv x_ix y_xi css-grey-lighter product-block">
+            <div id="cube-side-oil-gas" class="css_block w_iii h_iv x_ix y_xi css-gray-lighter product-block">
               <a href="<?php echo home_url(); ?>/alsim-oil-gas">
                 <?php get_template_part('template-parts/content/content', 'svg-cube'); ?>
                 <h4>alsim</h4>
@@ -178,31 +178,31 @@ $case_solutions = get_posts($cs_args);
                 <h1>Case Solutions</h1>
               </div>
             </div>
-            <div class="css_block w_vi h_iv x_o y_iii css-grey">
+            <div class="css_block w_vi h_iv x_o y_iii css-gray">
               <a class="background-image-link" href="<?php echo get_post_permalink($case_solutions[0]->ID); ?>">
                 <img class="csscube-bkg-image" src="<?php print_r(get_the_post_thumbnail_url($case_solutions[0]->ID, 'thumbnail')); ?>">
                 <h3><?php echo $case_solutions[0]->post_title; ?></h3>
               </a>
             </div>
-            <div class="css_block w_vi h_iv x_vi y_iii css-grey">
+            <div class="css_block w_vi h_iv x_vi y_iii css-gray">
               <a class="background-image-link" href="<?php echo get_post_permalink($case_solutions[1]->ID); ?>">
                 <img class="csscube-bkg-image" src="<?php print_r(get_the_post_thumbnail_url($case_solutions[1]->ID, 'thumbnail')); ?>">
                 <h3><?php echo $case_solutions[1]->post_title; ?></h3>
               </a>
             </div>
-            <div class="css_block w_vi h_iv x_o y_vii css-grey">
+            <div class="css_block w_vi h_iv x_o y_vii css-gray">
               <a class="background-image-link" href="<?php echo get_post_permalink($case_solutions[2]->ID); ?>">
                 <img class="csscube-bkg-image" src="<?php print_r(get_the_post_thumbnail_url($case_solutions[2]->ID, 'thumbnail')); ?>">
                 <h3><?php echo $case_solutions[2]->post_title; ?></h3>
               </a>
             </div>
-            <div class="css_block w_vi h_iv x_vi y_vii css-grey">
+            <div class="css_block w_vi h_iv x_vi y_vii css-gray">
               <a class="background-image-link" href="<?php echo get_post_permalink($case_solutions[3]->ID); ?>">
                 <img class="csscube-bkg-image" src="<?php print_r(get_the_post_thumbnail_url($case_solutions[3]->ID, 'thumbnail')); ?>">
                 <h3><?php echo $case_solutions[3]->post_title; ?></h3>
               </a>
             </div>
-            <div class="css_block w_xii h_iv x_o y_xi css-grey-lighter">
+            <div class="css_block w_xii h_iv x_o y_xi css-gray-lighter">
               <a href="<?php echo get_post_type_archive_link('case_solution'); ?>">
                 <h2 class="has-text-align-right icon-headline medium-icon just-right color-secondary">
                   <span class="color-primary ess-icon icon_circle_arrow_right"></span>
@@ -212,7 +212,7 @@ $case_solutions = get_posts($cs_args);
             </div>
 
 
-            <!--<div class="css_block w_xii h_xii x_o y_iii css-grey">
+            <!--<div class="css_block w_xii h_xii x_o y_iii css-gray">
               <div>
                 <span class="ess-icon icon_circle_arrow_right huge-text color-secondary"><span>
               </div>
@@ -228,7 +228,7 @@ $case_solutions = get_posts($cs_args);
                 <h1>INDUSTRIES</h1>
               </div>
             </div>
-            <div class="cbl-industry css_block w_vi h_vi x_o y_iii css-grey-lighter">
+            <div class="cbl-industry css_block w_vi h_vi x_o y_iii css-gray-lighter">
               <a href="<?php echo home_url() . '/automotive'; ?>">
                 <div class="cc-icon-h">
                   <?php get_template_part('template-parts/content/industries/content', 'automotive'); ?>
@@ -236,7 +236,7 @@ $case_solutions = get_posts($cs_args);
                 <h2>Automotive</h2>
               </a>
             </div>
-            <div class="cbl-industry css_block w_vi h_vi x_vi y_iii css-grey-lighter">
+            <div class="cbl-industry css_block w_vi h_vi x_vi y_iii css-gray-lighter">
               <a href="<?php echo home_url() . '/oil-gas'; ?>">
                 <div class="cc-icon-h">
                   <?php get_template_part('template-parts/content/industries/content', 'oil-gas'); ?>
@@ -244,7 +244,7 @@ $case_solutions = get_posts($cs_args);
                 <h2>Oil & Gas</h2>
               </a>
             </div>
-            <div class="cbl-industry css_block w_vi h_vi x_o y_ix css-grey-lighter">
+            <div class="cbl-industry css_block w_vi h_vi x_o y_ix css-gray-lighter">
               <a href="<?php echo home_url() . '/processing'; ?>">
                 <div class="cc-icon-h">
                   <?php get_template_part('template-parts/content/industries/content', 'processing'); ?>
@@ -252,7 +252,7 @@ $case_solutions = get_posts($cs_args);
                 <h2>Processing</h2>
               </a>
             </div>
-            <div class="cbl-industry css_block w_vi h_vi x_vi y_ix css-grey-lighter">
+            <div class="cbl-industry css_block w_vi h_vi x_vi y_ix css-gray-lighter">
               <a href="<?php echo home_url() . '/energy-environment'; ?>">
                 <div class="cc-icon-h">
                   <?php get_template_part('template-parts/content/industries/content', 'environment-energy'); ?>
@@ -268,35 +268,35 @@ $case_solutions = get_posts($cs_args);
 
 
           <div id="csscube-bottom">
-            <div class="css_block w_xii h_v x_o y_o css-grey-lighter">
+            <div class="css_block w_xii h_v x_o y_o css-gray-lighter">
               <a href="<?php echo home_url(); ?>">
                 <img alt="ESS" style="max-height: 80%; width: 100%;" src="<?php echo get_template_directory_uri() . '/assets/images/ess_logo.svg'; ?>">
               </a>
             </div>
 
 
-            <div class="css_block w_vi h_iii x_o y_v css-grey-lighter">
+            <div class="css_block w_vi h_iii x_o y_v css-gray-lighter">
               <a href="<?php echo home_url() . '/about-us' ?>">
                 <!--<img style="height: 60%; width: auto;" src="<?php echo get_template_directory_uri() . '/assets/images/logo_image_ess.svg' ?>">-->
                 <h2>About us</h2>
               </a>
             </div>
-            <div class="css_block w_vi h_iii x_vi y_v css-grey-lighter">
+            <div class="css_block w_vi h_iii x_vi y_v css-gray-lighter">
               <a href="<?php /*echo get_post_permalink(ess_get_career_page_id());*/ echo home_url() . '/career' ?>">
                 <h2>Career</h2>
               </a>
             </div>
-            <!--<div class="css_block w_vi h_v x_vi y_v css-grey-lighter">
+            <!--<div class="css_block w_vi h_v x_vi y_v css-gray-lighter">
               <a href="<?php echo home_url() . '/about-us#our-team' ?>">
                 <h2>Our Team</h2>
               </a>
             </div>-->
-            <div class="css_block w_vi h_iii x_o y_viii css-grey-lighter">
+            <div class="css_block w_vi h_iii x_o y_viii css-gray-lighter">
               <a href="<?php echo  get_post_type_archive_link('news'); ?>">
                 <h2>News</h2>
               </a>
             </div>
-            <div class="css_block w_vi h_iii x_vi y_viii css-grey-lighter">
+            <div class="css_block w_vi h_iii x_vi y_viii css-gray-lighter">
               <a href="<?php echo  get_post_type_archive_link('events'); ?>">
                 <h2>Events</h2>
               </a>

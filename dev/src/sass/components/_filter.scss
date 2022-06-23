@@ -4,11 +4,11 @@
 		h6 {
 			padding: $half-margin 0 0 $double-margin;
 			margin: 0;
-			//border-bottom: 1px solid color('grey', 'lighten-2')
+			//border-bottom: 1px solid color('gray', 'lighten-2')
 		}
 
 		.filter-row {
-			border-bottom: 1px solid color('grey', 'lighten-2')-light-ii;
+			border-bottom: 1px solid color('gray', 'lighten-2')-light-ii;
 
 			&:last-child {
 				border-bottom: none;

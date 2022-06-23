@@ -50,7 +50,7 @@ $alpha-inactive : 0.1;
     align-self: baseline;
     position: relative;
     top: 0;
-    border-bottom: 1px solid color("grey", "lighten-2");
+    border-bottom: 1px solid color("gray", "lighten-2");
 
     ul {
       margin: 0;
@@ -67,14 +67,14 @@ $alpha-inactive : 0.1;
         display: inline-block;
 
         &+li {
-          border-left: 1px solid color("grey", "lighten-2");
+          border-left: 1px solid color("gray", "lighten-2");
         }
 
         a {
           display: block;
           padding: 0 $base-margin;
           cursor: pointer;
-          color: color("grey", "base");
+          color: color("gray", "base");
           transition: background .5s ease, color .5s ease, border .5s ease;
           border: 1px solid rgba(0, 0, 0, 0);
           height: 4rem;
@@ -82,13 +82,13 @@ $alpha-inactive : 0.1;
 
           &:hover {
             text-decoration: none;
-            //background: color('grey', 'lighten-2')-light-iii;
-            color: color("grey", "base");
+            //background: color('gray', 'lighten-2')-light-iii;
+            color: color("gray", "base");
           }
 
           &.active {
-            color: color("grey", "base");
-            //background: color('grey', 'lighten-2')-light-iii;
+            color: color("gray", "base");
+            //background: color('gray', 'lighten-2')-light-iii;
           }
         }
       }
@@ -106,18 +106,18 @@ $alpha-inactive : 0.1;
 
 .css_block {
 
-  //border: 0.5px solid color("grey", "base");
+  //border: 0.5px solid color("gray", "base");
 
   a {
     padding: $half-margin;
   }
 
-  &.css-grey>div,
-  &.css-grey>a {
-    background: color("grey", "lighten-2");
+  &.css-gray>div,
+  &.css-gray>a {
+    background: color("gray", "lighten-2");
 
     &:hover {
-      background: color("grey", "lighten-3");
+      background: color("gray", "lighten-3");
     }
   }
 
@@ -139,8 +139,8 @@ $alpha-inactive : 0.1;
   }
 
   &.css-white>div,
-  &.css-grey-lighter>a {
-    background: color('grey', 'lighten-5');
+  &.css-gray-lighter>a {
+    background: color('gray', 'lighten-5');
 
     &:hover {
       background: $white;
@@ -166,8 +166,8 @@ $alpha-inactive : 0.1;
     }
   }
 
-  &.css-color-dark-grey>div,
-  &.css-color-dark-grey>a {
+  &.css-color-dark-gray>div,
+  &.css-color-dark-gray>a {
     color: $primary-text;
   }
 
@@ -289,8 +289,8 @@ $alpha-inactive : 0.1;
                   padding: 0 20%;
 
                   .ess-anim-icon {
-                    fill: color('grey', 'lighten-3');
-                    stroke: color('grey', 'base');
+                    fill: color('gray', 'lighten-3');
+                    stroke: color('gray', 'base');
                   }
                 }
 
@@ -361,7 +361,7 @@ $alpha-inactive : 0.1;
     }
 
     #csscube-shadow {
-      background: color("grey", "base");
+      background: color("gray", "base");
       opacity: 0.1;
       filter: blur(30px);
       z-index: 1;
@@ -441,7 +441,7 @@ $alpha-inactive : 0.1;
   }
 
   a:hover {
-    background-color: color('grey', 'lighten-4');
+    background-color: color('gray', 'lighten-4');
   }
 
   h3 {
@@ -458,10 +458,9 @@ $alpha-inactive : 0.1;
       font-weight: bold;
     }
 
-    a {}
 
     a:hover {
-      background: color('grey', 'lighten-4');
+      background: color('gray', 'lighten-4');
     }
   }
 

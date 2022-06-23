@@ -41,13 +41,13 @@ echo sizeof($cats_slugs);
 
 ?>
 
-<section class="no-padding bg-grey-lighter">
+<section class="no-padding bg-gray-lighter">
   <div class="container">
     <h2 class="no-margin textalign-center p-top-base p-bot-base">ESS Solutions for the <?php echo $cats[0]->name ?> Industry:</h2>
   </div>
 </section>
 
-<section class="no-padding has-grey-lighten-4-background-color">
+<section class="no-padding has-gray-lighten-4-background-color">
   <div class="container">
     <div class="row justify-center">
 

@@ -40,7 +40,7 @@ endwhile;
 </section>
 
 
-<section class="no-padding bg-grey-lightest">
+<section class="no-padding bg-gray-lightest">
 
   <iframe id="ess-main-map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d21341.305078203077!2d14.4066302!3d48.0395326!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4773c58d19fcd59b%3A0x5728351a7987830e!2sESS+Engineering+Software+Steyr+GmbH!5e0!3m2!1sen!2sat!4v1558684074566!5m2!1sen!2sat" style="border: 0px none; pointer-events: all;" allowfullscreen="" frameborder="0"></iframe>
 

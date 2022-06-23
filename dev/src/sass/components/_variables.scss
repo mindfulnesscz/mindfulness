@@ -95,29 +95,29 @@ $sm-button: calc(1rem + 0.5vw);
 // ==========================================================================
 
 $primary-color : color("essblue", "base");
-$primary-color-hover : color("essblue", "darken-1");
-$primary-text : color("grey", "base");
-$secondary-color : color("grey", "base");
+$primary-color-hover : color("essblue", "darken-3");
+$primary-text : color("gray", "darken-2");
+$secondary-color : color("gray", "base");
 $white : color("shades", "white");
 
 //SYSTEM
 $success-color : color("green", "base");
 $error-color : color("red", "base");
 
-$link-color : color("grey", "base");
+$link-color : color("gray", "base");
 $ess-base-green : color("green", "base");
 
 $card-link-color : color("essblue", "base");
-$footer-font-color : color("grey", "base");
-$footer-bg-color : color("grey", "lighten-4");
-$footer-copyright-font-color: color("grey", "lighten-2");
+$footer-font-color : color("gray", "base");
+$footer-bg-color : color("gray", "lighten-4");
+$footer-copyright-font-color: color("gray", "lighten-2");
 $footer-copyright-bg-color : none;
 $ess-blue-transp : rgba(15, 42, 86, 0.2);
 
 
 
 // GRADIENT
-$ess-blue-gradient : linear-gradient(to left, color('grey', 'base'), color('grey', 'lighten-1'));
+$ess-blue-gradient : linear-gradient(to left, color('gray', 'base'), color('gray', 'lighten-1'));
 $ess-blue-gradient-reverse : linear-gradient(to right, $primary-color, $secondary-color);
 
 

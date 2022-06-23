@@ -1,7 +1,7 @@
 #ess-body {
 
   .dark-block {
-    background: color('grey', 'darken-1');
+    background: color('gray', 'darken-1');
     color: $white;
     padding: $double-margin;
     text-align: center;
@@ -20,7 +20,7 @@
   }
 
   .dark-block .row .ess-item:last-child {
-    border-right: color('grey', 'lighten-2');
+    border-right: color('gray', 'lighten-2');
   }
 
   @media only screen and (max-width: $medium-screen) {

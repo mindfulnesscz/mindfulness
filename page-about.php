@@ -35,7 +35,7 @@ endwhile;
 
 <!--   TEAM  =========================================================================================================================-->
 
-<main id="our-team" class="has-grey-lighten-5-background-color p-top-double">
+<main id="our-team" class="has-gray-lighten-5-background-color p-top-double">
 
   <section class="wp-block-mindfulness-blocks-ess-section ess-section no-margin no-padding p-top-base">
     <div class="container">
@@ -174,7 +174,7 @@ endwhile;
 
 <div class='m-spacer-iv'></div>
 
-<section class="bg-grey-lightest wp-block-mindfulness-blocks-ess-section ess-section no-margin no-padding p-top-base">
+<section class="bg-gray-lightest wp-block-mindfulness-blocks-ess-section ess-section no-margin no-padding p-top-base">
   <div class="container">
     <div class="justify-center center p-bot-base">
       <h3 class="text-center subsection-headline">OUR SOLUTIONS:</h3>
@@ -184,7 +184,7 @@ endwhile;
 
 
 
-<section class="no-padding bg-grey-lightest p-bot-double ">
+<section class="no-padding bg-gray-lightest p-bot-double ">
   <div class="container">
     <div class="row p-top-double p-bot-double">
       <a href="<?php echo get_home_url(); ?>/alsim-cloud" class="p-top-double p-bot-quad col-xs-12 col-lg-4 ess-link-wrapper mf-scale-link aligncenter">

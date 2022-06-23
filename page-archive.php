@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying Archive of posts
  *
@@ -15,50 +16,50 @@ get_header(); ?>
 <!--   ESS HEADER ============================================================================================== -->
 
 
-		<header id="ess-header">
-            <div class="ess-tiny-header">
-                <div class="container">
-                    <div class="row row-container force-margin">
-                        <div class="col-xs-12 col-lg-9">
-                            <h1>
-                                NEWS
-                            </h1>
-                        </div>
-                    </div>
+<header id="ess-header">
+  <div class="ess-tiny-header">
+    <div class="container">
+      <div class="row row-container force-margin">
+        <div class="col-xs-12 col-lg-9">
+          <h1>
+            NEWS
+          </h1>
+        </div>
+      </div>
 
-                </div>
-            </div>
-        </header>
+    </div>
+  </div>
+</header>
 
-		<main id="ess-main" class="has-grey-lighten-5-background-color">
-			<section>
-				<div class="container">
-                    <div class="row news-row">
+<main id="ess-main" class="has-gray-lighten-5-background-color">
+  <section>
+    <div class="container">
+      <div class="row news-row">
 
-<?php 
+        <?php
 
- while ( have_posts() ) : the_post();
- 
-            // Include the page content template.
-            get_template_part( 'template-parts/content/content', 'archive' );
-endwhile;
-			
-		
+        while (have_posts()) : the_post();
 
+          // Include the page content template.
+          get_template_part('template-parts/content/content', 'archive');
+        endwhile;
+
+
+
+        ?>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+<!-- ========================================== CONTACT STRIP ========================================== -->
+
+
+<?php
+get_template_part('template-parts/content/content', 'contactstrip');
 ?>
-					</div>
-				</div>
-			</section>
-		</main>
-
-	
- <!-- ========================================== CONTACT STRIP ========================================== -->
-
-
- <?php 
-	get_template_part( 'template-parts/content/content', 'contactstrip' );
-?> 
 
 
 
-<?php get_footer();?>
+<?php get_footer(); ?>

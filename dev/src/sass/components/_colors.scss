@@ -47,15 +47,15 @@ $red: ("base" : #F44336,
   "darken-2" : #D32F2F);
 
 
-$grey: ("base" : #504d50,
-  "darken-1" : #30383b,
-  "darken-2" : #2b2f31,
-  "lighten-6": #f9f9f9,
-  "lighten-5" : #eeeeee,
-  "lighten-4" : #e6e7e8,
-  "lighten-3" : #d3d4d5,
-  "lighten-2" : #bfbfc0,
-  "lighten-1" : #787a7a);
+$gray: ("base" : #BEBEBE,
+  "darken-1" : #787878,
+  "darken-2" : #4D4D4D,
+  "darken-3" : #2D2D2D,
+  "lighten-1" : #E1E1E1,
+  "lighten-2" : #E6E6E6,
+  "lighten-3" : #F6F6F6,
+  "lighten-4" : #F6F6F6,
+  "lighten-5" : #F6F6F6);
 
 $processing: ("base" : #d4cba4,
   "darken-1" : #c2b98e,
@@ -111,7 +111,7 @@ $shades: ("black" : #000000,
 $colors-ess: ("essblue": $essblue,
   "red": $red,
   "green": $green,
-  "grey": $grey,
+  "gray": $gray,
   "shades": $shades,
   "processing":$processing,
   "data-cleaning": $data-cleaning,
@@ -195,21 +195,21 @@ $color_value in $shades {
 }
 
 
-// GREY CLASSES ---------------------------------------------------
+// gray CLASSES ---------------------------------------------------
 
 
 @each $color,
-$color_value in $grey {
+$color_value in $gray {
 
-  .has-grey-#{$color}-background-color {
+  .has-gray-#{$color}-background-color {
     background-color: $color_value;
   }
 
-  .grey-#{$color}-text-color {
+  .gray-#{$color}-text-color {
     color: $color_value;
   }
 
-  .has-grey-#{$color}-color {
+  .has-gray-#{$color}-color {
     color: $color_value;
   }
 }

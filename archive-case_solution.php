@@ -29,7 +29,7 @@ get_header(); ?>
 
 <main class="ess-main no-padding">
 
-  <section class="ess-posts-filter bg-grey-lighter p-hor-base">
+  <section class="ess-posts-filter bg-gray-lighter p-hor-base">
 
     <div class="container" id="filter-holder">
 
@@ -47,7 +47,7 @@ get_header(); ?>
         //print_r($category);
       ?>
 
-        <h6 class="color-grey-darker">filter by <?php echo $category->name ?></h6>
+        <h6 class="color-gray-darker">filter by <?php echo $category->name ?></h6>
         <ul class="filter-row" row="<?php echo $category->slug ?>">
           <li class="filter-item" data-filter="all"><button class="ess-button filter-active">All</button></li>
           <?php

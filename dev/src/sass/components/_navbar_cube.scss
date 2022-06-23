@@ -53,8 +53,8 @@ $nav_cube_side_shift_2: 3rem;
         .navcube-back,
         .navcube-top,
         .navcube-bottom {
-          background-color: color('grey', 'lighten-4');
-          //border: 2px solid color('grey', 'lighten-2');
+          background-color: color('gray', 'lighten-4');
+          //border: 2px solid color('gray', 'lighten-2');
           position: absolute;
           backface-visibility: hidden;
           width: $nav_cube_side_width;
@@ -71,15 +71,15 @@ $nav_cube_side_shift_2: 3rem;
         }
 
         .navcube-right {
-          background-color: color('grey', 'base');
+          background-color: color('gray', 'base');
         }
 
         .navcube-back {
-          background-color: color('grey', 'lighten-1');
+          background-color: color('gray', 'lighten-1');
         }
 
         .navcube-bottom {
-          background-color: color('grey', 'base');
+          background-color: color('gray', 'base');
         }
 
         .navcube-front {

@@ -52,7 +52,7 @@ $posts = get_posts($args);
 
 
 if (!empty($posts)) : ?>
-  <section class="no-padding has-grey-lighten-5-background-color">
+  <section class="no-padding has-gray-lighten-5-background-color">
     <div class="container p-vert-double">
 
       <h3 class="textalign-center p-bot-base p-top-base">

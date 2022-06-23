@@ -1,6 +1,6 @@
 .page-footer {
   font-size: 80%;
-  background: color('grey', 'lighten-3') !important;
+  background: color('gray', 'lighten-2') !important;
   padding: $double-margin 0;
 
   .col-footer-news {
@@ -30,7 +30,7 @@
   h4,
   h5,
   h6 {
-    color: color('grey', 'base') !important;
+    color: color('gray', 'base') !important;
     font-size: 80%;
   }
 
@@ -49,12 +49,12 @@
   a {
     padding-top: .5rem;
     display: block;
-    color: color("grey", "base");
+    color: color("gray", "base");
     text-decoration: none;
   }
 
   a:hover {
-    color: color("grey", "base");
+    color: color("gray", "base");
     text-decoration: underline;
   }
 
@@ -108,17 +108,17 @@
     text-align: center;
 
     .copyright-element {
-      color: color('grey', 'lighten-2')-dark-ii;
+      color: color('gray', 'lighten-2')-dark-ii;
       display: inline-block;
       padding: 0 $half-margin;
-      border-left: 1px solid color('grey', 'lighten-2');
+      border-left: 1px solid color('gray', 'lighten-2');
 
       &:first-child {
         border-left: none;
       }
 
       a {
-        color: color('grey', 'lighten-2')-dark-iii;
+        color: color('gray', 'lighten-2')-dark-iii;
       }
     }
   }
@@ -163,7 +163,7 @@
   .col-footer-menu,
   .col-footer-news,
   .col-footer-events {
-    border-right: 1px solid color('grey', 'lighten-2')
+    border-right: 1px solid color('gray', 'lighten-2')
   }
 
   .col-footer-menu .row>div {

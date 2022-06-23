@@ -49,7 +49,7 @@ get_header(); ?>
       </div>
     </div>
   </section>
-  <section class="bg-grey-lighter">
+  <section class="bg-gray-lighter">
     <div class="container">
       <div class="row">
         <div class="col-xs-12" style="padding: 4rem 0 10rem 0;">
@@ -57,7 +57,7 @@ get_header(); ?>
 
           <form style="text-align: center;" role="search" method="get" id="searchform-big" action="<?php echo home_url('/'); ?>">
             <div class="border-outset">
-              <input type="text" style="padding: 1rem 0" class="ess-input big-text aligncenter color-grey-darker" value="Enter Keyword" name="s" id="s" />
+              <input type="text" style="padding: 1rem 0" class="ess-input big-text aligncenter color-gray-darker" value="Enter Keyword" name="s" id="s" />
             </div>
             <input class="ess-button big-button ess-submit" type="submit" id="searchsubmit" value="Search" />
           </form>
