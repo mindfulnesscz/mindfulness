@@ -18,8 +18,7 @@
 @import './components/buttons';
 @import './components/forms';
 @import './components/color_classes';
-//@import './components/spacing_sass'; -- moved to separate css for testing
-
+@import './components/spacing'; //-- Eventually moved to separate css for testing
 /* COMPONENTS */
 
 @import './components/navbar';

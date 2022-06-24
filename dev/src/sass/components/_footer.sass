@@ -1,0 +1,139 @@
+.page-footer
+  background: color('gray', 'lighten-2')
+  padding-top: $double-margin
+
+  .footer-section-headline
+    margin-bottom: $base-margin
+
+  .footer-feed-img
+    border-radius: 4px
+    margin: 0
+    width: 100%
+    max-width: 250px
+
+  .col-footer-news
+    order: 1
+
+  .col-footer-events
+    order: 2
+
+  .col-footer-contact
+    order: 4
+
+  .col-footer-menu
+    order: 3
+
+    li
+      &::before
+        display: none
+
+        list-style: none
+
+  h4,
+  h5,
+  h6
+    font-size: 80%
+
+  h5
+    font-size: 110%
+
+  h6
+    font-size: 100%
+
+  img
+    display: block
+
+  a
+    padding-top: .5rem
+    display: block
+    text-decoration: none
+
+  a:hover
+    text-decoration: underline
+
+  .row .col
+    margin-top: $base-margin
+
+  & .row .col
+    margin-top: 0
+
+  & .col
+    margin: 0
+    padding: 0
+
+  & ul
+    margin: 0
+    padding: 0
+    list-style-type: none
+
+  li
+    margin: 0
+    padding: 0
+
+  .ess-footer-article-content
+    padding-top: $half-margin
+    padding-bottom: $base-margin
+
+  button
+    margin-top: $half-margin
+
+  .ess-submit
+    margin: 0
+
+  .footer-copyright
+    text-align: center
+
+    .copyright-element
+      display: inline-block
+      padding: 0 $half-margin
+      border-left: 1px solid color('gray', 'darken-2')
+
+      &:first-child
+        border-left: none
+
+.page-footer>.container>.row>.col+.col
+  border-left: 1px solid #999
+
+.ess-subscribe-footer
+  display: flex
+  flex-flow: row nowrap
+
+  .input-holder
+    flex-grow: 3
+    border: none
+
+    input
+      width: 100%
+
+  .button-holder
+    flex-grow: 1
+
+  #subscribe-button
+    width: 100%
+
+.col-footer-news
+  border-right: 1px solid color('gray', 'base')
+
+#ess-body #ess-footer
+  ul
+    padding: 0
+
+  .col-footer-menu,
+  .col-footer-news,
+  .col-footer-events
+    border-right: 1px solid color('gray', 'base')
+
+  .col-footer-menu .row>div
+    padding: 0 $half-margin
+
+@media only screen and (max-width: $large-screen)
+  #ess-footer
+    .col-footer-contact
+      order: 3
+
+    .col-footer-menu
+      order: 4
+
+@media only screen and (max-width: $small-screen)
+  #ess-footer>.container .row>.col-xs-12
+    padding-bottom: $double-margin

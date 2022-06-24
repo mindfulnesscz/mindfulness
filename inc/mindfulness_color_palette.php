@@ -50,42 +50,47 @@ $mindfulness_color_palette =
     array(
       'name'  => __('gray - Base', 'mindfulness'),
       'slug'  => 'gray-base',
-      'color'  => '#504d50',
+      'color'  => '#bebeeb',
     ),
     array(
       'name'  => __('gray - Lighten 1', 'mindfulness'),
       'slug'  => 'gray-lighten-1',
-      'color'  => '#787a7a',
+      'color'  => '#D4D4D4',
     ),
     array(
       'name'  => __('gray - Lighten 2', 'mindfulness'),
       'slug'  => 'gray-lighten-2',
-      'color'  => '#bfbfc0',
+      'color'  => '#E6E6E6',
     ),
     array(
       'name'  => __('gray - Lighten 3', 'mindfulness'),
       'slug'  => 'gray-lighten-3',
-      'color'  => '#d3d4d5',
+      'color'  => '#E1E1E1',
     ),
     array(
       'name'  => __('gray - Lighten 4', 'mindfulness'),
       'slug'  => 'gray-lighten-4',
-      'color'  => '#e6e7e8',
+      'color'  => 'F5F5F5',
     ),
     array(
       'name'  => __('gray - Lighten 5', 'mindfulness'),
       'slug'  => 'gray-lighten-5',
-      'color'  => '#eeeeee',
-    ),
-    array(
-      'name'  => __('gray - Lighten 6', 'mindfulness'),
-      'slug'  => 'gray-lighten-6',
-      'color'  => '#f9f9f9',
+      'color'  => '#F9F9F9',
     ),
     array(
       'name'  => __('gray - Darken 1', 'mindfulness'),
       'slug'  => 'gray-darken-1',
-      'color'  => '#30383b',
+      'color'  => '#787878',
+    ),
+    array(
+      'name'  => __('gray - Darken 2', 'mindfulness'),
+      'slug'  => 'gray-darken-2',
+      'color'  => '#4D4D4D',
+    ),
+    array(
+      'name'  => __('gray - Darken 3', 'mindfulness'),
+      'slug'  => 'gray-darken-3',
+      'color'  => '#2D2D2D',
     ),
     array(
       'name'  => __('White', 'mindfulness'),

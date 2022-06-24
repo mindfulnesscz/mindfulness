@@ -1,0 +1,22 @@
+@mixin flex-center ()
+  align-items: center
+  justify-content: center
+
+.ess-depth-1
+  @include shadow(0rem 0.5rem 0.8rem 0rem rgba(0, 0, 0, 0.5))
+
+.ess-depth-5
+  @include shadow(0rem 2rem 3rem 0rem rgba(0, 0, 0, 0.3))
+
+.grow
+  flex-grow: 1
+
+.ess-horizontal-reveal
+  height: 0
+  overflow: hidden
+  width: 100%
+  opacity: 0
+
+.ess-vertical-reveal
+  width: 0
+  overflow: hidden

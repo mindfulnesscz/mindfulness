@@ -6,22 +6,21 @@
 html,
 body {
   background-color: color("shades", "white");
-  color: color ("gray", "darken-3");
-  font-size: 100%;
   margin: 0;
 }
 
 #ess-body {
   overflow-x: hidden;
 
-  .ess-main {
 
-    @media only screen and (max-width: $large-screen) {
-      padding: $base-margin
-    }
-  }
 }
 
+.ess-main {
+
+  @media only screen and (max-width: $large-screen) {
+    padding: $base-margin
+  }
+}
 
 a:hover {
   text-decoration: underline;
@@ -221,10 +220,6 @@ section {
   &.bg-secondary {
     border-bottom: 1px dotted color('gray', 'base');
 
-    h3 {
-      color: $secondary-color;
-      padding: $base-margin 0;
-    }
   }
 }
 
@@ -435,8 +430,6 @@ ul {
 ul li {
   list-style-position: outside;
   margin: $base-margin 0;
-  color: color('gray', 'base');
-
 }
 
 #ess-body.ess-body-frontend {

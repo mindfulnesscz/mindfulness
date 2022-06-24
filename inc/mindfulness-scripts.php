@@ -57,17 +57,4 @@ function mindfulness_scripts()
     wp_enqueue_script('ess-filter', get_template_directory_uri() . '/assets/js/ess-filter.js', array(), mindfulness_version());
 
   endif;
-
-  if (is_page_template('page-bampaper.php')) :
-
-    wp_register_script('bam-filter-paper', get_template_directory_uri() . '/assets/js/bamfilter.js', array('TweenMax', 'ess'), mindfulness_version());
-    wp_enqueue_script('bam-filter-paper');
-
-    wp_register_style('bam-filter-paper-style', get_template_directory_uri() . '/assets/css/bamfilter.css', array(), mindfulness_version());
-    wp_enqueue_style('bam-filter-paper-style');
-
-  endif;
-
-
-
 }

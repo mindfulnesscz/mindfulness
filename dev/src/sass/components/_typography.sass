@@ -1,24 +1,51 @@
 @import './typography/headlines'
 
-body
+body, a
   font-family: $copy-font
-  font-weight: 200
-  font-size: 95%
   color: $primary-text
 
-
-
-p, li
-  font-size: $bread-text-sm
+p,li
   margin: $base-margin 0
 
+/* FONT SIZES ------------------------------------- */
+
+.text-md, p, li
+  font-size: $bread-text-sm
+  line-height: $bread-text-sm-line
+
   @media (min-width: $medium-screen-up)
-    font-size:  $bread-text-md
+    font-size: $bread-text-md
+    line-height: $bread-text-md-line
   @media (min-width: $large-screen-up)
     font-size: $bread-text-lg
+    line-height: $bread-text-lg-line
 
+.text-xs
 
+  font-size: $tiny-text-sm
+  @media (min-width: $medium-screen-up)
+    font-size: $tiny-text-md
+  @media (min-width: $large-screen-up)
+    font-size: $tiny-text-lg
 
+.text-sm
+
+  font-size: $small-text-sm
+  line-height: $small-text-sm-line
+  @media (min-width: $medium-screen-up)
+    font-size: $small-text-md
+    line-height: $small-text-md-line
+  @media (min-width: $large-screen-up)
+    font-size: $small-text-lg
+    line-height: $small-text-lg-line
+
+.text-lg
+
+  font-size: $large-text-sm
+  @media (min-width: $medium-screen-up)
+    font-size: $large-text-md
+  @media (min-width: $large-screen-up)
+    font-size: $large-text-lg
 
 ul
   &.dotted
@@ -42,14 +69,31 @@ ul
   font-weight: 100
 .bold
   font-weight: bold
-.normal
+.regular
   font-weight: normal
 
-/* font sizes ------------------------------------- */
+/* alignment ------------------------------------- */
 
-.tiny-text
-  font-size: $tiny-text-sm
-.small-text
-  font-size: $small-text-sm
-.huge-text
-  font-size: $huge-text-sm
+.center, .sm-center
+  text-align: center
+
+.left, .sm-left
+  text-align: left
+
+.right, .sm-right
+  text-align: right
+
+  @media (min-width: $medium-screen-up)
+    .md-left
+      text-align: left
+    .md-right
+      text-align: right
+    .md-center
+      text-align: center
+  @media (min-width: $large-screen-up)
+    .lg-left
+      text-align: left
+    .lg-center
+      text-align: center
+    .lg-right
+      text-align: right

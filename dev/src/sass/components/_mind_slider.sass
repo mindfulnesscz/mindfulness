@@ -1,0 +1,71 @@
+.mind-slider-holder
+  overflow: hidden !important
+  display: block !important
+  position: relative
+  width: 100%
+
+  .mind-slider
+    padding: 0 !important
+    max-width: 1000% !important
+    min-width: 100%
+    height: 100%
+    display: flex
+    position: relative
+    flex-flow: row nowrap
+    align-items: stretch
+    position: relative
+
+    //min-height: 400px;
+    .slide
+      width: 100%
+      height: 100%
+      top: 0
+      position: relative
+      margin: 0 !important
+      //flex: 1;
+      order: 3 // order 0 for prev, order 1 for current and 2 for next slide in parent.The rest is 3
+      display: none
+
+    .prev
+      order: 0
+      display: block
+
+    .curr
+      order: 1
+      display: block
+
+    .next
+      order: 2
+      display: block
+
+  .mind-slider.sliding
+    width: 200% !important
+
+    .slide
+      width: 50%
+
+  .arrow
+    width: 3rem
+    height: 3rem
+    position: absolute
+    top: 5rem
+    z-index: 1
+    background: $primary-color-transp
+    transition: all 1s
+
+    :hover
+      background: $secondary-color-transp
+
+    .ess-icon
+      color: white
+      font-size: 2rem
+      line-height: 3rem
+      width: 3rem
+      text-align: center
+      cursor: pointer
+
+  .left
+    left: 0
+
+  .right
+    right: 0

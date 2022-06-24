@@ -26,45 +26,58 @@ $nav-cube-background: radial-gradient(circle, rgba(230, 230, 230, 1) 0%, rgba(21
 }
 
 
-$essblue: ("base" : #14bef0,
+$essblue: (
+  "base" : #14bef0,
   "lighten-1" : #92e5ff,
-  "lighten-2" : #ecfaff,
-  "darken-1" : #00A0F0,
-  "darken-2" : #2c77ca,
+  "lighten-2" : #d2f5fa,
+  "lighten-3" : #f0faff,
+  "darken-1" : #14a0ff,
+  "darken-2" : #2d78c8,
+  "darken-3" : #0c3c92,
+  "darken-4" : #0f2a57
 );
 
-$green: ("base" : #86b755,
+$green: (
+  "base" : #86b755,
   "lighten-2" : #81C784,
   "lighten-1" : #66BB6A,
   "darken-1" : #43A047,
-  "darken-2" : #388E3C);
+  "darken-2" : #388E3C
+);
 
 
-$red: ("base" : #F44336,
+$red: (
+  "base" : #F44336,
   "lighten-2" : #E57373,
   "lighten-1" : #EF5350,
   "darken-1" : #E53935,
-  "darken-2" : #D32F2F);
+  "darken-2" : #D32F2F
+);
 
 
-$gray: ("base" : #BEBEBE,
+$gray: (
+  "base" : #BEBEBE,
   "darken-1" : #787878,
   "darken-2" : #4D4D4D,
   "darken-3" : #2D2D2D,
-  "lighten-1" : #E1E1E1,
+  "lighten-1" : #D4D4D4,
   "lighten-2" : #E6E6E6,
-  "lighten-3" : #F6F6F6,
-  "lighten-4" : #F6F6F6,
-  "lighten-5" : #F6F6F6);
+  "lighten-3" : #E1E1E1,
+  "lighten-4" : #F5F5F5,
+  "lighten-5" : #F9F9F9,
 
-$processing: ("base" : #d4cba4,
+);
+
+$processing: (
+  "base" : #d4cba4,
   "darken-1" : #c2b98e,
   "darken-2" : #9d906f,
   "lighten-1": #e5debf,
   "lighten-2": #f3efde,
 );
 
-$paintshop: ("base" : #9b64aa,
+$paintshop: (
+  "base" : #9b64aa,
   "darken-1" : #895aa4,
   "darken-2" : #5b266c,
   "lighten-1": #bf8dcd,
@@ -72,43 +85,53 @@ $paintshop: ("base" : #9b64aa,
 
 );
 
-$data-cleaning: ("base" : #0ea285,
+$data-cleaning: (
+  "base" : #0ea285,
   "darken-1" : #108673,
   "darken-2" : #006654,
   "lighten-1": #86d2c3,
-  "lighten-2": #ddf6f1);
+  "lighten-2": #ddf6f1
+);
 
-$mobility: ("base" : #eeaa32,
+$mobility: (
+  "base" : #eeaa32,
   "darken-1" : #be8b37,
   "darken-2" : #ae7d36,
   "lighten-1": #eec886,
-  "lighten-2": #f7ebd6);
+  "lighten-2": #f7ebd6
+);
 
 
-$washing: ("base" : #9ad9eb,
+$washing: (
+  "base" : #9ad9eb,
   "darken-1" : #68b2c6,
   "darken-2" : #43888d,
   "lighten-1": #c1e8f3,
   "lighten-2": #e8f7fa,
 );
-$environment: ("base" : #a4d06e,
+$environment: (
+  "base" : #a4d06e,
   "darken-1" : #78a94e,
   "darken-2" : #577d40,
   "lighten-1": #c7e5a2,
   "lighten-2": #ecf9dd,
 );
-$oil-gas: ("base" : #52656e,
+$oil-gas: (
+  "base" : #52656e,
   "darken-1" : #294146,
   "darken-2" : #001d27,
   "lighten-1": #7995a2,
   "lighten-2": #c5d6de,
 );
 
-$shades: ("black" : #000000,
+$shades: (
+  "black" : #000000,
   "white" : #FFFFFF,
-  "transparent" : transparent);
+  "transparent" : transparent
+);
 
-$colors-ess: ("essblue": $essblue,
+$colors-ess: (
+  "essblue": $essblue,
   "red": $red,
   "green": $green,
   "gray": $gray,
@@ -119,7 +142,8 @@ $colors-ess: ("essblue": $essblue,
   "mobility": $mobility,
   "washing": $washing,
   "environment": $environment,
-  "oil-gas": $oil-gas);
+  "oil-gas": $oil-gas
+);
 
 @function color($color, $type) {
   @if map-has-key($colors-ess, $color) {
@@ -195,25 +219,6 @@ $color_value in $shades {
 }
 
 
-// gray CLASSES ---------------------------------------------------
-
-
-@each $color,
-$color_value in $gray {
-
-  .has-gray-#{$color}-background-color {
-    background-color: $color_value;
-  }
-
-  .gray-#{$color}-text-color {
-    color: $color_value;
-  }
-
-  .has-gray-#{$color}-color {
-    color: $color_value;
-  }
-}
-
 
 // MIXINS FOR GRADIENT AND OPACITY -------------------------------
 
@@ -231,7 +236,7 @@ $color_value in $gray {
 
 @each $color_name,
 $color in $colors-ess {
-  @if $color_name !="shades" {
+  @if $color_name  !="shades" {
     .ess-button.has-#{$color_name}-background-color {
       background-color: color($color_name, 'base');
     }

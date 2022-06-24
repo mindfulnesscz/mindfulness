@@ -46,16 +46,32 @@ $copy-font: 'Open Sans', Helvetica, Arial, sans-serif;
 $headline-font: 'Exo', sans-serif;
 
 $bread-text-sm: 14px;
-$bread-text-md: 16px;
-$bread-text-lg: 18px;
+$bread-text-md: 15px;
+$bread-text-lg: 16px;
+
+$bread-text-sm-line: 18px;
+$bread-text-md-line: 21px;
+$bread-text-lg-line: 24px;
 
 $tiny-text-sm: 10px;
 $tiny-text-md: 11px;
-$tiny-text-lg: 13px;
+$tiny-text-lg: 12px;
 
-$small-text-sm: 12px;
+$tiny-text-sm-line: 14px;
+$tiny-text-md-line: 16px;
+$tiny-text-lg-line: 18px;
+
+$small-text-sm: 11px;
 $small-text-md: 12px;
-$small-text-lg: 14px;
+$small-text-lg: 13px;
+
+$small-text-sm-line: 16px;
+$small-text-md-line: 17px;
+$small-text-lg-line: 18px;
+
+$large-text-sm: 16px;
+$large-text-md: 18px;
+$large-text-lg: 20px;
 
 $huge-text-sm: 26px;
 $huge-text-md: 36px;
@@ -97,7 +113,7 @@ $sm-button: calc(1rem + 0.5vw);
 $primary-color : color("essblue", "base");
 $primary-color-hover : color("essblue", "darken-3");
 $primary-text : color("gray", "darken-2");
-$secondary-color : color("gray", "base");
+$secondary-color : color("gray", "darken-2");
 $white : color("shades", "white");
 
 //SYSTEM
@@ -139,7 +155,10 @@ $spaces-map: (
   "double" : $double-margin,
   "quad" : $quad-margin,
   "okta" : $okto-margin,
-  "dodeca" : $dodeca-margin
+  "dodeca" : $dodeca-margin,
+  "minus-base": $minus-base-margin,
+  "minus-double": $minus-double-margin,
+  "minus-quad": $minus-quad-margin
 );
 
 $spaces-values: (

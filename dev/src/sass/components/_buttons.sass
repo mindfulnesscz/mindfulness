@@ -1,0 +1,54 @@
+%ess-button
+  position: relative
+  display: inline-block
+  cursor: pointer
+  padding: $half-margin $base-margin
+  margin-top: $base-margin
+  margin-bottom: $base-margin
+  color: $white
+  background: $primary-color
+  border: none
+  font-family: $headline-font
+  font-weight: 500
+
+  &:hover
+
+    color: $white
+    background: $primary-color-hover
+
+.ess-button
+  @extend %ess-button
+  -webkit-transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1)
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1)
+
+  &.sm
+    font-size: $h6
+
+  &.md
+    font-size: $h5
+
+  &.lg
+    font-size: $h4
+
+  &.xl
+    font-size: $h3
+
+  &.rounded-full
+    border-radius: 999px
+
+  &.rounded-slight
+    border-radius: 4px
+
+  &.rounded-none
+    border-radius: 0
+
+  &.outlined
+    background: none
+    border-width: 1px
+    border-style: solid
+    color: color("gray", "darken-2")
+    border-color: color("gray", "darken-1")
+
+  &:hover
+    color: white
+    background: $primary-button-bg-hover
