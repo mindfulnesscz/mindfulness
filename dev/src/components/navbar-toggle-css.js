@@ -1,15 +1,9 @@
 /*jshint esversion: 6 */
 
 
-import 'materialize-css/dist/js/materialize';
-
 import MindCookies from './mind-helpers/MindCookies';
 
 import FooterSlider from './footer-sliders';
-
-import gsap from 'gsap';
-
-import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
 
 gsap.registerPlugin(ScrollToPlugin);
@@ -95,8 +89,6 @@ export default class NavbarToggleCss {
     this.show_cubic_menu = function () {
 
       if (this.ishomepage) {
-
-        console.log('JEEEDDEEEMMMMEEEEEEE');
 
 
         gsap.to(window, { duration: 0.5, scrollTo: 0 });

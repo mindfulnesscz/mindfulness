@@ -41,61 +41,6 @@ $alpha-inactive : 0.1;
 
   ;
 
-  #csscube-nav {
-    flex-basis: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-    z-index: 10000;
-    align-self: baseline;
-    position: relative;
-    top: 0;
-    border-bottom: 1px solid color("gray", "lighten-2");
-
-    ul {
-      margin: 0;
-      padding: 0;
-      text-align: center;
-
-      li {
-        &::before {
-          display: none;
-        }
-
-        margin: 0;
-        padding: 0;
-        display: inline-block;
-
-        &+li {
-          border-left: 1px solid color("gray", "lighten-2");
-        }
-
-        a {
-          display: block;
-          padding: 0 $base-margin;
-          cursor: pointer;
-          color: color("gray", "base");
-          transition: background .5s ease, color .5s ease, border .5s ease;
-          border: 1px solid rgba(0, 0, 0, 0);
-          height: 4rem;
-          line-height: 4rem;
-
-          &:hover {
-            text-decoration: none;
-            //background: color('gray', 'lighten-2')-light-iii;
-            color: color("gray", "base");
-          }
-
-          &.active {
-            color: color("gray", "base");
-            //background: color('gray', 'lighten-2')-light-iii;
-          }
-        }
-      }
-    }
-
-  }
-
 }
 
 @keyframes navrot {
@@ -159,10 +104,10 @@ $alpha-inactive : 0.1;
 
   &.css-color-white>div,
   &.css-color-white>a {
-    color: $white !important;
+    color: $white  !important;
 
     h2 {
-      color: $white !important;
+      color: $white  !important;
     }
   }
 
@@ -229,7 +174,7 @@ $alpha-inactive : 0.1;
         }
 
         .cbl-industry h2 {
-          padding-bottom: $base-margin !important;
+          padding-bottom: $base-margin  !important;
           font-weight: bold;
         }
 

@@ -3,7 +3,6 @@
 import EssReveals from './components/reveal';
 import FooterSlider from './components/footer-sliders';
 import ess_forms from './components/forms';
-import 'materialize-css/dist/js/materialize';
 import { mind_global } from './components/helpers';
 import MindCookie from './components/mind-helpers/MindCookies';
 

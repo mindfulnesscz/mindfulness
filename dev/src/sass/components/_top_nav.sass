@@ -1,0 +1,119 @@
+/**
+ * TOP NAV HOLDER WITH RESPONSIVENESS AND SCROLL REACTIVE
+ * @since 3.0
+ * @importance core
+ * 
+ * Table of Contents
+ *
+ *  1. Top Navbar container layout
+ *  2. Nav Navbar Rotating Cube 
+ *
+ **
+
+// 1. TOP NAVBAR CONTAINER LAYOUT ----------------------------------------------------
+
+#wm-top-nav
+  width: 100%
+  margin: 0
+  padding: 0
+  z-index: 10
+  position: fixed
+  display: flex
+  justify-content: space-between
+  top: 0
+  border-bottom: 1px solid color("gray", "base")
+  background: white
+
+#wm-nav-list
+  display: flex
+  margin: 0
+
+  li
+    padding: 0
+    margin: 0
+    font-family: $headline-font
+    text-transform: uppercase
+
+    a
+      display: block
+      padding: $topnav_padding $base-margin
+      cursor: pointer
+      transition: background .5s ease, color .5s ease, border .5s ease
+      border: 1px solid rgba(0, 0, 0, 0)
+
+      &:hover
+        text-decoration: none
+        color: color("gray", "base")
+
+        &.active
+          color: color("gray", "base")
+            //background: color('gray', 'lighten-2')-light-iii;
+
+// 2. TOP NAVBAR ROTATING CUBE ----------------------------------------------------
+
+.ess-navcube-cube
+  margin-left: $base-margin
+  margin-top: $-quarter-margin
+
+  .navcube-scene
+    animation: opacity-up 4s
+    animation-fill-mode: forwards
+    opacity: 0
+    perspective: 100rem
+    position: relative
+
+    .navcube-rotator
+      width: $nav_cube_side_shift_2
+      height: $nav_cube_side_shift_2
+      position: relative
+      transform-style: preserve-3d
+      margin: 0 auto
+      float: none
+      padding-top: calc(0.9rem + 1.2vw)
+
+      animation: navrot 8s linear infinite
+
+      .navcube
+        transform: rotateX(45deg) rotateZ(45deg)
+        transform-style: preserve-3d
+        width: $nav_cube_side_shift_2
+        height: $nav_cube_side_shift_2
+        position: relative
+
+        .navcube-front,
+        .navcube-left,
+        .navcube-right,
+        .navcube-back,
+        .navcube-top,
+        .navcube-bottom
+          background-color: color('gray', 'lighten-4')
+          //border: 2px solid color('gray', 'lighten-2');
+          position: absolute
+          backface-visibility: hidden
+          width: $nav_cube_side_width
+          height: $nav_cube_side_width
+          transition: all .5s ease
+
+        .navcube-top
+          background-color: color('essblue', 'base')
+          transform: rotatex(90deg) translateZ($nav_cube_side_shift)
+
+        .navcube-left
+          background-color: color('essblue', 'base')
+          transform: rotateY(-90deg) translateZ($nav_cube_side_shift)
+
+        .navcube-right
+          background-color: color('gray', 'base')
+          transform: rotateY(90deg) translateZ($nav_cube_side_shift)
+
+        .navcube-back
+          background-color: color('gray', 'lighten-1')
+          transform: rotateY(180deg) translateZ($nav_cube_side_shift)
+
+        .navcube-bottom
+          background-color: color('gray', 'base')
+          transform: rotatex(-90deg) translateZ($nav_cube_side_shift)
+
+        .navcube-front
+          background-color: color('essblue', 'darken-1')
+          transform: translateZ($nav_cube_side_shift)

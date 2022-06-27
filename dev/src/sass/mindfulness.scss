@@ -21,6 +21,8 @@
 @import './components/spacing'; //-- Eventually moved to separate css for testing
 /* COMPONENTS */
 
+
+@import './components/_top_nav.sass';
 @import './components/navbar';
 @import './components/navbar_classic';
 @import './components/icons';

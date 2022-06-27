@@ -1,14 +1,12 @@
 /*jshint esversion: 6 */
 
-import 'core-js/stable';
 import ess_forms from './components/forms';
-import EssReveals from './components/reveal';
-import FooterSlider from './components/footer-sliders';
-import 'materialize-css/dist/js/materialize';
+//import EssReveals from './components/reveal';
+//import FooterSlider from './components/footer-sliders';
 import { mind_global } from './components/helpers';
 import MindCookie from './components/mind-helpers/MindCookies';
 import CessCube from './components/csscube';
-import NavbarToggle from './components/navbar-toggle-css';
+//import NavbarToggle from './components/navbar-toggle-css';
 
 
 window.ess_index = function () {
@@ -22,14 +20,16 @@ window.ess_index = function () {
 
   window.ishomepage = document.body.classList.contains('ess-homepage');
 
-  // eslint-disable-next-line no-undef
-  M.Sidenav.init(document.querySelectorAll('.sidenav'), {});
+  //const el_nav_button = document.getElementById('ess-menu-toggle');
 
-  const el_nav_button = document.getElementById('ess-menu-toggle');
+  //const el_sidemenu = document.getElementById('ess-side-menu');
 
-  const el_sidemenu = document.getElementById('ess-side-menu');
+  //const el_intro = document.getElementById('ess-intro');
 
-  const el_intro = document.getElementById('ess-intro');
+
+
+  // THE CUBE
+  // ===========================================================
 
   const el_cubenavholder = document.getElementById(
     'ess-cube-navigation-holder'
@@ -41,7 +41,23 @@ window.ess_index = function () {
 
   CSSCube.setup_cube();
 
-  const EssToggler = new NavbarToggle(
+  const navbarLinks = document.querySelectorAll('.wm-cube-menu-link');
+
+  for (let i = 0; i < navbarLinks.length; ++i) {
+    console.log(navbarLinks.length);
+
+    navbarLinks[i].addEventListener('mouseover', e=>{
+      e.preventDefault;
+      CSSCube.active_link = e.target;
+      CSSCube._position_cube(e.target.getAttribute('data-target'));
+    });
+  }
+
+
+
+  // ===========================================================
+
+  /* const EssToggler = new NavbarToggle(
     el_nav_button,
 
     el_sidemenu,
@@ -51,11 +67,12 @@ window.ess_index = function () {
     el_intro,
 
     window.ishomepage
-  );
+  );*/
 
-  EssToggler.init();
+  /*EssToggler.init();
 
   activate_bottom_cube(EssToggler);
+  */
 
   // SAME AS IN INDEX_MOBILE NEEDS TO BE THE SAME ---------------------------------------
 
@@ -65,7 +82,7 @@ window.ess_index = function () {
 
   // Cube slider
 
-  const home_banner = new FooterSlider(
+  /*const home_banner = new FooterSlider(
     document.getElementById('ess-home-banner'),
 
     { autoplay: true, center_arrows: true }
@@ -73,8 +90,10 @@ window.ess_index = function () {
 
   home_banner.init();
 
-  // Footer sliders
+  */
 
+  // Footer sliders
+  /*
   const news_footer_slider = new FooterSlider(
     document.getElementById('ess-news-slider'),
 
@@ -91,11 +110,13 @@ window.ess_index = function () {
 
   events_footer_slider.init();
 
-  EssReveals.activate();
+  //EssReveals.activate();
 
   //...
 
   // Materialize
+
+  */
 
 
 
@@ -103,13 +124,13 @@ window.ess_index = function () {
 
   // actives sidebar contact sticking it to side when scrolled and changes select if contact sales
 
-  //needst to be laoded after materialize Select Object
+  // needst to be laoded after materialize Select Object
 
-  activate_sidebar_contact();
+  // activate_sidebar_contact();
 
   // activates hover on people
 
-  //hover_people();
+  // hover_people();
 
 
   const imgs = document.querySelectorAll('img');
@@ -124,6 +145,7 @@ window.ess_index = function () {
 
 // ---------------------------- END OF INDEX FUNCTION --------------------------------
 
+/*
 function activate_bottom_cube(EssToggler) {
   const c = document.getElementById('bottom-cube');
 
@@ -131,68 +153,8 @@ function activate_bottom_cube(EssToggler) {
     c.addEventListener('click', EssToggler.cubicHandler);
   }
 }
+*/
 
-
-/*** green button sidebar switched to contact link to contact page **/
-
-function activate_sidebar_contact() {
-  const el_sidebar_contact = document.getElementById('ess-side-contact');
-
-  if (el_sidebar_contact) {
-    const main_el = document.querySelector('main');
-
-    const toggler = document.createElement('div');
-
-    const toggler_text = document.createElement('div');
-
-    const toggler_text_h = document.createElement('h4');
-
-    const toggler_text_h_content = document.createTextNode(
-      'GET IN TOUCH'
-    );
-
-    const toggler_text_span = document.createElement('span');
-
-    toggler_text_span.classList.add('ess-icon', 'icon_simple_arrow_top');
-
-    toggler.setAttribute('id', 'sidebar-contact-toggler');
-
-    toggler_text.setAttribute('id', 'sidebar-contact-text');
-
-    toggler_text_h.append(toggler_text_h_content);
-
-    toggler_text.append(toggler_text_span);
-
-    toggler_text.append(toggler_text_h);
-
-    toggler.append(toggler_text);
-
-    main_el.append(toggler);
-
-    const el_sidebar_contact_toggler = toggler;
-
-    const el_contact_sales_toggler = document.getElementById(
-      'ess-contact-sales-button'
-    );
-
-    if (el_sidebar_contact_toggler || el_contact_sales_toggler) {
-      window.el_header = document.getElementById('ess-header');
-
-      window.el_sidebar_contact_toggler = el_sidebar_contact_toggler;
-
-      window.contact_fixed = false;
-
-      el_sidebar_contact_toggler.addEventListener('click', () => {
-        location.href = window.ess_url_array.contactus;
-      });
-    }
-
-
-    // side contact form guard
-
-    stick_contact_button();
-  }
-}
 
 //function for development porpose to delete cookie of played intro.
 
@@ -202,8 +164,11 @@ function delete_intro_cookie() {
 
 if (window.development) delete_intro_cookie();
 
-/* Side contact form sticky behaviour  */
 
+
+
+/* Side contact form sticky behaviour  */
+/*
 function stick_contact_button() {
   const contact_button = window.el_sidebar_contact_toggler;
 
@@ -246,3 +211,4 @@ function stick_contact_button() {
     window.contact_fixed = true;
   }
 }
+*/

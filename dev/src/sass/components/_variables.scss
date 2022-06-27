@@ -5,6 +5,7 @@ TABLE OF CONTENTS
   2. Typography
   3. Colors
   4. Spacings
+  5. Top Navbar
 
 */
 
@@ -31,11 +32,13 @@ $half-margin : calc(0.4rem + 0.25vw);
 $quarter-margin : calc(0.2rem + 0.15vw);
 $reduced-margin : 1rem;
 
-$minus-base-margin : calc((0.8rem + 0.5vw) * -1);
-$minus-double-margin : calc((0.8rem + 0.5vw) * -2);
-$minus-quad-margin : calc((0.8rem + 0.5vw) * -4);
-$minus-sexta-margin : calc((0.8rem + 0.5vw) * -6);
-$minus-okto-margin : calc((0.8rem + 0.5vw) * -8);
+
+$-quarter-margin : calc((0.2rem + 0.15vw) * -1);
+$-base-margin : calc((0.8rem + 0.5vw) * -1);
+$-double-margin : calc((0.8rem + 0.5vw) * -2);
+$-quad-margin : calc((0.8rem + 0.5vw) * -4);
+$-sexta-margin : calc((0.8rem + 0.5vw) * -6);
+$-okto-margin : calc((0.8rem + 0.5vw) * -8);
 
 
 // 2. Typography
@@ -156,9 +159,9 @@ $spaces-map: (
   "quad" : $quad-margin,
   "okta" : $okto-margin,
   "dodeca" : $dodeca-margin,
-  "minus-base": $minus-base-margin,
-  "minus-double": $minus-double-margin,
-  "minus-quad": $minus-quad-margin
+  "minus-base": $-base-margin,
+  "minus-double": $-double-margin,
+  "minus-quad": $-quad-margin
 );
 
 $spaces-values: (
@@ -177,3 +180,13 @@ $spaces-values: (
   "p-hor": ("padding-left", "padding-right"),
   "p-vert": ("padding-top", "padding-bottom"),
 );
+
+
+// 5. Top Navbar
+// ==========================================================================
+
+$topnav_padding: $base-margin;
+
+$nav_cube_side_width: 1.4rem;
+$nav_cube_side_shift: 0.9rem;
+$nav_cube_side_shift_2: 1rem;

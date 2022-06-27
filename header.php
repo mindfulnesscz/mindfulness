@@ -80,7 +80,16 @@
 
 
   <?php
+
+
+  // --------------------- T3.0 TOP NAV BAR ------------------------ //
+
+  get_template_part('template-parts/navigation/navigation', 'top-bar');
+
+  // --------------------- THE CUBE CODE ------------------------ //
+
   get_template_part('template-parts/navigation/navigation', 'cube');
+
   ?>
 
   <div id="ess-main-container">
@@ -95,20 +104,7 @@
         <span id="ess-navcube-hamburger" class="ess-icon icon_hamburger"></span>
 
 
-        <div class="ess-navcube-cube">
-          <div class="navcube-scene">
-            <div class="navcube-rotator">
-              <div class="navcube">
-                <div class="navcube-front"></div>
-                <div class="navcube-back"></div>
-                <div class="navcube-left"></div>
-                <div class="navcube-right"></div>
-                <div class="navcube-top"></div>
-                <div class="navcube-bottom"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+
 
 
       </div>

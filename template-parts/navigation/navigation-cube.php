@@ -15,15 +15,7 @@ $case_solutions = get_posts($cs_args);
   <div id="breadcrub-cont">
     <?php custom_breadcrumbs() ?>
   </div>
-  <div id="csscube-nav">
-    <ul>
-      <li><a data-target="bottom" class="active">ESS</a></li>
-      <li><a data-target="right">Industries</a></li>
-      <li><a data-target="back">Solutions</a></li>
-      <li><a data-target="left">Case Solutions</a></li>
-      <li><a data-target="front">Contact</a></li>
-    </ul>
-  </div>
+  <!-- Here is where the menu settings and search bar was originally rendered -->
   <div id="right-part"></div>
 
   <div id="csscube-cont">

@@ -8,13 +8,6 @@ const src_mobile = '/assets/js/index_mobile.js';
 const EL_HTML = document.querySelector('html');
 let index_src = '';
 
-if (!window.template_url) {
-  window.template_url = '';
-}
-if (!window.mindfulness_version) {
-  window.mindfulness_version = '0';
-}
-
 //  CHECKS THE MOBILE VERSUS DESKTOP VERSION 
 
 window.ismobile = false;
@@ -59,11 +52,13 @@ document.addEventListener('DOMContentLoaded', () => {
     window.ess_index();
   };
 
-  script.src = window.template_url + '/' + index_src + '?ver=' + window.mindfulness_version;
+  script.src = mindConstants.template_url + '/' + index_src + '?ver=' + window.mindfulness_version;
   document.head.appendChild(script);
 
-  console.log('template url is: ' + window.template_url );
-  console.log('version is '+window.mindfulness_version);
+  console.log('template url is: ' + mindConstants.template_url );
+  console.log('version is '+mindConstants.mindfulness_version);
+
+  console.log(mindConstants);
 
 
 });

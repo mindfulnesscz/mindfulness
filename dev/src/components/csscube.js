@@ -1,10 +1,6 @@
 
 /*jshint esversion: 6 */
 
-//import gsap from "gsap/TweenMax";
-
-import gsap from 'gsap';
-
 
 export default class CessCube {
   constructor(el_canvas){
@@ -17,7 +13,8 @@ export default class CessCube {
         
     this.tweeen = 'power2.out';
     this.tween_length = 0.8;
-    this.isonscreen = false;    // wether the cube is already initated and rendered
+    this.isonscreen = false;    // whether the cube is already initated and rendered
+    this.isOnStage = false;     // whether the cube is on stage.
     this.unit_space_ratio = 5;  // 1/x of unit to calculate the space between sides of the cube
     this.units_total = 19;      // total amount of units
     this.units_space = 2;       // no clue
@@ -62,6 +59,7 @@ export default class CessCube {
     this.cube_rotator_el    = this.el_cubescene.querySelector('#csscube-rotator');
     this.cube_el            = this.cube_rotator_el.querySelector('#csscube');
     this.cube_shadow_el     = this.el_cubescene.querySelector('#csscube-shadow');
+
     console.log('items are');
     console.log(this.el_cubescene);
     console.log(this.cube_el);
@@ -110,7 +108,6 @@ export default class CessCube {
     else
       this.move_the_cube();
 
-    this.init_topnav();
 
     this.init_subscribe_modal();
   }
@@ -236,12 +233,17 @@ export default class CessCube {
   }
 
   _position_cube(str_target){
+
+    if(false === this.isOnStage){
+      this.fadeIn();
+    }
+
     let el;
     let new_x;
     let new_y;
     console.log(str_target);
-    this.active_link.classList.remove('active');
-    this.toplinks_arr[str_target].classList.add('active');
+    //this.active_link.classList.remove('active');
+    // this.toplinks_arr[str_target].classList.add('active');
     this.active_link = this.toplinks_arr[str_target];
 
     switch(str_target){
@@ -306,8 +308,6 @@ export default class CessCube {
       if(this.g)
         this.g.pause();
       this.g = gsap.to( this, { duration: this.tween_length, ease: this.tweeen, _y:new_y, _x:new_x, onUpdate:()=>{
-        //gsap.set(this.cube_el, {rotateY: this._y});
-        //gsap.set(this.cube_rotator_el, {rotateX: this._x});
         this.cube_el.style.transform = ' rotatey('+this._y+'deg)';
         this.cube_rotator_el.style.transform = ' rotatex('+this._x+'deg)';
         this.cube_shadow_el.style.transform = ' rotatex(-85deg) rotatez('+this._y+'deg) translatez('+(this.cube_h_shift*1.4)+'px)';
@@ -360,11 +360,8 @@ export default class CessCube {
   intro() {
 
     let intro_length = 1;
+    this.el_canvas.style.zIndex = '1';
 
-    if(window.ishomepage)
-      this.el_canvas.style.zIndex = '99';
-    else 
-      this.el_canvas.style.zIndex = '101';
 
         
     gsap.set(this.el_cubescene, {css:{ scaleX:0.3, scaleY:0.3}});
@@ -465,14 +462,13 @@ export default class CessCube {
   }
   fadeIn() {
 
-    if(window.ishomepage){ 
-      this.el_canvas.style.zIndex = '99';
-    }
-    else {
-      if( typeof InstallTrigger == 'undefined')
-        this.main_container.classList.add('ess-blured-content');
-      this.el_canvas.style.zIndex = '101';
-    }
+
+    this.isOnStage = true;
+
+    if( typeof InstallTrigger == 'undefined')
+      this.main_container.classList.add('ess-blured-content');
+    this.el_canvas.style.zIndex = '1';
+
         
     this.front_side_el.style.opacity = '0.1';
     this.back_side_el.style.opacity = '0.1';
@@ -511,7 +507,11 @@ export default class CessCube {
     this._position_cube('bottom');
         
   }
+
+
   fadeOut() {
+
+    this.isOnStage = false;
 
     document.querySelector('#ess-menu-toggle').classList.remove('opacity-o');
     let tiny = document.querySelector('.ess-tiny-header');
@@ -563,35 +563,15 @@ export default class CessCube {
     this.el_clickable_background.setAttribute('id', 'el-clickable-background');
     this.el_clickable_background.addEventListener('click', () => {
 
-      if (!window.ishomepage) {
-        this.fadeOut();
-      }
+
+      this.fadeOut();
+
     });
 
     this.el_cont.appendChild(this.el_clickable_background);
 
   }
-  init_topnav(){
-    this.el_topnav = this.el_canvas.querySelector('#csscube-nav');
-    this.topnav_links = this.el_topnav.querySelectorAll('a');
 
-    for (let i=0; i<this.topnav_links.length; i++){
-            
-      let link = this.topnav_links[i];
-
-      this.toplinks_arr[link.getAttribute('data-target')] = link;
-
-      if(link.classList.contains('active'))
-        this.active_link = link;
-            
-      this.topnav_links[i].addEventListener('click', ()=>{
-        if(this.active_link !== link){
-          let side = this.topnav_links[i].getAttribute('data-target');
-          this._position_cube(side);
-        }
-      });
-    }
-  }
   init_subscribe_modal(){
     let subscribe_button = this.cube_el.querySelector('#cube_subscribe_button');
     console.log(subscribe_button);
