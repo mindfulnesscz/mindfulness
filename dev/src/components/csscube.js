@@ -16,7 +16,7 @@ export default class CessCube {
    */
   constructor(el_canvas){
 
-    this.toplinks_arr = [];
+    this.toplinks_arr = this.init_navbar();
     this.initial_rotation = 10;
 
     this.el_canvas  = el_canvas;
@@ -127,19 +127,28 @@ export default class CessCube {
 
 
   /**
-   * Allows navbar links to trigger the Cube on hover.
+   * Loops.
    * @since 3.0
-   * @return void
+   * @return Array Associative array with Cube side names (front, left, etc) as keys and HtmlLinkElements as values
    */
   init_navbar(){
 
-    const navbarLinks = document.querySelectorAll('.wm-cube-menu-link');
-    this.toplinks_arr = navbarLinks;
+    const navbarLinks =  document.querySelectorAll('.wm-cube-menu-link');
+    let linksArr = [];
 
-    for (let i = 0; i < navbarLinks.length; ++i) {
-      console.log(navbarLinks.length);
-  
+    for (let i = 0; i <  navbarLinks.length; ++i) {
+
+      const link = navbarLinks[i];
+      const linkCubeSide = link.getAttribute('data-target');
+ 
+      linksArr[linkCubeSide] = link;
+
+      if(link.classList.contains('active'))
+        this.active_link = link;
+
       navbarLinks[i].addEventListener('mouseover', e=>{
+
+        console.log('ahojoooooooooooooooo');
   
         e.preventDefault;
   
@@ -148,9 +157,11 @@ export default class CessCube {
           this.active_link = e.target;
         }
         
-        this._position_cube(e.target.getAttribute('data-target'));
+        this._position_cube(linkCubeSide);
       });
     }
+
+    return linksArr;
   }
 
 
@@ -275,6 +286,11 @@ export default class CessCube {
 
   _position_cube(str_target){
 
+    console.log('==================================');
+    console.log(str_target);
+    console.log(this.toplinks_arr);
+    console.log('==================================');
+
     if(false === this.isOnStage){
       this.fadeIn();
     }
@@ -283,9 +299,11 @@ export default class CessCube {
     let new_x;
     let new_y;
     console.log(str_target);
-    if(this.active_link)
+    if(this.active_link !== undefined)
       this.active_link.classList.remove('active');
+
     this.toplinks_arr[str_target].classList.add('active');
+
     this.active_link = this.toplinks_arr[str_target];
 
     switch(str_target){
@@ -598,7 +616,7 @@ export default class CessCube {
       }
     });
             
-    console.log('fadeout');
+    this.active_link.classList.remove('active');
   }
   elCanvasClickable() {
     this.el_clickable_background = document.createElement('div');

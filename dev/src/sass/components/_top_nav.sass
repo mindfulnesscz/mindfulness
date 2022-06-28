@@ -15,11 +15,12 @@
 #wm-top-nav
   width: 100%
   margin: 0
-  padding: 0
+  padding: 0 $base-margin
   z-index: 10
   position: fixed
   display: flex
   justify-content: space-between
+  align-items: center
   top: 0
   border-bottom: 1px solid color("gray", "base")
   background: white
@@ -27,6 +28,7 @@
 #wm-nav-list
   display: flex
   margin: 0
+  padding: 0
 
   li
     padding: 0
@@ -38,6 +40,8 @@
       display: block
       position: relative
       padding: $topnav_padding $base-margin
+      font-family: $headline-font
+      color: color('gray', 'darken-1')
       cursor: pointer
       text-align: center
       transition: background .5s ease, color .5s ease, border .5s ease
@@ -55,80 +59,24 @@
 
       &:hover
         text-decoration: none
-        color: color("gray", "base")
+        color: color("gray", "darken-2")
 
       &.active
-        color: color("gray", "base")
+        color: color("gray", "darken-3")
 
         &::after
           width: 100%
           left: 0
 
-// 2. TOP NAVBAR ROTATING CUBE ----------------------------------------------------
+// 2. TOP NAVBAR LOGO ----------------------------------------------------
+#wm-nav-logo
+  width: 100px
+  height: auto
+  img
+    width: 100%
+    max-width: 100%
+    height: auto
 
-.ess-navcube-cube
-  margin-left: $base-margin
-  margin-top: $-quarter-margin
-
-  .navcube-scene
-    animation: opacity-up 4s
-    animation-fill-mode: forwards
-    opacity: 0
-    perspective: 100rem
-    position: relative
-
-    .navcube-rotator
-      width: $nav_cube_side_shift_2
-      height: $nav_cube_side_shift_2
-      position: relative
-      transform-style: preserve-3d
-      margin: 0 auto
-      float: none
-      padding-top: calc(0.9rem + 1.2vw)
-
-      animation: navrot 8s linear infinite
-
-      .navcube
-        transform: rotateX(45deg) rotateZ(45deg)
-        transform-style: preserve-3d
-        width: $nav_cube_side_shift_2
-        height: $nav_cube_side_shift_2
-        position: relative
-
-        .navcube-front,
-        .navcube-left,
-        .navcube-right,
-        .navcube-back,
-        .navcube-top,
-        .navcube-bottom
-          background-color: color('gray', 'lighten-4')
-          //border: 2px solid color('gray', 'lighten-2');
-          position: absolute
-          backface-visibility: hidden
-          width: $nav_cube_side_width
-          height: $nav_cube_side_width
-          transition: all .5s ease
-
-        .navcube-top
-          background-color: color('essblue', 'base')
-          transform: rotatex(90deg) translateZ($nav_cube_side_shift)
-
-        .navcube-left
-          background-color: color('essblue', 'base')
-          transform: rotateY(-90deg) translateZ($nav_cube_side_shift)
-
-        .navcube-right
-          background-color: color('gray', 'base')
-          transform: rotateY(90deg) translateZ($nav_cube_side_shift)
-
-        .navcube-back
-          background-color: color('gray', 'lighten-1')
-          transform: rotateY(180deg) translateZ($nav_cube_side_shift)
-
-        .navcube-bottom
-          background-color: color('gray', 'base')
-          transform: rotatex(-90deg) translateZ($nav_cube_side_shift)
-
-        .navcube-front
-          background-color: color('essblue', 'darken-1')
-          transform: translateZ($nav_cube_side_shift)
+#wm-nav-settings
+  width: 100px
+  height: 50px

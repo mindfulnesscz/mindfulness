@@ -6,6 +6,7 @@ import CessCube from './components/csscube';
 
 
 window.ess_index = function () {
+  
   mind_global();
 
   window.MindCookiesHandler = new MindCookie('./');

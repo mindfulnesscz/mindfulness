@@ -11,23 +11,17 @@
 
 ?>
 
+<?php
+
+// DESKTOP BIG SCREEN NAV
+// =======================================================
+
+?>
+
 <div id="wm-top-nav">
   <a href="<?php echo home_url(); ?>">
     <div id="wm-nav-logo">
-      <div class="ess-navcube-cube">
-        <div class="navcube-scene">
-          <div class="navcube-rotator">
-            <div class="navcube">
-              <div class="navcube-front"></div>
-              <div class="navcube-back"></div>
-              <div class="navcube-left"></div>
-              <div class="navcube-right"></div>
-              <div class="navcube-top"></div>
-              <div class="navcube-bottom"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <img src="<?php echo get_template_directory_uri() . '/assets/images/ess_logo.svg';  ?>" />
     </div>
   </a>
 
@@ -42,4 +36,16 @@
   <div id="wm-nav-settings">
 
   </div>
+</div>
+
+
+<?php
+
+// DEVICE SMALL SCREEN NAV
+// =======================================================
+// Here the content will be injected via React wm-small-nav is the container. Let's be a bit modern here.
+?>
+
+<div id="wm-small-nav">
+
 </div>
