@@ -4254,7 +4254,16 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 /*jshint esversion: 6 */
+
+/**
+ * CessCube
+ * Activates functionality of the navigation cube and connects it with the top bar navigation
+ **/
 var CessCube = /*#__PURE__*/function () {
+  /**
+   * 
+   * @param {HTMLElement} el_canvas Cube Container
+   */
   function CessCube(el_canvas) {
     _classCallCheck(this, CessCube);
 
@@ -4363,6 +4372,36 @@ var CessCube = /*#__PURE__*/function () {
       });
       if (!this.cube_el) throw 'cube_element not found';else this.move_the_cube();
       this.init_subscribe_modal();
+      this.init_navbar();
+    }
+    /**
+     * Allows navbar links to trigger the Cube on hover.
+     * @since 3.0
+     * @return void
+     */
+
+  }, {
+    key: "init_navbar",
+    value: function init_navbar() {
+      var _this2 = this;
+
+      var navbarLinks = document.querySelectorAll('.wm-cube-menu-link');
+      this.toplinks_arr = navbarLinks;
+
+      for (var i = 0; i < navbarLinks.length; ++i) {
+        console.log(navbarLinks.length);
+        navbarLinks[i].addEventListener('mouseover', function (e) {
+          e.preventDefault;
+
+          if (_this2.active_link !== undefined && _this2.active_link !== e.target) {
+            _this2.active_link.classList.remove('active');
+
+            _this2.active_link = e.target;
+          }
+
+          _this2._position_cube(e.target.getAttribute('data-target'));
+        });
+      }
     } // Sets the sizes of the cube and its content can run during resize event as well
 
   }, {
@@ -4481,7 +4520,7 @@ var CessCube = /*#__PURE__*/function () {
   }, {
     key: "_position_cube",
     value: function _position_cube(str_target) {
-      var _this2 = this;
+      var _this3 = this;
 
       if (false === this.isOnStage) {
         this.fadeIn();
@@ -4490,9 +4529,9 @@ var CessCube = /*#__PURE__*/function () {
       var el;
       var new_x;
       var new_y;
-      console.log(str_target); //this.active_link.classList.remove('active');
-      // this.toplinks_arr[str_target].classList.add('active');
-
+      console.log(str_target);
+      if (this.active_link) this.active_link.classList.remove('active');
+      this.toplinks_arr[str_target].classList.add('active');
       this.active_link = this.toplinks_arr[str_target];
 
       switch (str_target) {
@@ -4561,9 +4600,9 @@ var CessCube = /*#__PURE__*/function () {
           _y: new_y,
           _x: new_x,
           onUpdate: function onUpdate() {
-            _this2.cube_el.style.transform = ' rotatey(' + _this2._y + 'deg)';
-            _this2.cube_rotator_el.style.transform = ' rotatex(' + _this2._x + 'deg)';
-            _this2.cube_shadow_el.style.transform = ' rotatex(-85deg) rotatez(' + _this2._y + 'deg) translatez(' + _this2.cube_h_shift * 1.4 + 'px)';
+            _this3.cube_el.style.transform = ' rotatey(' + _this3._y + 'deg)';
+            _this3.cube_rotator_el.style.transform = ' rotatex(' + _this3._x + 'deg)';
+            _this3.cube_shadow_el.style.transform = ' rotatex(-85deg) rotatez(' + _this3._y + 'deg) translatez(' + _this3.cube_h_shift * 1.4 + 'px)';
           }
         });
       } else console.log('nothing to tween');
@@ -4608,7 +4647,7 @@ var CessCube = /*#__PURE__*/function () {
   }, {
     key: "intro",
     value: function intro() {
-      var _this3 = this;
+      var _this4 = this;
 
       var intro_length = 1;
       this.el_canvas.style.zIndex = '1';
@@ -4690,11 +4729,11 @@ var CessCube = /*#__PURE__*/function () {
         _y: new_y,
         _x: new_x,
         onUpdate: function onUpdate() {
-          gsap.set(_this3.cube_el, {
-            rotateY: _this3._y
+          gsap.set(_this4.cube_el, {
+            rotateY: _this4._y
           });
-          gsap.set(_this3.cube_rotator_el, {
-            rotateX: _this3._x
+          gsap.set(_this4.cube_rotator_el, {
+            rotateX: _this4._x
           });
         }
       });
@@ -4702,7 +4741,7 @@ var CessCube = /*#__PURE__*/function () {
   }, {
     key: "outro",
     value: function outro(callback_func) {
-      var _this4 = this;
+      var _this5 = this;
 
       console.log('outro');
       gsap.to(this.el_cubescene, {
@@ -4737,11 +4776,11 @@ var CessCube = /*#__PURE__*/function () {
         _y: new_y,
         _x: new_x,
         onUpdate: function onUpdate() {
-          gsap.set(_this4.cube_el, {
-            rotateY: _this4._y
+          gsap.set(_this5.cube_el, {
+            rotateY: _this5._y
           });
-          gsap.set(_this4.cube_rotator_el, {
-            rotateX: _this4._x
+          gsap.set(_this5.cube_rotator_el, {
+            rotateX: _this5._x
           });
         },
         onComplete: function onComplete() {
@@ -4801,7 +4840,7 @@ var CessCube = /*#__PURE__*/function () {
   }, {
     key: "fadeOut",
     value: function fadeOut() {
-      var _this5 = this;
+      var _this6 = this;
 
       this.isOnStage = false;
       document.querySelector('#ess-menu-toggle').classList.remove('opacity-o');
@@ -4831,11 +4870,11 @@ var CessCube = /*#__PURE__*/function () {
         _x: 135,
         _y: this._y + 45,
         onUpdate: function onUpdate() {
-          gsap.set(_this5.cube_el, {
-            rotateY: _this5._y
+          gsap.set(_this6.cube_el, {
+            rotateY: _this6._y
           });
-          gsap.set(_this5.cube_rotator_el, {
-            rotateX: _this5._x
+          gsap.set(_this6.cube_rotator_el, {
+            rotateX: _this6._x
           });
         }
       });
@@ -4847,7 +4886,7 @@ var CessCube = /*#__PURE__*/function () {
         },
         onComplete: function onComplete() {
           window.ess_cube_transitioning = false;
-          _this5.el_canvas.style.zIndex = '-100';
+          _this6.el_canvas.style.zIndex = '-100';
         }
       });
       console.log('fadeout');
@@ -4855,12 +4894,12 @@ var CessCube = /*#__PURE__*/function () {
   }, {
     key: "elCanvasClickable",
     value: function elCanvasClickable() {
-      var _this6 = this;
+      var _this7 = this;
 
       this.el_clickable_background = document.createElement('div');
       this.el_clickable_background.setAttribute('id', 'el-clickable-background');
       this.el_clickable_background.addEventListener('click', function () {
-        _this6.fadeOut();
+        _this7.fadeOut();
       });
       this.el_cont.appendChild(this.el_clickable_background);
     }
@@ -4882,40 +4921,6 @@ var CessCube = /*#__PURE__*/function () {
 }();
 
 
-
-/***/ }),
-
-/***/ "./src/components/forms.js":
-/*!*********************************!*\
-  !*** ./src/components/forms.js ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ ess_forms)
-/* harmony export */ });
-/*jshint esversion: 6 */
-function ess_forms() {
-  var inputs = document.querySelectorAll('.ess-input');
-  console.log(inputs);
-
-  var _loop = function _loop(i) {
-    var inp = inputs[i];
-    var def = inp.value;
-    inp.addEventListener('focus', function () {
-      if (inp.value == def) inputs[i].value = '';
-    });
-    inputs[i].addEventListener('blur', function () {
-      if (inp.value == '') inp.value = def;
-    });
-  };
-
-  for (var i = 0; i < inputs.length; i++) {
-    _loop(i);
-  }
-}
 
 /***/ }),
 
@@ -5202,161 +5207,28 @@ var __webpack_exports__ = {};
   !*** ./src/index_desktop.js ***!
   \******************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/forms */ "./src/components/forms.js");
-/* harmony import */ var _components_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/helpers */ "./src/components/helpers.js");
-/* harmony import */ var _components_mind_helpers_MindCookies__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/mind-helpers/MindCookies */ "./src/components/mind-helpers/MindCookies.js");
-/* harmony import */ var _components_csscube__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/csscube */ "./src/components/csscube.js");
+/* harmony import */ var _components_helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/helpers */ "./src/components/helpers.js");
+/* harmony import */ var _components_mind_helpers_MindCookies__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/mind-helpers/MindCookies */ "./src/components/mind-helpers/MindCookies.js");
+/* harmony import */ var _components_csscube__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/csscube */ "./src/components/csscube.js");
 /*jshint esversion: 6 */
- //import EssReveals from './components/reveal';
-//import FooterSlider from './components/footer-sliders';
 
 
 
- //import NavbarToggle from './components/navbar-toggle-css';
 
 window.ess_index = function () {
-  (0,_components_helpers__WEBPACK_IMPORTED_MODULE_1__.mind_global)();
-  window.MindCookiesHandler = new _components_mind_helpers_MindCookies__WEBPACK_IMPORTED_MODULE_2__["default"]('./');
+  (0,_components_helpers__WEBPACK_IMPORTED_MODULE_0__.mind_global)();
+  window.MindCookiesHandler = new _components_mind_helpers_MindCookies__WEBPACK_IMPORTED_MODULE_1__["default"]('./');
   window.$intro = null;
   window.$Cube = null;
-  window.ishomepage = document.body.classList.contains('ess-homepage'); //const el_nav_button = document.getElementById('ess-menu-toggle');
-  //const el_sidemenu = document.getElementById('ess-side-menu');
-  //const el_intro = document.getElementById('ess-intro');
-  // THE CUBE
+  window.ishomepage = document.body.classList.contains('ess-homepage'); // THE TOP BAR & THE CUBE
   // ===========================================================
 
   var el_cubenavholder = document.getElementById('ess-cube-navigation-holder');
-  var CSSCube = new _components_csscube__WEBPACK_IMPORTED_MODULE_3__["default"](el_cubenavholder);
+  var navbarLinks = document.querySelectorAll('.wm-cube-menu-link');
+  var CSSCube = new _components_csscube__WEBPACK_IMPORTED_MODULE_2__["default"](el_cubenavholder, navbarLinks);
   CSSCube.init();
   CSSCube.setup_cube();
-  var navbarLinks = document.querySelectorAll('.wm-cube-menu-link');
-
-  for (var i = 0; i < navbarLinks.length; ++i) {
-    console.log(navbarLinks.length);
-    navbarLinks[i].addEventListener('mouseover', function (e) {
-      e.preventDefault;
-      CSSCube.active_link = e.target;
-
-      CSSCube._position_cube(e.target.getAttribute('data-target'));
-    });
-  } // ===========================================================
-
-  /* const EssToggler = new NavbarToggle(
-    el_nav_button,
-      el_sidemenu,
-      CSSCube,
-      el_intro,
-      window.ishomepage
-  );*/
-
-  /*EssToggler.init();
-    activate_bottom_cube(EssToggler);
-  */
-  // SAME AS IN INDEX_MOBILE NEEDS TO BE THE SAME ---------------------------------------
-  // form formating
-
-
-  (0,_components_forms__WEBPACK_IMPORTED_MODULE_0__["default"])({}); // Cube slider
-
-  /*const home_banner = new FooterSlider(
-    document.getElementById('ess-home-banner'),
-      { autoplay: true, center_arrows: true }
-  );
-    home_banner.init();
-    */
-  // Footer sliders
-
-  /*
-  const news_footer_slider = new FooterSlider(
-    document.getElementById('ess-news-slider'),
-      {}
-  );
-    news_footer_slider.init();
-    const events_footer_slider = new FooterSlider(
-    document.getElementById('ess-events-slider'),
-      {}
-  );
-    events_footer_slider.init();
-    //EssReveals.activate();
-    //...
-    // Materialize
-    */
-  // actives sidebar contact sticking it to side when scrolled and changes select if contact sales
-  // needst to be laoded after materialize Select Object
-  // activate_sidebar_contact();
-  // activates hover on people
-  // hover_people();
-
-  var imgs = document.querySelectorAll('img'); // hides empty images needs to be updated in blocks
-
-  for (var n = 0; n < imgs.length; n++) {
-    if (imgs[n].getAttribute('src') == '') imgs[n].style.display = 'none';
-  }
-}; // ---------------------------- END OF INDEX FUNCTION --------------------------------
-
-/*
-function activate_bottom_cube(EssToggler) {
-  const c = document.getElementById('bottom-cube');
-
-  if (c) {
-    c.addEventListener('click', EssToggler.cubicHandler);
-  }
-}
-*/
-//function for development porpose to delete cookie of played intro.
-
-
-function delete_intro_cookie() {
-  _components_mind_helpers_MindCookies__WEBPACK_IMPORTED_MODULE_2__["default"].deleteCookie('intro');
-}
-
-if (window.development) delete_intro_cookie();
-/* Side contact form sticky behaviour  */
-
-/*
-function stick_contact_button() {
-  const contact_button = window.el_sidebar_contact_toggler;
-
-  const header_h = window.el_header.offsetHeight;
-
-  const fixed_top = 0;
-
-  if (header_h > fixed_top) {
-    if (
-      window.sc >= header_h - fixed_top &&
-      window.contact_fixed == false
-    ) {
-      contact_button.classList.add('contact-fixed');
-
-      contact_button.style.top = fixed_top + 'px';
-
-      window.contact_fixed = true;
-    } else if (
-      window.sc <= header_h - fixed_top &&
-      window.contact_fixed == true
-    ) {
-      contact_button.classList.remove('contact-fixed');
-
-      contact_button.style.top = '0px';
-
-      window.contact_fixed = false;
-    }
-
-    requestAnimationFrame(stick_contact_button);
-  }
-
-  //if header is shorter than half of screnn
-  else {
-    console.log('header short ');
-
-    contact_button.classList.add('contact-fixed');
-
-    contact_button.style.top = fixed_top + 'px';
-
-    window.contact_fixed = true;
-  }
-}
-*/
+};
 })();
 
 /******/ })()

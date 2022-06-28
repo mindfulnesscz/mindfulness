@@ -1,8 +1,19 @@
 
 /*jshint esversion: 6 */
 
+/**
+ * CessCube
+ * Activates functionality of the navigation cube and connects it with the top bar navigation
+ **/
+
 
 export default class CessCube {
+
+
+  /**
+   * 
+   * @param {HTMLElement} el_canvas Cube Container
+   */
   constructor(el_canvas){
 
     this.toplinks_arr = [];
@@ -110,6 +121,36 @@ export default class CessCube {
 
 
     this.init_subscribe_modal();
+
+    this.init_navbar();
+  }
+
+
+  /**
+   * Allows navbar links to trigger the Cube on hover.
+   * @since 3.0
+   * @return void
+   */
+  init_navbar(){
+
+    const navbarLinks = document.querySelectorAll('.wm-cube-menu-link');
+    this.toplinks_arr = navbarLinks;
+
+    for (let i = 0; i < navbarLinks.length; ++i) {
+      console.log(navbarLinks.length);
+  
+      navbarLinks[i].addEventListener('mouseover', e=>{
+  
+        e.preventDefault;
+  
+        if(this.active_link !== undefined && this.active_link !== e.target) {
+          this.active_link.classList.remove('active');
+          this.active_link = e.target;
+        }
+        
+        this._position_cube(e.target.getAttribute('data-target'));
+      });
+    }
   }
 
 
@@ -242,8 +283,9 @@ export default class CessCube {
     let new_x;
     let new_y;
     console.log(str_target);
-    //this.active_link.classList.remove('active');
-    // this.toplinks_arr[str_target].classList.add('active');
+    if(this.active_link)
+      this.active_link.classList.remove('active');
+    this.toplinks_arr[str_target].classList.add('active');
     this.active_link = this.toplinks_arr[str_target];
 
     switch(str_target){
