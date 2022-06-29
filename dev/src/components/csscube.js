@@ -573,7 +573,6 @@ export default class CessCube {
 
     this.isOnStage = false;
 
-    document.querySelector('#ess-menu-toggle').classList.remove('opacity-o');
     let tiny = document.querySelector('.ess-tiny-header');
     if(tiny)
       tiny.querySelector('h1').classList.remove('opacity-o');

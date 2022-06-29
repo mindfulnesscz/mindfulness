@@ -10,6 +10,15 @@
 - News category support
 - New footer with news and events slider to be wmwp-slider (go for react based one)
 
+----------------------------------------------------------------------------------------
+
+## [3.0] - 2022-06-29 (Date of Last Commit)
+- New footer
+- Got rid of all frameworks
+- Started the documentation for utility classes (/www/html/mindfulnessdoc)
+- wm_console support for php development (from mindation theme)
+- Top Navbar added for desktop to call the Cube on hover
+- Added splitChunks feature for frontend development
 
 ***
 ## [2.0.11] - 2022-05-18 (Date of Last Commit)

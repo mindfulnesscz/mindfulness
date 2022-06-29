@@ -93,24 +93,3 @@
   ?>
 
   <div id="ess-main-container">
-
-    <nav id="ess-top-nav">
-
-
-      <!--   MENU TOGGLE   ................................... -->
-
-      <div id="ess-menu-toggle" class="ess-hidden">
-        <div class="ess-transp-bg-80"></div>
-        <span id="ess-navcube-hamburger" class="ess-icon icon_hamburger"></span>
-
-
-
-
-
-      </div>
-
-
-
-    </nav>
-
-    <?php get_template_part('template-parts/navigation/navigation', 'classic');

@@ -258,6 +258,16 @@ get_template_part('template-parts/content/footer/content', 'subscribeform');
 
 <?php wp_footer(); ?>
 
+
+
+<?php
+
+// ................................... CONSOLE ...................................
+// print the console if in debug mode
+wm_print_console();
+
+
+?>
 </body>
 
 </html>

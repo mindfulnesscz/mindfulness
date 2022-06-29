@@ -1,26 +1,21 @@
 
 
 import React from 'react';
-import '../../sass/device-nav-styles/device_nav';
+import EssLogo from '../../assets/images/ess_logo.svg';
 
 
 declare type DeviceNavProps = {
-
-  feed: any,
-
-  settings: any
-
+  templateUrl: string
 }
 
 
 
-const DeviceNavComponent: React.FC<DeviceNavProps> = ( { feed, settings} ) => {
-  console.log(feed);
+const DeviceNavComponent: React.FC<DeviceNavProps> = ( { templateUrl} ) => {
 
-  console.log(settings);
-  
+  console.log(templateUrl);
   return (
     <div>
+      <img width="150" height="50" src={EssLogo} />
       <div id='wm-device-nav-logo'></div>
     </div>
   );

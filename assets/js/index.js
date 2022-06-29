@@ -14,6 +14,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /*jshint esversion: 6 */
+console.log('solving scripts');
 window.development = true;
 var src_desktop = '/assets/js/index_desktop.js';
 var src_mobile = '/assets/js/index_mobile.js';
@@ -29,23 +30,22 @@ if (
 if (window.ismobile) EL_HTML.classList.add('ess-device');else EL_HTML.classList.add('ess-desktop'); // MAIN SCRIPT INITIALIZER AFTER DOM CONTENT IS LOADED
 
 document.addEventListener('DOMContentLoaded', function () {
-  // setting the source javascript file for according device
+  console.log('solving scripts'); // setting the source javascript file for according device
+
   if (window.ismobile) index_src = src_mobile;else index_src = src_desktop; // getting the correct script for mobile/desktop
 
   var script = document.createElement('script');
   var att = document.createAttribute('type');
   att.value = 'text/javascript';
   script.setAttributeNode(att);
-
-  script.onload = function () {
+  /*script.onload = () => {
     window.ess_index();
-  };
+  };*/
 
   script.src = mindConstants.template_url + '/' + index_src + '?ver=' + window.mindfulness_version;
   document.head.appendChild(script);
   console.log('template url is: ' + mindConstants.template_url);
-  console.log('version is ' + mindConstants.mindfulness_version);
-  console.log(mindConstants);
+  console.log('version is ' + mindConstants.template_version);
 });
 
 /***/ })
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"../assets/js/index": 0
+/******/ 			"../index": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading

@@ -17,6 +17,13 @@
 define("MINDFULNESS_VERSION", "3.0.0");
 define("DEFAULT_IMAGE_ID", 155);
 
+/**
+ * To store all print messages for print in debug/research console
+ * @var Array
+ * @since 1.1.6
+ */
+$MindationConsoleArray = array();
+
 
 $inc = get_template_directory() . '/inc/mindfulness-';
 

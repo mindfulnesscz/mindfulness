@@ -46,6 +46,6 @@
 // Here the content will be injected via React wm-small-nav is the container. Let's be a bit modern here.
 ?>
 
-<div id="wm-small-nav">
+<div id="wm-device-nav">
 
 </div>

@@ -1,5 +1,5 @@
 /*jshint esversion: 6 */
-
+console.log('solving scripts');
 window.development = true;
 
 const src_desktop = '/assets/js/index_desktop.js';
@@ -34,6 +34,8 @@ else
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  console.log('solving scripts');
+
   // setting the source javascript file for according device
   if (window.ismobile)
     index_src = src_mobile;
@@ -48,18 +50,14 @@ document.addEventListener('DOMContentLoaded', () => {
   att.value = 'text/javascript';
   script.setAttributeNode(att);
 
-  script.onload = () => {
+  /*script.onload = () => {
     window.ess_index();
-  };
+  };*/
 
   script.src = mindConstants.template_url + '/' + index_src + '?ver=' + window.mindfulness_version;
   document.head.appendChild(script);
 
   console.log('template url is: ' + mindConstants.template_url );
-  console.log('version is '+mindConstants.mindfulness_version);
-
-  console.log(mindConstants);
-
-
+  console.log('version is '+mindConstants.template_version);
 });
 

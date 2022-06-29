@@ -14,5 +14,9 @@
   "exclude": [
     "./*.js",
     "./dist/**/*"
+  ],
+  "include": [
+    "src/components",
+    "src/mindfulness.d.ts"
   ]
 }

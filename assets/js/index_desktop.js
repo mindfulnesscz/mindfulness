@@ -630,7 +630,6 @@ var CessCube = /*#__PURE__*/function () {
       var _this6 = this;
 
       this.isOnStage = false;
-      document.querySelector('#ess-menu-toggle').classList.remove('opacity-o');
       var tiny = document.querySelector('.ess-tiny-header');
       if (tiny) tiny.querySelector('h1').classList.remove('opacity-o');
       if (typeof InstallTrigger == 'undefined') this.main_container.classList.remove('ess-blured-content');
@@ -918,21 +917,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+console.log('desktop initializing');
+(0,_components_helpers__WEBPACK_IMPORTED_MODULE_0__.mind_global)();
+window.MindCookiesHandler = new _components_mind_helpers_MindCookies__WEBPACK_IMPORTED_MODULE_1__["default"]('./');
+window.$intro = null;
+window.$Cube = null;
+window.ishomepage = document.body.classList.contains('ess-homepage'); // THE TOP BAR & THE CUBE
+// ===========================================================
 
-window.ess_index = function () {
-  (0,_components_helpers__WEBPACK_IMPORTED_MODULE_0__.mind_global)();
-  window.MindCookiesHandler = new _components_mind_helpers_MindCookies__WEBPACK_IMPORTED_MODULE_1__["default"]('./');
-  window.$intro = null;
-  window.$Cube = null;
-  window.ishomepage = document.body.classList.contains('ess-homepage'); // THE TOP BAR & THE CUBE
-  // ===========================================================
-
-  var el_cubenavholder = document.getElementById('ess-cube-navigation-holder');
-  var navbarLinks = document.querySelectorAll('.wm-cube-menu-link');
-  var CSSCube = new _components_csscube__WEBPACK_IMPORTED_MODULE_2__["default"](el_cubenavholder, navbarLinks);
-  CSSCube.init();
-  CSSCube.setup_cube();
-};
+var el_cubenavholder = document.getElementById('ess-cube-navigation-holder');
+var navbarLinks = document.querySelectorAll('.wm-cube-menu-link');
+var CSSCube = new _components_csscube__WEBPACK_IMPORTED_MODULE_2__["default"](el_cubenavholder, navbarLinks);
+CSSCube.init();
+CSSCube.setup_cube();
 
 /***/ })
 
@@ -1058,7 +1055,7 @@ window.ess_index = function () {
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"../assets/js/index_desktop": 0
+/******/ 			"../index_desktop": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading

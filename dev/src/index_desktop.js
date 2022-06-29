@@ -5,31 +5,32 @@ import MindCookie from './components/mind-helpers/MindCookies';
 import CessCube from './components/csscube';
 
 
-window.ess_index = function () {
+
+
+console.log('desktop initializing');
   
-  mind_global();
+mind_global();
 
-  window.MindCookiesHandler = new MindCookie('./');
+window.MindCookiesHandler = new MindCookie('./');
 
-  window.$intro = null;
+window.$intro = null;
 
-  window.$Cube = null;
+window.$Cube = null;
 
-  window.ishomepage = document.body.classList.contains('ess-homepage');
+window.ishomepage = document.body.classList.contains('ess-homepage');
 
 
-  // THE TOP BAR & THE CUBE
-  // ===========================================================
+// THE TOP BAR & THE CUBE
+// ===========================================================
 
-  const el_cubenavholder = document.getElementById(
-    'ess-cube-navigation-holder'
-  );
+const el_cubenavholder = document.getElementById(
+  'ess-cube-navigation-holder'
+);
 
-  const navbarLinks = document.querySelectorAll('.wm-cube-menu-link');
+const navbarLinks = document.querySelectorAll('.wm-cube-menu-link');
 
-  const CSSCube = new CessCube(el_cubenavholder, navbarLinks);
+const CSSCube = new CessCube(el_cubenavholder, navbarLinks);
 
-  CSSCube.init();
+CSSCube.init();
 
-  CSSCube.setup_cube();
-};
+CSSCube.setup_cube();
