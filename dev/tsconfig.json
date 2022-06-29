@@ -17,6 +17,6 @@
   ],
   "include": [
     "src/components",
-    "src/mindfulness.d.ts"
+    "src/mindfulness.d.ts"git 
   ]
 }
