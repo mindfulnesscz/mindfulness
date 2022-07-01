@@ -8,6 +8,8 @@
 add_action('wp_enqueue_scripts', 'mindfulness_scripts');
 add_action('admin_enqueue_scripts', 'mindfulness_backend_scripts');
 
+if (!is_admin()) add_filter('script_loader_tag', 'mind_defer_scripts', 10, 3);
+
 
 
 function mindfulness_backend_scripts()
@@ -46,27 +48,42 @@ function mindfulness_scripts()
   //wm_console(json_encode(wm_grab_chunks()));
 
   $chunks = wm_grab_chunks();
-  $chunks_deps = array('cdn-react', 'cdn-react-dom');
+  $chunks_deps = array('cdn-react', 'cdn-react-dom', 'ScrollTrigger');
 
   foreach ($chunks as $chunk) {
     array_push($chunks_deps, $chunk['id']);
     wp_enqueue_script($chunk['id'], $chunk['src'], array(), mindfulness_version());
   }
 
+  // get rid of inline wp styles
+  wp_dequeue_style('global-styles');
+
   wp_enqueue_style('stylesheet', get_template_directory_uri() . '/assets/css/mindfulness.css', array(), mindfulness_version());
+
+  wp_enqueue_style('wm-spacing', get_template_directory_uri() . '/assets/css/wm-spacing.css', array(), mindfulness_version());
+
   wp_enqueue_style('home-banner', get_template_directory_uri() . '/assets/css/home-banner.css', array(), mindfulness_version());
 
-  wp_register_script('cdn-react', 'https://unpkg.com/react@18/umd/react.production.min.js');
-  wp_register_script('cdn-react-dom', 'https://unpkg.com/react-dom@18/umd/react-dom.production.min.js');
-  wp_register_script('TweenMax', 'https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js');
-  wp_register_script('ScrollTo', 'https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/ScrollToPlugin.min.js');
+
+
+  // dependencies
+  wp_register_script('cdn-react', 'https://unpkg.com/react@18/umd/react.production.min.js', array(), mindfulness_version(), true);
+  wp_register_script('cdn-react-dom', 'https://unpkg.com/react-dom@18/umd/react-dom.production.min.js', array('cdn-react'), mindfulness_version(), true);
+  wp_register_script('Gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js', array(), mindfulness_version(), true);
+  wp_register_script('ScrollTo', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollToPlugin.min.js', array('Gsap'), mindfulness_version(), true);
+  wp_register_script('ScrollTrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js', array('Gsap'), mindfulness_version(), true);
+  wp_register_script('WmGsap', get_template_directory_uri() . '/assets/js/wm_gsap.js', array('ScrollTrigger'), mindfulness_version(), true);
+
+  // main script
+  wp_register_script('ess', get_template_directory_uri() . '/assets/js/index.js', $chunks_deps, mindfulness_version(), true);
 
   wp_enqueue_script('cdn-react');
   wp_enqueue_script('cdn-react-dom');
-  wp_enqueue_script('TweenMax');
+  wp_enqueue_script('Gsap');
   wp_enqueue_script('ScrollTo');
+  wp_enqueue_script('ScrollTtrigger');
 
-  wp_register_script('ess', get_template_directory_uri() . '/assets/js/index.js', $chunks_deps, mindfulness_version());
+
   wp_enqueue_script('ess');
 
 
@@ -84,7 +101,8 @@ function mindfulness_scripts()
     'mindConstants',
     array(
       'template_url'   => get_template_directory_uri(),
-      'template_version'   => MINDFULNESS_VERSION
+      'template_version'   => MINDFULNESS_VERSION,
+      'homeUrl'  => get_home_url()
     )
   );
 
@@ -98,4 +116,24 @@ function mindfulness_scripts()
     wp_enqueue_script('ess-filter', get_template_directory_uri() . '/assets/js/ess-filter.js', array(), mindfulness_version());
 
   endif;
+}
+
+
+/**
+ * Sets defer to footer scripts by changing its string representation
+ * passed to the function from Worpdress script_loader_tag filter.
+ * @since 3.0
+ * @param string <script>element as string from
+ * @return void
+ */
+function mind_defer_scripts($tag, $handle, $url)
+{
+  global $wp_scripts;
+  if (in_array($handle, $wp_scripts->in_footer)) {
+
+    //wm_console($handle);
+    $tag = $tag = "<script type=\"text/javascript\" defer src=\"" . esc_url($url) . "\" id=\"" . $handle . "\"></script>\r\n";
+  } else
+    $tag = "<script type=\"text/javascript\" src=\"" . esc_url($url) . "\" id=\"" . $handle . "\"></script>\r\n";
+  return $tag;
 }

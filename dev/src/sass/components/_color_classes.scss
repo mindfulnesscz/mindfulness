@@ -1,0 +1,83 @@
+// COLOR CLASSES ---------------------------------------------------
+
+
+@each $color_name,
+$color in $colors-ess {
+
+  @each $color_type,
+  $color_value in $color {
+    @if $color_type=="base" {
+      .#{$color_name} {
+        background-color: $color_value;
+      }
+
+      .has-#{$color_name}-background-color {
+        background-color: $color_value;
+      }
+
+      .has-#{$color_name}-color {
+        color: $color_value;
+      }
+
+      .has-border-#{$color_name} {
+        border: 1px solid $color_value
+      }
+    }
+
+    @else {
+      .has-#{$color_name}-#{$color_type}-background-color {
+        background-color: $color_value;
+      }
+
+      .has-#{$color_name}-#{$color_type}-color {
+        color: $color_value;
+      }
+
+      .has-border-#{$color_name}-#{$color_type} {
+        border: 1px solid $color_value
+      }
+    }
+  }
+}
+
+
+// SHADES CLASSES ---------------------------------------------------
+
+
+@each $color,
+$color_value in $shades {
+  .#{$color} {
+    background-color: $color_value;
+  }
+
+  .#{$color}-text {
+    color: $color_value;
+  }
+}
+
+
+
+// ESS BUTTONS ---------------------------------------------------
+
+@each $color_name,
+$color in $colors-ess {
+  @if $color_name  !="shades" {
+    .ess-button.has-#{$color_name}-background-color {
+      background-color: color($color_name, 'base');
+    }
+
+    .ess-button.has-#{$color_name}-background-color:hover {
+      background-color: color($color_name, 'darken-1');
+    }
+
+    .ess-button.has-#{$color_name}-background-color.outline {
+      background-color: white;
+      color: color($color_name, 'darken-2');
+      border: 1px solid color($color_name, 'base');
+    }
+
+    .ess-button.has-#{$color_name}-background-color.outline:hover {
+      background-color: color($color_name, 'lighten-2');
+    }
+  }
+}

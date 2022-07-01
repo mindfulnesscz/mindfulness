@@ -4,6 +4,13 @@ import DeviceNavComponent from './components/device-nav/device-nav-component';
 
 declare const mindConstants:any;
 
-ReactDOM.render(<DeviceNavComponent templateUrl={mindConstants.templateUrl} />, document.querySelector('#wm-device-nav') );
+ReactDOM.render( <DeviceNavComponent homeUrl={mindConstants.homeUrl} />, document.querySelector( '#wm-mnav-cont ' ) );
 
 
+const MainNavToggler:HTMLElement | null = document.getElementById ( 'main-nav-toggler' );
+
+if( MainNavToggler ) {
+  MainNavToggler.addEventListener ( 'click', ()=>{
+    MainNavToggler.classList.toggle ( 'is-active' );
+  } );
+}

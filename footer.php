@@ -73,7 +73,7 @@ $template_url = get_template_directory_uri();
                 <li class="slide <?php echo (($c == 1 ? 'curr' : '')); ?>">
                   <a href="<?php echo get_permalink() ?>">
                     <div class="footer-feed-img-holder">
-                      <img class="footer-feed-img responsive-img " src="<?php echo get_the_post_thumbnail_url($post_id) ?> " srcset="
+                      <img loading="lazy" class="footer-feed-img responsive-img " src="<?php echo get_the_post_thumbnail_url($post_id) ?> " srcset="
                         <?php echo $tiny[0] ?> 150w,
                         <?php echo $small[0] ?> 400w" sizes="
                           (min-width: 1440px) calc((1440px/4) - 5*15px),
@@ -143,7 +143,7 @@ $template_url = get_template_directory_uri();
                 <li class="slide <?php echo (($c == 1 ? 'curr' : '')); ?>">
                   <a href="<?php echo get_permalink() ?>">
                     <div class="footer-feed-img-holder">
-                      <img class="footer-feed-img responsive-img" src="<?php echo get_the_post_thumbnail_url($post_id) ?> " srcset="
+                      <img loading="lazy" class="footer-feed-img responsive-img" src="<?php echo get_the_post_thumbnail_url($post_id) ?> " srcset="
                         <?php echo $tiny[0] ?> 150w,  <?php echo $small[0] ?> 400w" sizes="
                         (min-width: 461px) calc((100vw/6) - 3*10px),
                         (min-width: 760px) calc((100vw/4) - 5*10px),

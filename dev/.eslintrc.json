@@ -5,12 +5,15 @@
     "node": true
   },
   "globals": {
-    "gsap": true,
+    //"gsap": true,
     "ScrollToPlugin": true,
+    //"ScrollTrigger": true,
     "mindConstants": true // object generated from WP localize_scripts in mindfulness-scripts.php
   },
   "extends": [
-    "eslint:recommended"
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -25,12 +28,25 @@
     "@typescript-eslint"
   ],
   "rules": {
+    "no-unused-vars": 1,
     "indent": [
       "error",
       2
     ],
-    "linebreak-style": [
+    "space-in-parens": [
       "error",
+      "always"
+    ],
+    "space-before-blocks": [
+      "error",
+      "always"
+    ],
+    "space-before-function-paren": [
+      "error",
+      "always"
+    ],
+    "linebreak-style": [
+      1,
       "unix"
     ],
     "quotes": [
@@ -40,6 +56,14 @@
     "semi": [
       "error",
       "always"
+    ],
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": "var",
+        "next": "return"
+      }
     ]
   }
 }

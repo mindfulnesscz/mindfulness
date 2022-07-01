@@ -35,11 +35,18 @@ class Mindfulness_Setup
       'wp_supports',
       'nav_menus',
       'mindfulness_i18n',
-      'init_wordpress'
+      'init_wordpress',
+    );
+
+    $init_actions = array(
+      'disable_emojis'
     );
 
     foreach ($actions as $action) {
       add_action('after_setup_theme', array($this, $action));
+    }
+    foreach ($init_actions as $action) {
+      add_action('init', array($this, $action));
     }
   }
 
@@ -64,6 +71,36 @@ class Mindfulness_Setup
     // remove emojis
     remove_action('wp_head', 'print_emoji_detection_script', 7);
     remove_action('admin_print_scripts', 'print_emoji_detection_script');
+  }
+
+
+
+  /**
+   * Disable the emoji's
+   */
+  function disable_emojis()
+  {
+    remove_action('wp_head', 'print_emoji_detection_script', 7);
+    remove_action('admin_print_scripts', 'print_emoji_detection_script');
+    remove_action('wp_print_styles', 'print_emoji_styles');
+    remove_action('admin_print_styles', 'print_emoji_styles');
+    remove_filter('the_content_feed', 'wp_staticize_emoji');
+    remove_filter('comment_text_rss', 'wp_staticize_emoji');
+    remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
+
+    // Remove from TinyMCE
+    add_filter('tiny_mce_plugins', 'disable_emojis_tinymce');
+  }
+  /**
+   * Filter out the tinymce emoji plugin.
+   */
+  function disable_emojis_tinymce($plugins)
+  {
+    if (is_array($plugins)) {
+      return array_diff($plugins, array('wpemoji'));
+    } else {
+      return array();
+    }
   }
 
 

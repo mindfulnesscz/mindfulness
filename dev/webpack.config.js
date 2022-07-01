@@ -7,7 +7,7 @@ const path = require( 'path' );
 
 const TerserJSPlugin = require( 'terser-webpack-plugin' );
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require( 'clean-webpack-plugin' );
 
 module.exports = {
   mode: isDevelopment ? 'development' : 'production',
@@ -29,13 +29,15 @@ module.exports = {
   },
   externals: {
     'react': 'React',
-    'react-dom': 'ReactDOM'
+    'react-dom': 'ReactDOM',
+    'gsap': 'gsap',
+    'gsap/ScrollTrigger' : 'ScrollTrigger'
   },
 
   optimization: {
     minimizer: [ new TerserJSPlugin( {} ) ],
     splitChunks: {
-      chunks(chunk) {
+      chunks ( chunk ) {
         // exclude react to grab it from cdn
         return chunk.name !== 'react';
       },

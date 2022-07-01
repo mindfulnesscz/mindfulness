@@ -85,21 +85,21 @@ $case_solutions = get_posts($cs_args);
 
             <div class="css_block w_iii h_v x_o y_ii css-white product-block main-product-block">
               <a href="<?php echo home_url(); ?>/alsim-cloud">
-                <img class="main-product-logo" src="<?php echo $template_url; ?>/assets/images/product-logos/logo_cloud.svg">
+                <img loading="lazy" class="main-product-logo" src="<?php echo $template_url; ?>/assets/images/product-logos/logo_cloud.svg">
                 <h4>alsim</h4>
                 <h3>CLOUD</h3>
               </a>
             </div>
             <div class="css_block w_vi h_v x_iii y_ii css-white product-block main-product-block">
               <a href="<?php echo home_url(); ?>/alsim-platform">
-                <img class="main-product-logo" src="<?php echo $template_url; ?>/assets/images/product-logos/logo_platform.svg">
+                <img loading="lazy" class="main-product-logo" src="<?php echo $template_url; ?>/assets/images/product-logos/logo_platform.svg">
                 <h4>alsim</h4>
                 <h3>PLATFORM</h3>
               </a>
             </div>
             <div class="css_block w_iii h_v x_ix y_ii css-white product-block main-product-block">
               <a href="<?php echo home_url(); ?>/alsim-services">
-                <img class="main-product-logo" src="<?php echo $template_url; ?>/assets/images/product-logos/logo_services.svg">
+                <img loading="lazy" class="main-product-logo" src="<?php echo $template_url; ?>/assets/images/product-logos/logo_services.svg">
                 <h4>alsim</h4>
                 <h3>SERVICES</h3>
               </a>
@@ -172,25 +172,25 @@ $case_solutions = get_posts($cs_args);
             </div>
             <div class="css_block w_vi h_iv x_o y_iii css-gray">
               <a class="background-image-link" href="<?php echo get_post_permalink($case_solutions[0]->ID); ?>">
-                <img class="csscube-bkg-image" src="<?php print_r(get_the_post_thumbnail_url($case_solutions[0]->ID, 'thumbnail')); ?>">
+                <img loading="lazy" class="csscube-bkg-image" src="<?php print_r(get_the_post_thumbnail_url($case_solutions[0]->ID, 'thumbnail')); ?>">
                 <h3><?php echo $case_solutions[0]->post_title; ?></h3>
               </a>
             </div>
             <div class="css_block w_vi h_iv x_vi y_iii css-gray">
               <a class="background-image-link" href="<?php echo get_post_permalink($case_solutions[1]->ID); ?>">
-                <img class="csscube-bkg-image" src="<?php print_r(get_the_post_thumbnail_url($case_solutions[1]->ID, 'thumbnail')); ?>">
+                <img loading="lazy" class="csscube-bkg-image" src="<?php print_r(get_the_post_thumbnail_url($case_solutions[1]->ID, 'thumbnail')); ?>">
                 <h3><?php echo $case_solutions[1]->post_title; ?></h3>
               </a>
             </div>
             <div class="css_block w_vi h_iv x_o y_vii css-gray">
               <a class="background-image-link" href="<?php echo get_post_permalink($case_solutions[2]->ID); ?>">
-                <img class="csscube-bkg-image" src="<?php print_r(get_the_post_thumbnail_url($case_solutions[2]->ID, 'thumbnail')); ?>">
+                <img loading="lazy" class="csscube-bkg-image" src="<?php print_r(get_the_post_thumbnail_url($case_solutions[2]->ID, 'thumbnail')); ?>">
                 <h3><?php echo $case_solutions[2]->post_title; ?></h3>
               </a>
             </div>
             <div class="css_block w_vi h_iv x_vi y_vii css-gray">
               <a class="background-image-link" href="<?php echo get_post_permalink($case_solutions[3]->ID); ?>">
-                <img class="csscube-bkg-image" src="<?php print_r(get_the_post_thumbnail_url($case_solutions[3]->ID, 'thumbnail')); ?>">
+                <img loading="lazy" class="csscube-bkg-image" src="<?php print_r(get_the_post_thumbnail_url($case_solutions[3]->ID, 'thumbnail')); ?>">
                 <h3><?php echo $case_solutions[3]->post_title; ?></h3>
               </a>
             </div>
@@ -262,7 +262,7 @@ $case_solutions = get_posts($cs_args);
           <div id="csscube-bottom">
             <div class="css_block w_xii h_v x_o y_o css-gray-lighter">
               <a href="<?php echo home_url(); ?>">
-                <img id="cube-ess-logo" alt="ESS - Engineering Software Steyr" src="<?php echo get_template_directory_uri() . '/assets/images/ess_logo.svg'; ?>">
+                <img loading="lazy" id="cube-ess-logo" alt="ESS - Engineering Software Steyr" src="<?php echo get_template_directory_uri() . '/assets/images/ess_logo.svg'; ?>">
               </a>
             </div>
 
