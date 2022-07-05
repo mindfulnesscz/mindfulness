@@ -16,3 +16,12 @@ export interface WmMnavSlideRef {
 export type WmConstants = {
   homeUrl: string
 }
+
+declare global {
+  interface Window {
+    gsap: GSAP
+    ScrollTrigger: gsap.Plugin
+    MobileNav:React.ReactNode
+    DesktopNav:React.ReactNode
+  }
+}

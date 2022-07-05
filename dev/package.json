@@ -59,5 +59,8 @@
   "bugs": {
     "url": "https://github.com/mindfulnesscz/essteyr.com.dev/issues"
   },
-  "homepage": "https://github.com/mindfulnesscz/essteyr.com.dev#readme"
+  "homepage": "https://github.com/mindfulnesscz/essteyr.com.dev#readme",
+  "dependencies": {
+    "@types/react": "^18.0.14"
+  }
 }

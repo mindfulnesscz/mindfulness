@@ -7,13 +7,8 @@ import '../../sass/device-nav-styles/device_nav.sass';
 import SlideMainComp from './slides/slide-main';
 import SlideSub from './slides/slide-sub';
 
+import '../../types/device-nav-component';
 
-declare global {
-  interface Window {
-    gsap: GSAP
-    ScrollTrigger: gsap.Plugin
-  }
-}
 
 declare type DeviceNavProps = {
   homeUrl:string

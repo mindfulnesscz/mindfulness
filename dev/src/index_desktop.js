@@ -7,17 +7,17 @@ import CessCube from './components/csscube';
 
 
 
-console.log('desktop initializing');
+console.log( 'desktop initializing' );
   
 mind_global();
 
-window.MindCookiesHandler = new MindCookie('./');
+window.MindCookiesHandler = new MindCookie( './' );
 
 window.$intro = null;
 
 window.$Cube = null;
 
-window.ishomepage = document.body.classList.contains('ess-homepage');
+window.ishomepage = document.body.classList.contains( 'ess-homepage' );
 
 
 // THE TOP BAR & THE CUBE
@@ -27,9 +27,9 @@ const el_cubenavholder = document.getElementById(
   'ess-cube-navigation-holder'
 );
 
-const navbarLinks = document.querySelectorAll('.wm-cube-menu-link');
+const navbarLinks = document.querySelectorAll( '.wm-cube-menu-link' );
 
-const CSSCube = new CessCube(el_cubenavholder, navbarLinks);
+const CSSCube = new CessCube( el_cubenavholder, navbarLinks );
 
 CSSCube.init();
 

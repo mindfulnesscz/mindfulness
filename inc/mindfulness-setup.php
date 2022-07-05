@@ -89,7 +89,7 @@ class Mindfulness_Setup
     remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
 
     // Remove from TinyMCE
-    add_filter('tiny_mce_plugins', 'disable_emojis_tinymce');
+    add_filter('tiny_mce_plugins', array($this, 'disable_emojis_tinymce'));
   }
   /**
    * Filter out the tinymce emoji plugin.
