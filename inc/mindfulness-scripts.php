@@ -48,7 +48,7 @@ function mindfulness_scripts()
   //wm_console(json_encode(wm_grab_chunks()));
 
   $chunks = wm_grab_chunks();
-  $chunks_deps = array('cdn-react', 'cdn-react-dom', 'ScrollTrigger');
+  $chunks_deps = array('react', 'react-dom', 'ScrollTrigger');
 
   foreach ($chunks as $chunk) {
     array_push($chunks_deps, $chunk['id']);
@@ -77,8 +77,8 @@ function mindfulness_scripts()
   // main script
   wp_register_script('ess', get_template_directory_uri() . '/assets/js/index.js', $chunks_deps, mindfulness_version(), true);
 
-  wp_enqueue_script('cdn-react');
-  wp_enqueue_script('cdn-react-dom');
+  //wp_enqueue_script('cdn-react');
+  //wp_enqueue_script('cdn-react-dom');
   wp_enqueue_script('Gsap');
   wp_enqueue_script('ScrollTo');
   wp_enqueue_script('ScrollTtrigger');
@@ -128,12 +128,18 @@ function mindfulness_scripts()
  */
 function mind_defer_scripts($tag, $handle, $url)
 {
+
+
   global $wp_scripts;
+
+
+  //wm_console('url: ' . $url);
+
   if (in_array($handle, $wp_scripts->in_footer)) {
 
     //wm_console($handle);
-    $tag = $tag = "<script type=\"text/javascript\" defer src=\"" . esc_url($url) . "\" id=\"" . $handle . "\"></script>\r\n";
-  } else
-    $tag = "<script type=\"text/javascript\" src=\"" . esc_url($url) . "\" id=\"" . $handle . "\"></script>\r\n";
+    $tag = "<script type=\"text/javascript\" defer src=\"" . esc_url($url) . "\" id=\"" . $handle . "\"></script>\r\n";
+  } /*else
+    $tag = "<script type=\"text/javascript\" src=\"" . esc_url($url) . "\" id=\"" . $handle . "\"></script>\r\n";*/
   return $tag;
 }

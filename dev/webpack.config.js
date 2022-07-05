@@ -36,12 +36,12 @@ module.exports = {
 
   optimization: {
     minimizer: [ new TerserJSPlugin( {} ) ],
-    splitChunks: {
+    /*splitChunks: {
       chunks ( chunk ) {
         // exclude react to grab it from cdn
         return chunk.name !== 'react';
       },
-    },
+    },*/
   },
 
   module: {
