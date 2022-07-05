@@ -25,6 +25,8 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
+/* eslint-disable no-undef */
+
 /*jshint esversion: 6 */
 
 /**
@@ -375,8 +377,7 @@ var CessCube = /*#__PURE__*/function () {
         gsap.to(this.arriving_el, {
           duration: this.tween_length,
           ease: this.tweeen,
-          opacity: 1,
-          onComplete: function onComplete() {}
+          opacity: 1
         });
         this.active_el = this.arriving_el;
         console.log('y je ' + this._y + ' new y je' + new_y);
