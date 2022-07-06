@@ -14,13 +14,17 @@ module.exports = {
   devtool: isDevelopment ? 'inline-source-map' : 'source-map',
 
   entry: {
-    '../index': './src/index.js',
-    '../index_desktop': './src/index_desktop.js',
-    '../index_mobile': './src/device_nav.tsx',
+    'index': './src/index.ts',
+    'nav_devices': './src/nav_devices.tsx',
+    'nav_desktop': './src/nav_desktop.tsx',
   },
 
   output: {
-    path: path.resolve( __dirname, '../assets/js/chunks/' ),
+    //  chunks path
+    //path: path.resolve( __dirname, '../assets/js/chunks/' ),
+
+    // no chunks path
+    path: path.resolve( __dirname, '../assets/js/' ),
     filename: '[name].js',
   },
 
@@ -36,6 +40,10 @@ module.exports = {
 
   optimization: {
     minimizer: [ new TerserJSPlugin( {} ) ],
+    /**
+     * SPLIT CHUNKS CURRENTLY DISABLED BECAUSE WE NEED TISTINGUISHED 
+     * CHUNKS FOR CUBE AND DEVICE NAV ETC.
+     */
     /*splitChunks: {
       chunks ( chunk ) {
         // exclude react to grab it from cdn
@@ -88,17 +96,6 @@ module.exports = {
     ],
   },
   plugins: [
-    /**
-     * All files inside webpack's output.path directory will be removed once, but the
-     * directory itself will not be. If using webpack 4+'s default configuration,
-     * everything under <PROJECT_DIR>/dist/ will be removed.
-     * Use cleanOnceBeforeBuildPatterns to override this behavior.
-     *
-     * During rebuilds, all webpack assets that are not used anymore
-     * will be removed automatically.
-     *
-     * See `Options and Defaults` for information
-     */
     new CleanWebpackPlugin(),
   ],
 };

@@ -128,18 +128,11 @@ function mindfulness_scripts()
  */
 function mind_defer_scripts($tag, $handle, $url)
 {
-
-
   global $wp_scripts;
 
-
-  //wm_console('url: ' . $url);
-
   if (in_array($handle, $wp_scripts->in_footer)) {
-
     //wm_console($handle);
     $tag = "<script type=\"text/javascript\" defer src=\"" . esc_url($url) . "\" id=\"" . $handle . "\"></script>\r\n";
-  } /*else
-    $tag = "<script type=\"text/javascript\" src=\"" . esc_url($url) . "\" id=\"" . $handle . "\"></script>\r\n";*/
+  }
   return $tag;
 }

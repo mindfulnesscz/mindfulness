@@ -560,7 +560,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sass_device_nav_styles_device_nav_sass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../sass/device-nav-styles/device_nav.sass */ "./src/sass/device-nav-styles/device_nav.sass");
 /* harmony import */ var _slides_slide_main__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./slides/slide-main */ "./src/components/device-nav/slides/slide-main.tsx");
 /* harmony import */ var _slides_slide_sub__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./slides/slide-sub */ "./src/components/device-nav/slides/slide-sub.tsx");
-/* harmony import */ var _types_device_nav_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../types/device-nav-component */ "./src/types/device-nav-component.ts");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../types/device-nav-component'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
 
@@ -748,19 +748,6 @@ const slideSub = ({ title, className, callSlide, slideLinks, children }) => {
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, children)));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (slideSub);
-
-
-/***/ }),
-
-/***/ "./src/types/device-nav-component.ts":
-/*!*******************************************!*\
-  !*** ./src/types/device-nav-component.ts ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* eslint-disable no-unused-vars */
-
 
 
 /***/ }),
