@@ -33,19 +33,21 @@
     <li><a class="wm-cube-menu-link" data-target="front">Contact</a></li>
   </ul>
 
-  <div id="wm-nav-settings">
-
-  </div>
+  <div id="wmnav-settings"></div>
 </div>
+
 
 
 <?php
-
 // DEVICE SMALL SCREEN NAV
 // =======================================================
-// Here the content will be injected via React wm-small-nav is the container. Let's be a bit modern here.
+// Here the content is injected via React wm-small-nav is the container. Let's be a bit modern here.
 ?>
+<div id="wmnav-cont-devices"></div>
 
-<div id="wmnav-cont">
-
-</div>
+<?php
+// DEVICE BIG SCREEN NAV
+// =======================================================
+// Here the content is injected via React ess-cube-navigation-holder is the container. Let's be a bit modern here.
+?>
+<div id='wmnav-cont-desktop'></div>

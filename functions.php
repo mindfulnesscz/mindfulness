@@ -37,7 +37,9 @@ require_once $inc . 'navwalker.php';  // custom menu
 
 require_once $inc . 'fn.php'; // useful functions
 
-require_once $inc . 'scripts.php';
+require_once $inc . 'scripts.php'; // registering and handling javascripts and css
+
+require_once $inc . 'endpoints.php'; // register and callbacks for custom endpoints
 
 
 new Mindfulness_Setup();

@@ -32,7 +32,7 @@
 @import './components/keypage';
 @import './components/footer';
 @import './components/logo_cube';
-@import './components/navbar_cube';
+//@import './components/navbar_cube'; -- moved to nav folder and generates unique css for the cube
 @import './components/mind_slider';
 @import './components/sidebar_contact';
 @import './components/articles_feed';

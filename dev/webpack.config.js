@@ -15,8 +15,8 @@ module.exports = {
 
   entry: {
     'index': './src/index.ts',
-    'nav_devices': './src/nav_devices.tsx',
-    'nav_desktop': './src/nav_desktop.tsx',
+    'nav/devices': './src/nav/devices.tsx',
+    'nav/desktop': './src/nav/desktop.tsx',
   },
 
   output: {

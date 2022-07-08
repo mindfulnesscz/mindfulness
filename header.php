@@ -69,7 +69,7 @@
   <link href="https://fonts.googleapis.com/css?family=Exo:300,500&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,400&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
-  <meta name=“robots“ content=“index, follow“>
+  <meta name="robots" content="index, follow">
 
   <?php wp_head(); ?>
 
@@ -77,19 +77,13 @@
 
 <body id="ess-body" class="ess-body-frontend<?php echo ((is_front_page() ? ' ess-homepage' : '')); ?>">
 
-
-
   <?php
-
 
   // --------------------- T3.0 TOP NAV BAR ------------------------ //
 
   get_template_part('template-parts/navigation/navigation', 'top-bar');
 
-  // --------------------- THE CUBE CODE ------------------------ //
-
-  get_template_part('template-parts/navigation/navigation', 'cube');
-
   ?>
+
 
   <div id="ess-main-container">

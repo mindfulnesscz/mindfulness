@@ -1,1 +1,0 @@
-{"version":3,"file":"../wm_gsap.js","mappings":";;;;;AAIA,IAAI,CAAC,cAAc,CAAC,aAAa,CAAC,CAAC","sources":["webpack://ess_backend/./src/wm_gsap.ts"],"sourcesContent":["declare const gsap:any;\ndeclare const ScrollTrigger: any;\n\n\ngsap.registerPlugin(ScrollTrigger);"],"names":[],"sourceRoot":""}

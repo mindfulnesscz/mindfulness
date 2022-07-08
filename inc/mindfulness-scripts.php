@@ -20,7 +20,7 @@ function mindfulness_backend_scripts()
 
 /**
  * Loops /assets/js folder for chunks and returns the source path and the name of the plugin in an array
- * 
+ * CURRENTLY SET TO OFF SINCE NO CHUNKS ARE EMITTED. 
  * @since 3.0
  * @return Array {'id, src]} Array of associative arrays with keys id and src for script registering
  */
@@ -47,13 +47,15 @@ function mindfulness_scripts()
 
   //wm_console(json_encode(wm_grab_chunks()));
 
-  $chunks = wm_grab_chunks();
-  $chunks_deps = array('react', 'react-dom', 'ScrollTrigger');
+  // NO CHUNKS AT THE MOMENT
+  /* $chunks = wm_grab_chunks();*/
+  $chunks_deps = array('react', 'react-dom', 'Gsap', 'ScrollTrigger', 'ScrollTo');
 
+  /* NO CHUNKS AT THE MOMENT
   foreach ($chunks as $chunk) {
     array_push($chunks_deps, $chunk['id']);
     wp_enqueue_script($chunk['id'], $chunk['src'], array(), mindfulness_version());
-  }
+  }*/
 
   // get rid of inline wp styles
   wp_dequeue_style('global-styles');
@@ -83,7 +85,6 @@ function mindfulness_scripts()
   wp_enqueue_script('ScrollTo');
   wp_enqueue_script('ScrollTtrigger');
 
-
   wp_enqueue_script('ess');
 
 
@@ -98,10 +99,10 @@ function mindfulness_scripts()
 
   wp_localize_script(
     'ess',
-    'mindConstants',
+    'MindGlobal',
     array(
-      'template_url'   => get_template_directory_uri(),
-      'template_version'   => MINDFULNESS_VERSION,
+      'templateUrl'   => get_template_directory_uri(),
+      'templateVersion'   => MINDFULNESS_VERSION,
       'homeUrl'  => get_home_url()
     )
   );

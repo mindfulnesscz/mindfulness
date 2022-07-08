@@ -1,12 +1,12 @@
 /*jshint esversion: 6 */
 
 
-import MindCookies from './mind-helpers/MindCookies';
-
+import MindCookies from '../helpers/MindCookies';
 import FooterSlider from './footer-sliders';
+import gsap from 'gsap';
 
 
-gsap.registerPlugin(ScrollToPlugin);
+gsap.registerPlugin( ScrollToPlugin );
 
 
 /*
@@ -45,9 +45,9 @@ gsap.registerPlugin(ScrollToPlugin);
 
 export default class NavbarToggleCss {
 
-  constructor(el_nav_button, el_sidemenu, inst_Cube, intro, ishomepage) {
+  constructor ( el_nav_button, el_sidemenu, inst_Cube, intro, ishomepage ) {
 
-    console.log(ishomepage + ' is homepage');
+    console.log( ishomepage + ' is homepage' );
 
 
     this.toggle = el_nav_button;
@@ -71,7 +71,7 @@ export default class NavbarToggleCss {
     this.ishomepage = ishomepage;
 
 
-    if (this.toggle instanceof HTMLElement == false)
+    if ( this.toggle instanceof HTMLElement == false )
 
       throw 'navbar id not found';
 
@@ -88,22 +88,22 @@ export default class NavbarToggleCss {
 
     this.show_cubic_menu = function () {
 
-      if (this.ishomepage) {
+      if ( this.ishomepage ) {
 
 
-        gsap.to(window, { duration: 0.5, scrollTo: 0 });
+        gsap.to( window, { duration: 0.5, scrollTo: 0 } );
 
       } else {
 
-        this.toggle.classList.add('opacity-o');
+        this.toggle.classList.add( 'opacity-o' );
 
 
-        const tiny = document.querySelector('.ess-tiny-header');
+        const tiny = document.querySelector( '.ess-tiny-header' );
 
 
-        if (tiny)
+        if ( tiny )
 
-          tiny.querySelector('h1').classList.add('opacity-o');
+          tiny.querySelector( 'h1' ).classList.add( 'opacity-o' );
 
 
         this.inst_Cube.fadeIn();
@@ -120,9 +120,9 @@ export default class NavbarToggleCss {
 
     this.show_on_scroll_down = function () {
 
-      if (window.scrollY > 0 && !this.onstage) {
+      if ( window.scrollY > 0 && !this.onstage ) {
 
-        this.toggle.classList.remove('ess-hidden');
+        this.toggle.classList.remove( 'ess-hidden' );
 
 
         this.onstage = true;
@@ -130,7 +130,7 @@ export default class NavbarToggleCss {
 
         this.toggle.style.left = '0px';
 
-      } else if (window.scrollY == 0 && this.onstage) {
+      } else if ( window.scrollY == 0 && this.onstage ) {
 
         this.onstage = false;
 
@@ -142,22 +142,22 @@ export default class NavbarToggleCss {
     };
 
 
-    this.show_on_scroll_handler = this.show_on_scroll_down.bind(this);
+    this.show_on_scroll_handler = this.show_on_scroll_down.bind( this );
 
 
-    this.classicHandler = this.show_classic_menu.bind(this);
+    this.classicHandler = this.show_classic_menu.bind( this );
 
 
-    this.cubicHandler = this.show_cubic_menu.bind(this);
+    this.cubicHandler = this.show_cubic_menu.bind( this );
 
   }
 
 
-  call_cube_intro() {
+  call_cube_intro () {
 
-    setTimeout(() => {
+    setTimeout( () => {
 
-      gsap.to(this.intro, {
+      gsap.to( this.intro, {
 
         duration: 1,
 
@@ -167,48 +167,48 @@ export default class NavbarToggleCss {
 
         onComplete: () => {
 
-          this.intro.classList.add('ess-hidden');
+          this.intro.classList.add( 'ess-hidden' );
 
           this.el_canvas.style.display = 'flex';
 
 
-          this.el_canvas.setAttribute('class', 'on-stage');
+          this.el_canvas.setAttribute( 'class', 'on-stage' );
 
 
-          this.init_cubic_menu(true);
+          this.init_cubic_menu( true );
 
 
-          if (!window.development)
+          if ( !window.development )
 
-            MindCookies.setCookie('intro', 'viewed', 1000 * 60 * 720);
+            MindCookies.setCookie( 'intro', 'viewed', 1000 * 60 * 720 );
 
         },
 
-      });
+      } );
 
-    }, 3000);
+    }, 3000 );
 
   }
 
 
-  init() {
+  init () {
 
-    if (this.ishomepage) this.init_on_homepage();
+    if ( this.ishomepage ) this.init_on_homepage();
 
     else this.init_on_page();
 
   }
 
-  init_on_homepage() {
+  init_on_homepage () {
 
 
-    const intro = MindCookies.getCookie('intro');
+    const intro = MindCookies.getCookie( 'intro' );
 
 
-    console.log('INTRO JE ' + intro);
+    console.log( 'INTRO JE ' + intro );
 
 
-    if (this.menu_type != 'classic') {
+    if ( this.menu_type != 'classic' ) {
 
       const navigation_holder = document.getElementById(
 
@@ -222,7 +222,7 @@ export default class NavbarToggleCss {
       navigation_holder.style.zIndex = 99;
 
 
-      if (intro != 'viewed') this.call_cube_intro();
+      if ( intro != 'viewed' ) this.call_cube_intro();
 
       else {
 
@@ -237,7 +237,7 @@ export default class NavbarToggleCss {
 
   }
 
-  init_on_page() {
+  init_on_page () {
 
     this.el_cube_holder = document.getElementById(
 
@@ -245,7 +245,7 @@ export default class NavbarToggleCss {
 
     );
 
-    if (this.menu_type != 'classic') this.init_cubic_menu();
+    if ( this.menu_type != 'classic' ) this.init_cubic_menu();
 
     else this.init_classic_menu();
 
@@ -259,14 +259,14 @@ export default class NavbarToggleCss {
 
 
 
-  set_type_toggle() {
+  set_type_toggle () {
 
-    console.log('jjjjjjjjjjjjj' + window.ess_cube_transitioning);
+    console.log( 'jjjjjjjjjjjjj' + window.ess_cube_transitioning );
 
 
-    if (!window.ess_cube_transitioning) {
+    if ( !window.ess_cube_transitioning ) {
 
-      switch (this.menu_type) {
+      switch ( this.menu_type ) {
 
       case 'classic':
 
@@ -294,21 +294,21 @@ export default class NavbarToggleCss {
   }
 
 
-  init_classic_menu() {
+  init_classic_menu () {
 
-    const hb = document.querySelector('#homepage-banner');
+    const hb = document.querySelector( '#homepage-banner' );
 
 
-    if (hb) {
+    if ( hb ) {
 
       hb.style.display = 'block';
 
 
-      if (!window.homepage_banner) {
+      if ( !window.homepage_banner ) {
 
         window.homepage_banner = new FooterSlider(
 
-          document.getElementById('ess-home-banner-classic'),
+          document.getElementById( 'ess-home-banner-classic' ),
 
           { autoplay: true, center_arrows: true }
 
@@ -327,47 +327,47 @@ export default class NavbarToggleCss {
     window.ess_cube_transitioning = true;
 
 
-    this.toggle.classList.remove('ess-hidden');
+    this.toggle.classList.remove( 'ess-hidden' );
 
     this.toggle.style.left = '0px';
 
 
-    MindCookies.setCookie('type_toggle', 'classic', 1000 * 60 * 600);
+    MindCookies.setCookie( 'type_toggle', 'classic', 1000 * 60 * 600 );
 
 
     this.el_type_toggle_text_el.innerHTML = 'cubic menu';
 
 
-    this.toggle.classList.remove('cubic');
+    this.toggle.classList.remove( 'cubic' );
 
 
     // eslint-disable-next-line no-undef
-    this.m_navbar = M.Sidenav.getInstance(this.el_sidemenu);
+    this.m_navbar = M.Sidenav.getInstance( this.el_sidemenu );
 
 
-    if (this.ishomepage) {
+    if ( this.ishomepage ) {
 
-      this.inst_Cube.outro(() => {
+      this.inst_Cube.outro( () => {
 
         this.intro.style.display = 'block';
 
 
-        this.intro.classList.remove('ess-hidden');
+        this.intro.classList.remove( 'ess-hidden' );
 
 
-        gsap.to(this.intro, {
+        gsap.to( this.intro, {
 
           duration: 1,
 
 
           opacity: 1,
 
-        });
+        } );
 
-      });
+      } );
 
 
-      window.removeEventListener('scroll', this.show_on_scroll_handler);
+      window.removeEventListener( 'scroll', this.show_on_scroll_handler );
 
     } else {
 
@@ -382,21 +382,21 @@ export default class NavbarToggleCss {
     }
 
 
-    this.toggle.classList.remove('ess-hidden');
+    this.toggle.classList.remove( 'ess-hidden' );
 
 
-    this.toggle.removeEventListener('click', this.cubicHandler);
+    this.toggle.removeEventListener( 'click', this.cubicHandler );
 
-    this.toggle.addEventListener('click', this.classicHandler);
+    this.toggle.addEventListener( 'click', this.classicHandler );
 
   }
 
-  init_cubic_menu(first) {
+  init_cubic_menu ( first ) {
 
-    const hb = document.querySelector('#homepage-banner');
+    const hb = document.querySelector( '#homepage-banner' );
 
 
-    if (hb) hb.style.display = 'none';
+    if ( hb ) hb.style.display = 'none';
 
 
     this.menu_type = 'cubic';
@@ -404,11 +404,11 @@ export default class NavbarToggleCss {
     window.ess_cube_transitioning = true;
 
 
-    MindCookies.setCookie('type_toggle', 'cubic', 1000 * 60 * 720);
+    MindCookies.setCookie( 'type_toggle', 'cubic', 1000 * 60 * 720 );
 
-    if (this.ishomepage) {
+    if ( this.ishomepage ) {
 
-      if (!first) {
+      if ( !first ) {
 
         this.intro.style.display = 'none';
 
@@ -418,13 +418,13 @@ export default class NavbarToggleCss {
       } else this.inst_Cube.intro();
 
 
-      if (window.scrollY == 0) {
+      if ( window.scrollY == 0 ) {
 
         this.toggle.style.left = '-200px';
 
       } else {
 
-        this.toggle.classList.remove('ess-hidden');
+        this.toggle.classList.remove( 'ess-hidden' );
 
 
         this.toggle.style.left = '0px';
@@ -432,11 +432,11 @@ export default class NavbarToggleCss {
       }
 
 
-      window.addEventListener('scroll', this.show_on_scroll_handler);
+      window.addEventListener( 'scroll', this.show_on_scroll_handler );
 
     } else {
 
-      this.toggle.classList.remove('ess-hidden');
+      this.toggle.classList.remove( 'ess-hidden' );
 
 
       window.ess_cube_transitioning = false;
@@ -444,10 +444,10 @@ export default class NavbarToggleCss {
     }
 
 
-    this.toggle.removeEventListener('click', this.classicHandler);
+    this.toggle.removeEventListener( 'click', this.classicHandler );
 
 
-    this.toggle.addEventListener('click', this.cubicHandler);
+    this.toggle.addEventListener( 'click', this.cubicHandler );
 
   }
 

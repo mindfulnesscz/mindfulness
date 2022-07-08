@@ -1,0 +1,37 @@
+@keyframes navrot
+  to
+    transform: rotateY(360deg)
+
+#ess-navcube-hamburger
+  background: $ess-darkest-transp
+  display: block
+  position: relative
+  top: 8px
+
+#ess-menu-toggle
+  &:hover
+    .ess-navcube-cube
+      .navcube
+
+        .navcube-front,
+        .navcube-left,
+        .navcube-right,
+        .navcube-back,
+        .navcube-top,
+        .navcube-bottom
+          background-color: color("essblue", "base")
+
+.dark-block .ess-navcube-cube
+  cursor: pointer
+  display: block
+
+#bottom-cube
+  width: 150px
+  margin: 0 auto
+
+@media only screen and (min-width: $medium-screen)
+  .cubic .ess-navcube-cube
+    display: block
+
+  .cubic #ess-navcube-hamburger
+    display: none

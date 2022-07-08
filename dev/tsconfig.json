@@ -17,6 +17,9 @@
   ],
   "include": [
     "src/components",
-    "src/mindfulness.d.ts"
+    "src/types/types.ts",
+    "./globals.ts",
+    "src/helpers",
+    "src/nav/components/csscube.js"
   ]
 }
