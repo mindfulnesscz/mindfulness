@@ -6,7 +6,7 @@ const BottomAbout: React.FC = () => {
 
 
   return ( 
-    <div id="csscube-bottom">
+    <div id="csscube-bottom" className='wmcube-side'>
       <div className="css_block w_xii h_v x_o y_o css-gray-lighter">
         <a href={window.MindGlobal.homeUrl}>
           <img loading="lazy" id="cube-ess-logo" alt="ESS - Engineering Software Steyr" src={`${window.MindGlobal.templateUrl}/assets/images/ess_logo.svg`} />

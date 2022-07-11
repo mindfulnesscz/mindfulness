@@ -40,3 +40,7 @@ export interface WmMnavSlideRef {
   el: HTMLDivElement | null
 }
 
+export interface WmNavSlideChildren {
+  homeUrl: string
+}
+

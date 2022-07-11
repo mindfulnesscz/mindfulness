@@ -14,22 +14,22 @@ const slideSub: React.FC<WmMnavSlide> = ( { title, className, callSlide, slideLi
   };
 
   return(
-    <div className={`${className} container p-top-sexta`}>
-      <div className='row'>
+    <div className={`${className} container`}>
+      <div className='row wmnav-subslide-head'>
 
-        <a className='col-3 wmnav-back-button' onClick={e=>{click( e, slideLinks[0].el );}}>
+        <a className='col-xs-3 wmnav-back-button' onClick={e=>{click( e, slideLinks[0].el );}}>
           <WmnavBackArrow className='wmnav-back-arrow' />
         </a>
 
-        <h3 className="col-3 light text-center has-gray-darken-1-color uppercase">{title}</h3>
+        <h3 className="col-xs-6 light text-center has-gray-darken-1-color uppercase">{title}</h3>
         
         
-        <div className="col-3"></div>
+        <div className="col-xs-3"></div>
 
 
       </div>
       
-      <div>
+      <div className='wmnav-subslide-body'>
         { children }
       </div>
     </div>

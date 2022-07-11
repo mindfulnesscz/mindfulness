@@ -156,30 +156,10 @@ a:hover {
   align-items: stretch;
 }
 
-.row>div {
-  padding: 0 $base-margin;
-}
-
-.no-margin>div {
-  padding: 0 !important;
-}
-
-
-.row-ess-center {
-  justify-content: center;
-}
-
 .ess-center-xs {
   align-items: center;
 }
 
-.dir-column {
-  flex-direction: column !important;
-}
-
-.dir-row {
-  flex-direction: row !important;
-}
 
 .just-center {
   justify-content: center;

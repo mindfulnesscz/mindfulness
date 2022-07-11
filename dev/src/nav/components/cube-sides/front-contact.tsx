@@ -4,7 +4,7 @@ import React from 'react';
 const FrontContact: React.FC = () => {
   
   return ( 
-    <div id="csscube-front">
+    <div id="csscube-front" className='wmcube-side'>
       <div className="css_block css-block-header w_xii h_iii x_o y_o">
         <div>
           <h1>Contact</h1>

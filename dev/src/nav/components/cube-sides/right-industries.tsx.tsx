@@ -8,7 +8,7 @@ const RightIndustries: React.FC = () => {
 
 
   return ( 
-    <div id="csscube-right">
+    <div id="csscube-right" className='wmcube-side'>
       <div className="css_block css-block-header w_xii h_iii x_o y_o">
         <div>
           <h1>INDUSTRIES</h1>

@@ -27,7 +27,7 @@ const LeftCaseSolutions: React.FC = () => {
 
 
   return ( 
-    <div id="csscube-left">
+    <div id="csscube-left" className='wmcube-side'>
       <div className="css_block css-block-header w_xii h_iii x_o y_o">
         <div>
           <h1>Case Solutions</h1>

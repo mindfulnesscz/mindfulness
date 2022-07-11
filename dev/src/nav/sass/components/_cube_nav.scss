@@ -167,12 +167,7 @@ $alpha-inactive : 0.1;
           margin: $half-margin 0 $quarter-margin 0 !important;
         }
 
-        #csscube-front,
-        #csscube-left,
-        #csscube-right,
-        #csscube-back,
-        #csscube-top,
-        #csscube-bottom {
+        .wmcube-side {
 
           background: transparent;
           position: absolute;
@@ -200,23 +195,11 @@ $alpha-inactive : 0.1;
                 align-content: stretch;
                 padding-bottom: $base-margin;
 
-                /*&:hover {  // HOVER ON ICONS
-                                    .cc-icon-h {
-                                        .ess-anim-icon {
-                                            fill: color('essblue', 'lighten-4');
-                                            stroke: color('essblue', 'base');
-                                        }
-                                    } 
-                                }*/
                 .cc-icon-h {
                   align-self: flex-end;
                   width: 100%;
                   padding: 0 20%;
 
-                  .ess-anim-icon {
-                    fill: color('gray', 'lighten-3');
-                    stroke: color('gray', 'base');
-                  }
                 }
 
                 h2 {
@@ -243,10 +226,6 @@ $alpha-inactive : 0.1;
               overflow: hidden;
               transition: all .5s ease;
 
-              * {
-                margin: 0;
-                padding: 0;
-              }
 
               //margin: 4px;
               &:hover {
@@ -325,6 +304,7 @@ $alpha-inactive : 0.1;
     }
   }
 }
+
 
 #x-button,
 #left-button,

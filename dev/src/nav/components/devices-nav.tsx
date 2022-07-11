@@ -13,6 +13,8 @@ import { WmMnavSlideRef } from '../../types';
 // components
 import SlideMainComp from './slide-main';
 import SlideSub from './slide-sub';
+import AboutSlide from './device-slides/slide-about';
+import IndustriesSlide from './device-slides/slide-industries.tsx';
 
 //assets
 import EssLogo from '../../assets/images/ess_logo.svg';
@@ -137,11 +139,13 @@ const DevicesNav: React.FC<DevicesNavProps> = ( { homeUrl} ) => {
 
         <div ref={SlideAbout} className="wmnav-slide"  id="wmnav-slide-about" >
           <SlideSub title="About us" className="wmnav-slide-inner" callSlide={callSlide} slideLinks={[{name: 'main', el:SlideMain.current}]} >
+            <AboutSlide homeUrl={homeUrl}/>
           </SlideSub>
         </div>
 
         <div ref={SlideIndustries} className="wmnav-slide" id="wmnav-slide-industries" >
           <SlideSub title="Industries" className="wmnav-slide-inner" callSlide={callSlide} slideLinks={[{name: 'main', el:SlideMain.current}]} >
+            <IndustriesSlide homeUrl={homeUrl}/>
           </SlideSub>
         </div>
         <div ref={SlideSolutions} className="wmnav-slide" id="wmnav-slide-solutions" >

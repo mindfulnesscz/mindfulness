@@ -41,18 +41,32 @@
   display: none
 
 .wmnav-slide-inner
+  display: flex
+  min-height: 100vh
+  flex-flow: column nowrap
+  align-items: center
+  justify-items: center
+  align-content: center
+  justify-content: center
 
   h3
     text-align: center
     padding: $half-margin
 
-#wmnav-slide-main .wmnav-slide-inner
+.wmnav-subslide-head
+  width: 100%
+  flex: 0 1 auto // grow shrink basis
+  margin-top: 6rem
+  align-self: baseline
+
+  &>h3
+    background: white
+
+.wmnav-subslide-body
   display: flex
-  min-height: 100%
   align-items: center
-  justify-items: center
-  align-content: center
-  flex-wrap: wrap
+  flex: 1 1 auto
+  padding-bottom: 6rem
 
 .wmnav-back-arrow-svg
   width: 120px

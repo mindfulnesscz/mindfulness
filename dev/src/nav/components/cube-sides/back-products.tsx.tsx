@@ -5,7 +5,7 @@ import {IconCube} from '../../../components/icons';
 const FrontContact: React.FC = () => {
   
   return ( 
-    <div id="csscube-back">
+    <div id="csscube-back" className='wmcube-side'>
 
 
       <div className="css_block css-block-header w_xii h_ii x_o y_o">
