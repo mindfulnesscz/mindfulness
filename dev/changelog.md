@@ -3,22 +3,22 @@
 - Cube design review
 
 ## [3.0] - TODOs
-- split all the plugins to have separate git repos
-- get rid of materialize and foundation frameworks as well as jQuery (replace with React)
-- SCSS cleanup and make html view of all possible classes
 - New Classic Menu
 - News category support
-- New footer with news and events slider to be wmwp-slider (go for react based one)
+- Typography, spacing and current content update
+- Archive pages redesign implementation
+- Single pages redesign implementation
 
 ----------------------------------------------------------------------------------------
 
-## [3.0] - 2022-06-29 (Date of Last Commit)
+## [3.0]
 - New footer
 - Got rid of all frameworks
 - Started the documentation for utility classes (/www/html/mindfulnessdoc)
 - wm_console support for php development (from mindation theme)
 - Top Navbar added for desktop to call the Cube on hover
 - Added splitChunks feature for frontend development
+- Advanced script registration with versions added from current version or random if under development mode in wp-config
 
 ***
 ## [2.0.11] - 2022-05-18 (Date of Last Commit)

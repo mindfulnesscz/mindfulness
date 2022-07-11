@@ -14,7 +14,7 @@ import { WmMnavSlideRef } from '../../types';
 import SlideMainComp from './slide-main';
 import SlideSub from './slide-sub';
 import AboutSlide from './device-slides/slide-about';
-import IndustriesSlide from './device-slides/slide-industries.tsx';
+import IndustriesSlide from './device-slides/slide-industries';
 
 //assets
 import EssLogo from '../../assets/images/ess_logo.svg';

@@ -58,15 +58,15 @@ function default_image_id()
 }
 
 /**
- * MINDFULNESS VERSION
- *  @return Number	
- *  @since  1.2.0
- * returns the version number defined in functions.php as global variable 
+ * returns the version number defined in functions.php as global variable
+ * or random number if is development mode in wp-config.php
+ * 
+ * @return string Current version defined in template functions.php	
+ * @since  1.2.0 
  */
 function mindfulness_version()
 {
-
-  return constant("MINDFULNESS_VERSION");
+  return WP_DEBUG === true ? strval(rand(1, 99999999999999999)) : constant("MINDFULNESS_VERSION");
 }
 
 
