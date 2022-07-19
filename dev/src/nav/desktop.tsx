@@ -16,12 +16,9 @@ const DesktopNavCont:HTMLElement | null = document.querySelector( '#wmnav-cont-d
 if( DesktopNavCont ) {
 
   // sets the device navigation as variable to be unloaded if needed
-  window.MindGlobal.navCube= <DesktopNav homeUrl={window.MindGlobal.homeUrl} />;
+  window.MindGlobal.navCube= <DesktopNav homeUrl={window.MindGlobal.homeUrl} templateUrl={window.MindGlobal.templateUrl} />;
 
   ReactDOM.render( window.MindGlobal.navCube, DesktopNavCont );
-
-  console.log( 'navigation system is for desktop' );
-  console.log( window.MindGlobal.navCube );
 
   const CSSCube = new CessCube();
 

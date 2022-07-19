@@ -11,9 +11,20 @@ interface Props {
 export const WmnavBackArrow: React.FC<Props> = ( { className } ) => {
   return (
     <svg className='wmnav-back-arrow-svg' version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 120 50">
-
       <line id="Line_13" className={className} x1="115.5" y1="25" x2="4.5" y2="25"/>
       <polyline className={className} points="23.9,44.4 4.5,25 23.9,5.6 "/>
+    </svg>
+  );
+};
+
+export const WmnavForwardArrow: React.FC<Props> = ( { className } ) => {
+  return(
+
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 120 50">
+      <style type="text/css">
+      </style>
+      <polyline className={className} points="98.9,8 116.7,25.8 98.9,43.5 "/>
+      <line className={className} x1="116.7" y1="25.8" x2="0" y2="25.8"/>
     </svg>
   );
 };

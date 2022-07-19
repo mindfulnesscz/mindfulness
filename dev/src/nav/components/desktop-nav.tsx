@@ -11,11 +11,11 @@ import React from 'react';
 import '../../../globals'; // for .svg import support in typescript
 
 // components
-import BottomAbout from './cube-sides/bottom-about.tsx';
+import BottomAbout from './cube-sides/bottom-about';
 import LeftCaseSolutions from './cube-sides/left-case-solutions';
-import RightIndustries from './cube-sides/right-industries.tsx';
+import RightIndustries from './cube-sides/right-industries';
 import FrontContact from './cube-sides/front-contact';
-import BackProducts from './cube-sides/back-products.tsx';
+import BackProducts from './cube-sides/back-products';
 
 // assets
 //import EssLogo from '../../assets/images/ess_logo.svg';
@@ -23,9 +23,10 @@ import '../sass/desktop_nav.sass';
 
 declare type DesktopNavProps = {
   homeUrl:string
+  templateUrl: string
 }
 
-const DesktopNav: React.FC<DesktopNavProps> = ( { homeUrl} ) => {
+const DesktopNav: React.FC<DesktopNavProps> = ( { homeUrl, templateUrl} ) => {
 
   console.log( homeUrl );
 
@@ -49,7 +50,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ( { homeUrl} ) => {
 
             <FrontContact />
 
-            <BackProducts />
+            <BackProducts homeUrl={homeUrl} templateUrl={templateUrl} />
 
             <LeftCaseSolutions />
 

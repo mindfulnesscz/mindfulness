@@ -44,8 +44,11 @@ module.exports = function ( grunt ) {
     },
 
     clean: {
+      options: {
+        force: true // because the folder it's outside of working directory ( this is because we use dev folder for development stacks. Maybe it's time to get rid of this )
+      },
       dist: [
-        'assets/css/*.css',
+        '../assets/css/*.css',
       ]
     }
   } );

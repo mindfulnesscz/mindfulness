@@ -54,30 +54,3 @@ $color_value in $shades {
     color: $color_value;
   }
 }
-
-
-
-// ESS BUTTONS ---------------------------------------------------
-
-@each $color_name,
-$color in $colors-ess {
-  @if $color_name  !="shades" {
-    .ess-button.has-#{$color_name}-background-color {
-      background-color: color($color_name, 'base');
-    }
-
-    .ess-button.has-#{$color_name}-background-color:hover {
-      background-color: color($color_name, 'darken-1');
-    }
-
-    .ess-button.has-#{$color_name}-background-color.outline {
-      background-color: white;
-      color: color($color_name, 'darken-2');
-      border: 1px solid color($color_name, 'base');
-    }
-
-    .ess-button.has-#{$color_name}-background-color.outline:hover {
-      background-color: color($color_name, 'lighten-2');
-    }
-  }
-}

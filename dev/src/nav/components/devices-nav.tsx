@@ -15,6 +15,7 @@ import SlideMainComp from './slide-main';
 import SlideSub from './slide-sub';
 import AboutSlide from './device-slides/slide-about';
 import IndustriesSlide from './device-slides/slide-industries';
+import SolutionsSlide from './device-slides/slide-solutions';
 
 //assets
 import EssLogo from '../../assets/images/ess_logo.svg';
@@ -23,6 +24,7 @@ import '../sass/devices_nav.sass';
 
 declare type DevicesNavProps = {
   homeUrl:string
+  templateUrl:string
 }
 
 /* Register gsap should be moved to more logic place. 
@@ -30,7 +32,7 @@ Probably in the index of the page or after gsap is loaded
 TO BE REMOVED AFTER TESTING - moved to index.ts to register for all components.*/
 //window.gsap.registerPlugin( window.ScrollTrigger );
 
-const DevicesNav: React.FC<DevicesNavProps> = ( { homeUrl} ) => {
+const DevicesNav: React.FC<DevicesNavProps> = ( { homeUrl, templateUrl} ) => {
 
   const [isActive, setIsActive] = useState( false );
   const [activeSlide, setActiveSlide] = useState<HTMLDivElement>( );
@@ -41,8 +43,6 @@ const DevicesNav: React.FC<DevicesNavProps> = ( { homeUrl} ) => {
   const SlideAbout = useRef<HTMLDivElement>( null );
   const SlideSolutions = useRef<HTMLDivElement>( null );
   const SlideIndustries = useRef<HTMLDivElement>( null );
-  const SlideCaseSolutions = useRef<HTMLDivElement>( null );
-  const SlideContact = useRef<HTMLDivElement>( null );
 
   useEffect( ()=>{
 
@@ -58,14 +58,6 @@ const DevicesNav: React.FC<DevicesNavProps> = ( { homeUrl} ) => {
       {
         name: 'Solutions',
         el: SlideSolutions.current
-      },
-      {
-        name: 'Case Solutions',
-        el: SlideCaseSolutions.current
-      },
-      {
-        name: 'Contact',
-        el: SlideContact.current
       }
     ] );
 
@@ -90,6 +82,9 @@ const DevicesNav: React.FC<DevicesNavProps> = ( { homeUrl} ) => {
     // Trigger ON
     if( !isActive ) {
 
+      // Disable scrolling
+      document.body.style.overflow = 'hidden';
+
       event.currentTarget.classList.add( 'is-active' );
 
       window.gsap.set( Slides.current, {display: 'block'} );
@@ -100,6 +95,10 @@ const DevicesNav: React.FC<DevicesNavProps> = ( { homeUrl} ) => {
     }
     // Trigger OFF
     else {
+
+      // Re-enable scrolling
+      document.body.style.overflow = 'auto';
+
       window.gsap.to( Slides.current,
         {opacity: 0,
           onComplete:()=>{
@@ -150,14 +149,7 @@ const DevicesNav: React.FC<DevicesNavProps> = ( { homeUrl} ) => {
         </div>
         <div ref={SlideSolutions} className="wmnav-slide" id="wmnav-slide-solutions" >
           <SlideSub title="Solutions" className="wmnav-slide-inner" callSlide={callSlide} slideLinks={[{name: 'main', el:SlideMain.current}]} >
-          </SlideSub>
-        </div>
-        <div ref={SlideCaseSolutions} className="wmnav-slide" id="wmnav-slide-case-solutions" >
-          <SlideSub title="Case Solutions" className="wmnav-slide-inner" callSlide={callSlide} slideLinks={[{name: 'main', el:SlideMain.current}]} >
-          </SlideSub>
-        </div>
-        <div ref={SlideContact} className="wmnav-slide" id="wmnav-slide-contact" >
-          <SlideSub title="Contact" className="wmnav-slide-inner" callSlide={callSlide} slideLinks={[{name: 'main', el:SlideMain.current}]} >
+            <SolutionsSlide homeUrl={homeUrl} templateUrl={templateUrl} />
           </SlideSub>
         </div>
       </div>

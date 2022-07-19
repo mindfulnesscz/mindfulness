@@ -1,0 +1,667 @@
+
+html,
+body
+  background-color: color("shades", "white")
+  margin: 0
+
+
+#ess-body
+  overflow-x: hidden
+  max-height: 100vh
+
+
+.ess-main
+
+  @media only screen and (max-width: $large-screen)
+    padding: $base-margin
+
+
+
+a:hover
+  text-decoration: underline
+
+
+
+@mixin ess-fade($value)
+  transition: $value
+
+
+@mixin shadow($value) 
+  box-shadow: $value
+
+
+@mixin max-width-image() 
+  max-width: 100%
+  width: auto
+  height: auto
+
+
+/* ============ margins and spaces ===================== */
+
+
+.m-auto 
+  margin: auto
+
+
+.force-margin 
+  padding: 0 $base-margin  !important
+
+
+.ess-padding 
+  padding: $base-margin
+
+
+.ess-padding>* 
+  padding: 0
+  margin: 0
+
+
+.no-padding 
+  padding: none
+
+
+#ess-body 
+
+  strong 
+    font-weight: bold
+  
+
+
+
+.aligncenter,
+.textalign-center,
+.text-center,
+.center,
+.center-align 
+  text-align: center
+
+
+.alignright,
+.right 
+  text-align: right !important
+
+
+.alignleft,
+.left 
+  text-align: left
+
+
+.align-left 
+  text-align: left
+
+
+.cl-both 
+  clear: both
+
+
+/* -------------- opacity ---------------------- */
+
+.opacity-o 
+  opacity: 0
+
+
+/* -------- FLEX BOX CLASSES ------------------- */
+
+.nowrap 
+  flex-wrap: nowrap
+
+
+.wrap 
+  flex-wrap: wrap
+
+
+.justify-center 
+  justify-content: center
+  justify-items: center
+
+
+.justifycontent-start 
+  justify-content: start !important
+
+
+.justifycontent-center 
+  justify-content: center !important
+
+
+.alignitems-center 
+  align-items: center !important
+
+
+.aligncontent-center 
+  align-content: center !important
+
+
+.alignitems-baseline 
+  align-items: baseline !important
+
+
+.aligncontent-baseline 
+  align-content: baseline !important
+
+
+.align-items-center 
+  align-items: center
+
+
+.align-content-center 
+  align-content: center
+
+
+.alignitems-stretch 
+  align-items: stretch
+
+
+.ess-center-xs 
+  align-items: center
+
+
+
+.just-center 
+  justify-content: center
+
+
+.just-left 
+  justify-content: left
+
+
+.just-right 
+  justify-content: right
+
+
+.items-center 
+  align-items: center
+
+
+.content-center 
+  align-content: center
+
+
+
+/* ============================== elements ================================= */
+
+
+main
+  margin: $quad-margin 0
+  .row 
+    justify-content: center
+
+
+
+section 
+  position: relative
+  padding: $base-margin 0
+
+  &.bg-secondary 
+    border-bottom: 1px dotted color('gray', 'base')
+
+  
+
+
+.ess-section 
+  width: 100%
+  padding: $double-margin 0
+
+
+.wp-block-mindfulness-blocks-flexbox-row.section 
+  padding: 0
+
+
+.container 
+  width: 100% !important
+  max-width: 1440px !important
+
+
+body figure 
+  margin: 0
+  padding: 0
+
+
+.ess-link-wrapper 
+  display: block
+
+  &:hover 
+    text-decoration: none
+
+    .ess-button.outlined 
+      color: $white
+
+      &.psp 
+        background-color: color('paintshop', 'base')
+      
+
+      &.merge 
+        background-color: color('data-cleaning', 'base')
+      
+
+      &.sense 
+        background-color: color('processing', 'darken-2')
+      
+    
+  
+
+
+.wm-divider 
+  height: 1px
+
+
+.ess-margin 
+  height: $base-margin
+
+
+.ess-double-margin 
+  height: $double-margin
+
+
+.test-block 
+  height: 200px
+  background: $ess-blue
+
+
+.ess-hidden 
+  display: none
+
+
+
+/***** LINKS ******************** */
+a.icon-headline 
+
+  //transition: all .5s ease
+  .ess-icon 
+    left: 0
+    position: relative
+    transition: all .3s ease-out
+  
+
+  *:last-child 
+    position: relative
+    transition: right .3s ease-out
+    right: 0
+  
+
+
+a.icon-headline:hover 
+  .ess-icon 
+    left: -1rem
+    color: $secondary-color  !important
+  
+
+  *:last-child 
+    right: -1rem
+  
+
+
+#mindfulness .no-decoration 
+  text-decoration: red !important
+
+  &:hover 
+    text-decoration: none !important
+  
+
+
+
+.max-width-image 
+  @include max-width-image()
+
+
+.main-block 
+  padding: $base-margin 0 $double-margin 0
+
+
+
+/***** DISPLAY CLASSES ******************** */
+
+.block 
+  display: block
+
+
+.inline-block 
+  display: inline-block
+
+
+.flex 
+  display: flex
+
+
+figure 
+  width: 100%
+
+
+.ess-color-block 
+
+  * 
+    position: relative
+  
+
+  .ess-color-block-bkg 
+    position: absolute
+    width: 100%
+    height: 100%
+    z-index: 0
+    top: 0
+    left: 0
+  
+
+  position: relative
+  padding: $double-margin
+
+
+.mega-icon 
+  img 
+    width: 100%
+    max-width: $dodeca-margin  !important
+  
+
+
+.huge-icon 
+  img 
+    width: 100%
+    max-width: $okto-margin  !important
+  
+
+
+.big-icon 
+  img 
+    width: 100%
+    max-width: $sexta-margin  !important
+  
+
+
+.medium-icon 
+  img 
+    width: 100%
+    max-width: $quad-margin  !important
+  
+
+
+.normal-icon 
+  img 
+    width: 100%
+    max-width: $double-margin  !important
+  
+
+
+.small-icon 
+  img 
+    width: 100%
+    max-width: $base-margin  !important
+  
+
+
+#ess-body .container ul 
+  padding: $half-margin 0 $half-margin 0
+  margin: auto
+  //max-width: 400px
+
+
+
+// ======================== LISTS ========================
+
+
+ul 
+  list-style: none
+
+
+ul li 
+  list-style-position: outside
+  margin: $base-margin 0
+
+
+#ess-body.ess-body-frontend 
+  ul 
+
+    list-style: none
+
+    li::before 
+      color: color('essblue', 'base')
+      font-weight: bold
+      display: inline-block
+      width: 1rem
+      margin-left: -1rem
+    
+
+    &.list-processing li::before 
+
+      color: color('processing', 'darken-2')
+
+    
+
+    &.list-paintshop li::before 
+
+      color: color('paintshop', 'base')
+
+    
+
+    &.list-washing li::before 
+
+      color: color('washing', 'base')
+
+    
+
+    &.list-oil-gas li::before 
+
+      color: color('oil-gas', 'base')
+
+    
+
+    &.list-data-cleaning li::before 
+
+      color: color('data-cleaning', 'base')
+
+    
+
+    &.list-mobility li::before 
+
+      color: color('mobility', 'base')
+
+    
+
+    &.list-environment li::before 
+
+      color: color('environment', 'base')
+
+    
+  
+
+
+
+.underline 
+  border-bottom: 1px solid $primary-color
+
+
+
+/* ============== BORDERS ======================== */
+
+
+
+/* ============== IMAGE LINK HOVER ======================== */
+
+.ess-image-link-scale 
+  display: block
+  margin: 0
+  padding: 0
+  height: auto
+  overflow: hidden
+
+  img 
+    transition: transform 0.5s ease
+  
+
+
+.ess-image-link-scale:hover img 
+  transform: scale(1.2)
+
+
+
+/* ====================== ESS BLOCKS ====================== */
+.ess-cut-corners 
+  display: block
+  padding: 0
+  clip-path: polygon(0 1rem, 0 100%, calc(100% - 1rem) 100%, 100% calc(100% - 1rem), 100% 0, 1rem 0)
+
+
+.ess-double-block 
+  align-items: center
+
+  .ess-col-left 
+    text-align: right
+  
+
+  .ess-col-right 
+    text-align: left
+  
+
+
+
+/* ********* BORDERS *************** */
+
+.border-primary 
+  border: 1px solid $primary-color
+
+
+.border-gray-accent 
+  border: 1px solid $primary-text
+
+
+.border-secondary 
+  border: 1px solid $secondary-color
+
+
+.border-supplementary 
+  border: 1px solid $secondary-color
+
+
+.border-gray 
+  border: 1px solid color('gray', 'lighten-2')
+
+
+.border-gray-lighter 
+  border: 1px solid color('gray', 'lighten-2')
+
+
+.border-gray-darker 
+  border: 1px solid color('gray', 'base')
+
+
+.border-psp 
+  border-color: color('paintshop', 'base') !important
+
+
+.border-sense 
+  border-color: color('processing', 'darken-2') !important
+
+
+.border-merge 
+  border-color: color('data-cleaning', 'base') !important
+
+
+.border-outset 
+  padding: $base-margin
+  border: 1px solid color('gray', 'lighten-2')
+  margin: $base-margin
+  position: relative
+
+
+.border-left-outset 
+  border-left: 2px solid $primary-color
+
+
+.border-bot-primary 
+  padding-bottom: $base-margin
+  border-bottom: 1px solid $primary-color
+
+
+.border-bot-light 
+  border-bottom: 1px solid color('gray', 'lighten-4')
+
+
+.border-bot-gray 
+  border-bottom: 1px solid color('gray', 'lighten-2')
+
+
+.border-bot-gray-accent 
+  border-bottom: 1px solid $primary-text
+
+
+.border-top-light 
+  border-top: 1px solid color('gray', 'lighten-4')
+
+
+
+// OPACITY ----------------------------------
+
+.opacity-full 
+  opacity: 1
+
+
+.opacity-heavy 
+  opacity: 0.9
+
+
+.opacity-medium 
+  opacity: 0.5
+
+
+.opacity-light 
+  opacity: 0.3
+
+
+.opacity-offwhite 
+  opacity: 0.1
+
+
+// TYPOGRAPHY
+
+.label-small 
+  color: color('gray', 'lighten-2')
+  font-size: 90%
+
+
+
+// SCREEN DEPENDANTS VISIBILITY AND TEXT ALIGN
+
+.ess-desktop .hide-desktop 
+  display: none
+
+
+.ess-device .hide-device 
+  display: none
+
+
+@media only screen and (max-width: $medium-screen) 
+  .show-md 
+    display: none
+  
+
+
+@media only screen and (min-width: $medium-screen) 
+  .hide-md 
+    display: none
+  
+
+  .center-md 
+    text-align: center
+  
+
+  .left-md 
+    text-align: center
+  
+
+
+@media only screen and (max-width: $small-screen) 
+  .show-sm 
+    display: none
+  
+
+
+@media only screen and (min-width: $small-screen) 
+  .hide-sm 
+    display: none
+  
+
+  .center-sm 
+    text-align: center
+  
+
+  .left-sm 
+    text-align: left
+  

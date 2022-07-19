@@ -20,10 +20,10 @@ module.exports = {
   },
 
   output: {
-    //  chunks path
-    //path: path.resolve( __dirname, '../assets/js/chunks/' ),
-
+    // chunks path
+    // path: path.resolve( __dirname, '../assets/js/chunks/' ),
     // no chunks path
+
     path: path.resolve( __dirname, '../assets/js/' ),
     filename: '[name].js',
   },

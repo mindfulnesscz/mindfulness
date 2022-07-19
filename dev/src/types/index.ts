@@ -44,3 +44,8 @@ export interface WmNavSlideChildren {
   homeUrl: string
 }
 
+export interface WmNavSubpage {
+  templateUrl: string
+  homeUrl? : string
+}
+

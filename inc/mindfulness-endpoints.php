@@ -4,6 +4,7 @@ add_action('rest_api_init', function () {
   register_rest_route('mindfulness', '/v2/case-solutions', array(
     'methods' => 'GET',
     'callback' => 'mind_get_case_solutions',
+    'permission_callback' => '__return_true'
   ));
 });
 

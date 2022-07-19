@@ -110,8 +110,6 @@ export default class CessCube {
         
     if( !this.cube_el )
       throw ( 'cube_element not found' );  
-    else
-      this.move_the_cube();
 
 
     this.init_subscribe_modal();
@@ -143,7 +141,10 @@ export default class CessCube {
       navbarLinks[i].addEventListener( 'mouseover', e=>{
   
         e.preventDefault;
-  
+
+        // Re-enable scrolling
+        document.body.style.overflow = 'hidden';
+
         if( this.active_link !== undefined && this.active_link !== e.target ) {
           this.active_link.classList.remove( 'active' );
           this.active_link = e.target;
@@ -229,6 +230,7 @@ export default class CessCube {
     this.Cube_Style_Sheet.innerHTML += '#csscube-shadow {width:'+( this.cube_width )+'px; height:'+( this.cube_height )+'px; transform: rotateX(-85deg) translateZ('+( this.cube_h_shift*1.2 )+'px) ;}';
 
     for ( let i = 0; i<this.units_cube_h; i++ ) {
+
       this.Cube_Style_Sheet.innerHTML +='.x_'+this.names_array[i]+'{left:'+unit_w*i+'px;}';
       this.Cube_Style_Sheet.innerHTML +='.y_'+this.names_array[i]+'{top:'+unit_h*i+'px;}';
       this.Cube_Style_Sheet.innerHTML +='.w_'+this.names_array[i]+'{width:'+( unit_w*i )+'px;}';
@@ -237,9 +239,12 @@ export default class CessCube {
     }
 
     if( !this.isonscreen ) {
+
       this._x = 90;
       gsap.to( document.getElementById( 'csscube-scene' ), { duration: 0.5, opacity: 1} );
-      this.isonscreen = true;        }
+
+      this.isonscreen = true;
+    }
         
   }
   _rotate_right () {  // ROTATING LEFT SHOWING RIGHT SIDE OF THE CUBE
@@ -377,20 +382,7 @@ export default class CessCube {
     }
         
   }
-  move_the_cube () {
 
-    /*
-    * MAIN LOOP EVERY ANIMATION FRAME 
-    */
-
-        
-    /* window.requestAnimationFrame(()=>{
-            this.cube_el.style.transform = 'rotateY('+this._y+'deg)';
-            this.cube_rotator_el.style.transform = ' rotatex('+this._x+'deg)';
-            this.move_the_cube();
-        });*/
-        
-  }
   intro () {
 
     let intro_length = 1;
@@ -582,12 +574,21 @@ export default class CessCube {
             
     this.active_link.classList.remove( 'active' );
   }
+
+  /**
+   * Creates the clickable background div and sets up its behaviour
+   * @since 1.0
+   * @return void
+   */
   elCanvasClickable () {
     this.el_clickable_background = document.createElement( 'div' );
     this.el_clickable_background.setAttribute( 'id', 'el-clickable-background' );
     this.el_clickable_background.addEventListener( 'click', () => {
 
+      // Re-enable scrolling on body when cube disapears.
+      document.body.style.overflow = 'auto';
 
+      //Disapear
       this.fadeOut();
 
     } );
@@ -595,6 +596,7 @@ export default class CessCube {
     this.el_cont.appendChild( this.el_clickable_background );
 
   }
+
 
   init_subscribe_modal () {
     let subscribe_button = this.cube_el.querySelector( '#cube_subscribe_button' );

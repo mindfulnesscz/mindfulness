@@ -15,12 +15,9 @@ const DeviceNavCont:HTMLElement | null = document.querySelector( '#wmnav-cont-de
 if( DeviceNavCont ) {
 
   // sets the device navigation as variable to be unloaded if needed
-  window.MindGlobal.navSmall = <DevicesNav homeUrl={window.MindGlobal.homeUrl} />;
+  window.MindGlobal.navSmall = <DevicesNav homeUrl={window.MindGlobal.homeUrl} templateUrl={window.MindGlobal.templateUrl} />;
 
   ReactDOM.render( window.MindGlobal.navSmall, DeviceNavCont );
-
-  console.log( 'navigation system is for devices' );
-  console.log( window.MindGlobal.navSmall );
 
 }
 else {
