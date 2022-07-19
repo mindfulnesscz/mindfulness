@@ -365,7 +365,7 @@
                 </a>
               </div>
               <div class="css_block w_vi h_iii x_vi y_v css-grey-lighter">
-                <a href="<?php /*echo get_post_permalink(ess_get_career_page_id());*/ echo home_url() . '/career' ?>">
+                <a href="<?php echo home_url() . '/career' ?>">
                   <h2>Career</h2>
                 </a>
               </div>
