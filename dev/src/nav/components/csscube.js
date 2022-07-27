@@ -20,7 +20,7 @@ export default class CessCube {
     this.toplinks_arr = this.init_navbar();
     this.initial_rotation = 10;
 
-    this.el_canvas  = document.querySelector( '#wmnav-cont-desktop' );
+    this.el_canvas  = document.querySelector( '#wm-nav-cont' );
     this.el_cont    = this.el_canvas.querySelector( '#csscube-cont' );
         
     this.tweeen = 'power2.out';

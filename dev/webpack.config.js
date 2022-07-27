@@ -14,8 +14,8 @@ module.exports = {
   devtool: isDevelopment ? 'inline-source-map' : 'source-map',
 
   entry: {
-    'index': './src/index.ts',
-    'nav/devices': './src/nav/devices.tsx',
+    'index': './src/index.tsx',
+    'nav/mobile': './src/nav/mobile.tsx',
     'nav/desktop': './src/nav/desktop.tsx',
   },
 

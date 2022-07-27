@@ -1330,10 +1330,10 @@ var store = __webpack_require__(/*! ../internals/shared-store */ "./node_modules
 (module.exports = function (key, value) {
   return store[key] || (store[key] = value !== undefined ? value : {});
 })('versions', []).push({
-  version: '3.23.3',
+  version: '3.24.0',
   mode: IS_PURE ? 'pure' : 'global',
   copyright: '© 2014-2022 Denis Pushkarev (zloirock.ru)',
-  license: 'https://github.com/zloirock/core-js/blob/v3.23.3/LICENSE',
+  license: 'https://github.com/zloirock/core-js/blob/v3.24.0/LICENSE',
   source: 'https://github.com/zloirock/core-js'
 });
 
@@ -1852,7 +1852,7 @@ var CessCube = /*#__PURE__*/function () {
 
     this.toplinks_arr = this.init_navbar();
     this.initial_rotation = 10;
-    this.el_canvas = document.querySelector('#wmnav-cont-desktop');
+    this.el_canvas = document.querySelector('#wm-nav-cont');
     this.el_cont = this.el_canvas.querySelector('#csscube-cont');
     this.tweeen = 'power2.out';
     this.tween_length = 0.8;
@@ -3274,12 +3274,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../globals */ "./globals.ts");
 /* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_globals__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _cube_sides_bottom_about__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./cube-sides/bottom-about */ "./src/nav/components/cube-sides/bottom-about.tsx");
-/* harmony import */ var _cube_sides_left_case_solutions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./cube-sides/left-case-solutions */ "./src/nav/components/cube-sides/left-case-solutions.tsx");
-/* harmony import */ var _cube_sides_right_industries__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./cube-sides/right-industries */ "./src/nav/components/cube-sides/right-industries.tsx");
-/* harmony import */ var _cube_sides_front_contact__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./cube-sides/front-contact */ "./src/nav/components/cube-sides/front-contact.tsx");
-/* harmony import */ var _cube_sides_back_products__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./cube-sides/back-products */ "./src/nav/components/cube-sides/back-products.tsx");
-/* harmony import */ var _sass_desktop_nav_sass__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../sass/desktop_nav.sass */ "./src/nav/sass/desktop_nav.sass");
+/* harmony import */ var _csscube__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./csscube */ "./src/nav/components/csscube.js");
+/* harmony import */ var _cube_sides_bottom_about__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./cube-sides/bottom-about */ "./src/nav/components/cube-sides/bottom-about.tsx");
+/* harmony import */ var _cube_sides_left_case_solutions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./cube-sides/left-case-solutions */ "./src/nav/components/cube-sides/left-case-solutions.tsx");
+/* harmony import */ var _cube_sides_right_industries__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./cube-sides/right-industries */ "./src/nav/components/cube-sides/right-industries.tsx");
+/* harmony import */ var _cube_sides_front_contact__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./cube-sides/front-contact */ "./src/nav/components/cube-sides/front-contact.tsx");
+/* harmony import */ var _cube_sides_back_products__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./cube-sides/back-products */ "./src/nav/components/cube-sides/back-products.tsx");
+/* harmony import */ var _sass_desktop_nav_sass__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../sass/desktop_nav.sass */ "./src/nav/sass/desktop_nav.sass");
 /**
  * Desktop menu navigation main component
  * @since 3.0
@@ -3294,25 +3295,38 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 // assets
 //import EssLogo from '../../assets/images/ess_logo.svg';
 
 const DesktopNav = ({ homeUrl, templateUrl }) => {
-    console.log(homeUrl);
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "csscube-cont" },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "csscube-scene" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "csscube-navbutton left-button" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "ess-icon color-primary big-icon icon_simple_arrow_left" })),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "csscube-navbutton right-button" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "ess-icon color-primary big-icon icon_simple_arrow_right" })),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "csscube-rotator" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "csscube" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_cube_sides_front_contact__WEBPACK_IMPORTED_MODULE_5__["default"], null),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_cube_sides_back_products__WEBPACK_IMPORTED_MODULE_6__["default"], { homeUrl: homeUrl, templateUrl: templateUrl }),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_cube_sides_left_case_solutions__WEBPACK_IMPORTED_MODULE_3__["default"], null),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_cube_sides_right_industries__WEBPACK_IMPORTED_MODULE_4__["default"], null),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_cube_sides_bottom_about__WEBPACK_IMPORTED_MODULE_2__["default"], null))),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "csscube-shadow" }))));
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        console.log('ahoj');
+        const CSSCube = new _csscube__WEBPACK_IMPORTED_MODULE_2__["default"]();
+        CSSCube.init();
+        CSSCube.setup_cube();
+    }, []);
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "ess-cube-navigation-holder" },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "csscube-cont" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "wm-cube-menu-link" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", null,
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { "data-target": 'bottom' }, "ESS"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { "data-target": 'bottom' }, "Solutions"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { "data-target": 'bottom' }, "Industries"),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { "data-target": 'bottom' }, "Contact"))),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "csscube-scene" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "csscube-navbutton left-button" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "ess-icon color-primary big-icon icon_simple_arrow_left" })),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "csscube-navbutton right-button" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "ess-icon color-primary big-icon icon_simple_arrow_right" })),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "csscube-rotator" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "csscube" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_cube_sides_front_contact__WEBPACK_IMPORTED_MODULE_6__["default"], null),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_cube_sides_back_products__WEBPACK_IMPORTED_MODULE_7__["default"], { homeUrl: homeUrl, templateUrl: templateUrl }),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_cube_sides_left_case_solutions__WEBPACK_IMPORTED_MODULE_4__["default"], null),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_cube_sides_right_industries__WEBPACK_IMPORTED_MODULE_5__["default"], null),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_cube_sides_bottom_about__WEBPACK_IMPORTED_MODULE_3__["default"], null))),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "csscube-shadow" })))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DesktopNav);
 
@@ -3327,17 +3341,6 @@ const DesktopNav = ({ homeUrl, templateUrl }) => {
 
 "use strict";
 module.exports = React;
-
-/***/ }),
-
-/***/ "react-dom":
-/*!***************************!*\
-  !*** external "ReactDOM" ***!
-  \***************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = ReactDOM;
 
 /***/ })
 
@@ -3434,35 +3437,17 @@ var __webpack_exports__ = {};
   !*** ./src/nav/desktop.tsx ***!
   \*****************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_csscube__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/csscube */ "./src/nav/components/csscube.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "react-dom");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_desktop_nav__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/desktop-nav */ "./src/nav/components/desktop-nav.tsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_desktop_nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/desktop-nav */ "./src/nav/components/desktop-nav.tsx");
 /**
  * DESKTOP CUBE NAVIGATION INITIALIZATION
  * @since 3.0
  */
 
 
-
-
-/**
- * Finds DOM container for Device nav component and renders it or throws an error
- */
-const DesktopNavCont = document.querySelector('#wmnav-cont-desktop');
-if (DesktopNavCont) {
-    // sets the device navigation as variable to be unloaded if needed
-    window.MindGlobal.navCube = react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_components_desktop_nav__WEBPACK_IMPORTED_MODULE_3__["default"], { homeUrl: window.MindGlobal.homeUrl, templateUrl: window.MindGlobal.templateUrl });
-    react_dom__WEBPACK_IMPORTED_MODULE_2___default().render(window.MindGlobal.navCube, DesktopNavCont);
-    const CSSCube = new _components_csscube__WEBPACK_IMPORTED_MODULE_0__["default"]();
-    CSSCube.init();
-    CSSCube.setup_cube();
-}
-else {
-    throw new Error('DOM container for Desktop nav component no found');
-}
+// sets the device navigation as variable to be unloaded if needed
+window.MindGlobal.desktopNav = react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_desktop_nav__WEBPACK_IMPORTED_MODULE_1__["default"], { homeUrl: window.MindGlobal.homeUrl, templateUrl: window.MindGlobal.templateUrl });
 
 })();
 

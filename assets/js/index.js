@@ -128,16 +128,69 @@ __webpack_require__.r(__webpack_exports__);
  * Checks the size of window as well as the user Agent to see whether the website
  * is viewed on mobile device or desktop.
  *
- * @returns string - "device" | "desktop"
+ * @returns Boolean - true for device, false for desktop (Real mobile first, huh?)
  * @since 3.0
  */
 function testDevice() {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-        return 'devices';
+        return true;
     }
     else
-        return 'desktop';
+        return false;
 }
+
+
+/***/ }),
+
+/***/ "./src/nav/nav-menu.tsx":
+/*!******************************!*\
+  !*** ./src/nav/nav-menu.tsx ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _helpers_testDevice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/testDevice */ "./src/helpers/testDevice.ts");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _helpers_loadScript__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers/loadScript */ "./src/helpers/loadScript.ts");
+
+
+
+/**
+ * Handles mobile/device navbar with menu switching.
+ * Checks if Components are present when needed and loads and inits them
+ */
+const NavMenu = ({ mindGlobal }) => {
+    const sizeCheck = () => {
+        const isMobile = (0,_helpers_testDevice__WEBPACK_IMPORTED_MODULE_0__["default"])() || window.innerWidth < mindGlobal.settings.navBreakpoint;
+        console.log('ismobile izzz ' + isMobile);
+        setDevice(isMobile ? 'mobile' : 'desktop');
+    };
+    const [device, setDevice] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('mobile');
+    const [timer, setTimer] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(setTimeout(sizeCheck, 0));
+    const [menuComp, setMenuComp] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+        console.log('now do the navigation type check init');
+        window.onresize = () => {
+            clearTimeout(timer);
+            setTimer(setTimeout(sizeCheck, 100));
+        };
+    }, []);
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+        if (!mindGlobal[device + 'Nav'])
+            callScript(mindGlobal.templateUrl + '/assets/js/nav/' + device + '.js');
+    }, [device]);
+    const callScript = (url) => {
+        (0,_helpers_loadScript__WEBPACK_IMPORTED_MODULE_2__["default"])(url).then(() => {
+            setMenuComp(mindGlobal[device + 'Nav']);
+        });
+    };
+    return (react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, menuComp && menuComp));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NavMenu);
 
 
 /***/ }),
@@ -152,6 +205,26 @@ __webpack_require__.r(__webpack_exports__);
 /* eslint-disable no-unused-vars */
 
 
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+/***/ ((module) => {
+
+module.exports = React;
+
+/***/ }),
+
+/***/ "react-dom":
+/*!***************************!*\
+  !*** external "ReactDOM" ***!
+  \***************************/
+/***/ ((module) => {
+
+module.exports = ReactDOM;
 
 /***/ })
 
@@ -182,6 +255,18 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -214,30 +299,38 @@ __webpack_require__.r(__webpack_exports__);
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!**********************!*\
-  !*** ./src/index.ts ***!
-  \**********************/
+/*!***********************!*\
+  !*** ./src/index.tsx ***!
+  \***********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _helpers_testDevice__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers/testDevice */ "./src/helpers/testDevice.ts");
-/* harmony import */ var _helpers_MindCookies__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/MindCookies */ "./src/helpers/MindCookies.ts");
-/* harmony import */ var _helpers_loadScript__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/loadScript */ "./src/helpers/loadScript.ts");
-/* harmony import */ var _types_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./types/index */ "./src/types/index.ts");
+/* harmony import */ var _helpers_MindCookies__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers/MindCookies */ "./src/helpers/MindCookies.ts");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "react-dom");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _nav_nav_menu__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./nav/nav-menu */ "./src/nav/nav-menu.tsx");
+/* harmony import */ var _types_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./types/index */ "./src/types/index.ts");
 // modules
+
 
 
 
 // type definitions
 
 /**
+ * Initialize Global settings for the Theme.
+ * Maybe when extended in future good idea to move settings to separate file.
+ */
+const wmSettings = {
+    navBreakpoint: 760
+};
+window.MindGlobal.settings = wmSettings;
+/**
  * Cookie handler disabled at the moment. Will be used elsewhere probably as a part of a module.
  * Starts Cookies handler to store data about intros and such
  * Currently only intro played is stored in cookies
  */
-window.MindGlobal.MindCookiesHandler = new _helpers_MindCookies__WEBPACK_IMPORTED_MODULE_1__["default"]('./');
-/**
- * Defines the path of navigation scripts
- */
-const navPath = window.MindGlobal.templateUrl + '/assets/js/nav/';
+window.MindGlobal.MindCookiesHandler = new _helpers_MindCookies__WEBPACK_IMPORTED_MODULE_0__["default"]('./');
 /**
  * Allows use of ScrollTrigger on gsap for all components (Currently not used at all )
  */
@@ -246,43 +339,8 @@ window.gsap.registerPlugin(window.ScrollTrigger);
  * Loading different content for different types of navigation (Mobile / Desktop)
  */
 document.addEventListener('DOMContentLoaded', () => {
-    const device = (0,_helpers_testDevice__WEBPACK_IMPORTED_MODULE_0__["default"])(); // devices | desktop
-    if (device == 'devices') {
-        (0,_helpers_loadScript__WEBPACK_IMPORTED_MODULE_2__["default"])(navPath + device + '.js' + '?ver=' + window.MindGlobal.templateVersion).then(message => {
-            console.log(message);
-        });
-    }
-    else if (device == 'desktop') {
-        // debounce onresize to load the navigation components script dynamically when needed.
-        // This is the way to go although the code is a little bit ugly.
-        const navDevices = document.querySelector('#wmnav-cont-devices');
-        const navDesktop = document.querySelector('#wmnav-cont-desktop');
-        const grabScript = () => {
-            if (window.innerWidth > 760) {
-                // Hides devices and loads script for desktop if not loaded yet
-                navDevices.style.display = 'none';
-                navDesktop.style.display = 'block';
-                if (!window.MindGlobal.navCube)
-                    (0,_helpers_loadScript__WEBPACK_IMPORTED_MODULE_2__["default"])(navPath + 'desktop.js' + '?ver=' + window.MindGlobal.templateVersion).then(message => {
-                        console.log(message);
-                    });
-            }
-            else {
-                // Hides desktop nav and loads script for devices if not loaded yet
-                navDevices.style.display = 'block';
-                navDesktop.style.display = 'none';
-                if (!window.MindGlobal.navSmall)
-                    (0,_helpers_loadScript__WEBPACK_IMPORTED_MODULE_2__["default"])(navPath + 'devices.js' + '?ver=' + window.MindGlobal.templateVersion).then(message => {
-                        console.log(message);
-                    });
-            }
-        };
-        let timer = setTimeout(grabScript, 0);
-        window.onresize = () => {
-            clearTimeout(timer);
-            timer = setTimeout(grabScript, 100);
-        };
-    }
+    const navCont = document.querySelector('#wm-nav-cont');
+    react_dom__WEBPACK_IMPORTED_MODULE_2___default().render(react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_nav_nav_menu__WEBPACK_IMPORTED_MODULE_3__["default"], { mindGlobal: window.MindGlobal }), navCont);
 });
 
 })();

@@ -826,10 +826,6 @@ __webpack_require__.r(__webpack_exports__);
 //assets
 
 
-/* Register gsap should be moved to more logic place.
-Probably in the index of the page or after gsap is loaded
-TO BE REMOVED AFTER TESTING - moved to index.ts to register for all components.*/
-//window.gsap.registerPlugin( window.ScrollTrigger );
 const DevicesNav = ({ homeUrl, templateUrl }) => {
     const [isActive, setIsActive] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
     const [activeSlide, setActiveSlide] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)();
@@ -1003,17 +999,6 @@ const slideSub = ({ title, className, callSlide, slideLinks, children }) => {
 "use strict";
 module.exports = React;
 
-/***/ }),
-
-/***/ "react-dom":
-/*!***************************!*\
-  !*** external "ReactDOM" ***!
-  \***************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = ReactDOM;
-
 /***/ })
 
 /******/ 	});
@@ -1125,37 +1110,24 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
-/*!*****************************!*\
-  !*** ./src/nav/devices.tsx ***!
-  \*****************************/
+/*!****************************!*\
+  !*** ./src/nav/mobile.tsx ***!
+  \****************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "react-dom");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_devices_nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/devices-nav */ "./src/nav/components/devices-nav.tsx");
+/* harmony import */ var _components_devices_nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/devices-nav */ "./src/nav/components/devices-nav.tsx");
 /**
  * DEVICE NAVIGATION INITIALIZATION
  * @since 3.0
  */
 
 
-
-/**
- * Finds DOM container for Device nav component and renders it or throws an error
- */
-const DeviceNavCont = document.querySelector('#wmnav-cont-devices');
-if (DeviceNavCont) {
-    // sets the device navigation as variable to be unloaded if needed
-    window.MindGlobal.navSmall = react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_devices_nav__WEBPACK_IMPORTED_MODULE_2__["default"], { homeUrl: window.MindGlobal.homeUrl, templateUrl: window.MindGlobal.templateUrl });
-    react_dom__WEBPACK_IMPORTED_MODULE_1___default().render(window.MindGlobal.navSmall, DeviceNavCont);
-}
-else {
-    throw new Error('DOM container for Device nav component no found');
-}
+// sets the device navigation as variable to be unloaded if needed
+window.MindGlobal.mobileNav = react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_devices_nav__WEBPACK_IMPORTED_MODULE_1__["default"], { homeUrl: window.MindGlobal.homeUrl, templateUrl: window.MindGlobal.templateUrl });
 
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=devices.js.map
+//# sourceMappingURL=mobile.js.map

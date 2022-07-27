@@ -5,10 +5,13 @@ import React from 'react';
 import gsap from 'gsap';
 import MindCookies from '../helpers/MindCookies';
 
-
+declare interface MindGlobalSettings {
+  navBreakpoint: number
+}
 export interface MindGlobalObject {
-  navSmall: React.ReactNode
-  navCube: React.ReactNode
+  settings: MindGlobalSettings
+  mobileNav: React.ReactNode
+  desktopNav: React.ReactNode
   homeUrl: string
   isDevice: string
   templateUrl: string

@@ -27,11 +27,6 @@ declare type DevicesNavProps = {
   templateUrl:string
 }
 
-/* Register gsap should be moved to more logic place. 
-Probably in the index of the page or after gsap is loaded
-TO BE REMOVED AFTER TESTING - moved to index.ts to register for all components.*/
-//window.gsap.registerPlugin( window.ScrollTrigger );
-
 const DevicesNav: React.FC<DevicesNavProps> = ( { homeUrl, templateUrl} ) => {
 
   const [isActive, setIsActive] = useState( false );
