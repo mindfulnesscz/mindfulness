@@ -4,11 +4,11 @@
  */
 
 import React from 'react';
-import DevicesNav from './components/devices-nav';
+import MobileNav from './components/mobile-nav';
 
 
 // sets the device navigation as variable to be unloaded if needed
-window.MindGlobal.mobileNav = <DevicesNav homeUrl={window.MindGlobal.homeUrl} templateUrl={window.MindGlobal.templateUrl} />;
+window.MindGlobal.mobileNav = <MobileNav homeUrl={window.MindGlobal.homeUrl} templateUrl={window.MindGlobal.templateUrl} />;
 
 
 

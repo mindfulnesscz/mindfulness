@@ -1,6 +1,6 @@
 
 import testDevice from '../helpers/testDevice';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState } from 'react';
 import { MindGlobalObject } from '../types';
 import loadScript from '../helpers/loadScript';
 
@@ -17,18 +17,19 @@ export interface Indexable {
  * Handles mobile/device navbar with menu switching.
  * Checks if Components are present when needed and loads and inits them
  */
-const NavMenu: React.FC<NavMenuProps> = ( { mindGlobal} ) => {
+const NavMenu: React.FC<NavMenuProps> = ( { mindGlobal } ) => {
 
-  const sizeCheck = () => {
-  
+  const deviceCheck = ():string=>{
     const isMobile:boolean = testDevice() || window.innerWidth < mindGlobal.settings.navBreakpoint;
+    return( isMobile ? 'mobile' : 'desktop' );
 
-    console.log( 'ismobile izzz '+isMobile );
-    setDevice( isMobile ? 'mobile' : 'desktop' );
+  };
+  const sizeSet = ():void => {   
+    setDevice( deviceCheck() );
   };
 
-  const [device, setDevice] = useState<string>( 'mobile' );
-  const [timer, setTimer] = useState<ReturnType<typeof setTimeout>>( setTimeout( sizeCheck, 0 ) );
+  const [device, setDevice] = useState<string>( deviceCheck() );
+  const [timer, setTimer] = useState<ReturnType<typeof setTimeout>>( setTimeout( sizeSet, 0 ) );
   const [menuComp, setMenuComp] = useState<React.ReactElement | null>( null );
 
   useEffect( ()=>{
@@ -36,7 +37,7 @@ const NavMenu: React.FC<NavMenuProps> = ( { mindGlobal} ) => {
 
     window.onresize = () => {
       clearTimeout( timer );
-      setTimer( setTimeout( sizeCheck, 100 ) );
+      setTimer( setTimeout( sizeSet, 100 ) );
     };
 
   }, [] );
@@ -45,6 +46,8 @@ const NavMenu: React.FC<NavMenuProps> = ( { mindGlobal} ) => {
   useEffect( ()=>{
     if( !( mindGlobal as Indexable )[device + 'Nav'] )
       callScript( mindGlobal.templateUrl + '/assets/js/nav/' + device + '.js' );
+    else
+      setMenuComp( ( mindGlobal as Indexable )[device + 'Nav'] );    
   }, [device] );
 
   const callScript = ( url:string ) => {
@@ -55,10 +58,12 @@ const NavMenu: React.FC<NavMenuProps> = ( { mindGlobal} ) => {
 
 
 
+
   return (
     <div>
-      {menuComp && menuComp}
-    </div> );
+      { menuComp && menuComp }
+    </div>
+  );
 };
 
 export default NavMenu;

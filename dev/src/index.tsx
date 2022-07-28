@@ -42,8 +42,12 @@ window.gsap.registerPlugin( window.ScrollTrigger );
 
 document.addEventListener( 'DOMContentLoaded', () => {
 
-  const navCont = document.querySelector( '#wm-nav-cont' );
-  ReactDOM.render( <NavMenu mindGlobal={window.MindGlobal} />, navCont );
+  const navCont = document.querySelector( '#wmnav-cont' );
+
+  if( navCont ) {
+    ReactDOM.render( <NavMenu mindGlobal={window.MindGlobal} />, navCont );
+  }
+  else throw new DOMException( 'unable to find menu containers' );
 } );
 
 

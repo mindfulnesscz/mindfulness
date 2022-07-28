@@ -19,7 +19,7 @@ import FrontContact from './cube-sides/front-contact';
 import BackProducts from './cube-sides/back-products';
 
 // assets
-//import EssLogo from '../../assets/images/ess_logo.svg';
+import EssLogo from './ess-logo';
 import '../sass/desktop_nav.sass';
 
 declare type DesktopNavProps = {
@@ -40,44 +40,55 @@ const DesktopNav: React.FC<DesktopNavProps> = ( { homeUrl, templateUrl} ) => {
   }, [] );
 
   return (
-    <div id="ess-cube-navigation-holder">
-      <div id="csscube-cont">
-        <div className="wm-cube-menu-link">
-          <ul>
-            <li data-target='bottom'>ESS</li>
-            <li data-target='bottom'>Solutions</li>
-            <li data-target='bottom'>Industries</li>
-            <li data-target='bottom'>Contact</li>
-          </ul>
-        </div>
-        <div id="csscube-scene">
+    <div id="wmnav-wrap">
 
-          {/* ---------------- ROTATE LEFT BUTTON -------------------- */}
-          <button className="csscube-navbutton left-button">
-            <span className="ess-icon color-primary big-icon icon_simple_arrow_left"></span>
-          </button>
-          {/* ---------------- ROTATE RIGHT BUTTON -------------------- */}
-          <button className="csscube-navbutton right-button">
-            <span className="ess-icon color-primary big-icon icon_simple_arrow_right"></span>
-          </button>
+      <div id="wmnav-bar">
 
-          <div id="csscube-rotator">
-            <div id="csscube">
+        <EssLogo homeUrl={homeUrl} templateUrl={templateUrl} />
 
-              <FrontContact />
+        <ul id="wmnav-list">
+          <li><a className='wm-cube-menu-link' data-target='bottom'>ESS</a></li>
+          <li><a className='wm-cube-menu-link' data-target='right'>Industries</a></li>
+          <li><a className='wm-cube-menu-link' data-target='back'>Solutions</a></li>
+          <li><a className='wm-cube-menu-link' data-target='left'>Case Solutions</a></li>
+          <li><a className='wm-cube-menu-link' data-target='front'>Contact</a></li>
+        </ul>
 
-              <BackProducts homeUrl={homeUrl} templateUrl={templateUrl} />
+        <div id="wmnav-settings"></div>
 
-              <LeftCaseSolutions />
+      </div>
 
-              <RightIndustries />
+      <div id="wmnav-content" style={{display: 'none'}}>
+        <div id="csscube-cont">
+          <div id="csscube-scene">
 
-              <BottomAbout />
+            {/* ---------------- ROTATE LEFT BUTTON -------------------- */}
+            <button className="csscube-navbutton left-button">
+              <span className="ess-icon color-primary big-icon icon_simple_arrow_left"></span>
+            </button>
+            {/* ---------------- ROTATE RIGHT BUTTON -------------------- */}
+            <button className="csscube-navbutton right-button">
+              <span className="ess-icon color-primary big-icon icon_simple_arrow_right"></span>
+            </button>
 
+            <div id="csscube-rotator">
+              <div id="csscube">
+
+                <FrontContact />
+
+                <BackProducts homeUrl={homeUrl} templateUrl={templateUrl} />
+
+                <LeftCaseSolutions />
+
+                <RightIndustries />
+
+                <BottomAbout />
+
+              </div>
             </div>
-          </div>
 
-          <div id="csscube-shadow"></div>
+            <div id="csscube-shadow"></div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,16 +1,16 @@
 @import '../../sass/components/variables'
 @import '../../sass/components/colors'
-@import 'components/hamburger-settings'
+@import './components/common_mobile_desktop'
+
+@import 'components/mobile_hamburger_settings'
 @import 'hamburgers/_sass/hamburgers/hamburgers'
 
-#wm-logo
-  width: 100px
-  padding: $half-margin
+#wm-burger
+  z-index: 100
+  position: relative
 
-#wmnav-cont-devices
-  position: fixed
-  width: 100vw
-  z-index: 10
+#main-nav-toggler
+  float: right
 
 #wmnav
   display: flex

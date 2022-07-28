@@ -20,7 +20,7 @@ export default class CessCube {
     this.toplinks_arr = this.init_navbar();
     this.initial_rotation = 10;
 
-    this.el_canvas  = document.querySelector( '#wm-nav-cont' );
+    this.el_canvas  = document.querySelector( '#wmnav-content' );
     this.el_cont    = this.el_canvas.querySelector( '#csscube-cont' );
         
     this.tweeen = 'power2.out';
@@ -163,8 +163,8 @@ export default class CessCube {
 
     let unit_w = 40; // 40 - initial value is about to change soon
     let unit_h = 40; 
-    let ww = this.el_canvas.clientWidth;  // three quarters of the window to draw the cube
-    let wh = this.el_canvas.clientHeight;
+    let ww = window.innerWidth;  // three quarters of the window to draw the cube
+    let wh = window.innerHeight;
 
     let BigHeader = '';
     let SmHeader = '';
@@ -175,7 +175,12 @@ export default class CessCube {
     let ratio = ww / wh;
         
     // if is landscape one unit is calculated from height otherwise unit height is taken from width of the screen
-    if( ratio >= 1 ) {   // IS LANDSCAPE
+    
+     
+    if( ratio >= 1 ) {
+
+      // IS LANDSCAPE  
+
       ww = ww * 0.6; wh = wh * 0.6;
       if( wh > 900 )
         wh=900;
@@ -190,7 +195,10 @@ export default class CessCube {
       SmallestHeader = ' '+unit_w/4+'px !important;';
             
     }
-    else {              // IS PORTRAIT
+    else {
+
+      // IS PORTRAIT 
+
       ww *= 0.85; wh *= 0.85; 
       if( window.vw > 500 )
         window.vw=500;
@@ -216,7 +224,7 @@ export default class CessCube {
     this.Cube_Style_Sheet.innerHTML += '#csscube-scene #csscube h2 {font-size: '+SmHeader+' } ';
     this.Cube_Style_Sheet.innerHTML += '#csscube-scene #csscube h3 {font-size: '+TinyHeader+' } ';
     this.Cube_Style_Sheet.innerHTML += '#csscube-scene #csscube h4 {font-size: '+SmallestHeader+' } ';
-    this.Cube_Style_Sheet.innerHTML += '#csscube-scene{position: relative; top: '+( this.el_canvas.clientHeight-this.cube_height )/2+'px; width:'+this.cube_width+'px; height:'+this.cube_height+'px; perspective: '+this.cube_width*5+'px;}';
+    this.Cube_Style_Sheet.innerHTML += '#csscube-scene{width:'+this.cube_width+'px; height:'+this.cube_height+'px; perspective: '+this.cube_width*5+'px;}';
     this.Cube_Style_Sheet.innerHTML += '#csscube-rotator{top: '+this.cube_height/2+'px;}';
     this.Cube_Style_Sheet.innerHTML += '#csscube{top: -'+this.cube_height/2+'px;}';
 
@@ -487,7 +495,7 @@ export default class CessCube {
 
     if( typeof InstallTrigger == 'undefined' )
       this.main_container.classList.add( 'ess-blured-content' );
-    this.el_canvas.style.zIndex = '1';
+    this.el_canvas.style.display = 'flex';
 
         
     this.front_side_el.style.opacity = '0.1';
@@ -568,7 +576,7 @@ export default class CessCube {
       css: { opacity: 0},
       onComplete: ()=>{
         window.ess_cube_transitioning = false;
-        this.el_canvas.style.zIndex = '-100';
+        this.el_canvas.style.display = 'none';
       }
     } );
             

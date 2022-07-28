@@ -47,8 +47,8 @@ p,li
   @media (min-width: $large-screen-up)
     font-size: $large-text-lg
 
-ul
-  &.dotted
+.dotted
+  ul
     margin-left: 2.25rem !important
 
     li::before
@@ -94,14 +94,14 @@ ul
 .right, .sm-right
   text-align: right
 
-  @media (min-width: $medium-screen-up)
+  @media (min-width: $medium-screen)
     .md-left
       text-align: left
     .md-right
       text-align: right
     .md-center
       text-align: center
-  @media (min-width: $large-screen-up)
+  @media (min-width: $large-screen)
     .lg-left
       text-align: left
     .lg-center

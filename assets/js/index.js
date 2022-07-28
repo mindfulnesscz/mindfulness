@@ -164,24 +164,28 @@ __webpack_require__.r(__webpack_exports__);
  * Checks if Components are present when needed and loads and inits them
  */
 const NavMenu = ({ mindGlobal }) => {
-    const sizeCheck = () => {
+    const deviceCheck = () => {
         const isMobile = (0,_helpers_testDevice__WEBPACK_IMPORTED_MODULE_0__["default"])() || window.innerWidth < mindGlobal.settings.navBreakpoint;
-        console.log('ismobile izzz ' + isMobile);
-        setDevice(isMobile ? 'mobile' : 'desktop');
+        return (isMobile ? 'mobile' : 'desktop');
     };
-    const [device, setDevice] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('mobile');
-    const [timer, setTimer] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(setTimeout(sizeCheck, 0));
+    const sizeSet = () => {
+        setDevice(deviceCheck());
+    };
+    const [device, setDevice] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(deviceCheck());
+    const [timer, setTimer] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(setTimeout(sizeSet, 0));
     const [menuComp, setMenuComp] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
         console.log('now do the navigation type check init');
         window.onresize = () => {
             clearTimeout(timer);
-            setTimer(setTimeout(sizeCheck, 100));
+            setTimer(setTimeout(sizeSet, 100));
         };
     }, []);
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
         if (!mindGlobal[device + 'Nav'])
             callScript(mindGlobal.templateUrl + '/assets/js/nav/' + device + '.js');
+        else
+            setMenuComp(mindGlobal[device + 'Nav']);
     }, [device]);
     const callScript = (url) => {
         (0,_helpers_loadScript__WEBPACK_IMPORTED_MODULE_2__["default"])(url).then(() => {
@@ -339,8 +343,12 @@ window.gsap.registerPlugin(window.ScrollTrigger);
  * Loading different content for different types of navigation (Mobile / Desktop)
  */
 document.addEventListener('DOMContentLoaded', () => {
-    const navCont = document.querySelector('#wm-nav-cont');
-    react_dom__WEBPACK_IMPORTED_MODULE_2___default().render(react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_nav_nav_menu__WEBPACK_IMPORTED_MODULE_3__["default"], { mindGlobal: window.MindGlobal }), navCont);
+    const navCont = document.querySelector('#wmnav-cont');
+    if (navCont) {
+        react_dom__WEBPACK_IMPORTED_MODULE_2___default().render(react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_nav_nav_menu__WEBPACK_IMPORTED_MODULE_3__["default"], { mindGlobal: window.MindGlobal }), navCont);
+    }
+    else
+        throw new DOMException('unable to find menu containers');
 });
 
 })();

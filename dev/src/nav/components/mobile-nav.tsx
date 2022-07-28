@@ -18,7 +18,7 @@ import IndustriesSlide from './device-slides/slide-industries';
 import SolutionsSlide from './device-slides/slide-solutions';
 
 //assets
-import EssLogo from '../../assets/images/ess_logo.svg';
+import EssLogo from './ess-logo';
 import '../sass/devices_nav.sass';
 
 
@@ -27,7 +27,7 @@ declare type DevicesNavProps = {
   templateUrl:string
 }
 
-const DevicesNav: React.FC<DevicesNavProps> = ( { homeUrl, templateUrl} ) => {
+const MobileNav: React.FC<DevicesNavProps> = ( { homeUrl, templateUrl} ) => {
 
   const [isActive, setIsActive] = useState( false );
   const [activeSlide, setActiveSlide] = useState<HTMLDivElement>( );
@@ -110,13 +110,12 @@ const DevicesNav: React.FC<DevicesNavProps> = ( { homeUrl, templateUrl} ) => {
 
 
   return (
-    <div>
-      <div id="wmnav">
-        <a href={homeUrl}>
-          <div id='wm-logo'>
-            <img width="150" height="50" src={EssLogo} />
-          </div>
-        </a>
+    <div id='wmnav-wrap'>
+
+      <div id="wmnav-bar">
+
+        <EssLogo homeUrl={homeUrl} templateUrl={templateUrl} />
+      
         <div id='wm-burger'>
           <button onClick={navToggle} id="main-nav-toggler" className="hamburger hamburger--collapse" type="button" data-toggle="top-menu" aria-label="hamburger navigation toggle">
             <span className="hamburger-box">
@@ -124,7 +123,11 @@ const DevicesNav: React.FC<DevicesNavProps> = ( { homeUrl, templateUrl} ) => {
             </span>
           </button>
         </div>
+
       </div>
+
+
+
       <div id="wmnav-slides" ref={Slides}>
 
         <div ref={SlideMain} className="wmnav-slide"  id="wmnav-slide-main">
@@ -152,4 +155,4 @@ const DevicesNav: React.FC<DevicesNavProps> = ( { homeUrl, templateUrl} ) => {
   );
 };
 
-export default DevicesNav;
+export default MobileNav;
