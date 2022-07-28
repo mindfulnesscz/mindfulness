@@ -40,7 +40,7 @@ $template_url = get_template_directory_uri();
         <!--   footer SUBSCRIBE BUTTON  ............................................... -->
 
         <div class="ess-subscribe-footer" style="flex-wrap: wrap;">
-          ` <div class="button-holder ">
+          <div class="button-holder ">
             <button class="ess-button modal-trigger" data-target="ess-modal-subscribe">subscribe</button>
           </div>
         </div>
