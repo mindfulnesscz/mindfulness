@@ -13,26 +13,33 @@
 @import './components/colors';
 @import './components/variables';
 
+/* MINDFULNESS FRAMEWORK */
 
-@import './components/typography';
-@import './components/layout';
-@import './components/helpers';
-@import './components/buttons';
-@import './components/forms';
+
+
 @import './components/color_classes';
+@import './components/flexbox';
+@import './components/flexboxgrid';
+@import './components/sizes';
+@import './components/typography';
+@import './components/z-indexes';
+
+/* MINDFULNESS COMPONENTS */
+
 @import './components/alerts';
 @import './components/articles_feed';
 @import './components/breadcrumbs';
+@import './components/buttons';
 @import './components/career_opportunities';
 @import './components/cards';
 @import './components/dark_block';
 @import './components/download_area';
 @import './components/events';
 @import './components/filter';
-@import './components/flexbox';
-@import './components/flexboxgrid';
 @import './components/footer';
+@import './components/forms';
 @import './components/headers';
+@import './components/helpers';
 @import './components/homebanner';
 @import './components/homepage';
 @import './components/icon_headline';
@@ -40,6 +47,7 @@
 @import './components/images';
 @import './components/industry_icons';
 @import './components/keypage';
+@import './components/layout';
 @import './components/logo_cube';
 @import './components/m_links';
 @import './components/m_layout';
@@ -51,9 +59,7 @@
 @import './components/sidebar_contact';
 @import './components/sidebars';
 @import './components/single';
-@import './components/sizes';
 @import './components/transitions';
 @import './components/videoBackground';
 @import './components/wm_debug';
 @import './components/wordpress_fixes';
-@import './components/z-indexes';
