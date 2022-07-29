@@ -13,33 +13,33 @@ $template_url = get_template_directory_uri();
 <!--   FOOOTER  ========================================================================================================================= -->
 
 
-<footer id="ess-footer" class="page-footer">
+<footer id="ess-footer">
   <div class="container">
-    <div class="row">
+    <div id="ess-footer-body-row" class="row">
 
       <!--   footer CONTACT  ............................................... -->
 
-      <div class="col-footer-contact col-xs-12 col-sm-4 col-lg-3">
+      <div class="footer-section col-footer-contact col-xs-12 col-sm-4 col-lg-3">
         <div class="darker-gray ess-divider ess-show-on-small-and-down "></div>
         <h6 class="footer-section-headline center">Quick Contact</h6>
         <p class="text-sm center">ESS Engineering Software Steyr<br> Berggasse 35, 4400 Steyr, Austria
         </p>
         <p class="text-sm center">+43 7252 20446</p>
-        <h6 class="text-center">STAY UPDATED</h6>
+        <h6 class="center">STAY UPDATED</h6>
 
 
         <!--   footer SUBSCRIBE BUTTON  ............................................... -->
 
-        <div class="ess-subscribe-footer" style="flex-wrap: wrap;">
-          ` <div class="button-holder text-center">
-            <button class="ess-button outlined modal-trigger" data-target="ess-modal-subscribe">subscribe</button>
+        <div class="ess-subscribe-footer">
+          <div class="center">
+            <button class="ess-button outlined modal-trigger">subscribe</button>
           </div>
         </div>
       </div>
 
       <!--   footer NEWS ............................................... -->
 
-      <div class="col-footer-news col-xs-6 col-sm-4 col-md-4 col-lg-2 ">
+      <div class="footer-section col-footer-news col-xs-6 col-sm-4 col-md-4 col-lg-2 ">
 
         <?php
 
@@ -56,7 +56,7 @@ $template_url = get_template_directory_uri();
 
         // The Loop
         if ($the_query->have_posts()) : ?>
-          <h6 class="footer-section-headline">Hottest News</h6>
+          <h6 class="footer-section-headline">Hottest News:</h6>
           <div class="mind-slider-holder">
             <ul class="mind-slider" id="ess-news-slider">
               <?php while ($the_query->have_posts()) :
@@ -83,7 +83,7 @@ $template_url = get_template_directory_uri();
                       ">
                     </div>
                     <div class="ess-footer-article-content ">
-                      <h6><?php echo get_the_title(); ?></h6>
+                      <h6 class="footer-section-headline"><?php echo get_the_title(); ?></h6>
                     </div>
                   </a>
                 </li>
@@ -107,7 +107,7 @@ $template_url = get_template_directory_uri();
 
       <!--   footer EVENTS  ............................................... -->
 
-      <div class="col-footer-events col-xs-6 col-sm-4 col-md-4 col-lg-2 ">
+      <div class="footer-section col-footer-events col-xs-6 col-sm-4 col-md-4 col-lg-2 ">
         <?php
 
         $c = 0;
@@ -142,7 +142,7 @@ $template_url = get_template_directory_uri();
               ?>
                 <li class="slide <?php echo (($c == 1 ? 'curr' : '')); ?>">
                   <a href="<?php echo get_permalink() ?>">
-                    <div class="footer-feed-img-holder">
+                    <div class="footer-feed-img-holder center">
                       <img loading="lazy" class="footer-feed-img responsive-img" src="<?php echo get_the_post_thumbnail_url($post_id) ?> " srcset="
                         <?php echo $tiny[0] ?> 150w,  <?php echo $small[0] ?> 400w" sizes="
                         (min-width: 461px) calc((100vw/6) - 3*10px),
@@ -178,10 +178,10 @@ $template_url = get_template_directory_uri();
       $h = get_home_url();
       $c = get_post_type_archive_link('case_solution');
       ?>
-      <div class="col-footer-menu col-sm-12 col-lg-5 ">
-        <h6 class="">Engineering Software Steyr</h6>
+      <div class="footer-section col-footer-menu col-sm-12 col-lg-5 ">
+        <h6 class="footer-section-headline">Engineering Software Steyr</h6>
 
-        <div class="row p-top-half text-sm ">
+        <div class="row text-sm ">
           <div class="col-xs-6 col-sm-3 ">
             <ul>
               <li>
@@ -234,10 +234,10 @@ $template_url = get_template_directory_uri();
     </div>
   </div>
 
-  <div class="footer-copyright text-sm has-gray-lighten-1-background-color m-top-double p-vert-base ">
+  <div class="footer-copyright text-sm has-gray-lighten-1-background-color p-vert-base ">
     <div class="container ">
       <div class="copyright-element"> © <?php echo date('Y') ?> ESS - Engineering Software Steyr GmbH</div>
-      <div class="copyright-element"><a class="underl" href="<?php echo home_url() . '/legal-notice' ?>">legal notice</a></div>
+      <div class="copyright-element"><a href="<?php echo home_url() . '/legal-notice' ?>">legal notice</a></div>
     </div>
   </div>
 

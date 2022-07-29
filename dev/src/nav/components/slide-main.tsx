@@ -24,7 +24,7 @@ const slideMain: React.FC<WmMnavSlide> = ( { className, callSlide, slideLinks} )
                     key={'mainMenuLink-' + index} 
                     onClick={e=>{click( e, key.el );}}
                   >
-                    <h2 className="text-center">{key.name}</h2>
+                    <h2 className="center">{key.name}</h2>
                   </a>
                 </div>
                 <div className='col-xs-3 flex p-right-double'>
@@ -38,7 +38,7 @@ const slideMain: React.FC<WmMnavSlide> = ( { className, callSlide, slideLinks} )
         {/* Contat is not slide but a common link. Maybe this will be changed later. */}
 
         <a className='no-deco w-full m-zero p-zero' href={`${window.MindGlobal.homeUrl}/contact`}>
-          <h2 className='text-center'>Contact</h2></a>
+          <h2 className='center'>Contact</h2></a>
       </div>
     </div>
   );

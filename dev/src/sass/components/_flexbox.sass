@@ -1,7 +1,21 @@
 
+ 
+// FLEXBOX CLASSES
+
+// Table of Contents
+
+//  01. Flex Container
+//  02. Flex Items
+//  03. Flex Mixins
+
+
+
+
+/* 01 - Flex Container --------------------------------- */
+
+
 .nowrap 
   flex-wrap: nowrap
-
 .wrap 
   flex-wrap: wrap
 
@@ -11,7 +25,6 @@
   justify-content: center
 .content-end
   justify-content: end
-
 
 .items-start 
   align-items: flex-start
@@ -74,3 +87,16 @@
     align-items: stretch
 
 
+
+/* 02 - Flex Items --------------------------------- */
+
+.grow
+  flex-grow: 1
+
+
+
+/* 03 - Flex Mixins --------------------------------- */
+
+@mixin flex-center ()
+  align-items: center
+  justify-content: center

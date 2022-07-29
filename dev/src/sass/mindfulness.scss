@@ -3,7 +3,7 @@
  Theme URI:    https://essteyr.com
  Description:  ESS - Engineering Software Steyr Wordpress Theme
  Author:       Webmind
- Author URI:   http://petrmucha.cz
+ Author URI:   https://webmind.digital
  Template:     Mindfulness
  Version:      3.0
 */
@@ -15,8 +15,6 @@
 
 /* MINDFULNESS FRAMEWORK */
 
-
-
 @import './components/color_classes';
 @import './components/flexbox';
 @import './components/flexboxgrid';
@@ -24,7 +22,7 @@
 @import './components/typography';
 @import './components/z-indexes';
 
-/* MINDFULNESS COMPONENTS */
+/* MINDFULNESS THEME COMPONENTS */
 
 @import './components/alerts';
 @import './components/articles_feed';

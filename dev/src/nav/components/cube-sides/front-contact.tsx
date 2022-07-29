@@ -22,17 +22,17 @@ const FrontContact: React.FC = () => {
       </div>
       <div className="css_block w_iv h_iv x_o y_xi css-gray-lighter">
         <a href="https://www.facebook.com/essteyr" target="_blank" rel="noreferrer">
-          <h2><span className="ess-icon icon_facebook biggest-text"></span></h2>
+          <h2><span className="ess-icon icon_facebook text-xxl"></span></h2>
         </a>
       </div>
       <div className="css_block w_iv h_iv x_iv y_xi css-gray-lighter">
         <a href="https://twitter.com/ESSteyr" target="_blank" rel="noreferrer">
-          <h2><span className="ess-icon icon_twitter biggest-text"></span></h2>
+          <h2><span className="ess-icon icon_twitter text-xxl"></span></h2>
         </a>
       </div>
       <div className="css_block w_iv h_iv x_viii y_xi css-gray-lighter">
         <a href="https://www.linkedin.com/company/ess-engineeringsoftwaresteyr" target="_blank" rel="noreferrer">
-          <h2><span className="ess-icon icon_linkedin biggest-text"></span></h2>
+          <h2><span className="ess-icon icon_linkedin text-xxl"></span></h2>
         </a>
       </div>
     </div> 

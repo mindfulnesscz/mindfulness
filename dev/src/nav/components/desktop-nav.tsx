@@ -30,13 +30,17 @@ declare type DesktopNavProps = {
 const DesktopNav: React.FC<DesktopNavProps> = ( { homeUrl, templateUrl} ) => {
 
   useEffect( ()=>{
-    console.log( 'ahoj' );
 
     const CSSCube = new CessCube();
 
     CSSCube.init();
 
     CSSCube.setup_cube();
+
+    return ()=>{
+      // fade out on dismount
+      CSSCube.fadeOut();
+    };
   }, [] );
 
   return (

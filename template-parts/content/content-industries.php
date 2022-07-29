@@ -5,7 +5,7 @@ $cats = get_the_category(0);
 
 ?>
 
-<section class="bg-secondary no-padding">
+<section class="has-gray-lighten-4-background-color">
   <div class="container">
 
     <div class="row justify-center">

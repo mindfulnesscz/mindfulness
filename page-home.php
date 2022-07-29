@@ -33,12 +33,12 @@ endwhile;
 
 <!--   INDUSTRIES  =========================================================================================================================-->
 
-<section class="border-bot-light border-top-light no-padding bg-secondary">
+<section class="border-bot-gray border-top-light has-gray-lighten-4-background-color">
   <div class="container">
     <div class="col-xs-12">
-      <h3 class="no-margin p-bot-double p-top-double textalign-center">
+      <h4 class="no-margin center p-vert-half m-zero regular has-gray-darken-1-color">
         ESS Fields of Expertise:
-      </h3>
+      </h4>
     </div>
   </div>
 </section>

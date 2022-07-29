@@ -1,14 +1,12 @@
 #ess-body .ess-industry-card {
   position: relative;
   transition: all 0.4s;
-  padding: $base-margin;
-  padding-top: $base-margin  !important;
-  padding-bottom: $quad-margin  !important;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
   align-content: flex-end;
   text-decoration: none;
+  border-radius: .6rem;
 
   @media only screen and (max-width: $medium-screen) {
     padding-bottom: $double-margin  !important;
@@ -30,7 +28,6 @@
   cursor: pointer;
 
   +.ess-industry-card {
-    border-left: 1px dotted color('gray', 'base');
 
     @media only screen and (max-width: $medium-screen) {
       border-left: none;
@@ -63,17 +60,18 @@
   }
 
   .ess-anim-icon {
-    fill: color('gray', 'lighten-2');
-    stroke: color('gray', 'base');
+    fill: color('gray', 'lighten-4');
+    stroke: color('essblue', 'darken-2');
+    stroke-width: 2;
   }
 
   &:hover {
-    color: $white;
+    background: white;
     text-decoration: none;
 
     //background: color('gray', 'lighten-2');
     .ess-anim-icon {
-      fill: color('essblue', 'base');
+      fill: white;
       stroke: color('essblue', 'darken-2');
     }
 

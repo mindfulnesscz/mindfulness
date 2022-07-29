@@ -1,19 +1,18 @@
 /* eslint-disable no-undef */
-
-/*jshint esversion: 6 */
-
 /**
  * CessCube
- * Activates functionality of the navigation cube and connects it with the top bar navigation
+ * Activates functionality of the navigation cube and connects it with the top bar navigation.
+ * 
+ * @TODO: The whole cube needs to be rewritten in React to synchronize better 
+ * with the rest of the navigation
  **/
 
 
 export default class CessCube {
-
-
   /**
-   * 
-   * @param {HTMLElement} el_canvas Cube Container
+   * Initiates all variables needed throughout the Cubes life cycle.
+   * @since 1.0
+   * @return void
    */
   constructor () {
 
@@ -46,8 +45,22 @@ export default class CessCube {
 
     this._y = 0;
     this._x = 0;
+
+    // Registers the cube into MindGlobal object for global refference ( currently used by
+    // listener for closing the cube with escape )
+    if ( window.MindGlobal )
+      window.MindGlobal.CubeInst = this;
         
   }
+
+  /**
+   * Starts the cube. Is called from the caller. No clue why this is a special
+   * function to be called since it seeems obvious that it can only have constructor.
+   * All methods are casted internally and there is almost no reason to instantiate it.
+   *   
+   * @return void
+   * @since 1.0
+   */
   init () {
 
 
@@ -115,11 +128,14 @@ export default class CessCube {
     this.init_subscribe_modal();
 
     this.init_navbar();
+
+    this.fadeOutblocks = this.init_sideFadeOutBlocks();
   }
 
 
   /**
-   * Loops.
+   * Loops. the links and asigns them with cube sides
+   * 
    * @since 3.0
    * @return Array Associative array with Cube side names (front, left, etc) as keys and HtmlLinkElements as values
    */
@@ -157,8 +173,41 @@ export default class CessCube {
     return linksArr;
   }
 
+  /**
+   * Inits sideFedeOutBlocks
+   * @return Array<HTMLDivElement> - Left and Right fadeOutBlocks
+   * @since 3.0
+   */
+  init_sideFadeOutBlocks () {
+    const leftFadeOutBlock = document.createElement( 'div' );
+    leftFadeOutBlock.classList.add( 'cfob', 'cfob-left' );
+    leftFadeOutBlock.addEventListener( 'mouseover', this.fadeOutBlockHover );
+    this.el_canvas.appendChild( leftFadeOutBlock );
 
-  // Sets the sizes of the cube and its content can run during resize event as well
+    const rightFadeOutBlock = document.createElement( 'div' );
+    rightFadeOutBlock.classList.add( 'cfob', 'cfob-right' );
+    rightFadeOutBlock.addEventListener( 'mouseover', this.fadeOutBlockHover );
+    this.el_canvas.appendChild( rightFadeOutBlock );
+
+    return( [leftFadeOutBlock, rightFadeOutBlock] );
+  }
+
+  /**
+   * Removes Cube when fadeOutBlock is hovered
+   * @return void
+   * @since 3.0
+   */
+  fadeOutBlockHover () {
+    console.log( 'fadeoufadoutfadout' );
+    window.MindGlobal.CubeInst.fadeOut();
+  }
+
+  /**
+   * Sets the sizes of the cube and its content can run during resize event as well
+   * 
+   * @return void
+   * @since 1.0
+   **/
   setup_cube () {
 
     let unit_w = 40; // 40 - initial value is about to change soon
@@ -184,15 +233,13 @@ export default class CessCube {
       ww = ww * 0.6; wh = wh * 0.6;
       if( wh > 900 )
         wh=900;
-      unit_w = ( wh/this.units_cube_w ); 
-      unit_h = ( wh/this.units_cube_h ); 
-      /*BigHeader = ' 6vh !important;';
-            SmHeader = ' 2.6vh !important;';
-            TinyHeader = ' 1.8vh !important;';*/
-      BigHeader = ' '+unit_w/1.4+'px !important;';
-      SmHeader = ' '+unit_w/2.4+'px !important;';
-      TinyHeader = ' '+unit_w/3+'px !important;';
-      SmallestHeader = ' '+unit_w/4+'px !important;';
+      unit_w          = ( wh/this.units_cube_w ); 
+      unit_h          = ( wh/this.units_cube_h ); 
+
+      BigHeader       = ' '+unit_w/1.4+'px !important;';
+      SmHeader        = ' '+unit_w/2.4+'px !important;';
+      TinyHeader      = ' '+unit_w/3+'px !important;';
+      SmallestHeader  = ' '+unit_w/4+'px !important;';
             
     }
     else {
@@ -202,24 +249,26 @@ export default class CessCube {
       ww *= 0.85; wh *= 0.85; 
       if( window.vw > 500 )
         window.vw=500;
-      unit_w = ( ww/this.units_cube_w ); 
-      unit_h = ( ww/this.units_cube_h ); 
-      BigHeader = ' 8vw !important; ';
-      SmHeader = ' 4vw !important; ';
-      TinyHeader = ' 1.6vw !important;';
-      SmallestHeader = '1vw !important;';
+
+      unit_w          = ( ww/this.units_cube_w ); 
+      unit_h          = ( ww/this.units_cube_h ); 
+      BigHeader       = ' '+unit_w/1.4+'px !important;';
+      SmHeader        = ' '+unit_w/2.4+'px !important;';
+      TinyHeader      = ' '+unit_w/3+'px !important;';
+      SmallestHeader  = ' '+unit_w/4+'px !important;';
 
     }
         
         
     // reset the sheet
 
+    this.Cube_Style_Sheet.innerHTML = '';
+
     this.cube_width     = ( this.units_cube_w*unit_w );
     this.cube_height    = ( this.units_cube_h*unit_h );
     this.cube_w_shift   = this.cube_width/2; // + maybe unit/this.unit_space_ratio for gap between sides;
     this.cube_h_shift   = this.cube_height/2;
 
-    //this.Cube_Style_Sheet.innerHTML = "#csscube-nav ul li a {font-size: "+TinyHeader+";}";  
     this.Cube_Style_Sheet.innerHTML += '#csscube-scene #csscube h1 {font-size: '+BigHeader+' } ';
     this.Cube_Style_Sheet.innerHTML += '#csscube-scene #csscube h2 {font-size: '+SmHeader+' } ';
     this.Cube_Style_Sheet.innerHTML += '#csscube-scene #csscube h3 {font-size: '+TinyHeader+' } ';
@@ -243,7 +292,6 @@ export default class CessCube {
       this.Cube_Style_Sheet.innerHTML +='.y_'+this.names_array[i]+'{top:'+unit_h*i+'px;}';
       this.Cube_Style_Sheet.innerHTML +='.w_'+this.names_array[i]+'{width:'+( unit_w*i )+'px;}';
       this.Cube_Style_Sheet.innerHTML +='.h_'+this.names_array[i]+'{height:'+( unit_h*i )+'px;}';
-            
     }
 
     if( !this.isonscreen ) {
@@ -253,6 +301,13 @@ export default class CessCube {
 
       this.isonscreen = true;
     }
+
+    // Sets the width of fadeOutBlocks on sides (can't be less than 50px)
+    let bw = ( window.innerWidth - this.cube_width )/2 - 220;
+    bw = Math.max( bw, 50 );
+    this.fadeOutblocks.map( block => {  
+      block.style.width = bw + 'px';
+    } );
         
   }
   _rotate_right () {  // ROTATING LEFT SHOWING RIGHT SIDE OF THE CUBE
@@ -530,13 +585,23 @@ export default class CessCube {
     gsap.set( this.cube_rotator_el, {rotateX: this._x} );
 
     this._position_cube( 'bottom' );
+
+    window.addEventListener( 'keydown', this.cubeKeyPressed, true );
         
   }
 
-
   fadeOut () {
 
+    // Re-enable scrolling on body when cube disapears.
+    document.body.style.overflow = 'auto';
+
+
+    window.removeEventListener( 'keydown', this.cubeKeyPressed, true );
+
     this.isOnStage = false;
+
+
+    console.log( 'fading out' );
 
     let tiny = document.querySelector( '.ess-tiny-header' );
     if( tiny )
@@ -584,6 +649,25 @@ export default class CessCube {
   }
 
   /**
+   * Checks keypressed while the Cube is ON.
+   * @param {*} e Event object with window as currentTarget
+   */
+  cubeKeyPressed ( e ) {
+
+    switch ( e.key ) {
+    case 'ArrowLeft':
+      e.currentTarget.MindGlobal.CubeInst._rotate_left();
+      break;
+    case 'ArrowRight':
+      e.currentTarget.MindGlobal.CubeInst._rotate_right();
+      break;
+    case 'Escape':
+      e.currentTarget.MindGlobal.CubeInst.fadeOut();
+      break;
+    }
+  }
+
+  /**
    * Creates the clickable background div and sets up its behaviour
    * @since 1.0
    * @return void
@@ -592,9 +676,6 @@ export default class CessCube {
     this.el_clickable_background = document.createElement( 'div' );
     this.el_clickable_background.setAttribute( 'id', 'el-clickable-background' );
     this.el_clickable_background.addEventListener( 'click', () => {
-
-      // Re-enable scrolling on body when cube disapears.
-      document.body.style.overflow = 'auto';
 
       //Disapear
       this.fadeOut();

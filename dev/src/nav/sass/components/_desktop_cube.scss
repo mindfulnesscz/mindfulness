@@ -52,16 +52,21 @@ $alpha-inactive : 0.1;
     background: color("gray", "lighten-2");
 
     &:hover {
-      background: color("gray", "lighten-3");
+      background: white
     }
   }
 
   &.css-white>div,
   &.css-white>a {
     background: white;
+
+    &:hover {
+      background: white;
+      color: black;
+    }
   }
 
-  &.css-white>div,
+  &.css-gray-lighter>div,
   &.css-gray-lighter>a {
     background: color('gray', 'lighten-4');
 
@@ -147,24 +152,49 @@ $alpha-inactive : 0.1;
           text-align: left;
         }
 
-        h2 {
-          text-align: center;
-          padding: &half-margin;
-          font-weight: 400;
+        a {
+          .ess-anim-icon {
+            stroke: color('gray', 'darken-1')
+          }
         }
 
-        .cbl-industry h2 {
-          padding-bottom: $base-margin  !important;
-          font-weight: bold;
+        a:hover {
+          .ess-anim-icon {
+            stroke: color('essblue', 'darken-2');
+            fill: color('essblue', 'lighten-3')
+          }
+
+        }
+
+        h2 {
+          text-align: center;
+          font-weight: normal;
+        }
+
+        .cbl-industry {
+          h2 {
+            margin-top: 0;
+            padding-bottom: $base-margin  !important;
+            font-weight: normal;
+          }
+
+          a {
+            align-content: center !important;
+            padding-top: 0 !important
+          }
+
+          a:hover h2 {
+            color: black
+          }
         }
 
         h3 {
-          padding: $half-margin;
           text-align: center;
         }
 
         h4 {
           margin: $half-margin 0 $quarter-margin 0 !important;
+          font-weight: normal
         }
 
         .wmcube-side {
@@ -198,7 +228,8 @@ $alpha-inactive : 0.1;
                 .cc-icon-h {
                   align-self: flex-end;
                   width: 100%;
-                  padding: 0 20%;
+                  padding: 0 25%;
+
 
                 }
 
@@ -343,9 +374,12 @@ $alpha-inactive : 0.1;
   a {
     flex-direction: column;
     flex-wrap: nowrap;
+    transition: padding-top .2 eas-out;
+
+    &:hover {
+      padding-top: $half-margin;
+    }
   }
-
-
 
   h3 {
     margin-top: -.2em;
@@ -361,10 +395,6 @@ $alpha-inactive : 0.1;
       font-weight: bold;
     }
 
-
-    a:hover {
-      background: color('gray', 'lighten-4');
-    }
   }
 
   .main-product-logo {
@@ -377,6 +407,22 @@ $alpha-inactive : 0.1;
 #cube-ess-logo {
   width: 40%;
   max-width: 250px;
+}
+
+.cfob {
+  position: absolute;
+  height: 100vh;
+  //background: red;
+  min-width: 20px;
+  top: 0;
+}
+
+.cfob-left {
+  left: 0;
+}
+
+.cfob-right {
+  right: 0;
 }
 
 
