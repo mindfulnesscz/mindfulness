@@ -94,7 +94,12 @@ $mindfulness_color_palette =
     ),
     array(
       'name'  => __('White', 'mindfulness'),
-      'slug'  => 'white',
+      'slug'  => 'basic-white',
       'color'  => '#ffffff',
+    ),
+    array(
+      'name'  => __('Black', 'mindfulness'),
+      'slug'  => 'basic-black',
+      'color'  => '#000000',
     )
   );

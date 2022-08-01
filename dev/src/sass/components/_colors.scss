@@ -14,6 +14,11 @@ $ess-darkest-full: rgba(12, 22, 46, 1);
 $light-gray: rgb(240, 240, 240);
 $nav-cube-background: radial-gradient(circle, rgba(230, 230, 230, 1) 0%, rgba(211, 211, 211, 0.85) 77%);
 
+$basic: (
+  "white" #fff,
+  "black" #000
+);
+
 $essblue: (
   "base" : #14bef0,
   "lighten-1" : #92e5ff,
@@ -118,7 +123,9 @@ $shades: (
   "transparent" : transparent
 );
 
+
 $colors-ess: (
+  "basic": $basic,
   "essblue": $essblue,
   "red": $red,
   "green": $green,
