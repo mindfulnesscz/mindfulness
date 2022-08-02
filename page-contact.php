@@ -32,7 +32,7 @@ endwhile;
 
 
 <section class="" style="background-color: #f4f4f4">
-  <h2 class="center-align p-bot-base">Arrange a meeting:</h2>
+  <h2 class="center p-bot-base">Arrange a meeting:</h2>
   <div id="microsoft-booking-iframe-holder" style=" overflow: hidden;">
     <iframe id="microsoft-booking-iframe" style="top: -240px; margin-bottom: -280px; width: 100%; border:0; height: 2100px; position: relative;  z-index: 0;" src="https://outlook.office365.com/owa/calendar/ESSEngineeringSoftwareSteyrGmbH@essteyr.com/bookings/" framborder="0">
     </iframe>
@@ -47,37 +47,6 @@ endwhile;
 </section>
 
 
-
-
-<!-- ========================================== CONTACT STRIP ========================================== -->
-
-
-<section class="dark-block">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 p-top-quad p-bot-quad">
-        <h2>We are thrilled to meet You at our office</h2>
-        <div class="show-on-mid-and-higher">
-          <h4>Want to examine some more?<br>Just hit the cube:</h4>
-          <div class="ess-navcube-cube" id="bottom-cube">
-            <div class="navcube-scene">
-              <div class="navcube-rotator">
-                <div class="navcube">
-                  <div class="navcube-front"></div>
-                  <div class="navcube-back"></div>
-                  <div class="navcube-left"></div>
-                  <div class="navcube-right"></div>
-                  <div class="navcube-top"></div>
-                  <div class="navcube-bottom"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 

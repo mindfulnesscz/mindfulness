@@ -11,7 +11,7 @@ const FrontContact: React.FC = () => {
         </div>
       </div>
       <div className="css_block w_viii h_viii x_o y_iii css-gray">
-        <a href="<?php echo home_url() . '/contact'; ?>">
+        <a href={`${window.MindGlobal.homeUrl}/contact`}>
           <h2>Contact Us</h2>
         </a>
       </div>

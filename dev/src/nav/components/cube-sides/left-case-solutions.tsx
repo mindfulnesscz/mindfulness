@@ -58,7 +58,7 @@ const LeftCaseSolutions: React.FC = () => {
         </a>
       </div>
       <div className="css_block w_xii h_iv x_o y_xi css-gray-lighter">
-        <a href="<?php echo get_post_type_archive_link('case_solution'); ?>">
+        <a href={`${window.MindGlobal.homeUrl}/case-solutions`}>
           <h2 className="has-text-align-right icon-headline medium-icon just-right color-secondary">
             <span className="color-primary ess-icon icon_circle_arrow_right"></span>
                   See More Case Solutions

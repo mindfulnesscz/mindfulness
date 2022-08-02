@@ -20,7 +20,7 @@ const AboutSlide: React.FC<WmNavSlideChildren> = ( { homeUrl} ) => {
             <a className='no-deco light' href={`${homeUrl}/career`}>Career</a>
           </h3>
           <h3 className='text-center'>
-            <a className='no-deco light' href={`${homeUrl}/events`}>Events</a>
+            <a className='no-deco light' href={`${homeUrl}/ess-events`}>Events</a>
           </h3>
           <h3 className='text-center'>
             <a className='no-deco light' href={`${homeUrl}/case-solutions`}>Case Solutions</a>

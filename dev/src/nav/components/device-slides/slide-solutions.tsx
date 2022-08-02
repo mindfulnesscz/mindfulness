@@ -47,28 +47,28 @@ const SolutionsSlide: React.FC<WmNavSubpage> = ( { homeUrl, templateUrl} ) => {
 
       {/* Processing, Mobility, Env, Washing, Oil & Gas */}
       <div className='col-xs-6 text-center p-zero m-vert-minus-base'>
-        <a href={`${homeUrl}/alsim-platform`}>
+        <a href={`${homeUrl}/alsim-processing`}>
           <img title="Alsim Processing" alt='Alsim Processing' loading="lazy" width="300" height="100" className="main-product-logo" src={`${templateUrl}/assets/images/product-logos/logo_processing.svg`}/>
         </a>
       </div>
       <div className='col-xs-6 text-center p-zero m-vert-minus-base'>
-        <a href={`${homeUrl}/alsim-services`}>
+        <a href={`${homeUrl}/alsim-mobility`}>
           <img title="Alsim Mobility" alt='Alsim Mobility' loading="lazy" width="300" height="100" className="main-product-logo" src={`${templateUrl}/assets/images/product-logos/logo_mobility.svg`}/>
         </a>
       </div>
 
       <div className='col-xs-6 text-center p-zero m-vert-minus-base'>
-        <a href={`${homeUrl}/alsim-platform`}>
+        <a href={`${homeUrl}/alsim-environment`}>
           <img title="Alsim Environment" alt='Alsim Environment' loading="lazy" width="300" height="100" className="main-product-logo" src={`${templateUrl}/assets/images/product-logos/logo_environment.svg`}/>
         </a>
       </div>
       <div className='col-xs-6 text-center p-zero m-vert-minus-base'>
-        <a href={`${homeUrl}/alsim-services`}>
+        <a href={`${homeUrl}/alsim-washing`}>
           <img title="Alsim Washing" alt='Alsim Washing' loading="lazy" width="300" height="100" className="main-product-logo" src={`${templateUrl}/assets/images/product-logos/logo_washing.svg`}/>
         </a>
       </div>
       <div className='col-xs-6 text-center p-zero m-vert-minus-base'>
-        <a href={`${homeUrl}/alsim-services`}>
+        <a href={`${homeUrl}/alsim-oil-gas`}>
           <img title="Alsim Oil & Gas" alt='Alsim Oil & Gas' loading="lazy" width="300" height="100" className="main-product-logo" src={`${templateUrl}/assets/images/product-logos/logo_oil-gas.svg`}/>
         </a>
       </div>
