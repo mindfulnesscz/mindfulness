@@ -39,7 +39,7 @@ endwhile;
 
   <section class="wp-block-mindfulness-blocks-ess-section ess-section no-margin no-padding p-top-base">
     <div class="container">
-      <h3 class="subsection-headline text-center">OUR TEAM:</h3>
+      <h3 class="subsection-headline center">OUR TEAM:</h3>
     </div>
   </section>
   <section class="">
@@ -147,14 +147,14 @@ endwhile;
 
           ?>
 
-            <div class="people_person col-xs-6 col-sm-4 col-md-4 col-lg-3 ">
+            <div class="people_person col-xs-6 col-sm-4 col-md-4">
               <img class=" circle responsive-img " src="<?php echo $peasant_src[0] ?>" srcset="<?php echo $peasant_src[1] ?>" sizes="
 								(min-width: 760px) calc((100vw/2.5)*<?php echo $i_ratio ?>),
 								(min-width: 830px) 400px,
 								calc(100vw - 20px)
 							">
-              <h4><?php echo $peasant->post_title ?></h4>
-              <h5><?php echo $peasant->post_excerpt ?></h5>
+              <h4 class="m-bot-zero p-bot-zero"><?php echo $peasant->post_title ?></h4>
+              <h5 class="regular m-top-zero p-top-zero"><?php echo $peasant->post_excerpt ?></h5>
             </div>
         <?php
           // line break after first two and than three members - removed 22.3.2022

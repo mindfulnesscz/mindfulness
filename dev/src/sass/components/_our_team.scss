@@ -8,6 +8,7 @@
     img {
       max-width: 80%;
       margin: auto;
+      border-radius: 0.5rem;
     }
   }
 
@@ -68,14 +69,5 @@
   .people_person {
     padding-bottom: $double-margin;
     text-align: center;
-
-    h4 {
-      margin-bottom: 0;
-      padding-bottom: $half-margin;
-    }
-
-    h5 {
-      margin-top: 0;
-    }
   }
 }

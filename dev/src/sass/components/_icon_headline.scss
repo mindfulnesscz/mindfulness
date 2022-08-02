@@ -20,6 +20,7 @@
     margin: 0;
     padding: 0;
     padding-left: $half-margin;
+    flex-basis: 100%;
   }
 
   img {
@@ -73,7 +74,7 @@
     .ess-icon {
       line-height: $big-icon;
       height: $big-icon;
-      font-size: $big-icon !important;
+      font-size: $big-icon  !important;
     }
   }
 
