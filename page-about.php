@@ -39,7 +39,7 @@ endwhile;
 
   <section class="wp-block-mindfulness-blocks-ess-section ess-section no-margin no-padding p-top-base">
     <div class="container">
-      <h3 class="subsection-headline text-center">OUR TEAM:</h3>
+      <h3 class="subsection-headline text-center">Our Team</h3>
     </div>
   </section>
   <section class="">
@@ -81,53 +81,14 @@ endwhile;
 
         endforeach;
 
-        // ---------------------------- BIG BOSS ARRAY ------------------------	
+      // ---------------------------- BIG BOSS ARRAY ------------------------	
 
-        if (!empty($big_boss_arr)) :
-
-      ?>
-          <div class="row team-row">
-            <?php
-
-            foreach ($big_boss_arr as $big_boss_post) :
-
-
-              $thumb_id = get_post_thumbnail_id($big_boss_post->ID);
-              if ($thumb_id == '')
-                $thumb_id = default_image_id();
-
-              $img_src = ess_image_src($thumb_id, array('small_uncropped', 'medium', 'large'));
-
-
-
-            ?>
-              <div class="ess-hover-block">
-                <img style="width: 100%;" src="<?php echo $img_src[0] ?>" class="responsive-img" srcset="<?php echo $img_src[1] ?>" sizes="
-								(min-width: 760px) calc((100vw/2.5)*<?php echo $i_ratio ?>),
-								(min-width: 830px) 400px,
-								calc(100vw - 20px)
-							">
-                <div class="ess-hover-toshow ">
-                  <h3><?php echo $big_boss_post->post_title ?></h3>
-                  <p><?php echo $big_boss_post->post_excerpt ?></p>
-                </div>
-              </div>
-
-
-
-
-            <?php
-            endforeach;
-            ?>
-          </div>
-        <?php
-        endif;
       endif;
 
       // ---------------------------- PEASANTS ARRAY ------------------------					
 
       if (!empty($peasants_arr)) :
-        ?>
+      ?>
 
         <div class="ess-double-margin "></div>
         <div class="row team-row">
@@ -157,18 +118,62 @@ endwhile;
               <h5><?php echo $peasant->post_excerpt ?></h5>
             </div>
         <?php
-          // line break after first two and than three members - removed 22.3.2022
-          /* if ($tm_count == 2 || $tm_count == 5) :
-            ?>
-        </div>
-        <div class="row team-row">
-    <?php
-            endif;*/
-
           endforeach;
         endif;
         ?>
         </div>
+  </section>
+</main>
+
+
+
+<main>
+  <section class="wp-block-mindfulness-blocks-ess-section ess-section">
+    <div class="container">
+      <h3 class="subsection-headline text-center">Advisory Board</h3>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+
+      <?php
+      if (!empty($big_boss_arr)) :
+
+      ?>
+        <?php
+
+        foreach ($big_boss_arr as $big_boss_post) :
+
+
+          $thumb_id = get_post_thumbnail_id($big_boss_post->ID);
+          if ($thumb_id == '')
+            $thumb_id = default_image_id();
+
+          $img_src = ess_image_src($thumb_id, array('small_uncropped', 'medium', 'large'));
+
+
+
+        ?>
+          <div class="row p-vert-double">
+            <div class="col-xs-4 col-md-3 col-lg-2 ">
+              <img src="<?php echo $img_src[0] ?>" class="responsive-img circle" srcset="<?php echo $img_src[1] ?>" sizes="
+                    (min-width: 760px) calc((100vw/2.5)*<?php echo $i_ratio ?>),
+                    (min-width: 830px) 400px,
+                    calc(100vw - 20px)
+                  ">
+            </div>
+            <div class="col-xs-8 col-sm-8 col-md-6">
+              <h4><?php echo $big_boss_post->post_title ?></h4>
+              <p><?php echo $big_boss_post->post_excerpt ?></p>
+            </div>
+          </div>
+      <?php
+        endforeach;
+
+      endif;
+      ?>
+
+    </div>
   </section>
 </main>
 
