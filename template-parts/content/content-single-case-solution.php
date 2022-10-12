@@ -9,8 +9,8 @@
  */
 
 ?>
-<article>
-  <h1 class="p-bot-quad">
+<article style="margin-top: -4rem">
+  <h1>
     <?php
     the_title();
     ?>

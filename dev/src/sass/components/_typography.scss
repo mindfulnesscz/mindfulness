@@ -55,11 +55,11 @@ h4 {
 }
 
 h5 {
-  font-size: $h5  !important;
+  font-size: $h5 !important;
 }
 
 h6 {
-  font-size: $h6  !important;
+  font-size: $h6 !important;
 }
 
 
@@ -92,15 +92,15 @@ ul.dotted,
 }
 
 .huge-text {
-  font-size: $huge-text  !important;
+  font-size: $huge-text !important;
 }
 
 .biggest-text {
-  font-size: $biggest-text  !important;
+  font-size: $biggest-text !important;
 }
 
 .bigger-text {
-  font-size: $bigger-text  !important;
+  font-size: $bigger-text !important;
 }
 
 .big-text {
@@ -117,7 +117,7 @@ p {
 }
 
 .huge-text {
-  font-size: $huge-text  !important;
+  font-size: $huge-text !important;
 }
 
 .thin-text {
@@ -126,4 +126,8 @@ p {
 
 .big-claim {
   font-size: 150%;
+}
+
+a {
+  color: color('essblue', 'darken-1')
 }
