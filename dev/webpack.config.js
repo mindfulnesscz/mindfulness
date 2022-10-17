@@ -17,6 +17,7 @@ module.exports = {
     'index': './src/index.tsx',
     'nav/mobile': './src/nav/mobile.tsx',
     'nav/desktop': './src/nav/desktop.tsx',
+    'modals' : '/src/components/modals.tsx'
   },
 
   output: {

@@ -1,14 +1,15 @@
 
 // modules
 import MindCookies from './helpers/MindCookies';
-import React from 'react';
 
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import NavMenu from './nav/nav-menu';
+import loadScript from './helpers/loadScript';
 
 
-
+declare function initModals( modals:any ):void
 
 // type definitions
 import './types/index';
@@ -37,10 +38,14 @@ window.gsap.registerPlugin( window.ScrollTrigger );
 
 
 /**
- * Loading different content for different types of navigation (Mobile / Desktop)
+ * Initiates navigation
+ * Initiates modals
  */
 
 document.addEventListener( 'DOMContentLoaded', () => {
+
+
+  // Initiates top navigation or throw error
 
   const navCont = document.querySelector( '#wmnav-cont' );
 
@@ -48,6 +53,16 @@ document.addEventListener( 'DOMContentLoaded', () => {
     ReactDOM.render( <NavMenu mindGlobal={window.MindGlobal} />, navCont );
   }
   else throw new DOMException( 'unable to find menu containers' );
+
+
+  // Initiates modals if there's at least one
+
+  if( document.querySelector( '.wmwp-modal' ) )
+    loadScript(  window.MindGlobal.templateUrl + '/assets/js/nav/modals.js' ).then( ()=>{
+      initModals( document.querySelectorAll( '.wmwp-modal' ) );
+    } ); 
+
+  
 } );
 
 

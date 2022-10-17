@@ -1,0 +1,1 @@
+{"version":3,"file":"modals.js","mappings":";;;;;AAEA,SAAS,UAAU,CAAG,MAAa;IAEjC,OAAO,CAAC,GAAG,CAAE,MAAM,CAAE,CAAC;AAExB,CAAC","sources":["webpack://ess_backend/./src/components/modals.tsx"],"sourcesContent":["\n\nfunction initModals ( modals:string ):void {\n  \n  console.log( 'ahoj' );\n\n}"],"names":[],"sourceRoot":""}

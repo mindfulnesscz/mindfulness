@@ -1,6 +1,6 @@
 
 import testDevice from '../helpers/testDevice';
-import React, {useEffect, useState } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 import { MindGlobalObject } from '../types';
 import loadScript from '../helpers/loadScript';
 
@@ -8,9 +8,8 @@ declare interface NavMenuProps {
   mindGlobal: MindGlobalObject
 }
 
-
-export interface Indexable {
-  [key: string]: any
+declare interface Indexable {
+  [key: string]: ReactElement | null
 }
 
 /**
@@ -44,15 +43,15 @@ const NavMenu: React.FC<NavMenuProps> = ( { mindGlobal } ) => {
 
 
   useEffect( ()=>{
-    if( !( mindGlobal as Indexable )[device + 'Nav'] )
+    if( !( mindGlobal as unknown as Indexable )[device + 'Nav'] )
       callScript( mindGlobal.templateUrl + '/assets/js/nav/' + device + '.js' );
     else
-      setMenuComp( ( mindGlobal as Indexable )[device + 'Nav'] );    
+      setMenuComp( ( mindGlobal as unknown as Indexable )[device + 'Nav'] );    
   }, [device] );
 
   const callScript = ( url:string ) => {
     loadScript( url ).then( ()=>{
-      setMenuComp( ( mindGlobal as Indexable )[device + 'Nav'] );
+      setMenuComp( ( mindGlobal as unknown as Indexable )[device + 'Nav'] );
     } );
   };
 

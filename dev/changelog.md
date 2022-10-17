@@ -3,7 +3,6 @@
 - Cube design review
 
 ## [3.0] - TODOs
-- New Classic Menu
 - News category support
 - Typography, spacing and current content update
 - Archive pages redesign implementation
@@ -12,6 +11,7 @@
 ----------------------------------------------------------------------------------------
 
 ## [3.0]
+- New Mobile navigation and switching
 - New footer
 - Got rid of all frameworks
 - Started the documentation for utility classes (/www/html/mindfulnessdoc)
