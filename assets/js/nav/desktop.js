@@ -263,10 +263,10 @@ module.exports = function (originalArray, length) {
   \*******************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var uncurryThis = __webpack_require__(/*! ../internals/function-uncurry-this */ "./node_modules/core-js/internals/function-uncurry-this.js");
+var uncurryThisRaw = __webpack_require__(/*! ../internals/function-uncurry-this-raw */ "./node_modules/core-js/internals/function-uncurry-this-raw.js");
 
-var toString = uncurryThis({}.toString);
-var stringSlice = uncurryThis(''.slice);
+var toString = uncurryThisRaw({}.toString);
+var stringSlice = uncurryThisRaw(''.slice);
 
 module.exports = function (it) {
   return stringSlice(toString(it), 8, -1);
@@ -398,8 +398,10 @@ module.exports = function (O, key, value, options) {
     if (simple) O[key] = value;
     else defineGlobalProperty(key, value);
   } else {
-    if (!options.unsafe) delete O[key];
-    else if (O[key]) simple = true;
+    try {
+      if (!options.unsafe) delete O[key];
+      else if (O[key]) simple = true;
+    } catch (error) { /* empty */ }
     if (simple) O[key] = value;
     else definePropertyModule.f(O, key, {
       value: value,
@@ -421,7 +423,7 @@ module.exports = function (O, key, value, options) {
 
 var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
 
-// eslint-disable-next-line es-x/no-object-defineproperty -- safe
+// eslint-disable-next-line es/no-object-defineproperty -- safe
 var defineProperty = Object.defineProperty;
 
 module.exports = function (key, value) {
@@ -445,9 +447,28 @@ var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-j
 
 // Detect IE8's incomplete defineProperty implementation
 module.exports = !fails(function () {
-  // eslint-disable-next-line es-x/no-object-defineproperty -- required for testing
+  // eslint-disable-next-line es/no-object-defineproperty -- required for testing
   return Object.defineProperty({}, 1, { get: function () { return 7; } })[1] != 7;
 });
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/internals/document-all.js":
+/*!********************************************************!*\
+  !*** ./node_modules/core-js/internals/document-all.js ***!
+  \********************************************************/
+/***/ ((module) => {
+
+var documentAll = typeof document == 'object' && document.all;
+
+// https://tc39.es/ecma262/#sec-IsHTMLDDA-internal-slot
+var IS_HTMLDDA = typeof documentAll == 'undefined' && documentAll !== undefined;
+
+module.exports = {
+  all: documentAll,
+  IS_HTMLDDA: IS_HTMLDDA
+};
 
 
 /***/ }),
@@ -655,7 +676,7 @@ module.exports = function (fn, that) {
 var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
 
 module.exports = !fails(function () {
-  // eslint-disable-next-line es-x/no-function-prototype-bind -- safe
+  // eslint-disable-next-line es/no-function-prototype-bind -- safe
   var test = (function () { /* empty */ }).bind();
   // eslint-disable-next-line no-prototype-builtins -- safe
   return typeof test != 'function' || test.hasOwnProperty('prototype');
@@ -735,7 +756,7 @@ var DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ "./node_mo
 var hasOwn = __webpack_require__(/*! ../internals/has-own-property */ "./node_modules/core-js/internals/has-own-property.js");
 
 var FunctionPrototype = Function.prototype;
-// eslint-disable-next-line es-x/no-object-getownpropertydescriptor -- safe
+// eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
 var getDescriptor = DESCRIPTORS && Object.getOwnPropertyDescriptor;
 
 var EXISTS = hasOwn(FunctionPrototype, 'name');
@@ -752,25 +773,41 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/core-js/internals/function-uncurry-this-raw.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/core-js/internals/function-uncurry-this-raw.js ***!
+  \*********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var NATIVE_BIND = __webpack_require__(/*! ../internals/function-bind-native */ "./node_modules/core-js/internals/function-bind-native.js");
+
+var FunctionPrototype = Function.prototype;
+var call = FunctionPrototype.call;
+var uncurryThisWithBind = NATIVE_BIND && FunctionPrototype.bind.bind(call, call);
+
+module.exports = NATIVE_BIND ? uncurryThisWithBind : function (fn) {
+  return function () {
+    return call.apply(fn, arguments);
+  };
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/internals/function-uncurry-this.js":
 /*!*****************************************************************!*\
   !*** ./node_modules/core-js/internals/function-uncurry-this.js ***!
   \*****************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var NATIVE_BIND = __webpack_require__(/*! ../internals/function-bind-native */ "./node_modules/core-js/internals/function-bind-native.js");
+var classofRaw = __webpack_require__(/*! ../internals/classof-raw */ "./node_modules/core-js/internals/classof-raw.js");
+var uncurryThisRaw = __webpack_require__(/*! ../internals/function-uncurry-this-raw */ "./node_modules/core-js/internals/function-uncurry-this-raw.js");
 
-var FunctionPrototype = Function.prototype;
-var bind = FunctionPrototype.bind;
-var call = FunctionPrototype.call;
-var uncurryThis = NATIVE_BIND && bind.bind(call, call);
-
-module.exports = NATIVE_BIND ? function (fn) {
-  return fn && uncurryThis(fn);
-} : function (fn) {
-  return fn && function () {
-    return call.apply(fn, arguments);
-  };
+module.exports = function (fn) {
+  // Nashorn bug:
+  //   https://github.com/zloirock/core-js/issues/1128
+  //   https://github.com/zloirock/core-js/issues/1130
+  if (classofRaw(fn) === 'Function') return uncurryThisRaw(fn);
 };
 
 
@@ -803,12 +840,13 @@ module.exports = function (namespace, method) {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var aCallable = __webpack_require__(/*! ../internals/a-callable */ "./node_modules/core-js/internals/a-callable.js");
+var isNullOrUndefined = __webpack_require__(/*! ../internals/is-null-or-undefined */ "./node_modules/core-js/internals/is-null-or-undefined.js");
 
 // `GetMethod` abstract operation
 // https://tc39.es/ecma262/#sec-getmethod
 module.exports = function (V, P) {
   var func = V[P];
-  return func == null ? undefined : aCallable(func);
+  return isNullOrUndefined(func) ? undefined : aCallable(func);
 };
 
 
@@ -826,7 +864,7 @@ var check = function (it) {
 
 // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
 module.exports =
-  // eslint-disable-next-line es-x/no-global-this -- safe
+  // eslint-disable-next-line es/no-global-this -- safe
   check(typeof globalThis == 'object' && globalThis) ||
   check(typeof window == 'object' && window) ||
   // eslint-disable-next-line no-restricted-globals -- safe
@@ -851,7 +889,7 @@ var hasOwnProperty = uncurryThis({}.hasOwnProperty);
 
 // `HasOwnProperty` abstract operation
 // https://tc39.es/ecma262/#sec-hasownproperty
-// eslint-disable-next-line es-x/no-object-hasown -- safe
+// eslint-disable-next-line es/no-object-hasown -- safe
 module.exports = Object.hasOwn || function hasOwn(it, key) {
   return hasOwnProperty(toObject(it), key);
 };
@@ -882,7 +920,7 @@ var createElement = __webpack_require__(/*! ../internals/document-create-element
 
 // Thanks to IE8 for its funny defineProperty
 module.exports = !DESCRIPTORS && !fails(function () {
-  // eslint-disable-next-line es-x/no-object-defineproperty -- required for testing
+  // eslint-disable-next-line es/no-object-defineproperty -- required for testing
   return Object.defineProperty(createElement('div'), 'a', {
     get: function () { return 7; }
   }).a != 7;
@@ -946,9 +984,8 @@ module.exports = store.inspectSource;
   \**********************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var NATIVE_WEAK_MAP = __webpack_require__(/*! ../internals/native-weak-map */ "./node_modules/core-js/internals/native-weak-map.js");
+var NATIVE_WEAK_MAP = __webpack_require__(/*! ../internals/weak-map-basic-detection */ "./node_modules/core-js/internals/weak-map-basic-detection.js");
 var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
-var uncurryThis = __webpack_require__(/*! ../internals/function-uncurry-this */ "./node_modules/core-js/internals/function-uncurry-this.js");
 var isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js/internals/is-object.js");
 var createNonEnumerableProperty = __webpack_require__(/*! ../internals/create-non-enumerable-property */ "./node_modules/core-js/internals/create-non-enumerable-property.js");
 var hasOwn = __webpack_require__(/*! ../internals/has-own-property */ "./node_modules/core-js/internals/has-own-property.js");
@@ -976,26 +1013,28 @@ var getterFor = function (TYPE) {
 
 if (NATIVE_WEAK_MAP || shared.state) {
   var store = shared.state || (shared.state = new WeakMap());
-  var wmget = uncurryThis(store.get);
-  var wmhas = uncurryThis(store.has);
-  var wmset = uncurryThis(store.set);
+  /* eslint-disable no-self-assign -- prototype methods protection */
+  store.get = store.get;
+  store.has = store.has;
+  store.set = store.set;
+  /* eslint-enable no-self-assign -- prototype methods protection */
   set = function (it, metadata) {
-    if (wmhas(store, it)) throw new TypeError(OBJECT_ALREADY_INITIALIZED);
+    if (store.has(it)) throw TypeError(OBJECT_ALREADY_INITIALIZED);
     metadata.facade = it;
-    wmset(store, it, metadata);
+    store.set(it, metadata);
     return metadata;
   };
   get = function (it) {
-    return wmget(store, it) || {};
+    return store.get(it) || {};
   };
   has = function (it) {
-    return wmhas(store, it);
+    return store.has(it);
   };
 } else {
   var STATE = sharedKey('state');
   hiddenKeys[STATE] = true;
   set = function (it, metadata) {
-    if (hasOwn(it, STATE)) throw new TypeError(OBJECT_ALREADY_INITIALIZED);
+    if (hasOwn(it, STATE)) throw TypeError(OBJECT_ALREADY_INITIALIZED);
     metadata.facade = it;
     createNonEnumerableProperty(it, STATE, metadata);
     return metadata;
@@ -1029,7 +1068,7 @@ var classof = __webpack_require__(/*! ../internals/classof-raw */ "./node_module
 
 // `IsArray` abstract operation
 // https://tc39.es/ecma262/#sec-isarray
-// eslint-disable-next-line es-x/no-array-isarray -- safe
+// eslint-disable-next-line es/no-array-isarray -- safe
 module.exports = Array.isArray || function isArray(argument) {
   return classof(argument) == 'Array';
 };
@@ -1041,11 +1080,17 @@ module.exports = Array.isArray || function isArray(argument) {
 /*!*******************************************************!*\
   !*** ./node_modules/core-js/internals/is-callable.js ***!
   \*******************************************************/
-/***/ ((module) => {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var $documentAll = __webpack_require__(/*! ../internals/document-all */ "./node_modules/core-js/internals/document-all.js");
+
+var documentAll = $documentAll.all;
 
 // `IsCallable` abstract operation
 // https://tc39.es/ecma262/#sec-iscallable
-module.exports = function (argument) {
+module.exports = $documentAll.IS_HTMLDDA ? function (argument) {
+  return typeof argument == 'function' || argument === documentAll;
+} : function (argument) {
   return typeof argument == 'function';
 };
 
@@ -1146,6 +1191,21 @@ module.exports = isForced;
 
 /***/ }),
 
+/***/ "./node_modules/core-js/internals/is-null-or-undefined.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/core-js/internals/is-null-or-undefined.js ***!
+  \****************************************************************/
+/***/ ((module) => {
+
+// we can't use just `it == null` since of `document.all` special case
+// https://tc39.es/ecma262/#sec-IsHTMLDDA-internal-slot-aec
+module.exports = function (it) {
+  return it === null || it === undefined;
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/internals/is-object.js":
 /*!*****************************************************!*\
   !*** ./node_modules/core-js/internals/is-object.js ***!
@@ -1153,8 +1213,13 @@ module.exports = isForced;
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var isCallable = __webpack_require__(/*! ../internals/is-callable */ "./node_modules/core-js/internals/is-callable.js");
+var $documentAll = __webpack_require__(/*! ../internals/document-all */ "./node_modules/core-js/internals/document-all.js");
 
-module.exports = function (it) {
+var documentAll = $documentAll.all;
+
+module.exports = $documentAll.IS_HTMLDDA ? function (it) {
+  return typeof it == 'object' ? it !== null : isCallable(it) || it === documentAll;
+} : function (it) {
   return typeof it == 'object' ? it !== null : isCallable(it);
 };
 
@@ -1228,7 +1293,7 @@ var InternalStateModule = __webpack_require__(/*! ../internals/internal-state */
 
 var enforceInternalState = InternalStateModule.enforce;
 var getInternalState = InternalStateModule.get;
-// eslint-disable-next-line es-x/no-object-defineproperty -- safe
+// eslint-disable-next-line es/no-object-defineproperty -- safe
 var defineProperty = Object.defineProperty;
 
 var CONFIGURABLE_LENGTH = DESCRIPTORS && !fails(function () {
@@ -1244,7 +1309,8 @@ var makeBuiltIn = module.exports = function (value, name, options) {
   if (options && options.getter) name = 'get ' + name;
   if (options && options.setter) name = 'set ' + name;
   if (!hasOwn(value, 'name') || (CONFIGURABLE_FUNCTION_NAME && value.name !== name)) {
-    defineProperty(value, 'name', { value: name, configurable: true });
+    if (DESCRIPTORS) defineProperty(value, 'name', { value: name, configurable: true });
+    else value.name = name;
   }
   if (CONFIGURABLE_LENGTH && options && hasOwn(options, 'arity') && value.length !== options.arity) {
     defineProperty(value, 'length', { value: options.arity });
@@ -1281,51 +1347,11 @@ var floor = Math.floor;
 
 // `Math.trunc` method
 // https://tc39.es/ecma262/#sec-math.trunc
-// eslint-disable-next-line es-x/no-math-trunc -- safe
+// eslint-disable-next-line es/no-math-trunc -- safe
 module.exports = Math.trunc || function trunc(x) {
   var n = +x;
   return (n > 0 ? floor : ceil)(n);
 };
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/internals/native-symbol.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/core-js/internals/native-symbol.js ***!
-  \*********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-/* eslint-disable es-x/no-symbol -- required for testing */
-var V8_VERSION = __webpack_require__(/*! ../internals/engine-v8-version */ "./node_modules/core-js/internals/engine-v8-version.js");
-var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
-
-// eslint-disable-next-line es-x/no-object-getownpropertysymbols -- required for testing
-module.exports = !!Object.getOwnPropertySymbols && !fails(function () {
-  var symbol = Symbol();
-  // Chrome 38 Symbol has incorrect toString conversion
-  // `get-own-property-symbols` polyfill symbols converted to object are not Symbol instances
-  return !String(symbol) || !(Object(symbol) instanceof Symbol) ||
-    // Chrome 38-40 symbols are not inherited from DOM collections prototypes to instances
-    !Symbol.sham && V8_VERSION && V8_VERSION < 41;
-});
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/internals/native-weak-map.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/core-js/internals/native-weak-map.js ***!
-  \***********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
-var isCallable = __webpack_require__(/*! ../internals/is-callable */ "./node_modules/core-js/internals/is-callable.js");
-var inspectSource = __webpack_require__(/*! ../internals/inspect-source */ "./node_modules/core-js/internals/inspect-source.js");
-
-var WeakMap = global.WeakMap;
-
-module.exports = isCallable(WeakMap) && /native code/.test(inspectSource(WeakMap));
 
 
 /***/ }),
@@ -1343,9 +1369,9 @@ var anObject = __webpack_require__(/*! ../internals/an-object */ "./node_modules
 var toPropertyKey = __webpack_require__(/*! ../internals/to-property-key */ "./node_modules/core-js/internals/to-property-key.js");
 
 var $TypeError = TypeError;
-// eslint-disable-next-line es-x/no-object-defineproperty -- safe
+// eslint-disable-next-line es/no-object-defineproperty -- safe
 var $defineProperty = Object.defineProperty;
-// eslint-disable-next-line es-x/no-object-getownpropertydescriptor -- safe
+// eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
 var $getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
 var ENUMERABLE = 'enumerable';
 var CONFIGURABLE = 'configurable';
@@ -1398,7 +1424,7 @@ var toPropertyKey = __webpack_require__(/*! ../internals/to-property-key */ "./n
 var hasOwn = __webpack_require__(/*! ../internals/has-own-property */ "./node_modules/core-js/internals/has-own-property.js");
 var IE8_DOM_DEFINE = __webpack_require__(/*! ../internals/ie8-dom-define */ "./node_modules/core-js/internals/ie8-dom-define.js");
 
-// eslint-disable-next-line es-x/no-object-getownpropertydescriptor -- safe
+// eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
 var $getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
 
 // `Object.getOwnPropertyDescriptor` method
@@ -1428,7 +1454,7 @@ var hiddenKeys = enumBugKeys.concat('length', 'prototype');
 
 // `Object.getOwnPropertyNames` method
 // https://tc39.es/ecma262/#sec-object.getownpropertynames
-// eslint-disable-next-line es-x/no-object-getownpropertynames -- safe
+// eslint-disable-next-line es/no-object-getownpropertynames -- safe
 exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
   return internalObjectKeys(O, hiddenKeys);
 };
@@ -1442,7 +1468,7 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
   \***************************************************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
-// eslint-disable-next-line es-x/no-object-getownpropertysymbols -- safe
+// eslint-disable-next-line es/no-object-getownpropertysymbols -- safe
 exports.f = Object.getOwnPropertySymbols;
 
 
@@ -1500,7 +1526,7 @@ module.exports = function (object, names) {
 "use strict";
 
 var $propertyIsEnumerable = {}.propertyIsEnumerable;
-// eslint-disable-next-line es-x/no-object-getownpropertydescriptor -- safe
+// eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
 var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
 
 // Nashorn ~ JDK8 bug
@@ -1569,14 +1595,16 @@ module.exports = getBuiltIn('Reflect', 'ownKeys') || function ownKeys(it) {
 /*!********************************************************************!*\
   !*** ./node_modules/core-js/internals/require-object-coercible.js ***!
   \********************************************************************/
-/***/ ((module) => {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var isNullOrUndefined = __webpack_require__(/*! ../internals/is-null-or-undefined */ "./node_modules/core-js/internals/is-null-or-undefined.js");
 
 var $TypeError = TypeError;
 
 // `RequireObjectCoercible` abstract operation
 // https://tc39.es/ecma262/#sec-requireobjectcoercible
 module.exports = function (it) {
-  if (it == undefined) throw $TypeError("Can't call method on " + it);
+  if (isNullOrUndefined(it)) throw $TypeError("Can't call method on " + it);
   return it;
 };
 
@@ -1630,11 +1658,34 @@ var store = __webpack_require__(/*! ../internals/shared-store */ "./node_modules
 (module.exports = function (key, value) {
   return store[key] || (store[key] = value !== undefined ? value : {});
 })('versions', []).push({
-  version: '3.23.1',
+  version: '3.26.0',
   mode: IS_PURE ? 'pure' : 'global',
   copyright: '© 2014-2022 Denis Pushkarev (zloirock.ru)',
-  license: 'https://github.com/zloirock/core-js/blob/v3.23.1/LICENSE',
+  license: 'https://github.com/zloirock/core-js/blob/v3.26.0/LICENSE',
   source: 'https://github.com/zloirock/core-js'
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/internals/symbol-constructor-detection.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/core-js/internals/symbol-constructor-detection.js ***!
+  \************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+/* eslint-disable es/no-symbol -- required for testing */
+var V8_VERSION = __webpack_require__(/*! ../internals/engine-v8-version */ "./node_modules/core-js/internals/engine-v8-version.js");
+var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
+
+// eslint-disable-next-line es/no-object-getownpropertysymbols -- required for testing
+module.exports = !!Object.getOwnPropertySymbols && !fails(function () {
+  var symbol = Symbol();
+  // Chrome 38 Symbol has incorrect toString conversion
+  // `get-own-property-symbols` polyfill symbols converted to object are not Symbol instances
+  return !String(symbol) || !(Object(symbol) instanceof Symbol) ||
+    // Chrome 38-40 symbols are not inherited from DOM collections prototypes to instances
+    !Symbol.sham && V8_VERSION && V8_VERSION < 41;
 });
 
 
@@ -1852,8 +1903,8 @@ module.exports = function (key) {
   \*************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-/* eslint-disable es-x/no-symbol -- required for testing */
-var NATIVE_SYMBOL = __webpack_require__(/*! ../internals/native-symbol */ "./node_modules/core-js/internals/native-symbol.js");
+/* eslint-disable es/no-symbol -- required for testing */
+var NATIVE_SYMBOL = __webpack_require__(/*! ../internals/symbol-constructor-detection */ "./node_modules/core-js/internals/symbol-constructor-detection.js");
 
 module.exports = NATIVE_SYMBOL
   && !Symbol.sham
@@ -1874,12 +1925,28 @@ var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-j
 // V8 ~ Chrome 36-
 // https://bugs.chromium.org/p/v8/issues/detail?id=3334
 module.exports = DESCRIPTORS && fails(function () {
-  // eslint-disable-next-line es-x/no-object-defineproperty -- required for testing
+  // eslint-disable-next-line es/no-object-defineproperty -- required for testing
   return Object.defineProperty(function () { /* empty */ }, 'prototype', {
     value: 42,
     writable: false
   }).prototype != 42;
 });
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/internals/weak-map-basic-detection.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/core-js/internals/weak-map-basic-detection.js ***!
+  \********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
+var isCallable = __webpack_require__(/*! ../internals/is-callable */ "./node_modules/core-js/internals/is-callable.js");
+
+var WeakMap = global.WeakMap;
+
+module.exports = isCallable(WeakMap) && /native code/.test(String(WeakMap));
 
 
 /***/ }),
@@ -1894,7 +1961,7 @@ var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core
 var shared = __webpack_require__(/*! ../internals/shared */ "./node_modules/core-js/internals/shared.js");
 var hasOwn = __webpack_require__(/*! ../internals/has-own-property */ "./node_modules/core-js/internals/has-own-property.js");
 var uid = __webpack_require__(/*! ../internals/uid */ "./node_modules/core-js/internals/uid.js");
-var NATIVE_SYMBOL = __webpack_require__(/*! ../internals/native-symbol */ "./node_modules/core-js/internals/native-symbol.js");
+var NATIVE_SYMBOL = __webpack_require__(/*! ../internals/symbol-constructor-detection */ "./node_modules/core-js/internals/symbol-constructor-detection.js");
 var USE_SYMBOL_AS_UID = __webpack_require__(/*! ../internals/use-symbol-as-uid */ "./node_modules/core-js/internals/use-symbol-as-uid.js");
 
 var WellKnownSymbolsStore = shared('wks');
@@ -1975,7 +2042,7 @@ var defineProperty = (__webpack_require__(/*! ../internals/object-define-propert
 
 // `Object.defineProperty` method
 // https://tc39.es/ecma262/#sec-object.defineproperty
-// eslint-disable-next-line es-x/no-object-defineproperty -- safe
+// eslint-disable-next-line es/no-object-defineproperty -- safe
 $({ target: 'Object', stat: true, forced: Object.defineProperty !== defineProperty, sham: !DESCRIPTORS }, {
   defineProperty: defineProperty
 });
@@ -2003,7 +2070,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* \nTABLE OF CONTENTS\n\n  1. Sizes\n  2. Typography\n  3. Colors\n  4. Spacings\n  5. Top Navbar\n\n*/\n/**\n * * Common Nav styles for mobile and desktop\n * * @since 3.0\n * * @importance core\n * * \n * * Table of Contents\n * *\n * *  1. Containers\n * *  2. Logo Image Link\n * *\n * **/\n#wmnav-cont {\n  position: fixed;\n  z-index: 100;\n  top: 0;\n}\n\n#wmnav-content {\n  width: 100vw;\n  height: 100vh;\n  max-width: 100vw;\n  max-height: 100vh;\n  overflow: hidden;\n  display: flex;\n  flex-flow: column nowrap;\n}\n\n#wmnav-bar {\n  flex: 0 0 auto;\n  width: 100vw;\n  max-width: 100vw;\n  margin: 0;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  border-bottom: 1px solid #BEBEBE;\n  background: white;\n  position: relative;\n  z-index: 1000;\n}\n\n#wmnav-logo {\n  width: 100px;\n  height: auto;\n  margin: calc(0.4rem + 0.25vw);\n  position: relative;\n}\n#wmnav-logo img {\n  width: 100%;\n  max-width: 100%;\n  height: auto;\n}\n\n#el-clickable-background {\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  top: 0;\n  left: 0;\n  background: rgb(240, 240, 240);\n  background: radial-gradient(circle, rgb(230, 230, 230) 0%, rgba(211, 211, 211, 0.85) 77%);\n}\n\n#wmnav-content {\n  display: flex;\n  flex-flow: row wrap;\n  justify-items: stretch;\n  align-items: baseline;\n  align-content: baseline;\n  z-index: -100;\n  opacity: 0;\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  top: 0;\n  left: 0;\n}\n\n@keyframes navrot {\n  to {\n    transform: rotateY(360deg);\n  }\n}\n.css_block {\n  position: absolute;\n  overflow: hidden !important;\n}\n.css_block a {\n  padding: calc(0.4rem + 0.25vw);\n}\n.css_block.css-gray > div, .css_block.css-gray > a {\n  background: #E6E6E6;\n}\n.css_block.css-gray > div:hover, .css_block.css-gray > a:hover {\n  background: white;\n}\n.css_block.css-white > div, .css_block.css-white > a {\n  background: white;\n}\n.css_block.css-white > div:hover, .css_block.css-white > a:hover {\n  background: white;\n  color: black;\n}\n.css_block.css-gray-lighter > div, .css_block.css-gray-lighter > a {\n  background: #F5F5F5;\n}\n.css_block.css-gray-lighter > div:hover, .css_block.css-gray-lighter > a:hover {\n  background: white;\n}\n.css_block.css-dark-blue > div, .css_block.css-dark-blue > a {\n  background: color(\"gray\", \"darken-2\");\n}\n.css_block.css-color-blue > div, .css_block.css-color-blue > a {\n  color: #87c8ff;\n}\n.css_block.css-color-white > div, .css_block.css-color-white > a {\n  color: color(\"shades\", \"white\") !important;\n}\n.css_block.css-color-white > div h2, .css_block.css-color-white > a h2 {\n  color: color(\"shades\", \"white\") !important;\n}\n.css_block.css-color-dark-gray > div, .css_block.css-color-dark-gray > a {\n  color: color(\"gray\", \"darken-2\");\n}\n\n#csscube-cont {\n  flex-basis: 100%;\n  max-width: 100%;\n  height: 100vh;\n  align-self: baseline;\n  width: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  align-self: stretch;\n}\n#csscube-cont #csscube-scene {\n  z-index: 10;\n  opacity: 0;\n  position: absolute;\n  margin: auto;\n}\n#csscube-cont #csscube-scene #csscube-rotator {\n  transform: rotateX(-7deg);\n  z-index: 10;\n  position: relative;\n  transform-style: preserve-3d;\n  transform-origin: 0% 0% 50%;\n  -moz-transform-origin: 0% 0% 50%;\n  -webkit-transform-origin-z: 50%;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube {\n  transform-style: preserve-3d;\n  position: relative;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube h1 {\n  top: 0;\n  left: 0;\n  font-family: \"Exo\";\n  font-weight: light;\n  line-height: 0.8;\n  text-align: left;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube a .ess-anim-icon {\n  stroke: #787878;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube a:hover .ess-anim-icon {\n  stroke: #2d78c8;\n  fill: #f0faff;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube h2 {\n  text-align: center;\n  font-weight: normal;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .cbl-industry h2 {\n  margin-top: 0;\n  padding-bottom: calc(0.8rem + 0.5vw) !important;\n  font-weight: normal;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .cbl-industry a {\n  align-content: center !important;\n  padding-top: 0 !important;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .cbl-industry a:hover h2 {\n  color: black;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube h3 {\n  text-align: center;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube h4 {\n  margin: calc(0.4rem + 0.25vw) 0 calc(0.2rem + 0.15vw) 0 !important;\n  font-weight: normal;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side {\n  background: transparent;\n  position: absolute;\n  top: 0;\n  left: 0;\n  backface-visibility: visible;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block {\n  display: flex;\n  align-items: stretch;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block.css-block-header > div:hover {\n  cursor: default;\n  background-color: inherit;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block.cbl-industry > a {\n  align-content: stretch;\n  padding-bottom: calc(0.8rem + 0.5vw);\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block.cbl-industry > a .cc-icon-h {\n  align-self: flex-end;\n  width: 100%;\n  padding: 0 25%;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block.cbl-industry > a h2 {\n  align-self: flex-end;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a {\n  clip-path: polygon(0 0.3rem, 0 calc(100% - 0.3rem), 0.3rem 100%, calc(100% - 0.3rem) 100%, 100% calc(100% - 0.3rem), 100% 0.3rem, calc(100% - 0.3rem) 0, 0.3rem 0);\n  transform-style: preserve-3d;\n  text-decoration: none;\n  color: color(\"gray\", \"darken-2\");\n  flex: 1;\n  display: flex;\n  align-items: center;\n  align-content: center;\n  justify-content: center;\n  flex-wrap: wrap;\n  position: rel ative;\n  margin: 0.05rem;\n  padding: calc(0.8rem + 0.5vw);\n  overflow: hidden;\n  transition: all 0.5s ease;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div:hover, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a:hover {\n  text-decoration: none;\n  cursor: pointer;\n  opacity: 1;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div .icon-image, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a .icon-image {\n  padding: 0 calc(0.4rem + 0.25vw);\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div.hover-dark:hover, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a.hover-dark:hover {\n  background: color(\"gray\", \"darken-2\");\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div.background-image-link img, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a.background-image-link img {\n  position: absolute;\n  top: 0;\n  opacity: 0;\n  transition: opacity 0.5s ease;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div.background-image-link:hover img, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a.background-image-link:hover img {\n  opacity: 1;\n}\n#csscube-cont #csscube-scene #csscube-shadow {\n  background: #BEBEBE;\n  opacity: 0.1;\n  filter: blur(30px);\n  z-index: 1;\n  transform-style: preserve-3d;\n}\n#csscube-cont #csscube-scene .csscube-navbutton {\n  position: absolute;\n  cursor: pointer;\n  background: none;\n  z-index: 1000;\n  border: none;\n  top: 40%;\n}\n#csscube-cont #csscube-scene .csscube-navbutton .ess-icon {\n  font-size: calc(5vw + 5vh);\n  transition: color 0.5s ease;\n  color: #14bef0;\n}\n#csscube-cont #csscube-scene .csscube-navbutton.left-button {\n  left: calc(-1.5 * (5vw + 5vh));\n}\n#csscube-cont #csscube-scene .csscube-navbutton.right-button {\n  right: calc(-1.5 * (5vw + 5vh));\n}\n#csscube-cont #csscube-scene .csscube-navbutton:hover .ess-icon {\n  color: #14a0ff;\n}\n\n#x-button,\n#left-button,\n#right-button {\n  width: 70px;\n  height: 70px;\n  background: none;\n  border: none;\n  z-index: 10000;\n  top: 300px;\n  position: fixed;\n}\n#x-button:hover,\n#left-button:hover,\n#right-button:hover {\n  background: black;\n}\n\n#left-button {\n  left: -120px;\n}\n\n#right-button {\n  right: 0px;\n}\n\n#x-button {\n  left: 50%;\n  top: auto;\n  bottom: 0;\n}\n\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block a {\n  flex-direction: column;\n  flex-wrap: nowrap;\n  transition: padding-top 0.2 eas-out;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block a:hover {\n  padding-top: calc(0.4rem + 0.25vw);\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block h3 {\n  margin-top: -0.2em;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block .svg-ess-cube {\n  height: 25%;\n  margin-bottom: 0;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block.main-product-block h3 {\n  font-weight: bold;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block .main-product-logo {\n  height: 50%;\n  margin-bottom: 0;\n}\n\n#cube-ess-logo {\n  width: 40%;\n  max-width: 250px;\n}\n\n.cfob {\n  position: absolute;\n  height: 100vh;\n  min-width: 20px;\n  top: 0;\n}\n\n.cfob-left {\n  left: 0;\n}\n\n.cfob-right {\n  right: 0;\n}\n\n#wmnav-list {\n  display: flex;\n  justify-content: center;\n  margin: 0;\n  padding: 0;\n}\n#wmnav-list li {\n  padding: 0;\n  margin: 0;\n  font-family: \"Exo\", sans-serif;\n  text-transform: uppercase;\n}\n#wmnav-list li a {\n  display: block;\n  position: relative;\n  padding: calc(0.8rem + 0.5vw) calc(0.8rem + 0.5vw);\n  font-family: \"Exo\", sans-serif;\n  color: #787878;\n  cursor: pointer;\n  text-align: center;\n  transition: background 0.5s ease, color 0.5s ease, border 0.5s ease;\n}\n#wmnav-list li a::after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  bottom: -0.2rem;\n  left: 50%;\n  width: 0;\n  height: 0.2rem;\n  background: #14bef0;\n  transition: width 0.5s, left 0.5s;\n}\n#wmnav-list li a:hover {\n  text-decoration: none;\n  color: #4D4D4D;\n}\n#wmnav-list li a.active {\n  color: #2D2D2D;\n}\n#wmnav-list li a.active::after {\n  width: 100%;\n  left: 0;\n}\n\n#wmnav-settings {\n  width: 100px;\n  margin: 0 calc(0.4rem + 0.25vw);\n}", "",{"version":3,"sources":["webpack://./src/sass/components/_variables.scss","webpack://./src/nav/sass/components/_common_mobile_desktop.sass","webpack://./src/nav/sass/desktop_nav.sass","webpack://./src/nav/sass/components/_desktop_cube.scss","webpack://./src/sass/components/_colors.scss","webpack://./src/nav/sass/components/_desktop_menu_list.sass"],"names":[],"mappings":"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","sourcesContent":["/* \r\nTABLE OF CONTENTS\r\n\r\n  1. Sizes\r\n  2. Typography\r\n  3. Colors\r\n  4. Spacings\r\n  5. Top Navbar\r\n\r\n*/\r\n\r\n\r\n// 1. Sizes\r\n// ==========================================================================\r\n\r\n$small-screen-up : 461px;\r\n$medium-screen-up : 761px;\r\n$large-screen-up : 1201px;\r\n\r\n$small-screen : 460px;\r\n$medium-screen : 760px;\r\n$large-screen : 1200px;\r\n\r\n$base-margin : calc(0.8rem + 0.5vw);\r\n$double-margin : calc(1.6rem + 1vw);\r\n$quad-margin : calc(3.2rem + 2vw);\r\n$sexta-margin : calc(4.8rem + 3vw);\r\n$okto-margin : calc(6.4rem + 4vw);\r\n$dodeca-margin : calc(9.6rem + 6vw);\r\n\r\n$half-margin : calc(0.4rem + 0.25vw);\r\n$quarter-margin : calc(0.2rem + 0.15vw);\r\n$reduced-margin : 1rem;\r\n\r\n\r\n$-quarter-margin : calc((0.2rem + 0.15vw) * -1);\r\n$-base-margin : calc((0.8rem + 0.5vw) * -1);\r\n$-double-margin : calc((0.8rem + 0.5vw) * -2);\r\n$-quad-margin : calc((0.8rem + 0.5vw) * -4);\r\n$-sexta-margin : calc((0.8rem + 0.5vw) * -6);\r\n$-okto-margin : calc((0.8rem + 0.5vw) * -8);\r\n\r\n\r\n// 2. Typography\r\n// ========================================================================== \r\n\r\n\r\n$copy-font: 'Open Sans', Helvetica, Arial, sans-serif;\r\n$headline-font: 'Exo', sans-serif;\r\n\r\n$bread-text-sm: 14px;\r\n$bread-text-md: 15px;\r\n$bread-text-lg: 16px;\r\n\r\n$bread-text-sm-line: 18px;\r\n$bread-text-md-line: 21px;\r\n$bread-text-lg-line: 24px;\r\n\r\n$tiny-text-sm: 10px;\r\n$tiny-text-md: 11px;\r\n$tiny-text-lg: 12px;\r\n\r\n$tiny-text-sm-line: 14px;\r\n$tiny-text-md-line: 16px;\r\n$tiny-text-lg-line: 18px;\r\n\r\n$small-text-sm: 11px;\r\n$small-text-md: 12px;\r\n$small-text-lg: 13px;\r\n\r\n$small-text-sm-line: 16px;\r\n$small-text-md-line: 17px;\r\n$small-text-lg-line: 18px;\r\n\r\n$large-text-sm: 16px;\r\n$large-text-md: 18px;\r\n$large-text-lg: 20px;\r\n\r\n$huge-text-sm: 26px;\r\n$huge-text-md: 36px;\r\n$huge-text-lg: 46px;\r\n\r\n$mega-text-sm: 40px;\r\n$mega-text-md: 52px;\r\n$mega-text-lg: 64px;\r\n\r\n$h1 : calc(2.65rem + 1vw);\r\n$h1-h2 : calc(1.65rem + 1.1vw);\r\n$h2 : calc(1.8rem + 1vw);\r\n$h3 : calc(1.4rem + 0.8vw);\r\n$h4 : calc(1.2rem + 0.4vw);\r\n$h5 : calc(0.9rem + 0.1vw);\r\n$h6 : calc(0.7rem + 0.08vw);\r\n\r\n\r\n$big-text : calc(2.5rem + 0.7vw);\r\n$bigger-text : calc(2.9rem + 0.9vw);\r\n$biggest-text : calc(3.2rem + 1.2vw);\r\n\r\n$h4-lineheight : calc(1.7rem + 0.2vw);\r\n$h4-padding : calc(1.7rem + 0.2vw) 0;\r\n\r\n$tiny-icon : calc(1.8rem + 0.4vw);\r\n$small-icon : calc(2rem + 0.5vw);\r\n$medium-icon : calc(2.6rem + 0.8vw);\r\n$big-icon : calc(4rem + 1vw);\r\n$huge-icon : calc(6rem + 1.6vw);\r\n$mega-icon: calc(8rem + 2vw);\r\n\r\n\r\n$mega-font : calc(2rem + 2vw);\r\n\r\n$lg-button: calc(4rem + 2vw);\r\n$md-button: calc(2rem + 1vw);\r\n$sm-button: calc(1rem + 0.5vw);\r\n\r\n// 3. Colors\r\n// ==========================================================================\r\n\r\n$primary-color : color(\"essblue\", \"base\");\r\n$primary-color-hover : color(\"essblue\", \"darken-3\");\r\n$primary-text : color(\"gray\", \"darken-2\");\r\n$secondary-color : color(\"gray\", \"darken-2\");\r\n$white : color(\"shades\", \"white\");\r\n\r\n//SYSTEM\r\n$success-color : color(\"green\", \"base\");\r\n$error-color : color(\"red\", \"base\");\r\n\r\n$link-color : color(\"gray\", \"base\");\r\n$ess-base-green : color(\"green\", \"base\");\r\n\r\n$card-link-color : color(\"essblue\", \"base\");\r\n$footer-font-color : color(\"gray\", \"base\");\r\n$footer-bg-color : color(\"gray\", \"lighten-4\");\r\n$footer-copyright-font-color: color(\"gray\", \"lighten-2\");\r\n$footer-copyright-bg-color : none;\r\n$ess-blue-transp : rgba(15, 42, 86, 0.2);\r\n\r\n\r\n\r\n// GRADIENT\r\n$ess-blue-gradient : linear-gradient(to left, color('gray', 'base'), color('gray', 'lighten-1'));\r\n$ess-blue-gradient-reverse : linear-gradient(to right, $primary-color, $secondary-color);\r\n\r\n\r\n// button colors \r\n$primary-button-bg : $primary-color;\r\n$primary-button-bg-hover : color('essblue', 'darken-1');\r\n\r\n\r\n\r\n// 4. Spacings\r\n// ==========================================================================\r\n\r\n\r\n$spaces-map: (\r\n  \"zero\" : 0,\r\n  \"quarter\": $quarter-margin,\r\n  \"half\": $half-margin,\r\n  \"base\" : $base-margin,\r\n  \"double\" : $double-margin,\r\n  \"quad\" : $quad-margin,\r\n  \"sexta\": $sexta-margin,\r\n  \"okta\" : $okto-margin,\r\n  \"dodeca\" : $dodeca-margin,\r\n  \"minus-base\": $-base-margin,\r\n  \"minus-double\": $-double-margin,\r\n  \"minus-quad\": $-quad-margin\r\n);\r\n\r\n$spaces-values: (\r\n  \"m\": (\"margin\"),\r\n  \"m-top\": (\"margin-top\"),\r\n  \"m-right\": (\"margin-right\"),\r\n  \"m-bot\": (\"margin-bottom\"),\r\n  \"m-left\": (\"margin-left\"),\r\n  \"m-hor\": (\"margin-left\", \"margin-right\"),\r\n  \"m-vert\": (\"margin-top\", \"margin-bottom\"),\r\n  \"p\":(\"padding\"),\r\n  \"p-top\": (\"padding-top\"),\r\n  \"p-right\": (\"padding-right\"),\r\n  \"p-bot\": (\"padding-bottom\"),\r\n  \"p-left\": (\"padding-left\"),\r\n  \"p-hor\": (\"padding-left\", \"padding-right\"),\r\n  \"p-vert\": (\"padding-top\", \"padding-bottom\"),\r\n);\r\n\r\n\r\n// 5. Top Navbar\r\n// ==========================================================================\r\n\r\n$topnav_padding: $base-margin;\r\n\r\n$nav_cube_side_width: 1.4rem;\r\n$nav_cube_side_shift: 0.9rem;\r\n$nav_cube_side_shift_2: 1rem;","\n/**\n * Common Nav styles for mobile and desktop\n * @since 3.0\n * @importance core\n * \n * Table of Contents\n *\n *  1. Containers\n *  2. Logo Image Link\n *\n **/\n\n// 1. TOP NAVBAR CONTAINER LAYOUT ----------------------------------------------------\n\n#wmnav-cont\n  position: fixed\n  z-index: 100\n  top: 0\n\n#wmnav-content\n  width: 100vw\n  height: 100vh\n  max-width: 100vw\n  max-height: 100vh\n  overflow: hidden\n  display: flex\n  flex-flow: column nowrap\n\n#wmnav-bar\n  flex: 0 0 auto\n  width: 100vw\n  max-width: 100vw\n  margin: 0\n  display: flex\n  justify-content: space-between\n  align-items: center\n  border-bottom: 1px solid color(\"gray\", \"base\")\n  background: white\n  position: relative\n  z-index: 1000\n\n// 2. TOP NAVBAR LOGO ----------------------------------------------------\n\n#wmnav-logo\n  width: 100px\n  height: auto\n  margin: $half-margin\n  position: relative\n\n  img\n    width: 100%\n    max-width: 100%\n    height: auto\n","/* \nTABLE OF CONTENTS\n\n  1. Sizes\n  2. Typography\n  3. Colors\n  4. Spacings\n  5. Top Navbar\n\n*/\n/**\n * * Common Nav styles for mobile and desktop\n * * @since 3.0\n * * @importance core\n * * \n * * Table of Contents\n * *\n * *  1. Containers\n * *  2. Logo Image Link\n * *\n * **/\n#wmnav-cont {\n  position: fixed;\n  z-index: 100;\n  top: 0;\n}\n\n#wmnav-content {\n  width: 100vw;\n  height: 100vh;\n  max-width: 100vw;\n  max-height: 100vh;\n  overflow: hidden;\n  display: flex;\n  flex-flow: column nowrap;\n}\n\n#wmnav-bar {\n  flex: 0 0 auto;\n  width: 100vw;\n  max-width: 100vw;\n  margin: 0;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  border-bottom: 1px solid #BEBEBE;\n  background: white;\n  position: relative;\n  z-index: 1000;\n}\n\n#wmnav-logo {\n  width: 100px;\n  height: auto;\n  margin: calc(0.4rem + 0.25vw);\n  position: relative;\n}\n#wmnav-logo img {\n  width: 100%;\n  max-width: 100%;\n  height: auto;\n}\n\n#el-clickable-background {\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  top: 0;\n  left: 0;\n  background: rgb(240, 240, 240);\n  background: radial-gradient(circle, rgb(230, 230, 230) 0%, rgba(211, 211, 211, 0.85) 77%);\n}\n\n#wmnav-content {\n  display: flex;\n  flex-flow: row wrap;\n  justify-items: stretch;\n  align-items: baseline;\n  align-content: baseline;\n  z-index: -100;\n  opacity: 0;\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  top: 0;\n  left: 0;\n}\n\n@keyframes navrot {\n  to {\n    transform: rotateY(360deg);\n  }\n}\n.css_block {\n  position: absolute;\n  overflow: hidden !important;\n}\n.css_block a {\n  padding: calc(0.4rem + 0.25vw);\n}\n.css_block.css-gray > div, .css_block.css-gray > a {\n  background: #E6E6E6;\n}\n.css_block.css-gray > div:hover, .css_block.css-gray > a:hover {\n  background: white;\n}\n.css_block.css-white > div, .css_block.css-white > a {\n  background: white;\n}\n.css_block.css-white > div:hover, .css_block.css-white > a:hover {\n  background: white;\n  color: black;\n}\n.css_block.css-gray-lighter > div, .css_block.css-gray-lighter > a {\n  background: #F5F5F5;\n}\n.css_block.css-gray-lighter > div:hover, .css_block.css-gray-lighter > a:hover {\n  background: white;\n}\n.css_block.css-dark-blue > div, .css_block.css-dark-blue > a {\n  background: color(\"gray\", \"darken-2\");\n}\n.css_block.css-color-blue > div, .css_block.css-color-blue > a {\n  color: #87c8ff;\n}\n.css_block.css-color-white > div, .css_block.css-color-white > a {\n  color: color(\"shades\", \"white\") !important;\n}\n.css_block.css-color-white > div h2, .css_block.css-color-white > a h2 {\n  color: color(\"shades\", \"white\") !important;\n}\n.css_block.css-color-dark-gray > div, .css_block.css-color-dark-gray > a {\n  color: color(\"gray\", \"darken-2\");\n}\n\n#csscube-cont {\n  flex-basis: 100%;\n  max-width: 100%;\n  height: 100vh;\n  align-self: baseline;\n  width: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  align-self: stretch;\n}\n#csscube-cont #csscube-scene {\n  z-index: 10;\n  opacity: 0;\n  position: absolute;\n  margin: auto;\n}\n#csscube-cont #csscube-scene #csscube-rotator {\n  transform: rotateX(-7deg);\n  z-index: 10;\n  position: relative;\n  transform-style: preserve-3d;\n  transform-origin: 0% 0% 50%;\n  -moz-transform-origin: 0% 0% 50%;\n  -webkit-transform-origin-z: 50%;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube {\n  transform-style: preserve-3d;\n  position: relative;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube h1 {\n  top: 0;\n  left: 0;\n  font-family: \"Exo\";\n  font-weight: light;\n  line-height: 0.8;\n  text-align: left;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube a .ess-anim-icon {\n  stroke: #787878;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube a:hover .ess-anim-icon {\n  stroke: #2d78c8;\n  fill: #f0faff;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube h2 {\n  text-align: center;\n  font-weight: normal;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .cbl-industry h2 {\n  margin-top: 0;\n  padding-bottom: calc(0.8rem + 0.5vw) !important;\n  font-weight: normal;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .cbl-industry a {\n  align-content: center !important;\n  padding-top: 0 !important;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .cbl-industry a:hover h2 {\n  color: black;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube h3 {\n  text-align: center;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube h4 {\n  margin: calc(0.4rem + 0.25vw) 0 calc(0.2rem + 0.15vw) 0 !important;\n  font-weight: normal;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side {\n  background: transparent;\n  position: absolute;\n  top: 0;\n  left: 0;\n  backface-visibility: visible;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block {\n  display: flex;\n  align-items: stretch;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block.css-block-header > div:hover {\n  cursor: default;\n  background-color: inherit;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block.cbl-industry > a {\n  align-content: stretch;\n  padding-bottom: calc(0.8rem + 0.5vw);\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block.cbl-industry > a .cc-icon-h {\n  align-self: flex-end;\n  width: 100%;\n  padding: 0 25%;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block.cbl-industry > a h2 {\n  align-self: flex-end;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a {\n  clip-path: polygon(0 0.3rem, 0 calc(100% - 0.3rem), 0.3rem 100%, calc(100% - 0.3rem) 100%, 100% calc(100% - 0.3rem), 100% 0.3rem, calc(100% - 0.3rem) 0, 0.3rem 0);\n  transform-style: preserve-3d;\n  text-decoration: none;\n  color: color(\"gray\", \"darken-2\");\n  flex: 1;\n  display: flex;\n  align-items: center;\n  align-content: center;\n  justify-content: center;\n  flex-wrap: wrap;\n  position: rel ative;\n  margin: 0.05rem;\n  padding: calc(0.8rem + 0.5vw);\n  overflow: hidden;\n  transition: all 0.5s ease;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div:hover, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a:hover {\n  text-decoration: none;\n  cursor: pointer;\n  opacity: 1;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div .icon-image, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a .icon-image {\n  padding: 0 calc(0.4rem + 0.25vw);\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div.hover-dark:hover, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a.hover-dark:hover {\n  background: color(\"gray\", \"darken-2\");\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div.background-image-link img, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a.background-image-link img {\n  position: absolute;\n  top: 0;\n  opacity: 0;\n  transition: opacity 0.5s ease;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div.background-image-link:hover img, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a.background-image-link:hover img {\n  opacity: 1;\n}\n#csscube-cont #csscube-scene #csscube-shadow {\n  background: #BEBEBE;\n  opacity: 0.1;\n  filter: blur(30px);\n  z-index: 1;\n  transform-style: preserve-3d;\n}\n#csscube-cont #csscube-scene .csscube-navbutton {\n  position: absolute;\n  cursor: pointer;\n  background: none;\n  z-index: 1000;\n  border: none;\n  top: 40%;\n}\n#csscube-cont #csscube-scene .csscube-navbutton .ess-icon {\n  font-size: calc(5vw + 5vh);\n  transition: color 0.5s ease;\n  color: #14bef0;\n}\n#csscube-cont #csscube-scene .csscube-navbutton.left-button {\n  left: calc(-1.5 * (5vw + 5vh));\n}\n#csscube-cont #csscube-scene .csscube-navbutton.right-button {\n  right: calc(-1.5 * (5vw + 5vh));\n}\n#csscube-cont #csscube-scene .csscube-navbutton:hover .ess-icon {\n  color: #14a0ff;\n}\n\n#x-button,\n#left-button,\n#right-button {\n  width: 70px;\n  height: 70px;\n  background: none;\n  border: none;\n  z-index: 10000;\n  top: 300px;\n  position: fixed;\n}\n#x-button:hover,\n#left-button:hover,\n#right-button:hover {\n  background: black;\n}\n\n#left-button {\n  left: -120px;\n}\n\n#right-button {\n  right: 0px;\n}\n\n#x-button {\n  left: 50%;\n  top: auto;\n  bottom: 0;\n}\n\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block a {\n  flex-direction: column;\n  flex-wrap: nowrap;\n  transition: padding-top 0.2 eas-out;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block a:hover {\n  padding-top: calc(0.4rem + 0.25vw);\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block h3 {\n  margin-top: -0.2em;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block .svg-ess-cube {\n  height: 25%;\n  margin-bottom: 0;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block.main-product-block h3 {\n  font-weight: bold;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block .main-product-logo {\n  height: 50%;\n  margin-bottom: 0;\n}\n\n#cube-ess-logo {\n  width: 40%;\n  max-width: 250px;\n}\n\n.cfob {\n  position: absolute;\n  height: 100vh;\n  min-width: 20px;\n  top: 0;\n}\n\n.cfob-left {\n  left: 0;\n}\n\n.cfob-right {\n  right: 0;\n}\n\n#wmnav-list {\n  display: flex;\n  justify-content: center;\n  margin: 0;\n  padding: 0;\n}\n#wmnav-list li {\n  padding: 0;\n  margin: 0;\n  font-family: \"Exo\", sans-serif;\n  text-transform: uppercase;\n}\n#wmnav-list li a {\n  display: block;\n  position: relative;\n  padding: calc(0.8rem + 0.5vw) calc(0.8rem + 0.5vw);\n  font-family: \"Exo\", sans-serif;\n  color: #787878;\n  cursor: pointer;\n  text-align: center;\n  transition: background 0.5s ease, color 0.5s ease, border 0.5s ease;\n}\n#wmnav-list li a::after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  bottom: -0.2rem;\n  left: 50%;\n  width: 0;\n  height: 0.2rem;\n  background: #14bef0;\n  transition: width 0.5s, left 0.5s;\n}\n#wmnav-list li a:hover {\n  text-decoration: none;\n  color: #4D4D4D;\n}\n#wmnav-list li a.active {\n  color: #2D2D2D;\n}\n#wmnav-list li a.active::after {\n  width: 100%;\n  left: 0;\n}\n\n#wmnav-settings {\n  width: 100px;\n  margin: 0 calc(0.4rem + 0.25vw);\n}","$csscube-h1 : calc(1rem + 1.8vw + 1.8vh + .7vmin);\n$csscube-h2 : calc(0.8rem + 0.5vw + 0.5vh + .3vmin);\n$csscube-h3 : calc(0.6rem + 0.3vw + 0.3vh + .25vmin);\n$csscube-p : calc(.4rem + .2vw + .2vh + .2vmin);\n\n$alpha-active : 0.9;\n$alpha-inactive : 0.1;\n\n\n#el-clickable-background {\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  top: 0;\n  left: 0;\n  background: $light-gray;\n  background: $nav-cube-background;\n  //opacity: 0.99;\n}\n\n#wmnav-content {\n  display: flex;\n  flex-flow: row wrap;\n  justify-items: stretch;\n  align-items: baseline;\n  align-content: baseline;\n  z-index: -100;\n  opacity: 0;\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  top: 0;\n  left: 0;\n\n\n}\n\n@keyframes navrot {\n  to {\n    transform: rotateY(360deg)\n  }\n}\n\n.css_block {\n\n  a {\n    padding: $half-margin;\n  }\n\n  &.css-gray>div,\n  &.css-gray>a {\n    background: color(\"gray\", \"lighten-2\");\n\n    &:hover {\n      background: white\n    }\n  }\n\n  &.css-white>div,\n  &.css-white>a {\n    background: white;\n\n    &:hover {\n      background: white;\n      color: black;\n    }\n  }\n\n  &.css-gray-lighter>div,\n  &.css-gray-lighter>a {\n    background: color('gray', 'lighten-4');\n\n    &:hover {\n      background: white;\n    }\n  }\n\n  &.css-dark-blue>div,\n  &.css-dark-blue>a {\n    background: $secondary-color;\n  }\n\n  &.css-color-blue>div,\n  &.css-color-blue>a {\n    color: #87c8ff;\n  }\n\n  &.css-color-white>div,\n  &.css-color-white>a {\n    color: $white  !important;\n\n    h2 {\n      color: $white  !important;\n    }\n  }\n\n  &.css-color-dark-gray>div,\n  &.css-color-dark-gray>a {\n    color: $primary-text;\n  }\n\n\n  position: absolute;\n  overflow: hidden !important;\n}\n\n#csscube-cont {\n\n  //position: relative;\n  flex-basis: 100%;\n  max-width: 100%;\n  height: 100vh;\n  align-self: baseline;\n  width: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  align-self: stretch;\n\n\n  #csscube-scene {\n    z-index: 10;\n    opacity: 0;\n\n\n    position: absolute;\n    margin: auto; // centers the cube horizontaly;\n\n    #csscube-rotator {\n      transform: rotateX(-7deg);\n      z-index: 10;\n      position: relative;\n      //top: 50%;\n      transform-style: preserve-3d;\n      transform-origin: 0% 0% 50%;\n      -moz-transform-origin: 0% 0% 50%;\n      -webkit-transform-origin-z: 50%;\n\n      #csscube {\n\n        transform-style: preserve-3d;\n\n        position: relative;\n        //top: -300px;\n\n        h1 {\n          top: 0;\n          left: 0;\n          font-family: 'Exo';\n          font-weight: light;\n          line-height: 0.8;\n          text-align: left;\n        }\n\n        a {\n          .ess-anim-icon {\n            stroke: color('gray', 'darken-1')\n          }\n        }\n\n        a:hover {\n          .ess-anim-icon {\n            stroke: color('essblue', 'darken-2');\n            fill: color('essblue', 'lighten-3')\n          }\n\n        }\n\n        h2 {\n          text-align: center;\n          font-weight: normal;\n        }\n\n        .cbl-industry {\n          h2 {\n            margin-top: 0;\n            padding-bottom: $base-margin  !important;\n            font-weight: normal;\n          }\n\n          a {\n            align-content: center !important;\n            padding-top: 0 !important\n          }\n\n          a:hover h2 {\n            color: black\n          }\n        }\n\n        h3 {\n          text-align: center;\n        }\n\n        h4 {\n          margin: $half-margin 0 $quarter-margin 0 !important;\n          font-weight: normal\n        }\n\n        .wmcube-side {\n\n          background: transparent;\n          position: absolute;\n          top: 0;\n          left: 0;\n          backface-visibility: visible;\n\n          .css_block {\n            display: flex;\n            align-items: stretch;\n\n            &.css-block-header {\n              &>div {\n\n                &:hover {\n                  cursor: default;\n                  background-color: inherit;\n                }\n              }\n            }\n\n            &.cbl-industry {\n\n              &>a {\n                align-content: stretch;\n                padding-bottom: $base-margin;\n\n                .cc-icon-h {\n                  align-self: flex-end;\n                  width: 100%;\n                  padding: 0 25%;\n\n\n                }\n\n                h2 {\n                  align-self: flex-end;\n                }\n              }\n            }\n\n            &>div,\n            &>a {\n              clip-path: polygon(0 .3rem, 0 calc(100% - .3rem), .3rem 100%, calc(100% - .3rem) 100%, 100% calc(100% - .3rem), 100% .3rem, calc(100% - .3rem) 0, .3rem 0);\n              transform-style: preserve-3d;\n              text-decoration: none;\n              color: $secondary-color;\n              flex: 1;\n              display: flex;\n              align-items: center;\n              align-content: center;\n              justify-content: center;\n              flex-wrap: wrap;\n              position: rel ative;\n              margin: .05rem;\n              padding: $base-margin;\n              overflow: hidden;\n              transition: all .5s ease;\n\n\n              //margin: 4px;\n              &:hover {\n                text-decoration: none;\n                cursor: pointer;\n                //transform: translateY(-.5rem);\n                //scale: 1.1;\n                //background-color: $primary-color;\n                opacity: 1;\n\n              }\n\n              .icon-image {\n                padding: 0 $half-margin;\n              }\n\n              &.hover-dark:hover {\n                background: $secondary-color;\n              }\n\n              &.background-image-link {\n                img {\n                  position: absolute;\n                  top: 0;\n                  opacity: 0;\n                  transition: opacity .5s ease;\n                }\n\n                &:hover img {\n                  opacity: 1;\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n\n    #csscube-shadow {\n      background: color(\"gray\", \"base\");\n      opacity: 0.1;\n      filter: blur(30px);\n      z-index: 1;\n      transform-style: preserve-3d;\n    }\n\n    .csscube-navbutton {\n      position: absolute;\n      cursor: pointer;\n      background: none;\n      z-index: 1000;\n      border: none;\n      top: calc(40%);\n\n      .ess-icon {\n        font-size: calc(5vw + 5vh);\n        transition: color .5s ease;\n        color: color('essblue', 'base');\n\n      }\n\n      &.left-button {\n        left: calc(-1.5*(5vw + 5vh));\n      }\n\n      &.right-button {\n        right: calc(-1.5*(5vw + 5vh));\n      }\n\n      &:hover {\n        .ess-icon {\n          color: color('essblue', 'darken-1');\n        }\n      }\n\n    }\n  }\n}\n\n\n#x-button,\n#left-button,\n#right-button {\n  width: 70px;\n  height: 70px;\n  background: none;\n  border: none;\n  z-index: 10000;\n\n  &:hover {\n    background: black;\n  }\n\n  top: 300px;\n  position: fixed;\n}\n\n#left-button {\n  left: -120px;\n}\n\n#right-button {\n  right: 0px;\n}\n\n#x-button {\n  left: 50%;\n  top: auto;\n  bottom: 0;\n}\n\n// CSS ESS CUBE - Small logos inside Product panels of the Cube\n\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block {\n  a {\n    flex-direction: column;\n    flex-wrap: nowrap;\n    transition: padding-top .2 eas-out;\n\n    &:hover {\n      padding-top: $half-margin;\n    }\n  }\n\n  h3 {\n    margin-top: -.2em;\n  }\n\n  .svg-ess-cube {\n    height: 25%;\n    margin-bottom: 0;\n  }\n\n  &.main-product-block {\n    h3 {\n      font-weight: bold;\n    }\n\n  }\n\n  .main-product-logo {\n    height: 50%;\n    margin-bottom: 0;\n  }\n}\n\n\n#cube-ess-logo {\n  width: 40%;\n  max-width: 250px;\n}\n\n.cfob {\n  position: absolute;\n  height: 100vh;\n  //background: red;\n  min-width: 20px;\n  top: 0;\n}\n\n.cfob-left {\n  left: 0;\n}\n\n.cfob-right {\n  right: 0;\n}\n\n\n@media only screen and (min-width: $medium-screen) {}","$ess-blue: #00C0F3;\r\n$ess-blue-dark: #0f2a56;\r\n$ess-blue-supplementary: #174f72;\r\n$ess-sand: #e1e0d4;\r\n$dynairix-cyan: #00f0f0;\r\n$dynairix-cyan-darker: #0ac4f3;\r\n\r\n$primary-color-transp: rgba(60, 180, 255, 0.5);\r\n$secondary-color-transp: rgba(15, 42, 86, 0.5);\r\n$ess-darkest-transp: rgba(12, 22, 46, 0.5);\r\n$ess-darkest-full: rgba(12, 22, 46, 1);\r\n\r\n// background of the navigation cube on pages \r\n$light-gray: rgb(240, 240, 240);\r\n$nav-cube-background: radial-gradient(circle, rgba(230, 230, 230, 1) 0%, rgba(211, 211, 211, 0.85) 77%);\r\n\r\n$basic: (\r\n  \"white\" #fff,\r\n  \"black\" #000\r\n);\r\n\r\n$essblue: (\r\n  \"base\" : #14bef0,\r\n  \"lighten-1\" : #92e5ff,\r\n  \"lighten-2\" : #d2f5fa,\r\n  \"lighten-3\" : #f0faff,\r\n  \"darken-1\" : #14a0ff,\r\n  \"darken-2\" : #2d78c8,\r\n  \"darken-3\" : #0c3c92,\r\n  \"darken-4\" : #0f2a57\r\n);\r\n\r\n$green: (\r\n  \"base\" : #86b755,\r\n  \"lighten-2\" : #81C784,\r\n  \"lighten-1\" : #66BB6A,\r\n  \"darken-1\" : #43A047,\r\n  \"darken-2\" : #388E3C\r\n);\r\n\r\n\r\n$red: (\r\n  \"base\" : #F44336,\r\n  \"lighten-2\" : #E57373,\r\n  \"lighten-1\" : #EF5350,\r\n  \"darken-1\" : #E53935,\r\n  \"darken-2\" : #D32F2F\r\n);\r\n\r\n\r\n$gray: (\r\n  \"base\" : #BEBEBE,\r\n  \"darken-1\" : #787878,\r\n  \"darken-2\" : #4D4D4D,\r\n  \"darken-3\" : #2D2D2D,\r\n  \"lighten-1\" : #D4D4D4,\r\n  \"lighten-2\" : #E6E6E6,\r\n  \"lighten-3\" : #E1E1E1,\r\n  \"lighten-4\" : #F5F5F5,\r\n  \"lighten-5\" : #F9F9F9,\r\n\r\n);\r\n\r\n$processing: (\r\n  \"base\" : #d4cba4,\r\n  \"darken-1\" : #c2b98e,\r\n  \"darken-2\" : #9d906f,\r\n  \"lighten-1\": #e5debf,\r\n  \"lighten-2\": #f3efde,\r\n);\r\n\r\n$paintshop: (\r\n  \"base\" : #9b64aa,\r\n  \"darken-1\" : #895aa4,\r\n  \"darken-2\" : #5b266c,\r\n  \"lighten-1\": #bf8dcd,\r\n  \"lighten-2\": #f1e4f5,\r\n\r\n);\r\n\r\n$data-cleaning: (\r\n  \"base\" : #0ea285,\r\n  \"darken-1\" : #108673,\r\n  \"darken-2\" : #006654,\r\n  \"lighten-1\": #86d2c3,\r\n  \"lighten-2\": #ddf6f1\r\n);\r\n\r\n$mobility: (\r\n  \"base\" : #eeaa32,\r\n  \"darken-1\" : #be8b37,\r\n  \"darken-2\" : #ae7d36,\r\n  \"lighten-1\": #eec886,\r\n  \"lighten-2\": #f7ebd6\r\n);\r\n\r\n\r\n$washing: (\r\n  \"base\" : #9ad9eb,\r\n  \"darken-1\" : #68b2c6,\r\n  \"darken-2\" : #43888d,\r\n  \"lighten-1\": #c1e8f3,\r\n  \"lighten-2\": #e8f7fa,\r\n);\r\n$environment: (\r\n  \"base\" : #a4d06e,\r\n  \"darken-1\" : #78a94e,\r\n  \"darken-2\" : #577d40,\r\n  \"lighten-1\": #c7e5a2,\r\n  \"lighten-2\": #ecf9dd,\r\n);\r\n$oil-gas: (\r\n  \"base\" : #52656e,\r\n  \"darken-1\" : #294146,\r\n  \"darken-2\" : #001d27,\r\n  \"lighten-1\": #7995a2,\r\n  \"lighten-2\": #c5d6de,\r\n);\r\n\r\n$shades: (\r\n  \"black\" : #000000,\r\n  \"white\" : #FFFFFF,\r\n  \"transparent\" : transparent\r\n);\r\n\r\n\r\n$colors-ess: (\r\n  \"basic\": $basic,\r\n  \"essblue\": $essblue,\r\n  \"red\": $red,\r\n  \"green\": $green,\r\n  \"gray\": $gray,\r\n  \"shades\": $shades,\r\n  \"processing\":$processing,\r\n  \"data-cleaning\": $data-cleaning,\r\n  \"paintshop\": $paintshop,\r\n  \"mobility\": $mobility,\r\n  \"washing\": $washing,\r\n  \"environment\": $environment,\r\n  \"oil-gas\": $oil-gas\r\n);\r\n\r\n@function color($color, $type) {\r\n  @if map-has-key($colors-ess, $color) {\r\n    $curr_color: map-get($colors-ess, $color);\r\n\r\n    @if map-has-key($curr_color, $type) {\r\n      @return map-get($curr_color, $type);\r\n    }\r\n  }\r\n\r\n  @warn \"Unknown `#{$color}` - `#{$type}` in $colors.\";\r\n  @return null;\r\n}\r\n\r\n\r\n// MIXINS FOR GRADIENT AND OPACITY -------------------------------\r\n\r\n\r\n@mixin opacity($value) {\r\n  opacity: $value;\r\n}\r\n\r\n@mixin radial-gradient($outer_color, $inner_color) {\r\n  background: radial-gradient($outer_color, $inner_color);\r\n}","#wmnav-list\n  display: flex\n  justify-content: center\n  margin: 0\n  padding: 0\n\n  li\n    padding: 0\n    margin: 0\n    font-family: $headline-font\n    text-transform: uppercase\n\n    a\n      display: block\n      position: relative\n      padding: $topnav_padding $base-margin\n      font-family: $headline-font\n      color: color('gray', 'darken-1')\n      cursor: pointer\n      text-align: center\n      transition: background .5s ease, color .5s ease, border .5s ease\n\n      &::after\n        content: ''\n        display: block\n        position: absolute\n        bottom: -0.2rem\n        left: 50%\n        width: 0\n        height: .2rem\n        background: color('essblue', 'base')\n        transition: width 0.5s, left 0.5s\n\n      &:hover\n        text-decoration: none\n        color: color(\"gray\", \"darken-2\")\n\n      &.active\n        color: color(\"gray\", \"darken-3\")\n\n        &::after\n          width: 100%\n          left: 0\n\n\n#wmnav-settings\n  width: 100px\n  margin: 0 $half-margin\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* \nTABLE OF CONTENTS\n\n  1. Sizes\n  2. Typography\n  3. Colors\n  4. Spacings\n  5. Top Navbar\n\n*/\n/**\n * * Common Nav styles for mobile and desktop\n * * @since 3.0\n * * @importance core\n * * \n * * Table of Contents\n * *\n * *  1. Containers\n * *  2. Logo Image Link\n * *\n * **/\n#wmnav-cont {\n  position: fixed;\n  z-index: 100;\n  top: 0;\n}\n\n#wmnav-content {\n  width: 100vw;\n  height: 100vh;\n  max-width: 100vw;\n  max-height: 100vh;\n  overflow: hidden;\n  display: flex;\n  flex-flow: column nowrap;\n}\n\n#wmnav-bar {\n  flex: 0 0 auto;\n  width: 100vw;\n  max-width: 100vw;\n  margin: 0;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  border-bottom: 1px solid #BEBEBE;\n  background: white;\n  position: relative;\n  z-index: 1000;\n}\n\n#wmnav-logo {\n  width: 100px;\n  height: auto;\n  margin: calc(0.4rem + 0.25vw);\n  position: relative;\n}\n#wmnav-logo img {\n  width: 100%;\n  max-width: 100%;\n  height: auto;\n}\n\n#el-clickable-background {\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  top: 0;\n  left: 0;\n  background: rgba(12, 60, 146, 0.35);\n}\n\n#wmnav-content {\n  display: flex;\n  flex-flow: row wrap;\n  justify-items: stretch;\n  align-items: baseline;\n  align-content: baseline;\n  z-index: -100;\n  opacity: 0;\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  top: 0;\n  left: 0;\n}\n\n@keyframes navrot {\n  to {\n    transform: rotateY(360deg);\n  }\n}\n.css_block {\n  position: absolute;\n  overflow: hidden !important;\n}\n.css_block a {\n  padding: calc(0.4rem + 0.25vw);\n}\n.css_block.css-gray > div, .css_block.css-gray > a {\n  background: #E6E6E6;\n}\n.css_block.css-gray > div:hover, .css_block.css-gray > a:hover {\n  background: white;\n}\n.css_block.css-white > div, .css_block.css-white > a {\n  background: white;\n}\n.css_block.css-white > div:hover, .css_block.css-white > a:hover {\n  background: white;\n  color: black;\n}\n.css_block.css-gray-lighter > div, .css_block.css-gray-lighter > a {\n  background: #F5F5F5;\n}\n.css_block.css-gray-lighter > div:hover, .css_block.css-gray-lighter > a:hover {\n  background: white;\n}\n.css_block.css-dark-blue > div, .css_block.css-dark-blue > a {\n  background: color(\"gray\", \"darken-2\");\n}\n.css_block.css-color-blue > div, .css_block.css-color-blue > a {\n  color: #87c8ff;\n}\n.css_block.css-color-white > div, .css_block.css-color-white > a {\n  color: color(\"shades\", \"white\") !important;\n}\n.css_block.css-color-white > div h2, .css_block.css-color-white > a h2 {\n  color: color(\"shades\", \"white\") !important;\n}\n.css_block.css-color-dark-gray > div, .css_block.css-color-dark-gray > a {\n  color: color(\"gray\", \"darken-2\");\n}\n\n#csscube-cont {\n  flex-basis: 100%;\n  max-width: 100%;\n  height: 100vh;\n  align-self: baseline;\n  width: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  align-self: stretch;\n}\n#csscube-cont #csscube-scene {\n  z-index: 10;\n  opacity: 0;\n  position: absolute;\n  margin: auto;\n}\n#csscube-cont #csscube-scene #csscube-rotator {\n  transform: rotateX(-7deg);\n  z-index: 10;\n  position: relative;\n  transform-style: preserve-3d;\n  transform-origin: 0% 0% 50%;\n  -moz-transform-origin: 0% 0% 50%;\n  -webkit-transform-origin-z: 50%;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube {\n  transform-style: preserve-3d;\n  position: relative;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube h1 {\n  top: 0;\n  left: 0;\n  font-family: \"Exo\";\n  font-weight: light;\n  line-height: 0.8;\n  text-align: left;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube a .ess-anim-icon {\n  stroke: #787878;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube a:hover .ess-anim-icon {\n  stroke: #2d78c8;\n  fill: #f0faff;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube h2 {\n  text-align: center;\n  font-weight: normal;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .cbl-industry h2 {\n  margin-top: 0;\n  padding-bottom: calc(0.8rem + 0.5vw) !important;\n  font-weight: normal;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .cbl-industry a {\n  align-content: center !important;\n  padding-top: 0 !important;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .cbl-industry a:hover h2 {\n  color: black;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube h3 {\n  text-align: center;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube h4 {\n  margin: calc(0.4rem + 0.25vw) 0 calc(0.2rem + 0.15vw) 0 !important;\n  font-weight: normal;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side {\n  background: transparent;\n  position: absolute;\n  top: 0;\n  left: 0;\n  backface-visibility: visible;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block {\n  display: flex;\n  align-items: stretch;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block.css-block-header > div:hover {\n  cursor: default;\n  background-color: inherit;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block.cbl-industry > a {\n  align-content: stretch;\n  padding-bottom: calc(0.8rem + 0.5vw);\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block.cbl-industry > a .cc-icon-h {\n  align-self: flex-end;\n  width: 100%;\n  padding: 0 25%;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block.cbl-industry > a h2 {\n  align-self: flex-end;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a {\n  clip-path: polygon(0 0.3rem, 0 calc(100% - 0.3rem), 0.3rem 100%, calc(100% - 0.3rem) 100%, 100% calc(100% - 0.3rem), 100% 0.3rem, calc(100% - 0.3rem) 0, 0.3rem 0);\n  transform-style: preserve-3d;\n  text-decoration: none;\n  color: color(\"gray\", \"darken-2\");\n  flex: 1;\n  display: flex;\n  align-items: center;\n  align-content: center;\n  justify-content: center;\n  flex-wrap: wrap;\n  position: rel ative;\n  margin: 0.05rem;\n  padding: calc(0.8rem + 0.5vw);\n  overflow: hidden;\n  transition: all 0.5s ease;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div:hover, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a:hover {\n  text-decoration: none;\n  cursor: pointer;\n  opacity: 1;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div .icon-image, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a .icon-image {\n  padding: 0 calc(0.4rem + 0.25vw);\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div.hover-dark:hover, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a.hover-dark:hover {\n  background: color(\"gray\", \"darken-2\");\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div.background-image-link img, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a.background-image-link img {\n  position: absolute;\n  top: 0;\n  opacity: 0;\n  transition: opacity 0.5s ease;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div.background-image-link:hover img, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a.background-image-link:hover img {\n  opacity: 1;\n}\n#csscube-cont #csscube-scene #csscube-shadow {\n  background: #BEBEBE;\n  opacity: 0.1;\n  filter: blur(30px);\n  z-index: 1;\n  transform-style: preserve-3d;\n}\n#csscube-cont #csscube-scene .csscube-navbutton {\n  position: absolute;\n  cursor: pointer;\n  background: none;\n  z-index: 1000;\n  border: none;\n  top: 40%;\n}\n#csscube-cont #csscube-scene .csscube-navbutton .ess-icon {\n  font-size: calc(5vw + 5vh);\n  transition: color 0.5s ease;\n  color: #14bef0;\n}\n#csscube-cont #csscube-scene .csscube-navbutton.left-button {\n  left: calc(-1.5 * (5vw + 5vh));\n}\n#csscube-cont #csscube-scene .csscube-navbutton.right-button {\n  right: calc(-1.5 * (5vw + 5vh));\n}\n#csscube-cont #csscube-scene .csscube-navbutton:hover .ess-icon {\n  color: #14a0ff;\n}\n\n#x-button,\n#left-button,\n#right-button {\n  width: 70px;\n  height: 70px;\n  background: none;\n  border: none;\n  z-index: 10000;\n  top: 300px;\n  position: fixed;\n}\n#x-button:hover,\n#left-button:hover,\n#right-button:hover {\n  background: black;\n}\n\n#left-button {\n  left: -120px;\n}\n\n#right-button {\n  right: 0px;\n}\n\n#x-button {\n  left: 50%;\n  top: auto;\n  bottom: 0;\n}\n\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block a {\n  flex-direction: column;\n  flex-wrap: nowrap;\n  transition: padding-top 0.2 eas-out;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block a:hover {\n  padding-top: calc(0.4rem + 0.25vw);\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block h3 {\n  margin-top: -0.2em;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block .svg-ess-cube {\n  height: 25%;\n  margin-bottom: 0;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block.main-product-block h3 {\n  font-weight: bold;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block .main-product-logo {\n  height: 50%;\n  margin-bottom: 0;\n}\n\n#cube-ess-logo {\n  width: 40%;\n  max-width: 250px;\n}\n\n.cfob {\n  position: absolute;\n  height: 100vh;\n  min-width: 20px;\n  top: 0;\n}\n\n.cfob-left {\n  left: 0;\n}\n\n.cfob-right {\n  right: 0;\n}\n\n#wmnav-list {\n  display: flex;\n  justify-content: center;\n  margin: 0;\n  padding: 0;\n}\n#wmnav-list li {\n  padding: 0;\n  margin: 0;\n  font-family: \"Exo\", sans-serif;\n  text-transform: uppercase;\n}\n#wmnav-list li a {\n  display: block;\n  position: relative;\n  padding: calc(0.8rem + 0.5vw) calc(0.8rem + 0.5vw);\n  font-family: \"Exo\", sans-serif;\n  color: #787878;\n  cursor: pointer;\n  text-align: center;\n  transition: background 0.5s ease, color 0.5s ease, border 0.5s ease;\n}\n#wmnav-list li a::after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  bottom: -0.2rem;\n  left: 50%;\n  width: 0;\n  height: 0.2rem;\n  background: #14bef0;\n  transition: width 0.5s, left 0.5s;\n}\n#wmnav-list li a:hover {\n  text-decoration: none;\n  color: #4D4D4D;\n}\n#wmnav-list li a.active {\n  color: #2D2D2D;\n}\n#wmnav-list li a.active::after {\n  width: 100%;\n  left: 0;\n}\n\n#wmnav-settings {\n  width: 100px;\n  margin: 0 calc(0.4rem + 0.25vw);\n}", "",{"version":3,"sources":["webpack://./src/sass/components/_variables.scss","webpack://./src/nav/sass/components/_common_mobile_desktop.sass","webpack://./src/nav/sass/desktop_nav.sass","webpack://./src/nav/sass/components/_desktop_cube.scss","webpack://./src/nav/sass/components/_desktop_menu_list.sass"],"names":[],"mappings":"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","sourcesContent":["/* \r\nTABLE OF CONTENTS\r\n\r\n  1. Sizes\r\n  2. Typography\r\n  3. Colors\r\n  4. Spacings\r\n  5. Top Navbar\r\n\r\n*/\r\n\r\n\r\n// 1. Sizes\r\n// ==========================================================================\r\n\r\n$small-screen-up : 461px;\r\n$medium-screen-up : 761px;\r\n$large-screen-up : 1201px;\r\n\r\n$small-screen : 460px;\r\n$medium-screen : 760px;\r\n$large-screen : 1200px;\r\n\r\n$base-margin : calc(0.8rem + 0.5vw);\r\n$double-margin : calc(1.6rem + 1vw);\r\n$quad-margin : calc(3.2rem + 2vw);\r\n$sexta-margin : calc(4.8rem + 3vw);\r\n$okto-margin : calc(6.4rem + 4vw);\r\n$dodeca-margin : calc(9.6rem + 6vw);\r\n\r\n$half-margin : calc(0.4rem + 0.25vw);\r\n$quarter-margin : calc(0.2rem + 0.15vw);\r\n$reduced-margin : 1rem;\r\n\r\n\r\n$-quarter-margin : calc((0.2rem + 0.15vw) * -1);\r\n$-base-margin : calc((0.8rem + 0.5vw) * -1);\r\n$-double-margin : calc((0.8rem + 0.5vw) * -2);\r\n$-quad-margin : calc((0.8rem + 0.5vw) * -4);\r\n$-sexta-margin : calc((0.8rem + 0.5vw) * -6);\r\n$-okto-margin : calc((0.8rem + 0.5vw) * -8);\r\n\r\n\r\n// 2. Typography\r\n// ========================================================================== \r\n\r\n\r\n$copy-font: 'Open Sans', Helvetica, Arial, sans-serif;\r\n$headline-font: 'Exo', sans-serif;\r\n\r\n$bread-text-sm: 14px;\r\n$bread-text-md: 15px;\r\n$bread-text-lg: 16px;\r\n\r\n$bread-text-sm-line: 18px;\r\n$bread-text-md-line: 21px;\r\n$bread-text-lg-line: 24px;\r\n\r\n$tiny-text-sm: 10px;\r\n$tiny-text-md: 11px;\r\n$tiny-text-lg: 12px;\r\n\r\n$tiny-text-sm-line: 14px;\r\n$tiny-text-md-line: 16px;\r\n$tiny-text-lg-line: 18px;\r\n\r\n$small-text-sm: 11px;\r\n$small-text-md: 12px;\r\n$small-text-lg: 13px;\r\n\r\n$small-text-sm-line: 16px;\r\n$small-text-md-line: 17px;\r\n$small-text-lg-line: 18px;\r\n\r\n$large-text-sm: 16px;\r\n$large-text-md: 18px;\r\n$large-text-lg: 20px;\r\n\r\n$huge-text-sm: 26px;\r\n$huge-text-md: 36px;\r\n$huge-text-lg: 46px;\r\n\r\n$mega-text-sm: 40px;\r\n$mega-text-md: 52px;\r\n$mega-text-lg: 64px;\r\n\r\n$h1 : calc(2.65rem + 1vw);\r\n$h1-h2 : calc(1.65rem + 1.1vw);\r\n$h2 : calc(1.8rem + 1vw);\r\n$h3 : calc(1.4rem + 0.8vw);\r\n$h4 : calc(1.2rem + 0.4vw);\r\n$h5 : calc(0.9rem + 0.1vw);\r\n$h6 : calc(0.7rem + 0.08vw);\r\n\r\n\r\n$big-text : calc(2.5rem + 0.7vw);\r\n$bigger-text : calc(2.9rem + 0.9vw);\r\n$biggest-text : calc(3.2rem + 1.2vw);\r\n\r\n$h4-lineheight : calc(1.7rem + 0.2vw);\r\n$h4-padding : calc(1.7rem + 0.2vw) 0;\r\n\r\n$tiny-icon : calc(1.8rem + 0.4vw);\r\n$small-icon : calc(2rem + 0.5vw);\r\n$medium-icon : calc(2.6rem + 0.8vw);\r\n$big-icon : calc(4rem + 1vw);\r\n$huge-icon : calc(6rem + 1.6vw);\r\n$mega-icon: calc(8rem + 2vw);\r\n\r\n\r\n$mega-font : calc(2rem + 2vw);\r\n\r\n$lg-button: calc(4rem + 2vw);\r\n$md-button: calc(2rem + 1vw);\r\n$sm-button: calc(1rem + 0.5vw);\r\n\r\n// 3. Colors\r\n// ==========================================================================\r\n\r\n$primary-color : color(\"essblue\", \"base\");\r\n$primary-color-hover : color(\"essblue\", \"darken-3\");\r\n$primary-text : color(\"gray\", \"darken-2\");\r\n$secondary-color : color(\"gray\", \"darken-2\");\r\n$white : color(\"shades\", \"white\");\r\n\r\n//SYSTEM\r\n$success-color : color(\"green\", \"base\");\r\n$error-color : color(\"red\", \"base\");\r\n\r\n$link-color : color(\"gray\", \"base\");\r\n$ess-base-green : color(\"green\", \"base\");\r\n\r\n$card-link-color : color(\"essblue\", \"base\");\r\n$footer-font-color : color(\"gray\", \"base\");\r\n$footer-bg-color : color(\"gray\", \"lighten-4\");\r\n$footer-copyright-font-color: color(\"gray\", \"lighten-2\");\r\n$footer-copyright-bg-color : none;\r\n$ess-blue-transp : rgba(15, 42, 86, 0.2);\r\n\r\n\r\n\r\n// GRADIENT\r\n$ess-blue-gradient : linear-gradient(to left, color('gray', 'base'), color('gray', 'lighten-1'));\r\n$ess-blue-gradient-reverse : linear-gradient(to right, $primary-color, $secondary-color);\r\n\r\n\r\n// button colors \r\n$primary-button-bg : $primary-color;\r\n$primary-button-bg-hover : color('essblue', 'darken-1');\r\n\r\n// NAVIGATION CUBE\r\n// Current one\r\n//$nav-cube-background: radial-gradient(circle, rgba(230, 230, 230, 1) 0%, rgba(211, 211, 211, 0.85) 77%);\r\n\r\n// New one\r\n$nav-cube-background: rgba(12, 60, 146, 0.35);\r\n\r\n\r\n\r\n// 4. Spacings\r\n// ==========================================================================\r\n\r\n\r\n$spaces-map: (\r\n  \"zero\" : 0,\r\n  \"quarter\": $quarter-margin,\r\n  \"half\": $half-margin,\r\n  \"base\" : $base-margin,\r\n  \"double\" : $double-margin,\r\n  \"quad\" : $quad-margin,\r\n  \"sexta\": $sexta-margin,\r\n  \"okta\" : $okto-margin,\r\n  \"dodeca\" : $dodeca-margin,\r\n  \"minus-base\": $-base-margin,\r\n  \"minus-double\": $-double-margin,\r\n  \"minus-quad\": $-quad-margin\r\n);\r\n\r\n$spaces-values: (\r\n  \"m\": (\"margin\"),\r\n  \"m-top\": (\"margin-top\"),\r\n  \"m-right\": (\"margin-right\"),\r\n  \"m-bot\": (\"margin-bottom\"),\r\n  \"m-left\": (\"margin-left\"),\r\n  \"m-hor\": (\"margin-left\", \"margin-right\"),\r\n  \"m-vert\": (\"margin-top\", \"margin-bottom\"),\r\n  \"p\":(\"padding\"),\r\n  \"p-top\": (\"padding-top\"),\r\n  \"p-right\": (\"padding-right\"),\r\n  \"p-bot\": (\"padding-bottom\"),\r\n  \"p-left\": (\"padding-left\"),\r\n  \"p-hor\": (\"padding-left\", \"padding-right\"),\r\n  \"p-vert\": (\"padding-top\", \"padding-bottom\"),\r\n);\r\n\r\n\r\n// 5. Top Navbar\r\n// ==========================================================================\r\n\r\n$topnav_padding: $base-margin;\r\n\r\n$nav_cube_side_width: 1.4rem;\r\n$nav_cube_side_shift: 0.9rem;\r\n$nav_cube_side_shift_2: 1rem;\r\n\r\n\r\n// 6. Blocks\r\n// ==========================================================================\r\n\r\n$block-border-radius: 10px;","\n/**\n * Common Nav styles for mobile and desktop\n * @since 3.0\n * @importance core\n * \n * Table of Contents\n *\n *  1. Containers\n *  2. Logo Image Link\n *\n **/\n\n// 1. TOP NAVBAR CONTAINER LAYOUT ----------------------------------------------------\n\n#wmnav-cont\n  position: fixed\n  z-index: 100\n  top: 0\n\n#wmnav-content\n  width: 100vw\n  height: 100vh\n  max-width: 100vw\n  max-height: 100vh\n  overflow: hidden\n  display: flex\n  flex-flow: column nowrap\n\n#wmnav-bar\n  flex: 0 0 auto\n  width: 100vw\n  max-width: 100vw\n  margin: 0\n  display: flex\n  justify-content: space-between\n  align-items: center\n  border-bottom: 1px solid color(\"gray\", \"base\")\n  background: white\n  position: relative\n  z-index: 1000\n\n// 2. TOP NAVBAR LOGO ----------------------------------------------------\n\n#wmnav-logo\n  width: 100px\n  height: auto\n  margin: $half-margin\n  position: relative\n\n  img\n    width: 100%\n    max-width: 100%\n    height: auto\n","/* \nTABLE OF CONTENTS\n\n  1. Sizes\n  2. Typography\n  3. Colors\n  4. Spacings\n  5. Top Navbar\n\n*/\n/**\n * * Common Nav styles for mobile and desktop\n * * @since 3.0\n * * @importance core\n * * \n * * Table of Contents\n * *\n * *  1. Containers\n * *  2. Logo Image Link\n * *\n * **/\n#wmnav-cont {\n  position: fixed;\n  z-index: 100;\n  top: 0;\n}\n\n#wmnav-content {\n  width: 100vw;\n  height: 100vh;\n  max-width: 100vw;\n  max-height: 100vh;\n  overflow: hidden;\n  display: flex;\n  flex-flow: column nowrap;\n}\n\n#wmnav-bar {\n  flex: 0 0 auto;\n  width: 100vw;\n  max-width: 100vw;\n  margin: 0;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  border-bottom: 1px solid #BEBEBE;\n  background: white;\n  position: relative;\n  z-index: 1000;\n}\n\n#wmnav-logo {\n  width: 100px;\n  height: auto;\n  margin: calc(0.4rem + 0.25vw);\n  position: relative;\n}\n#wmnav-logo img {\n  width: 100%;\n  max-width: 100%;\n  height: auto;\n}\n\n#el-clickable-background {\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  top: 0;\n  left: 0;\n  background: rgba(12, 60, 146, 0.35);\n}\n\n#wmnav-content {\n  display: flex;\n  flex-flow: row wrap;\n  justify-items: stretch;\n  align-items: baseline;\n  align-content: baseline;\n  z-index: -100;\n  opacity: 0;\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  top: 0;\n  left: 0;\n}\n\n@keyframes navrot {\n  to {\n    transform: rotateY(360deg);\n  }\n}\n.css_block {\n  position: absolute;\n  overflow: hidden !important;\n}\n.css_block a {\n  padding: calc(0.4rem + 0.25vw);\n}\n.css_block.css-gray > div, .css_block.css-gray > a {\n  background: #E6E6E6;\n}\n.css_block.css-gray > div:hover, .css_block.css-gray > a:hover {\n  background: white;\n}\n.css_block.css-white > div, .css_block.css-white > a {\n  background: white;\n}\n.css_block.css-white > div:hover, .css_block.css-white > a:hover {\n  background: white;\n  color: black;\n}\n.css_block.css-gray-lighter > div, .css_block.css-gray-lighter > a {\n  background: #F5F5F5;\n}\n.css_block.css-gray-lighter > div:hover, .css_block.css-gray-lighter > a:hover {\n  background: white;\n}\n.css_block.css-dark-blue > div, .css_block.css-dark-blue > a {\n  background: color(\"gray\", \"darken-2\");\n}\n.css_block.css-color-blue > div, .css_block.css-color-blue > a {\n  color: #87c8ff;\n}\n.css_block.css-color-white > div, .css_block.css-color-white > a {\n  color: color(\"shades\", \"white\") !important;\n}\n.css_block.css-color-white > div h2, .css_block.css-color-white > a h2 {\n  color: color(\"shades\", \"white\") !important;\n}\n.css_block.css-color-dark-gray > div, .css_block.css-color-dark-gray > a {\n  color: color(\"gray\", \"darken-2\");\n}\n\n#csscube-cont {\n  flex-basis: 100%;\n  max-width: 100%;\n  height: 100vh;\n  align-self: baseline;\n  width: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  align-self: stretch;\n}\n#csscube-cont #csscube-scene {\n  z-index: 10;\n  opacity: 0;\n  position: absolute;\n  margin: auto;\n}\n#csscube-cont #csscube-scene #csscube-rotator {\n  transform: rotateX(-7deg);\n  z-index: 10;\n  position: relative;\n  transform-style: preserve-3d;\n  transform-origin: 0% 0% 50%;\n  -moz-transform-origin: 0% 0% 50%;\n  -webkit-transform-origin-z: 50%;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube {\n  transform-style: preserve-3d;\n  position: relative;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube h1 {\n  top: 0;\n  left: 0;\n  font-family: \"Exo\";\n  font-weight: light;\n  line-height: 0.8;\n  text-align: left;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube a .ess-anim-icon {\n  stroke: #787878;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube a:hover .ess-anim-icon {\n  stroke: #2d78c8;\n  fill: #f0faff;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube h2 {\n  text-align: center;\n  font-weight: normal;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .cbl-industry h2 {\n  margin-top: 0;\n  padding-bottom: calc(0.8rem + 0.5vw) !important;\n  font-weight: normal;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .cbl-industry a {\n  align-content: center !important;\n  padding-top: 0 !important;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .cbl-industry a:hover h2 {\n  color: black;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube h3 {\n  text-align: center;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube h4 {\n  margin: calc(0.4rem + 0.25vw) 0 calc(0.2rem + 0.15vw) 0 !important;\n  font-weight: normal;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side {\n  background: transparent;\n  position: absolute;\n  top: 0;\n  left: 0;\n  backface-visibility: visible;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block {\n  display: flex;\n  align-items: stretch;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block.css-block-header > div:hover {\n  cursor: default;\n  background-color: inherit;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block.cbl-industry > a {\n  align-content: stretch;\n  padding-bottom: calc(0.8rem + 0.5vw);\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block.cbl-industry > a .cc-icon-h {\n  align-self: flex-end;\n  width: 100%;\n  padding: 0 25%;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block.cbl-industry > a h2 {\n  align-self: flex-end;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a {\n  clip-path: polygon(0 0.3rem, 0 calc(100% - 0.3rem), 0.3rem 100%, calc(100% - 0.3rem) 100%, 100% calc(100% - 0.3rem), 100% 0.3rem, calc(100% - 0.3rem) 0, 0.3rem 0);\n  transform-style: preserve-3d;\n  text-decoration: none;\n  color: color(\"gray\", \"darken-2\");\n  flex: 1;\n  display: flex;\n  align-items: center;\n  align-content: center;\n  justify-content: center;\n  flex-wrap: wrap;\n  position: rel ative;\n  margin: 0.05rem;\n  padding: calc(0.8rem + 0.5vw);\n  overflow: hidden;\n  transition: all 0.5s ease;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div:hover, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a:hover {\n  text-decoration: none;\n  cursor: pointer;\n  opacity: 1;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div .icon-image, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a .icon-image {\n  padding: 0 calc(0.4rem + 0.25vw);\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div.hover-dark:hover, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a.hover-dark:hover {\n  background: color(\"gray\", \"darken-2\");\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div.background-image-link img, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a.background-image-link img {\n  position: absolute;\n  top: 0;\n  opacity: 0;\n  transition: opacity 0.5s ease;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > div.background-image-link:hover img, #csscube-cont #csscube-scene #csscube-rotator #csscube .wmcube-side .css_block > a.background-image-link:hover img {\n  opacity: 1;\n}\n#csscube-cont #csscube-scene #csscube-shadow {\n  background: #BEBEBE;\n  opacity: 0.1;\n  filter: blur(30px);\n  z-index: 1;\n  transform-style: preserve-3d;\n}\n#csscube-cont #csscube-scene .csscube-navbutton {\n  position: absolute;\n  cursor: pointer;\n  background: none;\n  z-index: 1000;\n  border: none;\n  top: 40%;\n}\n#csscube-cont #csscube-scene .csscube-navbutton .ess-icon {\n  font-size: calc(5vw + 5vh);\n  transition: color 0.5s ease;\n  color: #14bef0;\n}\n#csscube-cont #csscube-scene .csscube-navbutton.left-button {\n  left: calc(-1.5 * (5vw + 5vh));\n}\n#csscube-cont #csscube-scene .csscube-navbutton.right-button {\n  right: calc(-1.5 * (5vw + 5vh));\n}\n#csscube-cont #csscube-scene .csscube-navbutton:hover .ess-icon {\n  color: #14a0ff;\n}\n\n#x-button,\n#left-button,\n#right-button {\n  width: 70px;\n  height: 70px;\n  background: none;\n  border: none;\n  z-index: 10000;\n  top: 300px;\n  position: fixed;\n}\n#x-button:hover,\n#left-button:hover,\n#right-button:hover {\n  background: black;\n}\n\n#left-button {\n  left: -120px;\n}\n\n#right-button {\n  right: 0px;\n}\n\n#x-button {\n  left: 50%;\n  top: auto;\n  bottom: 0;\n}\n\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block a {\n  flex-direction: column;\n  flex-wrap: nowrap;\n  transition: padding-top 0.2 eas-out;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block a:hover {\n  padding-top: calc(0.4rem + 0.25vw);\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block h3 {\n  margin-top: -0.2em;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block .svg-ess-cube {\n  height: 25%;\n  margin-bottom: 0;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block.main-product-block h3 {\n  font-weight: bold;\n}\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block .main-product-logo {\n  height: 50%;\n  margin-bottom: 0;\n}\n\n#cube-ess-logo {\n  width: 40%;\n  max-width: 250px;\n}\n\n.cfob {\n  position: absolute;\n  height: 100vh;\n  min-width: 20px;\n  top: 0;\n}\n\n.cfob-left {\n  left: 0;\n}\n\n.cfob-right {\n  right: 0;\n}\n\n#wmnav-list {\n  display: flex;\n  justify-content: center;\n  margin: 0;\n  padding: 0;\n}\n#wmnav-list li {\n  padding: 0;\n  margin: 0;\n  font-family: \"Exo\", sans-serif;\n  text-transform: uppercase;\n}\n#wmnav-list li a {\n  display: block;\n  position: relative;\n  padding: calc(0.8rem + 0.5vw) calc(0.8rem + 0.5vw);\n  font-family: \"Exo\", sans-serif;\n  color: #787878;\n  cursor: pointer;\n  text-align: center;\n  transition: background 0.5s ease, color 0.5s ease, border 0.5s ease;\n}\n#wmnav-list li a::after {\n  content: \"\";\n  display: block;\n  position: absolute;\n  bottom: -0.2rem;\n  left: 50%;\n  width: 0;\n  height: 0.2rem;\n  background: #14bef0;\n  transition: width 0.5s, left 0.5s;\n}\n#wmnav-list li a:hover {\n  text-decoration: none;\n  color: #4D4D4D;\n}\n#wmnav-list li a.active {\n  color: #2D2D2D;\n}\n#wmnav-list li a.active::after {\n  width: 100%;\n  left: 0;\n}\n\n#wmnav-settings {\n  width: 100px;\n  margin: 0 calc(0.4rem + 0.25vw);\n}","$csscube-h1 : calc(1rem + 1.8vw + 1.8vh + .7vmin);\n$csscube-h2 : calc(0.8rem + 0.5vw + 0.5vh + .3vmin);\n$csscube-h3 : calc(0.6rem + 0.3vw + 0.3vh + .25vmin);\n$csscube-p : calc(.4rem + .2vw + .2vh + .2vmin);\n\n$alpha-active : 0.9;\n$alpha-inactive : 0.1;\n\n\n#el-clickable-background {\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  top: 0;\n  left: 0;\n  background: $nav-cube-background;\n  //opacity: 0.99;\n}\n\n#wmnav-content {\n  display: flex;\n  flex-flow: row wrap;\n  justify-items: stretch;\n  align-items: baseline;\n  align-content: baseline;\n  z-index: -100;\n  opacity: 0;\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  top: 0;\n  left: 0;\n\n\n}\n\n@keyframes navrot {\n  to {\n    transform: rotateY(360deg)\n  }\n}\n\n.css_block {\n\n  a {\n    padding: $half-margin;\n  }\n\n  &.css-gray>div,\n  &.css-gray>a {\n    background: color(\"gray\", \"lighten-2\");\n\n    &:hover {\n      background: white\n    }\n  }\n\n  &.css-white>div,\n  &.css-white>a {\n    background: white;\n\n    &:hover {\n      background: white;\n      color: black;\n    }\n  }\n\n  &.css-gray-lighter>div,\n  &.css-gray-lighter>a {\n    background: color('gray', 'lighten-4');\n\n    &:hover {\n      background: white;\n    }\n  }\n\n  &.css-dark-blue>div,\n  &.css-dark-blue>a {\n    background: $secondary-color;\n  }\n\n  &.css-color-blue>div,\n  &.css-color-blue>a {\n    color: #87c8ff;\n  }\n\n  &.css-color-white>div,\n  &.css-color-white>a {\n    color: $white !important;\n\n    h2 {\n      color: $white !important;\n    }\n  }\n\n  &.css-color-dark-gray>div,\n  &.css-color-dark-gray>a {\n    color: $primary-text;\n  }\n\n\n  position: absolute;\n  overflow: hidden !important;\n}\n\n#csscube-cont {\n\n  //position: relative;\n  flex-basis: 100%;\n  max-width: 100%;\n  height: 100vh;\n  align-self: baseline;\n  width: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  align-self: stretch;\n\n\n  #csscube-scene {\n    z-index: 10;\n    opacity: 0;\n\n\n    position: absolute;\n    margin: auto; // centers the cube horizontaly;\n\n    #csscube-rotator {\n      transform: rotateX(-7deg);\n      z-index: 10;\n      position: relative;\n      //top: 50%;\n      transform-style: preserve-3d;\n      transform-origin: 0% 0% 50%;\n      -moz-transform-origin: 0% 0% 50%;\n      -webkit-transform-origin-z: 50%;\n\n      #csscube {\n\n        transform-style: preserve-3d;\n\n        position: relative;\n        //top: -300px;\n\n        h1 {\n          top: 0;\n          left: 0;\n          font-family: 'Exo';\n          font-weight: light;\n          line-height: 0.8;\n          text-align: left;\n        }\n\n        a {\n          .ess-anim-icon {\n            stroke: color('gray', 'darken-1')\n          }\n        }\n\n        a:hover {\n          .ess-anim-icon {\n            stroke: color('essblue', 'darken-2');\n            fill: color('essblue', 'lighten-3')\n          }\n\n        }\n\n        h2 {\n          text-align: center;\n          font-weight: normal;\n        }\n\n        .cbl-industry {\n          h2 {\n            margin-top: 0;\n            padding-bottom: $base-margin !important;\n            font-weight: normal;\n          }\n\n          a {\n            align-content: center !important;\n            padding-top: 0 !important\n          }\n\n          a:hover h2 {\n            color: black\n          }\n        }\n\n        h3 {\n          text-align: center;\n        }\n\n        h4 {\n          margin: $half-margin 0 $quarter-margin 0 !important;\n          font-weight: normal\n        }\n\n        .wmcube-side {\n\n          background: transparent;\n          position: absolute;\n          top: 0;\n          left: 0;\n          backface-visibility: visible;\n\n          .css_block {\n            display: flex;\n            align-items: stretch;\n\n            &.css-block-header {\n              &>div {\n\n                &:hover {\n                  cursor: default;\n                  background-color: inherit;\n                }\n              }\n            }\n\n            &.cbl-industry {\n\n              &>a {\n                align-content: stretch;\n                padding-bottom: $base-margin;\n\n                .cc-icon-h {\n                  align-self: flex-end;\n                  width: 100%;\n                  padding: 0 25%;\n\n\n                }\n\n                h2 {\n                  align-self: flex-end;\n                }\n              }\n            }\n\n            &>div,\n            &>a {\n              clip-path: polygon(0 .3rem, 0 calc(100% - .3rem), .3rem 100%, calc(100% - .3rem) 100%, 100% calc(100% - .3rem), 100% .3rem, calc(100% - .3rem) 0, .3rem 0);\n              transform-style: preserve-3d;\n              text-decoration: none;\n              color: $secondary-color;\n              flex: 1;\n              display: flex;\n              align-items: center;\n              align-content: center;\n              justify-content: center;\n              flex-wrap: wrap;\n              position: rel ative;\n              margin: .05rem;\n              padding: $base-margin;\n              overflow: hidden;\n              transition: all .5s ease;\n\n\n              //margin: 4px;\n              &:hover {\n                text-decoration: none;\n                cursor: pointer;\n                //transform: translateY(-.5rem);\n                //scale: 1.1;\n                //background-color: $primary-color;\n                opacity: 1;\n\n              }\n\n              .icon-image {\n                padding: 0 $half-margin;\n              }\n\n              &.hover-dark:hover {\n                background: $secondary-color;\n              }\n\n              &.background-image-link {\n                img {\n                  position: absolute;\n                  top: 0;\n                  opacity: 0;\n                  transition: opacity .5s ease;\n                }\n\n                &:hover img {\n                  opacity: 1;\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n\n    #csscube-shadow {\n      background: color(\"gray\", \"base\");\n      opacity: 0.1;\n      filter: blur(30px);\n      z-index: 1;\n      transform-style: preserve-3d;\n    }\n\n    .csscube-navbutton {\n      position: absolute;\n      cursor: pointer;\n      background: none;\n      z-index: 1000;\n      border: none;\n      top: calc(40%);\n\n      .ess-icon {\n        font-size: calc(5vw + 5vh);\n        transition: color .5s ease;\n        color: color('essblue', 'base');\n\n      }\n\n      &.left-button {\n        left: calc(-1.5*(5vw + 5vh));\n      }\n\n      &.right-button {\n        right: calc(-1.5*(5vw + 5vh));\n      }\n\n      &:hover {\n        .ess-icon {\n          color: color('essblue', 'darken-1');\n        }\n      }\n\n    }\n  }\n}\n\n\n#x-button,\n#left-button,\n#right-button {\n  width: 70px;\n  height: 70px;\n  background: none;\n  border: none;\n  z-index: 10000;\n\n  &:hover {\n    background: black;\n  }\n\n  top: 300px;\n  position: fixed;\n}\n\n#left-button {\n  left: -120px;\n}\n\n#right-button {\n  right: 0px;\n}\n\n#x-button {\n  left: 50%;\n  top: auto;\n  bottom: 0;\n}\n\n// CSS ESS CUBE - Small logos inside Product panels of the Cube\n\n#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block {\n  a {\n    flex-direction: column;\n    flex-wrap: nowrap;\n    transition: padding-top .2 eas-out;\n\n    &:hover {\n      padding-top: $half-margin;\n    }\n  }\n\n  h3 {\n    margin-top: -.2em;\n  }\n\n  .svg-ess-cube {\n    height: 25%;\n    margin-bottom: 0;\n  }\n\n  &.main-product-block {\n    h3 {\n      font-weight: bold;\n    }\n\n  }\n\n  .main-product-logo {\n    height: 50%;\n    margin-bottom: 0;\n  }\n}\n\n\n#cube-ess-logo {\n  width: 40%;\n  max-width: 250px;\n}\n\n.cfob {\n  position: absolute;\n  height: 100vh;\n  //background: red;\n  min-width: 20px;\n  top: 0;\n}\n\n.cfob-left {\n  left: 0;\n}\n\n.cfob-right {\n  right: 0;\n}\n\n\n@media only screen and (min-width: $medium-screen) {}","#wmnav-list\n  display: flex\n  justify-content: center\n  margin: 0\n  padding: 0\n\n  li\n    padding: 0\n    margin: 0\n    font-family: $headline-font\n    text-transform: uppercase\n\n    a\n      display: block\n      position: relative\n      padding: $topnav_padding $base-margin\n      font-family: $headline-font\n      color: color('gray', 'darken-1')\n      cursor: pointer\n      text-align: center\n      transition: background .5s ease, color .5s ease, border .5s ease\n\n      &::after\n        content: ''\n        display: block\n        position: absolute\n        bottom: -0.2rem\n        left: 50%\n        width: 0\n        height: .2rem\n        background: color('essblue', 'base')\n        transition: width 0.5s, left 0.5s\n\n      &:hover\n        text-decoration: none\n        color: color(\"gray\", \"darken-2\")\n\n      &.active\n        color: color(\"gray\", \"darken-3\")\n\n        &::after\n          width: 100%\n          left: 0\n\n\n#wmnav-settings\n  width: 100px\n  margin: 0 $half-margin\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2174,15 +2241,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
 /* eslint-disable no-undef */
-
 /**
  * CessCube
  * Activates functionality of the navigation cube and connects it with the top bar navigation.
@@ -2198,7 +2260,6 @@ var CessCube = /*#__PURE__*/function () {
    */
   function CessCube() {
     _classCallCheck(this, CessCube);
-
     this.toplinks_arr = this.init_navbar();
     this.initial_rotation = 10;
     this.el_canvas = document.querySelector('#wmnav-content');
@@ -2206,34 +2267,29 @@ var CessCube = /*#__PURE__*/function () {
     this.tweeen = 'power2.out';
     this.tween_length = 0.8;
     this.isonscreen = false; // whether the cube is already initated and rendered
-
     this.isOnStage = false; // whether the cube is on stage.
-
     this.unit_space_ratio = 5; // 1/x of unit to calculate the space between sides of the cube
-
     this.units_total = 19; // total amount of units
-
     this.units_space = 2; // no clue
-
     this.units_cube = 12; // total amount of CUBE units
-
     this.units_cube_w = 12; // number of units in horizontal direction
-
     this.units_cube_h = 15; // number of units in vertical direction. The number is a bit higher than horizontal because of the headlines on top of each side
-
     this.units_space = (this.units_total - this.units_cube) / 2; // space for margin
+
     //array of coord system within cube (max ) 30
+    this.names_array = ['o', 'i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x', 'xi', 'xii', 'xiii', 'xiv', 'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx', 'xxi', 'xxii', 'xxiii', 'xxiv', 'xxv', 'xxvi', 'xxvii', 'xxviii', 'xxix', 'xxx'];
 
-    this.names_array = ['o', 'i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x', 'xi', 'xii', 'xiii', 'xiv', 'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx', 'xxi', 'xxii', 'xxiii', 'xxiv', 'xxv', 'xxvi', 'xxvii', 'xxviii', 'xxix', 'xxx']; //create a new Style Sheet
-
+    //create a new Style Sheet
     this.Cube_Style_Sheet = document.createElement('style');
     document.body.appendChild(this.Cube_Style_Sheet);
     this._y = 0;
-    this._x = 0; // Registers the cube into MindGlobal object for global refference ( currently used by
-    // listener for closing the cube with escape )
+    this._x = 0;
 
+    // Registers the cube into MindGlobal object for global refference ( currently used by
+    // listener for closing the cube with escape )
     if (window.MindGlobal) window.MindGlobal.CubeInst = this;
   }
+
   /**
    * Starts the cube. Is called from the caller. No clue why this is a special
    * function to be called since it seeems obvious that it can only have constructor.
@@ -2242,13 +2298,10 @@ var CessCube = /*#__PURE__*/function () {
    * @return void
    * @since 1.0
    */
-
-
   _createClass(CessCube, [{
     key: "init",
     value: function init() {
       var _this = this;
-
       /*
                                     -= CUBE STRUCTURE =-               
           
@@ -2261,6 +2314,7 @@ var CessCube = /*#__PURE__*/function () {
           |               - #csscube-back
           |               - #csscube-left
           */
+
       this.tl = gsap.timeline({});
       this.main_container = document.getElementById('ess-main-container'); // container of the entire content except the cube - used for blur
 
@@ -2278,7 +2332,8 @@ var CessCube = /*#__PURE__*/function () {
       this.left_side_el.style.opacity = '0.1';
       this.back_side_el.style.opacity = '0.1';
       this.r_b = this.el_cubescene.querySelector('.right-button');
-      this.l_b = this.el_cubescene.querySelector('.left-button'); //this.x_b = document.getElementById('x-button');
+      this.l_b = this.el_cubescene.querySelector('.left-button');
+      //this.x_b = document.getElementById('x-button');
 
       this.elCanvasClickable();
       window.addEventListener('resize', this.setup_cube.bind(this), true);
@@ -2311,53 +2366,47 @@ var CessCube = /*#__PURE__*/function () {
       this.init_navbar();
       this.fadeOutblocks = this.init_sideFadeOutBlocks();
     }
+
     /**
      * Loops. the links and asigns them with cube sides
      * 
      * @since 3.0
      * @return Array Associative array with Cube side names (front, left, etc) as keys and HtmlLinkElements as values
      */
-
   }, {
     key: "init_navbar",
     value: function init_navbar() {
       var _this2 = this;
-
       var navbarLinks = document.querySelectorAll('.wm-cube-menu-link');
       var linksArr = [];
-
       var _loop = function _loop(i) {
         var link = navbarLinks[i];
         var linkCubeSide = link.getAttribute('data-target');
         linksArr[linkCubeSide] = link;
         if (link.classList.contains('active')) _this2.active_link = link;
         navbarLinks[i].addEventListener('mouseover', function (e) {
-          e.preventDefault; // Re-enable scrolling
+          e.preventDefault;
 
+          // Re-enable scrolling
           document.body.style.overflow = 'hidden';
-
           if (_this2.active_link !== undefined && _this2.active_link !== e.target) {
             _this2.active_link.classList.remove('active');
-
             _this2.active_link = e.target;
           }
-
           _this2._position_cube(linkCubeSide);
         });
       };
-
       for (var i = 0; i < navbarLinks.length; ++i) {
         _loop(i);
       }
-
       return linksArr;
     }
+
     /**
      * Inits sideFedeOutBlocks
      * @return Array<HTMLDivElement> - Left and Right fadeOutBlocks
      * @since 3.0
      */
-
   }, {
     key: "init_sideFadeOutBlocks",
     value: function init_sideFadeOutBlocks() {
@@ -2371,42 +2420,43 @@ var CessCube = /*#__PURE__*/function () {
       this.el_canvas.appendChild(rightFadeOutBlock);
       return [leftFadeOutBlock, rightFadeOutBlock];
     }
+
     /**
      * Removes Cube when fadeOutBlock is hovered
      * @return void
      * @since 3.0
      */
-
   }, {
     key: "fadeOutBlockHover",
     value: function fadeOutBlockHover() {
       console.log('fadeoufadoutfadout');
       window.MindGlobal.CubeInst.fadeOut();
     }
+
     /**
      * Sets the sizes of the cube and its content can run during resize event as well
      * 
      * @return void
      * @since 1.0
      **/
-
   }, {
     key: "setup_cube",
     value: function setup_cube() {
       var unit_w = 40; // 40 - initial value is about to change soon
-
       var unit_h = 40;
       var ww = window.innerWidth; // three quarters of the window to draw the cube
-
       var wh = window.innerHeight;
       var BigHeader = '';
       var SmHeader = '';
       var TinyHeader = '';
       var SmallestHeader = '';
-      var ratio = ww / wh; // if is landscape one unit is calculated from height otherwise unit height is taken from width of the screen
+      var ratio = ww / wh;
+
+      // if is landscape one unit is calculated from height otherwise unit height is taken from width of the screen
 
       if (ratio >= 1) {
         // IS LANDSCAPE  
+
         ww = ww * 0.6;
         wh = wh * 0.6;
         if (wh > 900) wh = 900;
@@ -2418,6 +2468,7 @@ var CessCube = /*#__PURE__*/function () {
         SmallestHeader = ' ' + unit_w / 4 + 'px !important;';
       } else {
         // IS PORTRAIT 
+
         ww *= 0.85;
         wh *= 0.85;
         if (window.vw > 500) window.vw = 500;
@@ -2427,14 +2478,14 @@ var CessCube = /*#__PURE__*/function () {
         SmHeader = ' ' + unit_w / 2.4 + 'px !important;';
         TinyHeader = ' ' + unit_w / 3 + 'px !important;';
         SmallestHeader = ' ' + unit_w / 4 + 'px !important;';
-      } // reset the sheet
+      }
 
+      // reset the sheet
 
       this.Cube_Style_Sheet.innerHTML = '';
       this.cube_width = this.units_cube_w * unit_w;
       this.cube_height = this.units_cube_h * unit_h;
       this.cube_w_shift = this.cube_width / 2; // + maybe unit/this.unit_space_ratio for gap between sides;
-
       this.cube_h_shift = this.cube_height / 2;
       this.Cube_Style_Sheet.innerHTML += '#csscube-scene #csscube h1 {font-size: ' + BigHeader + ' } ';
       this.Cube_Style_Sheet.innerHTML += '#csscube-scene #csscube h2 {font-size: ' + SmHeader + ' } ';
@@ -2450,14 +2501,12 @@ var CessCube = /*#__PURE__*/function () {
       this.Cube_Style_Sheet.innerHTML += '#csscube-top    {width:' + this.cube_width + 'px; height:' + this.cube_height + 'px; transform: rotateX(90deg) translateZ(' + this.cube_h_shift + 'px);}';
       this.Cube_Style_Sheet.innerHTML += '#csscube-bottom {width:' + this.cube_width + 'px; height:' + this.cube_height + 'px; transform: rotateX(-90deg) translateZ(' + this.cube_h_shift + 'px);}';
       this.Cube_Style_Sheet.innerHTML += '#csscube-shadow {width:' + this.cube_width + 'px; height:' + this.cube_height + 'px; transform: rotateX(-85deg) translateZ(' + this.cube_h_shift * 1.2 + 'px) ;}';
-
       for (var i = 0; i < this.units_cube_h; i++) {
         this.Cube_Style_Sheet.innerHTML += '.x_' + this.names_array[i] + '{left:' + unit_w * i + 'px;}';
         this.Cube_Style_Sheet.innerHTML += '.y_' + this.names_array[i] + '{top:' + unit_h * i + 'px;}';
         this.Cube_Style_Sheet.innerHTML += '.w_' + this.names_array[i] + '{width:' + unit_w * i + 'px;}';
         this.Cube_Style_Sheet.innerHTML += '.h_' + this.names_array[i] + '{height:' + unit_h * i + 'px;}';
       }
-
       if (!this.isonscreen) {
         this._x = 90;
         gsap.to(document.getElementById('csscube-scene'), {
@@ -2465,9 +2514,9 @@ var CessCube = /*#__PURE__*/function () {
           opacity: 1
         });
         this.isonscreen = true;
-      } // Sets the width of fadeOutBlocks on sides (can't be less than 50px)
+      }
 
-
+      // Sets the width of fadeOutBlocks on sides (can't be less than 50px)
       var bw = (window.innerWidth - this.cube_width) / 2 - 220;
       bw = Math.max(bw, 50);
       this.fadeOutblocks.map(function (block) {
@@ -2478,8 +2527,8 @@ var CessCube = /*#__PURE__*/function () {
     key: "_rotate_right",
     value: function _rotate_right() {
       // ROTATING LEFT SHOWING RIGHT SIDE OF THE CUBE
-      if (this._y == 0) this._y = 359.99;
 
+      if (this._y == 0) this._y = 359.99;
       if (this._y < 360 && this._y > 270) {
         if (this._x > 0 + this.initial_rotation) {
           // bottom side towards RIGHT
@@ -2503,18 +2552,15 @@ var CessCube = /*#__PURE__*/function () {
     key: "_position_cube",
     value: function _position_cube(str_target) {
       var _this3 = this;
-
       if (false === this.isOnStage) {
         this.fadeIn();
       }
-
       var el;
       var new_x;
       var new_y;
       if (this.active_link !== undefined) this.active_link.classList.remove('active');
       this.toplinks_arr[str_target].classList.add('active');
       this.active_link = this.toplinks_arr[str_target];
-
       switch (str_target) {
         case 'bottom':
           if (this._y > 180) this._y = this._y - 359.99;
@@ -2522,41 +2568,35 @@ var CessCube = /*#__PURE__*/function () {
           new_y = 0;
           el = this.bottom_side_el;
           break;
-
         case 'front':
           if (this._y > 180) this._y = this._y - 359.99;
           new_x = 0;
           new_y = 0;
           el = this.front_side_el;
           break;
-
         case 'right':
           if (this._y >= -180 && this._y < 90) this._y = this._y + 359.99;
           new_x = 0;
           new_y = 270;
           el = this.right_side_el;
           break;
-
         case 'left':
           if (this._y > 270) this._y = this._y + 359.99;
           new_x = 0;
           new_y = 90;
           el = this.left_side_el;
           break;
-
         case 'back':
           if (this._y >= 360) this._y = this._y - 359.99;
           new_x = 0;
           new_y = 180;
           el = this.back_side_el;
           break;
-
         default:
           new_x = 90;
           new_y = 0;
           el = this.bottom_side_el;
       }
-
       if (this.active_el != el) {
         this.leaving_el = this.active_el;
         this.arriving_el = el;
@@ -2591,6 +2631,7 @@ var CessCube = /*#__PURE__*/function () {
     value: function _rotate_left() {
       /*if(this._y == 0)
           this._y = 359.99;*/
+
       if (this._y >= 0 && this._y < 90) {
         if (this._x > 0 + this.initial_rotation) {
           // bottom side towards FRONT
@@ -2614,7 +2655,6 @@ var CessCube = /*#__PURE__*/function () {
     key: "intro",
     value: function intro() {
       var _this4 = this;
-
       var intro_length = 1;
       this.el_canvas.style.zIndex = '1';
       gsap.set(this.el_cubescene, {
@@ -2706,7 +2746,6 @@ var CessCube = /*#__PURE__*/function () {
     key: "outro",
     value: function outro(callback_func) {
       var _this5 = this;
-
       gsap.to(this.el_cubescene, {
         duration: 1,
         ease: 'power2.out',
@@ -2795,16 +2834,13 @@ var CessCube = /*#__PURE__*/function () {
       gsap.set(this.cube_rotator_el, {
         rotateX: this._x
       });
-
       this._position_cube('bottom');
-
       window.addEventListener('keydown', this.cubeKeyPressed, true);
     }
   }, {
     key: "fadeOut",
     value: function fadeOut() {
       var _this6 = this;
-
       // Re-enable scrolling on body when cube disapears.
       document.body.style.overflow = 'auto';
       window.removeEventListener('keydown', this.cubeKeyPressed, true);
@@ -2813,7 +2849,6 @@ var CessCube = /*#__PURE__*/function () {
       var tiny = document.querySelector('.ess-tiny-header');
       if (tiny) tiny.querySelector('h1').classList.remove('opacity-o');
       if (typeof InstallTrigger == 'undefined') this.main_container.classList.remove('ess-blured-content');
-
       if (this.active_el) {
         gsap.to(this.active_el, {
           duration: 0.3,
@@ -2821,7 +2856,6 @@ var CessCube = /*#__PURE__*/function () {
           opacity: 0.1
         });
       }
-
       gsap.to(this.el_cubescene, {
         duration: 0.5,
         ease: 'power1.out',
@@ -2857,41 +2891,36 @@ var CessCube = /*#__PURE__*/function () {
       });
       this.active_link.classList.remove('active');
     }
+
     /**
      * Checks keypressed while the Cube is ON.
      * @param {*} e Event object with window as currentTarget
      */
-
   }, {
     key: "cubeKeyPressed",
     value: function cubeKeyPressed(e) {
       switch (e.key) {
         case 'ArrowLeft':
           e.currentTarget.MindGlobal.CubeInst._rotate_left();
-
           break;
-
         case 'ArrowRight':
           e.currentTarget.MindGlobal.CubeInst._rotate_right();
-
           break;
-
         case 'Escape':
           e.currentTarget.MindGlobal.CubeInst.fadeOut();
           break;
       }
     }
+
     /**
      * Creates the clickable background div and sets up its behaviour
      * @since 1.0
      * @return void
      */
-
   }, {
     key: "elCanvasClickable",
     value: function elCanvasClickable() {
       var _this7 = this;
-
       this.el_clickable_background = document.createElement('div');
       this.el_clickable_background.setAttribute('id', 'el-clickable-background');
       this.el_clickable_background.addEventListener('click', function () {
@@ -2904,7 +2933,6 @@ var CessCube = /*#__PURE__*/function () {
     key: "init_subscribe_modal",
     value: function init_subscribe_modal() {
       var subscribe_button = this.cube_el.querySelector('#cube_subscribe_button');
-
       if (subscribe_button) {
         subscribe_button.addEventListener('click', function () {
           console.log('subscribe here');
@@ -2912,10 +2940,8 @@ var CessCube = /*#__PURE__*/function () {
       }
     }
   }]);
-
   return CessCube;
 }();
-
 
 
 /***/ }),

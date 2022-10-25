@@ -243,18 +243,20 @@ $template_url = get_template_directory_uri();
 
 </footer>
 
-<!-- ................................... SUBSCRIBE MODAL ................................... -->
-
-
-
-
 </div><!-- ess-main-container" -->
 
-<?php
 
-get_template_part('template-parts/content/footer/content', 'subscribeform');
 
-?>
+<!-- ................................... SUBSCRIBE MODAL ................................... -->
+
+<div id="ess-modal-holder">
+  <div class="ess-modal-background">
+  </div>
+  <div class="ess-modal">
+
+  </div>
+</div>
+
 
 <?php wp_footer(); ?>
 

@@ -13,7 +13,6 @@ $alpha-inactive : 0.1;
   width: 100%;
   top: 0;
   left: 0;
-  background: $light-gray;
   background: $nav-cube-background;
   //opacity: 0.99;
 }
@@ -87,10 +86,10 @@ $alpha-inactive : 0.1;
 
   &.css-color-white>div,
   &.css-color-white>a {
-    color: $white  !important;
+    color: $white !important;
 
     h2 {
-      color: $white  !important;
+      color: $white !important;
     }
   }
 
@@ -174,7 +173,7 @@ $alpha-inactive : 0.1;
         .cbl-industry {
           h2 {
             margin-top: 0;
-            padding-bottom: $base-margin  !important;
+            padding-bottom: $base-margin !important;
             font-weight: normal;
           }
 

@@ -148,6 +148,13 @@ $ess-blue-gradient-reverse : linear-gradient(to right, $primary-color, $secondar
 $primary-button-bg : $primary-color;
 $primary-button-bg-hover : color('essblue', 'darken-1');
 
+// NAVIGATION CUBE
+// Current one
+//$nav-cube-background: radial-gradient(circle, rgba(230, 230, 230, 1) 0%, rgba(211, 211, 211, 0.85) 77%);
+
+// New one
+$nav-cube-background: rgba(12, 60, 146, 0.35);
+
 
 
 // 4. Spacings
@@ -195,3 +202,9 @@ $topnav_padding: $base-margin;
 $nav_cube_side_width: 1.4rem;
 $nav_cube_side_shift: 0.9rem;
 $nav_cube_side_shift_2: 1rem;
+
+
+// 6. Blocks
+// ==========================================================================
+
+$block-border-radius: 10px;

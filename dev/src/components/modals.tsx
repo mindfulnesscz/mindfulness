@@ -2,6 +2,6 @@
 
 function initModals ( modals:string ):void {
   
-  console.log( 'ahoj' );
+  console.log( 'ahoj modals' );
 
 }
