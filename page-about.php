@@ -108,19 +108,28 @@ endwhile;
 
           ?>
 
-            <div class="people_person col-xs-6 col-sm-4 col-md-4 col-lg-3 ">
-              <img class=" circle responsive-img " src="<?php echo $peasant_src[0] ?>" srcset="<?php echo $peasant_src[1] ?>" sizes="
+            <?php
+            if ($tm_count == 3) :
+            ?>
+        </div>
+        <div class="row team-row">
+        <?php
+            endif;
+        ?>
+
+        <div class="people_person col-xs-6 col-sm-4 col-md-4 col-lg-3 ">
+          <img class=" circle responsive-img " src="<?php echo $peasant_src[0] ?>" srcset="<?php echo $peasant_src[1] ?>" sizes="
 								(min-width: 760px) calc((100vw/2.5)*<?php echo $i_ratio ?>),
 								(min-width: 830px) 400px,
 								calc(100vw - 20px)
 							">
-              <h4><?php echo $peasant->post_title ?></h4>
-              <h5><?php echo $peasant->post_excerpt ?></h5>
-            </div>
-        <?php
+          <h4><?php echo $peasant->post_title ?></h4>
+          <h5><?php echo $peasant->post_excerpt ?></h5>
+        </div>
+    <?php
           endforeach;
         endif;
-        ?>
+    ?>
         </div>
   </section>
 </main>
