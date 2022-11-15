@@ -71,9 +71,32 @@
 
   <meta name="robots" content="index, follow">
 
-  <?php wp_head(); ?>
 
+  <?php
+
+  wp_head();
+
+  $primary_color = get_theme_mod('primary_color');
+  $primary_color_hover = Mindfulness_Customizer::adjust_brightness($primary_color, -30);
+
+  $offset_background = get_theme_mod('offset_background');
+
+  ?>
+
+
+
+  <style>
+    :root {
+      --wm-primary-color: <?php echo $primary_color; ?>;
+      --wm-primary-color-hover: <?php echo $primary_color_hover; ?>;
+      --wm-offset-background: <?php echo $offset_background; ?>;
+    }
+  </style>
 </head>
+
+
+
+
 
 <body id="ess-body" class="ess-body-frontend<?php echo ((is_front_page() ? ' ess-homepage' : '')); ?>">
 

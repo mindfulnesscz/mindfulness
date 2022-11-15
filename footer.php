@@ -28,14 +28,13 @@ $template_url = get_template_directory_uri();
         <h6 class="center">STAY UPDATED</h6>
 
 
-        <!--   footer SUBSCRIBE BUTTON  ............................................... -->
+        <?php
 
-        <div class="ess-subscribe-footer">
-          <div class="center">
-            <button class="ess-button outlined modal-trigger">subscribe</button>
-          </div>
-        </div>
+        dynamic_sidebar('footer_contact'); ?>
+
+
       </div>
+
 
       <!--   footer NEWS ............................................... -->
 
@@ -245,31 +244,17 @@ $template_url = get_template_directory_uri();
 
 </div><!-- ess-main-container" -->
 
-
-
-<!-- ................................... SUBSCRIBE MODAL ................................... -->
-
-<div id="ess-modal-holder">
-  <div class="ess-modal-background">
-  </div>
-  <div class="ess-modal">
-
-  </div>
-</div>
-
-
 <?php wp_footer(); ?>
 
 
 
 <?php
-
 // ................................... CONSOLE ...................................
 // print the console if in debug mode
 wm_print_console();
-
-
 ?>
+
+
 </body>
 
 </html>

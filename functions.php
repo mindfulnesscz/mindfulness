@@ -41,6 +41,11 @@ require_once $inc . 'scripts.php'; // registering and handling javascripts and c
 
 require_once $inc . 'endpoints.php'; // register and callbacks for custom endpoints
 
+require_once $inc . 'widgets.php'; // Registers custom widgets. Currently in footer only
+
+require_once $inc . 'customizer.php'; // Color settings for Mindfulness
+
+$WMMC = new Mindfulness_Customizer('mindfulness');
 
 new Mindfulness_Setup();
 
@@ -118,20 +123,6 @@ function mind_type()
     )
   );
 }
-
-
-function ess_widgets()
-{
-  register_sidebar(array(
-    'name' => __('Footer contact', 'footer_contact'),
-    'id' => 'footer_contact',
-    'before_widget' => '<div>',
-    'after_widget' => '</div>',
-    'before_title' => '<h1>',
-    'after_title' => '</h1>',
-  ));
-}
-add_action('widgets_init', 'ess_widgets');
 
 
 // lowers the length of the excerpt
