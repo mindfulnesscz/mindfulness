@@ -10,6 +10,8 @@ $secondary-color-transp: rgba(15, 42, 86, 0.5);
 $ess-darkest-transp: rgba(12, 22, 46, 0.5);
 $ess-darkest-full: rgba(12, 22, 46, 1);
 
+$ess-gradient: linear-gradient(0deg, rgba(21, 161, 255, 1) 0%, rgba(20, 190, 240, 1) 100%);
+
 // background of the navigation cube on pages 
 $light-gray: rgb(240, 240, 240);
 
@@ -26,7 +28,7 @@ $essblue: (
   "lighten-3" : #f0faff,
   "darken-1" : #14a0ff,
   "darken-2" : #2d78c8,
-  "darken-3" : #0c3c92,
+  "darken-3" : #0229BE,
   "darken-4" : #0f2a57
 );
 

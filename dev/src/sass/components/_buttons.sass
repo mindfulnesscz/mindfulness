@@ -5,20 +5,14 @@
   padding: $half-margin $base-margin
   margin-top: $base-margin
   margin-bottom: $base-margin
-  color: $white
-  background: $primary-color
+  background: $ess-gradient
   border: none
   font-family: $headline-font
   font-weight: 500
+  border-radius: 2px
 
-  &:hover
-
-    color: $white
-    background: $primary-color-hover
-
-.ess-button
+.ess-button, .button
   @extend %ess-button
-  -webkit-transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1)
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1)
 
   &.sm
@@ -42,13 +36,26 @@
   &.rounded-none
     border-radius: 0
 
+  &.primary
+    color: white
+    filter: drop-shadow(0px 0px 3px rgba(2,41,180,0.28))
+
+    &::hover
+      background: linear-gradient(0deg, rgba(21, 161, 255, 1) 0%, rgba(21, 161, 255, 1) 100%)
+
   &.outlined
+    background: white
+    border: 1px solid color('essblue', 'darken-1')
+    &:hover
+      background: rgba(21,161, 255, 0.1)
+
+  &.transparent
     background: none
     border-width: 1px
     border-style: solid
     color: color("gray", "darken-2")
-    border-color: color("gray", "darken-1")
-
-  &:hover
-    color: white
-    background: $primary-button-bg-hover
+    border-color: color("gray", "darken-2")
+    &:hover
+      color: color('gray', 'darken-3')
+      border-color: color("gray", "darken-3")
+      background-color: rgba(0, 0, 0, 0.05)

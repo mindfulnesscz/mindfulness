@@ -39,7 +39,6 @@ window.gsap.registerPlugin( window.ScrollTrigger );
 
 /**
  * Initiates navigation
- * Initiates modals
  */
 
 document.addEventListener( 'DOMContentLoaded', () => {
@@ -57,9 +56,22 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
   // Initiates modals if there's at least one
 
-  if( document.querySelector( '.wmwp-modal' ) )
-    loadScript(  window.MindGlobal.templateUrl + '/assets/js/nav/modals.js' ).then( ()=>{
-      initModals( document.querySelectorAll( '.wmwp-modal' ) );
+  if( document.querySelector( '.wmwp-modal-trigger' ) )
+    loadScript(  window.MindGlobal.templateUrl + '/assets/js/modals.js' ).then( ()=>{
+
+      
+
+      const subscribeModal = document.querySelector( '#ess-subscribe-modal' ) as HTMLDivElement;
+      const subscribeTriggers = document.querySelectorAll( '.wmwp-subscribe-trigger' );
+
+      if( subscribeModal ) {
+        console.log( 'is modal' );
+        console.log( window.MindGlobal.Modal );
+        subscribeTriggers.forEach( btn => {
+          console.log( 'is trigger' );
+          btn.addEventListener( 'click', ()=>{ window.MindGlobal.Modal.show( subscribeModal ); } );
+        } );
+      }
     } ); 
 
   

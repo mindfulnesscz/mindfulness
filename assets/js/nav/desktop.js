@@ -263,10 +263,10 @@ module.exports = function (originalArray, length) {
   \*******************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var uncurryThisRaw = __webpack_require__(/*! ../internals/function-uncurry-this-raw */ "./node_modules/core-js/internals/function-uncurry-this-raw.js");
+var uncurryThis = __webpack_require__(/*! ../internals/function-uncurry-this */ "./node_modules/core-js/internals/function-uncurry-this.js");
 
-var toString = uncurryThisRaw({}.toString);
-var stringSlice = uncurryThisRaw(''.slice);
+var toString = uncurryThis({}.toString);
+var stringSlice = uncurryThis(''.slice);
 
 module.exports = function (it) {
   return stringSlice(toString(it), 8, -1);
@@ -650,7 +650,7 @@ module.exports = function (exec) {
   \*****************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var uncurryThis = __webpack_require__(/*! ../internals/function-uncurry-this */ "./node_modules/core-js/internals/function-uncurry-this.js");
+var uncurryThis = __webpack_require__(/*! ../internals/function-uncurry-this-clause */ "./node_modules/core-js/internals/function-uncurry-this-clause.js");
 var aCallable = __webpack_require__(/*! ../internals/a-callable */ "./node_modules/core-js/internals/a-callable.js");
 var NATIVE_BIND = __webpack_require__(/*! ../internals/function-bind-native */ "./node_modules/core-js/internals/function-bind-native.js");
 
@@ -773,10 +773,29 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/core-js/internals/function-uncurry-this-raw.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/core-js/internals/function-uncurry-this-raw.js ***!
-  \*********************************************************************/
+/***/ "./node_modules/core-js/internals/function-uncurry-this-clause.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/core-js/internals/function-uncurry-this-clause.js ***!
+  \************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var classofRaw = __webpack_require__(/*! ../internals/classof-raw */ "./node_modules/core-js/internals/classof-raw.js");
+var uncurryThis = __webpack_require__(/*! ../internals/function-uncurry-this */ "./node_modules/core-js/internals/function-uncurry-this.js");
+
+module.exports = function (fn) {
+  // Nashorn bug:
+  //   https://github.com/zloirock/core-js/issues/1128
+  //   https://github.com/zloirock/core-js/issues/1130
+  if (classofRaw(fn) === 'Function') return uncurryThis(fn);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/internals/function-uncurry-this.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/core-js/internals/function-uncurry-this.js ***!
+  \*****************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var NATIVE_BIND = __webpack_require__(/*! ../internals/function-bind-native */ "./node_modules/core-js/internals/function-bind-native.js");
@@ -789,25 +808,6 @@ module.exports = NATIVE_BIND ? uncurryThisWithBind : function (fn) {
   return function () {
     return call.apply(fn, arguments);
   };
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/internals/function-uncurry-this.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/core-js/internals/function-uncurry-this.js ***!
-  \*****************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var classofRaw = __webpack_require__(/*! ../internals/classof-raw */ "./node_modules/core-js/internals/classof-raw.js");
-var uncurryThisRaw = __webpack_require__(/*! ../internals/function-uncurry-this-raw */ "./node_modules/core-js/internals/function-uncurry-this-raw.js");
-
-module.exports = function (fn) {
-  // Nashorn bug:
-  //   https://github.com/zloirock/core-js/issues/1128
-  //   https://github.com/zloirock/core-js/issues/1130
-  if (classofRaw(fn) === 'Function') return uncurryThisRaw(fn);
 };
 
 
@@ -1658,10 +1658,10 @@ var store = __webpack_require__(/*! ../internals/shared-store */ "./node_modules
 (module.exports = function (key, value) {
   return store[key] || (store[key] = value !== undefined ? value : {});
 })('versions', []).push({
-  version: '3.26.0',
+  version: '3.26.1',
   mode: IS_PURE ? 'pure' : 'global',
   copyright: '© 2014-2022 Denis Pushkarev (zloirock.ru)',
-  license: 'https://github.com/zloirock/core-js/blob/v3.26.0/LICENSE',
+  license: 'https://github.com/zloirock/core-js/blob/v3.26.1/LICENSE',
   source: 'https://github.com/zloirock/core-js'
 });
 
@@ -2362,7 +2362,6 @@ var CessCube = /*#__PURE__*/function () {
         _this.still = false;
       });
       if (!this.cube_el) throw 'cube_element not found';
-      this.init_subscribe_modal();
       this.init_navbar();
       this.fadeOutblocks = this.init_sideFadeOutBlocks();
     }
@@ -2928,16 +2927,6 @@ var CessCube = /*#__PURE__*/function () {
         _this7.fadeOut();
       });
       this.el_cont.appendChild(this.el_clickable_background);
-    }
-  }, {
-    key: "init_subscribe_modal",
-    value: function init_subscribe_modal() {
-      var subscribe_button = this.cube_el.querySelector('#cube_subscribe_button');
-      if (subscribe_button) {
-        subscribe_button.addEventListener('click', function () {
-          console.log('subscribe here');
-        });
-      }
     }
   }]);
   return CessCube;

@@ -343,7 +343,6 @@ window.MindGlobal.MindCookiesHandler = new _helpers_MindCookies__WEBPACK_IMPORTE
 window.gsap.registerPlugin(window.ScrollTrigger);
 /**
  * Initiates navigation
- * Initiates modals
  */
 document.addEventListener('DOMContentLoaded', () => {
     // Initiates top navigation or throw error
@@ -354,9 +353,18 @@ document.addEventListener('DOMContentLoaded', () => {
     else
         throw new DOMException('unable to find menu containers');
     // Initiates modals if there's at least one
-    if (document.querySelector('.wmwp-modal'))
-        (0,_helpers_loadScript__WEBPACK_IMPORTED_MODULE_4__["default"])(window.MindGlobal.templateUrl + '/assets/js/nav/modals.js').then(() => {
-            initModals(document.querySelectorAll('.wmwp-modal'));
+    if (document.querySelector('.wmwp-modal-trigger'))
+        (0,_helpers_loadScript__WEBPACK_IMPORTED_MODULE_4__["default"])(window.MindGlobal.templateUrl + '/assets/js/modals.js').then(() => {
+            const subscribeModal = document.querySelector('#ess-subscribe-modal');
+            const subscribeTriggers = document.querySelectorAll('.wmwp-subscribe-trigger');
+            if (subscribeModal) {
+                console.log('is modal');
+                console.log(window.MindGlobal.Modal);
+                subscribeTriggers.forEach(btn => {
+                    console.log('is trigger');
+                    btn.addEventListener('click', () => { window.MindGlobal.Modal.show(subscribeModal); });
+                });
+            }
         });
 });
 

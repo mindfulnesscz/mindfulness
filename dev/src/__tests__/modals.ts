@@ -14,8 +14,12 @@ test( 'modals array is not empty', ()=>{
 
   const e = document.getElementById( 'ess-modal-holder' ) as HTMLElement;
 
-  expect( Modal( e ).length ).toBeGreaterThanOrEqual( 0 );
 
   
+} );
+
+test( 'modal can be closed', ()=>{
+  const e = document.getElementById( 'ess-modal-holder' ) as HTMLElement;
+
 } );
 

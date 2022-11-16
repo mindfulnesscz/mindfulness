@@ -8,6 +8,11 @@ import MindCookies from '../helpers/MindCookies';
 declare interface MindGlobalSettings {
   navBreakpoint: number
 }
+
+export interface ModalObject {
+  ModalBackground: HTMLDivElement
+  show ( el:HTMLDivElement ):void
+}
 export interface MindGlobalObject {
   settings: MindGlobalSettings
   mobileNav: React.ReactNode
@@ -17,6 +22,7 @@ export interface MindGlobalObject {
   templateUrl: string
   templateVersion: string
   MindCookiesHandler: MindCookies
+  Modal: ModalObject
 }
 
 

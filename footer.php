@@ -19,7 +19,7 @@ $template_url = get_template_directory_uri();
 
       <!--   footer CONTACT  ............................................... -->
 
-      <div class="footer-section col-footer-contact col-xs-12 col-sm-4 col-lg-3">
+      <div class="footer-section col-footer-contact col-xs-12 col-sm-4 col-lg-3 center">
         <div class="darker-gray ess-divider ess-show-on-small-and-down "></div>
         <h6 class="footer-section-headline center">Quick Contact</h6>
         <p class="text-sm center">ESS Engineering Software Steyr<br> Berggasse 35, 4400 Steyr, Austria
@@ -28,11 +28,13 @@ $template_url = get_template_directory_uri();
         <h6 class="center">STAY UPDATED</h6>
 
 
-        <?php
-
-        dynamic_sidebar('footer_contact'); ?>
 
 
+
+
+        <div class="transparent sm button wmwp-modal-trigger wmwp-subscribe-trigger">
+          Subscribe for Newsletter
+        </div>
       </div>
 
 
@@ -243,6 +245,17 @@ $template_url = get_template_directory_uri();
 </footer>
 
 </div><!-- ess-main-container" -->
+
+<!-- ................................... SUBSCRIBE MODAL ................................... -->
+
+<div id="ess-modal-holder" style="display: none">
+  <div id="ess-modal-background"></div>
+  <div class="ess-modal" id="ess-subscribe-modal">
+
+    <?php dynamic_sidebar('footer_contact'); ?>
+
+  </div>
+</div>
 
 <?php wp_footer(); ?>
 

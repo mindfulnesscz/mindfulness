@@ -124,9 +124,6 @@ export default class CessCube {
     if( !this.cube_el )
       throw ( 'cube_element not found' );  
 
-
-    this.init_subscribe_modal();
-
     this.init_navbar();
 
     this.fadeOutblocks = this.init_sideFadeOutBlocks();
@@ -684,19 +681,5 @@ export default class CessCube {
 
     this.el_cont.appendChild( this.el_clickable_background );
 
-  }
-
-
-  init_subscribe_modal () {
-    let subscribe_button = this.cube_el.querySelector( '#cube_subscribe_button' );
-
-        
-
-        
-    if( subscribe_button ) {
-      subscribe_button.addEventListener( 'click', () => {
-        console.log( 'subscribe here' );
-      } );
-    }
   }  
 }
