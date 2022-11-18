@@ -10,10 +10,15 @@
   font-family: $headline-font
   font-weight: 500
   border-radius: 2px
+  color: white
+  filter: drop-shadow(0px 0px 3px rgba(2,41,180,0.28))
 
-.ess-button, .button
+.ess-button, .button, button
   @extend %ess-button
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1)
+
+  &:hover
+    background: linear-gradient(0deg, rgba(21, 161, 255, 1) 100%, rgba(21, 161, 255, 1) 100%)
 
   &.sm
     font-size: $h6
@@ -36,13 +41,6 @@
   &.rounded-none
     border-radius: 0
 
-  &.primary
-    color: white
-    filter: drop-shadow(0px 0px 3px rgba(2,41,180,0.28))
-
-    &::hover
-      background: linear-gradient(0deg, rgba(21, 161, 255, 1) 0%, rgba(21, 161, 255, 1) 100%)
-
   &.outlined
     background: white
     border: 1px solid color('essblue', 'darken-1')
@@ -55,6 +53,8 @@
     border-style: solid
     color: color("gray", "darken-2")
     border-color: color("gray", "darken-2")
+    filter: none
+
     &:hover
       color: color('gray', 'darken-3')
       border-color: color("gray", "darken-3")

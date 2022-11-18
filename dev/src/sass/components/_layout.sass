@@ -4,11 +4,9 @@ body
   background-color: color("shades", "white")
   margin: 0
 
-
 #ess-body
   overflow-x: hidden
   max-height: 100vh
-
 
 .ess-main
 
@@ -18,509 +16,374 @@ body
 a:hover
   text-decoration: underline
 
-
-
 @mixin ess-fade($value)
   transition: $value
 
-
-@mixin shadow($value) 
+@mixin shadow($value)
   box-shadow: $value
 
-
-@mixin max-width-image() 
+@mixin max-width-image()
   max-width: 100%
   width: auto
   height: auto
 
-
-
 /* ============================== elements ================================= */
-
 
 main
   margin: $quad-margin 0
-  .row 
+  .row
     justify-content: center
 
-
-
-section 
+section
   position: relative
   padding: $base-margin 0
 
-  &.bg-secondary 
+  &.bg-secondary
     border-bottom: 1px dotted color('gray', 'base')
 
-  
-
-
-.ess-section 
+.ess-section
   width: 100%
   padding: $double-margin 0
 
-
-.wp-block-mindfulness-blocks-flexbox-row.section 
+.wp-block-mindfulness-blocks-flexbox-row.section
   padding: 0
 
-
-.container 
+.container
   width: 100% !important
   max-width: 1440px !important
 
-
-body figure 
+body figure
   margin: 0
   padding: 0
 
-
-.ess-link-wrapper 
+.ess-link-wrapper
   display: block
 
-  &:hover 
+  &:hover
     text-decoration: none
 
-    .ess-button.outlined 
+    .ess-button.outlined
       color: $white
 
-      &.psp 
+      &.psp
         background-color: color('paintshop', 'base')
-      
 
-      &.merge 
+      &.merge
         background-color: color('data-cleaning', 'base')
-      
 
-      &.sense 
+      &.sense
         background-color: color('processing', 'darken-2')
-      
-    
-  
 
-
-.wm-divider 
+.wm-divider
   height: 1px
 
-
-.ess-margin 
+.ess-margin
   height: $base-margin
 
-
-.ess-double-margin 
+.ess-double-margin
   height: $double-margin
 
-
-.test-block 
+.test-block
   height: 200px
   background: $ess-blue
 
-
-.ess-hidden 
+.ess-hidden
   display: none
 
-
-
 /***** LINKS ******************** */
-a.icon-headline 
+a.icon-headline
 
   //transition: all .5s ease
-  .ess-icon 
+  .ess-icon
     left: 0
     position: relative
     transition: all .3s ease-out
-  
 
-  *:last-child 
+  *:last-child
     position: relative
     transition: right .3s ease-out
     right: 0
-  
 
-
-a.icon-headline:hover 
-  .ess-icon 
+a.icon-headline:hover
+  .ess-icon
     left: -1rem
-    color: $secondary-color  !important
-  
+    color: $secondary-color !important
 
-  *:last-child 
+  *:last-child
     right: -1rem
-  
 
-
-#mindfulness .no-decoration 
+#mindfulness .no-decoration
   text-decoration: red !important
 
-  &:hover 
+  &:hover
     text-decoration: none !important
-  
 
-
-
-.max-width-image 
+.max-width-image
   @include max-width-image()
 
-
-.main-block 
+.main-block
   padding: $base-margin 0 $double-margin 0
-
-
 
 /***** DISPLAY CLASSES ******************** */
 
-.block 
+.block
   display: block
 
-
-.inline-block 
+.inline-block
   display: inline-block
 
-
-.flex 
+.flex
   display: flex
 
+.ess-color-block
 
-figure 
-  width: 100%
-
-
-.ess-color-block 
-
-  * 
+  *
     position: relative
-  
 
-  .ess-color-block-bkg 
+  .ess-color-block-bkg
     position: absolute
     width: 100%
     height: 100%
     z-index: 0
     top: 0
     left: 0
-  
 
-  position: relative
-  padding: $double-margin
+    position: relative
+    padding: $double-margin
 
-
-.mega-icon 
-  img 
+.mega-icon
+  img
     width: 100%
-    max-width: $dodeca-margin  !important
-  
+    max-width: $dodeca-margin !important
 
-
-.huge-icon 
-  img 
+.huge-icon
+  img
     width: 100%
-    max-width: $okto-margin  !important
-  
+    max-width: $okto-margin !important
 
-
-.big-icon 
-  img 
+.big-icon
+  img
     width: 100%
-    max-width: $sexta-margin  !important
-  
+    max-width: $sexta-margin !important
 
-
-.medium-icon 
-  img 
+.medium-icon
+  img
     width: 100%
-    max-width: $quad-margin  !important
-  
+    max-width: $quad-margin !important
 
-
-.normal-icon 
-  img 
+.normal-icon
+  img
     width: 100%
-    max-width: $double-margin  !important
-  
+    max-width: $double-margin !important
 
-
-.small-icon 
-  img 
+.small-icon
+  img
     width: 100%
-    max-width: $base-margin  !important
-  
+    max-width: $base-margin !important
 
-
-.container ul 
+.container ul
   padding: $half-margin 0 $half-margin 0
   margin: auto
   //max-width: 400px
 
-
-
 // ======================== LISTS ========================
 
-
-ul 
+ul
   list-style: none
 
-
-ul li 
+ul li
   list-style-position: outside
   margin: $base-margin 0
 
-
-#ess-body.ess-body-frontend 
-  ul 
+#ess-body.ess-body-frontend
+  ul
 
     list-style: none
 
-    li::before 
+    li::before
       color: color('essblue', 'base')
       font-weight: bold
       display: inline-block
       width: 1rem
       margin-left: -1rem
-    
 
-    &.list-processing li::before 
+    &.list-processing li::before
 
       color: color('processing', 'darken-2')
 
-    
-
-    &.list-paintshop li::before 
+    &.list-paintshop li::before
 
       color: color('paintshop', 'base')
 
-    
-
-    &.list-washing li::before 
+    &.list-washing li::before
 
       color: color('washing', 'base')
 
-    
-
-    &.list-oil-gas li::before 
+    &.list-oil-gas li::before
 
       color: color('oil-gas', 'base')
 
-    
-
-    &.list-data-cleaning li::before 
+    &.list-data-cleaning li::before
 
       color: color('data-cleaning', 'base')
 
-    
-
-    &.list-mobility li::before 
+    &.list-mobility li::before
 
       color: color('mobility', 'base')
 
-    
-
-    &.list-environment li::before 
+    &.list-environment li::before
 
       color: color('environment', 'base')
 
-    
-  
-
-
-
-.underline 
+.underline
   border-bottom: 1px solid $primary-color
-
-
 
 /* ============== BORDERS ======================== */
 
-
-
 /* ============== IMAGE LINK HOVER ======================== */
 
-.ess-image-link-scale 
+.ess-image-link-scale
   display: block
   margin: 0
   padding: 0
   height: auto
   overflow: hidden
 
-  img 
+  img
     transition: transform 0.5s ease
-  
 
-
-.ess-image-link-scale:hover img 
+.ess-image-link-scale:hover img
   transform: scale(1.2)
 
-
-
 /* ====================== ESS BLOCKS ====================== */
-.ess-cut-corners 
+.ess-cut-corners
   display: block
   padding: 0
   clip-path: polygon(0 1rem, 0 100%, calc(100% - 1rem) 100%, 100% calc(100% - 1rem), 100% 0, 1rem 0)
 
-
-.ess-double-block 
+.ess-double-block
   align-items: center
 
-  .ess-col-left 
+  .ess-col-left
     text-align: right
-  
 
-  .ess-col-right 
+  .ess-col-right
     text-align: left
-  
-
-
 
 /* ********* BORDERS *************** */
 
-.border-primary 
+.border-primary
   border: 1px solid $primary-color
 
-
-.border-gray-accent 
+.border-gray-accent
   border: 1px solid $primary-text
 
-
-.border-secondary 
+.border-secondary
   border: 1px solid $secondary-color
 
-
-.border-supplementary 
+.border-supplementary
   border: 1px solid $secondary-color
 
-
-.border-gray 
+.border-gray
   border: 1px solid color('gray', 'lighten-2')
 
-
-.border-gray-lighter 
+.border-gray-lighter
   border: 1px solid color('gray', 'lighten-2')
 
-
-.border-gray-darker 
+.border-gray-darker
   border: 1px solid color('gray', 'base')
 
-
-.border-psp 
+.border-psp
   border-color: color('paintshop', 'base') !important
 
-
-.border-sense 
+.border-sense
   border-color: color('processing', 'darken-2') !important
 
-
-.border-merge 
+.border-merge
   border-color: color('data-cleaning', 'base') !important
 
-
-.border-outset 
+.border-outset
   padding: $base-margin
   border: 1px solid color('gray', 'lighten-2')
   margin: $base-margin
   position: relative
 
-
-.border-left-outset 
+.border-left-outset
   border-left: 2px solid $primary-color
 
-
-.border-bot-primary 
+.border-bot-primary
   padding-bottom: $base-margin
   border-bottom: 1px solid $primary-color
 
-
-.border-bot-light 
+.border-bot-light
   border-bottom: 1px solid color('gray', 'lighten-4')
 
-
-.border-bot-gray 
+.border-bot-gray
   border-bottom: 1px solid color('gray', 'lighten-1')
 .border-top-gray
   border-top: 1px solid color('gray', 'lighten-1')
 
-.border-bot-gray-accent 
+.border-bot-gray-accent
   border-bottom: 1px solid $primary-text
 
-
-.border-top-light 
+.border-top-light
   border-top: 1px solid color('gray', 'lighten-4')
-
-
 
 // OPACITY ----------------------------------
 
-.opacity-full 
+.opacity-full
   opacity: 1
 
-
-.opacity-heavy 
+.opacity-heavy
   opacity: 0.9
 
-
-.opacity-medium 
+.opacity-medium
   opacity: 0.5
 
-
-.opacity-light 
+.opacity-light
   opacity: 0.3
 
-
-.opacity-offwhite 
+.opacity-offwhite
   opacity: 0.1
-
 
 // TYPOGRAPHY
 
-.label-small 
+.label-small
   color: color('gray', 'lighten-2')
   font-size: 90%
 
-
-
 // SCREEN DEPENDANTS VISIBILITY AND TEXT ALIGN
 
-.ess-desktop .hide-desktop 
+.ess-desktop .hide-desktop
   display: none
 
-
-.ess-device .hide-device 
+.ess-device .hide-device
   display: none
 
-
-@media only screen and (max-width: $medium-screen) 
-  .show-md 
+@media only screen and (max-width: $medium-screen)
+  .show-md
     display: none
-  
 
-
-@media only screen and (min-width: $medium-screen) 
-  .hide-md 
+@media only screen and (min-width: $medium-screen)
+  .hide-md
     display: none
-  
 
-  .center-md 
+  .center-md
     text-align: center
-  
 
-  .left-md 
+  .left-md
     text-align: center
-  
 
-
-@media only screen and (max-width: $small-screen) 
-  .show-sm 
+@media only screen and (max-width: $small-screen)
+  .show-sm
     display: none
-  
 
-
-@media only screen and (min-width: $small-screen) 
-  .hide-sm 
+@media only screen and (min-width: $small-screen)
+  .hide-sm
     display: none
-  
 
-  .center-sm 
+  .center-sm
     text-align: center
-  
 
-  .left-sm 
+  .left-sm
     text-align: left
-  

@@ -3575,6 +3575,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 const FrontContact = () => {
+    const showSubscribe = () => {
+        console.log('showing subscribe from cube');
+        const subscribeModal = document.querySelector('#ess-subscribe-modal');
+        if (subscribeModal) {
+            window.MindGlobal.Modal.show(subscribeModal);
+        }
+    };
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "csscube-front", className: 'wmcube-side' },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "css_block css-block-header w_xii h_iii x_o y_o" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
@@ -3583,7 +3590,7 @@ const FrontContact = () => {
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: `${window.MindGlobal.homeUrl}/contact` },
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Contact Us"))),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "css_block w_iv h_viii x_viii y_iii css-gray" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { id: "cube_subscribe_button" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { id: "cube_subscribe_button", className: "wmwp-subscribe-trigger", onClick: () => { showSubscribe(); console.log('ahoooooj'); } },
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Subscribe"))),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "css_block w_iv h_iv x_o y_xi css-gray-lighter" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "https://www.facebook.com/essteyr", target: "_blank", rel: "noreferrer" },

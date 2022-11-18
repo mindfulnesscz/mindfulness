@@ -65,10 +65,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
       const subscribeTriggers = document.querySelectorAll( '.wmwp-subscribe-trigger' );
 
       if( subscribeModal ) {
-        console.log( 'is modal' );
-        console.log( window.MindGlobal.Modal );
         subscribeTriggers.forEach( btn => {
-          console.log( 'is trigger' );
           btn.addEventListener( 'click', ()=>{ window.MindGlobal.Modal.show( subscribeModal ); } );
         } );
       }

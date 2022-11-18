@@ -2,6 +2,15 @@
 import React from 'react';
 
 const FrontContact: React.FC = () => {
+
+  const showSubscribe = () => {
+    console.log( 'showing subscribe from cube' );
+    const subscribeModal = document.querySelector( '#ess-subscribe-modal' ) as HTMLDivElement;
+    if( subscribeModal ) {
+      window.MindGlobal.Modal.show( subscribeModal );
+    }
+  };
+
   
   return ( 
     <div id="csscube-front" className='wmcube-side'>
@@ -16,7 +25,7 @@ const FrontContact: React.FC = () => {
         </a>
       </div>
       <div className="css_block w_iv h_viii x_viii y_iii css-gray">
-        <a id="cube_subscribe_button">
+        <a id="cube_subscribe_button" className="wmwp-subscribe-trigger" onClick={()=>{showSubscribe(); console.log( 'ahoooooj' );}}>
           <h2>Subscribe</h2>
         </a>
       </div>
