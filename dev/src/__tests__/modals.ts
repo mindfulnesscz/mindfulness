@@ -1,7 +1,6 @@
 
 import {beforeEach, expect, test} from '@jest/globals';
 
-import {Modal} from '../components/Modal';
 
 
 

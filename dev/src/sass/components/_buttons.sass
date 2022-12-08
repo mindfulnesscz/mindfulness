@@ -11,7 +11,7 @@
   font-weight: 500
   border-radius: 2px
   color: white
-  filter: drop-shadow(0px 0px 3px rgba(2,41,180,0.28))
+  //filter: drop-shadow(0px 0px 3px rgba(2,41,180,0.28))
 
 .ess-button, .button, button
   @extend %ess-button
@@ -43,8 +43,10 @@
 
   &.outlined
     background: white
+    color: color('gray', 'darken-2')
     border: 1px solid color('essblue', 'darken-1')
     &:hover
+      color: color('gray', 'darken-3')
       background: rgba(21,161, 255, 0.1)
 
   &.transparent
