@@ -30,7 +30,9 @@ endwhile;
 
 <!-- ========================================== CONTACT FORM AND MAP ========================================== -->
 
+<?php
 
+/*
 <section class="" style="background-color: #f4f4f4">
   <h2 class="center-align p-bot-base">Arrange a meeting:</h2>
   <div id="microsoft-booking-iframe-holder" style=" overflow: hidden;">
@@ -38,6 +40,9 @@ endwhile;
     </iframe>
   </div>
 </section>
+*/
+
+?>
 
 
 <section class="no-padding bg-grey-lightest">
