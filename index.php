@@ -66,7 +66,7 @@ get_header(); ?>
     <div class="row">
       <div class="col-xs-12">
         <h2>GOT YOU INTERESTED?</h2>
-        <button id="ess-contact-sales-button" class="ess-button ess-lg-button outlined">
+        <button id="ess-contact-sales-button" class="wm-button ess-lg-button outlined">
           CONTACT SALES
         </button>
         <p><a href="#">or see our pricing list</a></p>

@@ -73,7 +73,7 @@ endwhile;
       ?>
         <h6 class="color-gray-darker">filter by <?php echo $firstlevel_term->name ?></h6>
         <ul class="filter-row" row="<?php echo $firstlevel_term->slug ?>">
-          <li class="filter-item" data-filter="all"><button class="ess-button filter-active">All</button></li>
+          <li class="filter-item" data-filter="all"><button class="wm-button filter-active">All</button></li>
 
           <?php
           $d_t_secondlevels = get_terms(array(
@@ -85,7 +85,7 @@ endwhile;
 
             $slugs_array[] = $secondlevel_term->slug;
           ?>
-            <li class="filter-item" data-filter="<?php echo $secondlevel_term->slug ?>"><button class="ess-button"><?php echo $secondlevel_term->name ?></button></li>
+            <li class="filter-item" data-filter="<?php echo $secondlevel_term->slug ?>"><button class="wm-button"><?php echo $secondlevel_term->name ?></button></li>
           <?php
           endforeach;
           ?>

@@ -59,7 +59,7 @@ get_header(); ?>
             <div class="border-outset">
               <input type="text" style="padding: 1rem 0" class="ess-input big-text aligncenter color-gray-darker" value="Enter Keyword" name="s" id="s" />
             </div>
-            <input class="ess-button big-button ess-submit" type="submit" id="searchsubmit" value="Search" />
+            <input class="wm-button big-button ess-submit" type="submit" id="searchsubmit" value="Search" />
           </form>
         </div>
       </div>
@@ -76,7 +76,7 @@ get_header(); ?>
     <div class="row">
       <div class="col-xs-12">
         <h2>HAVE A SPECIAL REQUEST?</h2>
-        <button id="ess-contact-sales-button" class="ess-button ess-lg-button outlined">
+        <button id="ess-contact-sales-button" class="wm-button ess-lg-button outlined">
           CONTACT US
         </button>
         <p><a href="#">or see our pricing list</a></p>

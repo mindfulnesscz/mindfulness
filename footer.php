@@ -32,7 +32,7 @@ $template_url = get_template_directory_uri();
 
 
 
-        <div class="transparent sm button wmwp-modal-trigger wmwp-subscribe-trigger">
+        <div class="transparent sm wm-button wmwp-modal-trigger wmwp-subscribe-trigger">
           Subscribe for Newsletter
         </div>
       </div>

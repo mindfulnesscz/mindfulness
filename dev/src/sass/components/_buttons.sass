@@ -1,4 +1,4 @@
-%ess-button
+%wm-button
   position: relative
   display: inline-block
   cursor: pointer
@@ -11,13 +11,15 @@
   font-weight: 500
   border-radius: 2px
   color: white
+  text-decoration: none
   //filter: drop-shadow(0px 0px 3px rgba(2,41,180,0.28))
 
-.ess-button, .button
-  @extend %ess-button
+.wm-button
+  @extend %wm-button
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1)
 
   &:hover
+    text-decoration: none
     background: linear-gradient(0deg, rgba(21, 161, 255, 1) 100%, rgba(21, 161, 255, 1) 100%)
 
   &.sm
@@ -28,6 +30,7 @@
 
   &.lg
     font-size: $h4
+    padding: 1.5rem 2rem
 
   &.xl
     font-size: $h3

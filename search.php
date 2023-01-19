@@ -65,7 +65,7 @@ if (isset($_GET['s'])) {
               <div class="border-outset">
                 <input type="text" style="padding: 1rem 0" class="ess-input big-text aligncenter color-gray-darker" value="Enter Keyword" name="s" id="s" />
               </div>
-              <input class="ess-button big-button ess-submit" type="submit" id="searchsubmit" value="Search" />
+              <input class="wm-button big-button ess-submit" type="submit" id="searchsubmit" value="Search" />
             </form>
           </div>
 

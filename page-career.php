@@ -75,7 +75,7 @@ if (!empty($posts)) : ?>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4 flex">
           <input type="text" placeholder="Enter Search Phrase" name="search" />
-          <a class="ess-button m-left-base bottom-base p-vert-base" style="float: right">Search</a>
+          <a class="wm-button m-left-base bottom-base p-vert-base" style="float: right">Search</a>
         </div>
       </div>
     </div>
