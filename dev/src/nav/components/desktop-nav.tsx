@@ -18,6 +18,8 @@ import RightIndustries from './cube-sides/right-industries';
 import FrontContact from './cube-sides/front-contact';
 import BackProducts from './cube-sides/back-products';
 
+import { ArrowLeft } from './icons';
+
 // assets
 import EssLogo from './ess-logo';
 import '../sass/desktop_nav.sass';
@@ -42,6 +44,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ( { homeUrl, templateUrl} ) => {
       CSSCube.fadeOut();
     };
   }, [] );
+
 
   return (
     <div id="wmnav-wrap">
@@ -72,7 +75,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ( { homeUrl, templateUrl} ) => {
             </button>
             {/* ---------------- ROTATE RIGHT BUTTON -------------------- */}
             <button className="csscube-navbutton right-button">
-              <span className="ess-icon color-primary big-icon icon_simple_arrow_right"></span>
+              <ArrowLeft className='cube-button' ></ArrowLeft>
             </button>
 
             <div id="csscube-rotator">

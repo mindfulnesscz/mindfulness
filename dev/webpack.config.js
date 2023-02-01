@@ -17,7 +17,8 @@ module.exports = {
     'index': './src/index.tsx',
     'nav/mobile': './src/nav/mobile.tsx',
     'nav/desktop': './src/nav/desktop.tsx',
-    'modals' : '/src/modals.tsx'
+    'modals' : '/src/modals.tsx',
+    'ess-filter' : '/src/posts-filter.js'
   },
 
   output: {

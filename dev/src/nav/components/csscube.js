@@ -151,7 +151,7 @@ export default class CessCube {
       if( link.classList.contains( 'active' ) )
         this.active_link = link;
 
-      navbarLinks[i].addEventListener( 'mouseover', e=>{
+      navbarLinks[i].addEventListener( 'click', e=>{
   
         e.preventDefault;
 
@@ -172,18 +172,20 @@ export default class CessCube {
 
   /**
    * Inits sideFedeOutBlocks
+   * This function is not used anymore and can be removed in 3.1
    * @return Array<HTMLDivElement> - Left and Right fadeOutBlocks
    * @since 3.0
    */
   init_sideFadeOutBlocks () {
+
     const leftFadeOutBlock = document.createElement( 'div' );
     leftFadeOutBlock.classList.add( 'cfob', 'cfob-left' );
-    leftFadeOutBlock.addEventListener( 'mouseover', this.fadeOutBlockHover );
+    leftFadeOutBlock.addEventListener( 'click', this.fadeOutBlockHover );
     this.el_canvas.appendChild( leftFadeOutBlock );
 
     const rightFadeOutBlock = document.createElement( 'div' );
     rightFadeOutBlock.classList.add( 'cfob', 'cfob-right' );
-    rightFadeOutBlock.addEventListener( 'mouseover', this.fadeOutBlockHover );
+    rightFadeOutBlock.addEventListener( 'click', this.fadeOutBlockHover );
     this.el_canvas.appendChild( rightFadeOutBlock );
 
     return( [leftFadeOutBlock, rightFadeOutBlock] );
@@ -302,6 +304,8 @@ export default class CessCube {
     // Sets the width of fadeOutBlocks on sides (can't be less than 50px)
     let bw = ( window.innerWidth - this.cube_width )/2 - 220;
     bw = Math.max( bw, 50 );
+
+
     this.fadeOutblocks.map( block => {  
       block.style.width = bw + 'px';
     } );
