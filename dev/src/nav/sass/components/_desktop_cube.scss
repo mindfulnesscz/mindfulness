@@ -209,6 +209,12 @@ $alpha-inactive : 0.1;
             align-items: stretch;
 
             &.css-block-header {
+              text-shadow: white 1px 0 10px;
+              font-size: 120%;
+              font-weight: 700;
+              text-transform: uppercase;
+              color: white;
+
               &>div {
 
                 &:hover {
@@ -301,38 +307,105 @@ $alpha-inactive : 0.1;
       z-index: 1;
       transform-style: preserve-3d;
     }
+  }
+}
 
-    .csscube-navbutton {
-      position: absolute;
-      cursor: pointer;
-      background: none;
-      z-index: 1000;
-      border: none;
-      top: calc(40%);
 
-      .ess-icon {
-        font-size: calc(5vw + 5vh);
-        transition: color .5s ease;
-        color: color('essblue', 'base');
 
+
+
+/** CSS CUBE NAVIGATION BUTTONS - CLOSE, LEFT AND RIGHT ---------------- **/
+
+.csscube-navbutton {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  background: rgba(12, 60, 146, 0.2);
+  z-index: 1000;
+  transition: background 0.2s;
+  border: none;
+
+  svg {
+    transition: transform 0.2s;
+  }
+
+  &:hover {
+    background: rgba(12, 60, 146, 0.5);
+
+    svg {
+      transform: translate(7px, 0);
+    }
+  }
+
+  &.arrow {
+    top: calc(40%);
+    border-radius: 50px;
+    padding: 10px;
+    width: 60px;
+    height: 60px;
+  }
+
+  &.left-button {
+    left: calc(-1.5*(5vw + 5vh));
+    transform: rotate(180deg);
+  }
+
+  &.right-button {
+    right: calc(-1.5*(5vw + 5vh));
+  }
+
+  &:hover {
+    .ess-icon {
+      color: color('essblue', 'darken-1');
+    }
+  }
+
+  &.close {
+    top: 100px;
+    right: 20px;
+    border-radius: 5px;
+    background: rgba(12, 60, 146, 0);
+
+
+    &:hover {
+      background: rgba(12, 60, 146, 0.5);
+
+      .x {
+        transform: scale(0.8) rotate(45deg);
       }
 
-      &.left-button {
-        left: calc(-1.5*(5vw + 5vh));
-      }
-
-      &.right-button {
-        right: calc(-1.5*(5vw + 5vh));
-      }
-
-      &:hover {
-        .ess-icon {
-          color: color('essblue', 'darken-1');
-        }
+      .l {
+        transform: scale(0.8) rotate(-45deg);
       }
 
     }
   }
+
+  .x {
+    transition: transform 0.2s;
+    width: 50px;
+    height: 2px;
+    transform: rotate(45deg);
+    position: absolute;
+    background: white;
+    top: 30px;
+    left: 5px;
+
+    &.l {
+      transform: rotate(-45deg);
+    }
+  }
+
+  .line {
+    stroke: white;
+    stroke-width: 2px;
+  }
+
+  .shape {
+    fill: white;
+  }
+
 }
 
 
@@ -366,6 +439,8 @@ $alpha-inactive : 0.1;
   top: auto;
   bottom: 0;
 }
+
+
 
 // CSS ESS CUBE - Small logos inside Product panels of the Cube
 

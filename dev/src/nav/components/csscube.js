@@ -21,6 +21,7 @@ export default class CessCube {
 
     this.el_canvas  = document.querySelector( '#wmnav-content' );
     this.el_cont    = this.el_canvas.querySelector( '#csscube-cont' );
+    this.el_close_btn = this.el_cont.querySelector( '#csscube-close-button' );
         
     this.tweeen = 'power2.out';
     this.tween_length = 0.8;
@@ -674,6 +675,11 @@ export default class CessCube {
    * @return void
    */
   elCanvasClickable () {
+
+    this.el_close_btn.addEventListener( 'click', ()=>{
+      this.fadeOut();
+    } );
+
     this.el_clickable_background = document.createElement( 'div' );
     this.el_clickable_background.setAttribute( 'id', 'el-clickable-background' );
     this.el_clickable_background.addEventListener( 'click', () => {
