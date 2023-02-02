@@ -19,6 +19,7 @@ import FrontContact from './cube-sides/front-contact';
 import BackProducts from './cube-sides/back-products';
 
 import { ArrowLeft } from './icons';
+import { ArrowRight } from './icons';
 
 // assets
 import EssLogo from './ess-logo';
@@ -71,11 +72,11 @@ const DesktopNav: React.FC<DesktopNavProps> = ( { homeUrl, templateUrl} ) => {
 
             {/* ---------------- ROTATE LEFT BUTTON -------------------- */}
             <button className="csscube-navbutton left-button">
-              <span className="ess-icon color-primary big-icon icon_simple_arrow_left"></span>
+              <ArrowLeft className='cube-button' ></ArrowLeft>
             </button>
             {/* ---------------- ROTATE RIGHT BUTTON -------------------- */}
             <button className="csscube-navbutton right-button">
-              <ArrowLeft className='cube-button' ></ArrowLeft>
+              <ArrowRight className='cube-button' ></ArrowRight>
             </button>
 
             <div id="csscube-rotator">

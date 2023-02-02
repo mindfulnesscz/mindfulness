@@ -104,8 +104,8 @@
 }
 
 .cube-button {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 }
 
 .cbarr-0 {
@@ -113,11 +113,11 @@
 }
 
 .cbarr-1 {
-  fill: red
+  fill: #4a4d4d
 }
 
 .cbarr-2 {
-  fill: red
+  fill: url(#SVGID_1_);
 }
 
 .cbarr-3 {
@@ -130,4 +130,15 @@
 
 .cbarr-5 {
   fill: #6ED3FF
+}
+
+.csscube-navbutton {
+
+
+  transition: all 0.5s;
+
+  &:hover {
+    opacity: 1;
+    transform: translate(0, -5px);
+  }
 }
