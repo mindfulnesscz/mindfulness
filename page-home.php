@@ -60,7 +60,7 @@ get_header(); ?>
 
 <?php
 
-get_template_part('template-parts/navigation/navigation', 'mobile-banner-repair');
+get_template_part('template-parts/navigation/navigation', 'mobile-banner-platform');
 
 ?>
 

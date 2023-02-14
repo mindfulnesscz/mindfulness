@@ -390,7 +390,7 @@
                   <!-- ******************************************* HOME CUBE BANNER ******************************************* -->
 
 
-                  <?php get_template_part('template-parts/navigation/navigation', 'cube-banner-repair'); ?>
+                  <?php get_template_part('template-parts/navigation/navigation', 'cube-banner-platform'); ?>
 
 
                 </div>

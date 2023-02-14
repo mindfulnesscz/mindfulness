@@ -203,18 +203,19 @@ $template_url = get_template_directory_uri();
           <h5 class="">ENGINEERING SOFTWARE STEYR</h5>
         </div>
         <div class="row ">
-          <div class="col-xs-6 col-sm-3 ">
+          <div class="col-xs-6 col-sm-4 ">
             <ul>
               <li>
                 <h6>ABOUT US</h6>
               </li>
               <li><a href="<?php echo $h ?>/about-us">Ess company</a></li>
               <li><a href="<?php echo $h ?>/about-us#our-team">Team</a></li>
+              <li><a href="<?php echo $h ?>/case-solutions">Case solutions</a></li>
               <li><a href="<?php echo $h ?>/career-opportunities">Career</a></li>
               <li><a href="<?php echo $h ?>/contact">Contact</a></li>
             </ul>
           </div>
-          <div class="col-xs-6 col-sm-3 ">
+          <div class="col-xs-6 col-sm-4 ">
             <ul>
               <li>
                 <h6>INDUSTRIES</h6>
@@ -225,7 +226,7 @@ $template_url = get_template_directory_uri();
               <li><a href="<?php echo $h ?>/automotive-industry">Automotive</a></li>
             </ul>
           </div>
-          <div class="col-xs-6 col-sm-3 ">
+          <div class="col-xs-6 col-sm-4 ">
             <ul>
               <li>
                 <h6>SOLUTIONS</h6>
@@ -239,17 +240,6 @@ $template_url = get_template_directory_uri();
               <li><a href="<?php echo $h ?>/alsim-oil-gas">alsim Oil & Gas</a></li>
             </ul>
           </div>
-          <div class="col-xs-6 col-sm-3 ">
-            <ul>
-              <li>
-                <h6>USE CASES</h6>
-              </li>
-              <li><a href="<?php echo $c ?>">Energy & Environment</a></li>
-              <li><a href="<?php echo $c ?>">Oil & Gas</a></li>
-              <li><a href="<?php echo $c ?>">Mineral Processing</a></li>
-              <li><a href="<?php echo $c ?>">Automotive</a></li>
-            </ul>
-          </div>
         </div>
       </div>
     </div>
@@ -257,7 +247,7 @@ $template_url = get_template_directory_uri();
   <div class="footer-copyright ">
     <div class="container ">
       <div class="copyright-element"> © <?php echo date('Y') ?> ESS - Engineering Software Steyr GmbH</div>
-      <div class="copyright-element"><a href="<?php echo home_url() . '/legal-notice' ?>">legal notice</a></div>
+      <div class="copyright-element"><a href="<?php echo home_url() . '/legal-notice' ?>">Legal Notice</a></div>
     </div>
   </div>
 </footer>
