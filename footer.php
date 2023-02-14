@@ -225,7 +225,7 @@ $template_url = get_template_directory_uri();
               <li><a href="<?php echo get_post_type_archive_link('case_solution'); ?>/energy-environment">Energy & Environment</a></li>
               <li><a href="<?php echo $h ?>/oil-gas">Oil & Gas</a></li>
               <li><a href="<?php echo $h ?>/processing">Mineral Processing</a></li>
-              <li><a href="<?php echo $h ?>/automotive-industry">Automotive</a></li>
+              <li><a href="<?php echo $h ?>/automotive">Automotive</a></li>
             </ul>
           </div>
           <div class="col-xs-6 col-sm-4 ">
