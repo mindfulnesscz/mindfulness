@@ -41,11 +41,11 @@ const BottomAbout: React.FC = () => {
 
           <div className="home-banner-cube" id="hbc-dynairix">
 
-            <a href=" https://alsimcloud.com" target="_blank">
+            <a href=" https://www.essteyr.com/alsim-platform" target="_self">
 
 
               <div className="hbc-banner-overlay"></div>
-              <img className="hbc-banner-image" width="3004" height="815" src="https://www.essteyr.com/ess-media/home-banner/220312_repair/hbc-repair-banner.webp" />
+              <img className="hbc-banner-image" width="3004" height="815" src="https://www.essteyr.com/ess-media/home-banner/230214_platform/hbc-platform-banner.webp" />
             </a>
           </div>
 
