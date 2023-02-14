@@ -30,20 +30,22 @@ $template_url = get_template_directory_uri();
       <div class="col-footer-contact col-xs-12 col-sm-4 col-lg-3">
         <div class="darker-gray ess-divider ess-show-on-small-and-down "></div>
         <h5>QUICK CONTACT</h5>
-        <p>ESS Engineering Software Steyr<br> Berggasse 35, 4400 Steyr, Austria
+        <p>ESS Engineering Software Steyr GmbH<br> Berggasse 35, 4400 Steyr, Austria
         </p>
         <div class="ess-margin"></div>
-        <h6>+43 7252 20446</h6>
-        <h5>STAY UPDATED</h5>
+        <h5>+43 7252 20446</h5>
 
 
-        <!--   footer SUBSCRIBE BUTTON  ............................................... -->
+        <!--<h5>STAY UPDATED</h5>-->
+
+
+        <!--   footer SUBSCRIBE BUTTON  ............................................... 
 
         <div class="ess-subscribe-footer" style="flex-wrap: wrap;">
           <div class="button-holder ">
             <button class="ess-button modal-trigger" data-target="ess-modal-subscribe">subscribe</button>
           </div>
-        </div>
+        </div>-->
       </div>
 
       <!--   footer NEWS ............................................... -->
