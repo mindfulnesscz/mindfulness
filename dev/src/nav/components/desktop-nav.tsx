@@ -11,7 +11,7 @@ import React, {useEffect} from 'react';
 import '../../../globals'; // for .svg import support in typescript
 
 // components
-import CessCube from './csscube';
+import CssCube from './csscube';
 import BottomAbout from './cube-sides/bottom-about';
 import LeftCaseSolutions from './cube-sides/left-case-solutions';
 import RightIndustries from './cube-sides/right-industries';
@@ -34,7 +34,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ( { homeUrl, templateUrl} ) => {
 
   useEffect( ()=>{
 
-    const CSSCube = new CessCube();
+    const CSSCube = new CssCube();
 
     CSSCube.init();
 
