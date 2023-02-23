@@ -21,7 +21,7 @@ const FrontContact: React.FC = () => {
       </div>
       <div className="css_block w_viii h_viii x_o y_iii css-gray">
         <a href={`${window.MindGlobal.homeUrl}/contact`}>
-          <h2>Contact Us</h2>
+          <h2>Contact</h2>
         </a>
       </div>
       <div className="css_block w_iv h_viii x_viii y_iii css-gray">
