@@ -48,13 +48,13 @@ $-okto-margin : calc((0.8rem + 0.5vw) * -8);
 $copy-font: 'Open Sans', Helvetica, Arial, sans-serif;
 $headline-font: 'Exo', sans-serif;
 
-$bread-text-sm: 14px;
-$bread-text-md: 15px;
-$bread-text-lg: 16px;
+$bread-text-sm: 16px;
+$bread-text-md: 18px;
+$bread-text-lg: 22px;
 
-$bread-text-sm-line: 18px;
-$bread-text-md-line: 21px;
-$bread-text-lg-line: 24px;
+$bread-text-sm-line: 20px;
+$bread-text-md-line: 23px;
+$bread-text-lg-line: 27px;
 
 $tiny-text-sm: 10px;
 $tiny-text-md: 11px;
@@ -84,12 +84,12 @@ $mega-text-sm: 40px;
 $mega-text-md: 52px;
 $mega-text-lg: 64px;
 
-$h1 : calc(2.65rem + 1vw);
-$h1-h2 : calc(1.65rem + 1.1vw);
-$h2 : calc(1.8rem + 1vw);
-$h3 : calc(1.4rem + 0.8vw);
-$h4 : calc(1.2rem + 0.4vw);
-$h5 : calc(0.9rem + 0.1vw);
+$h1 : calc(2.9rem + 1vw);
+$h1-h2 : calc(1.75rem + 1.1vw);
+$h2 : calc(1.95rem + 1vw);
+$h3 : calc(1.56rem + 0.8vw);
+$h4 : calc(1.32rem + 0.4vw);
+$h5 : calc(1.1rem + 0.1vw);
 $h6 : calc(0.7rem + 0.08vw);
 
 

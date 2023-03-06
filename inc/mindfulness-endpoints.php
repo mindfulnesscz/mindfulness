@@ -35,7 +35,7 @@ function mind_get_case_solutions(object $args)
   $cs_args  = array(
     'numberposts'      => $c,
     'orderby'         => 'post_date',
-    'order'           => 'ASC',
+    'order'           => 'DESC',
     'post_type'       => 'case_solution',
   );
 

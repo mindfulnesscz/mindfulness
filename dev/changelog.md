@@ -1,16 +1,15 @@
 
+
 ## [3.1] - TODOs
 - Cube design review
-
-## [3.0] - TODOs
 - News category support
-- Typography, spacing and current content update
 - Archive pages redesign implementation
 - Single pages redesign implementation
 
 ----------------------------------------------------------------------------------------
 
 ## [3.0]
+- Typography, spacing and current content update
 - New Mobile navigation and switching
 - New footer
 - Got rid of all frameworks
@@ -21,7 +20,7 @@
 - Advanced script registration with versions added from current version or random if under development mode in wp-config
 
 ***
-## [2.0.11] - 2022-05-18 (Date of Last Commit)
+## [2.1] - 2022-05-18 (Date of Last Commit)
 
 * Spacing and Layout classes edited and added (_spacing.scss, _z-indexes.scss, layout.scss)
 * New banner template created

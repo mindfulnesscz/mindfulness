@@ -153,18 +153,22 @@ export default class CessCube {
         this.active_link = link;
 
       navbarLinks[i].addEventListener( 'click', e=>{
+        console.log( 'testiiing' );
+
+        if( window.ess_cube_transitioning != true ) {
   
-        e.preventDefault;
+          e.preventDefault;
 
-        // Re-enable scrolling
-        document.body.style.overflow = 'hidden';
+          // Re-enable scrolling
+          document.body.style.overflow = 'hidden';
 
-        if( this.active_link !== undefined && this.active_link !== e.target ) {
-          this.active_link.classList.remove( 'active' );
-          this.active_link = e.target;
-        }
+          if( this.active_link !== undefined && this.active_link !== e.target ) {
+            this.active_link.classList.remove( 'active' );
+            this.active_link = e.target;
+          }
         
-        this._position_cube( linkCubeSide );
+          this._position_cube( linkCubeSide );
+        }
       } );
     }
 
@@ -198,7 +202,6 @@ export default class CessCube {
    * @since 3.0
    */
   fadeOutBlockHover () {
-    console.log( 'fadeoufadoutfadout' );
     window.MindGlobal.CubeInst.fadeOut();
   }
 
@@ -547,6 +550,7 @@ export default class CessCube {
   }
   fadeIn () {
 
+    window.ess_cube_entering = true;
 
     this.isOnStage = true;
 
@@ -576,7 +580,7 @@ export default class CessCube {
       ease: 'power2.out', 
       css: { opacity: 1},
       onComplete: ()=>{
-        window.ess_cube_transitioning = false;
+        window.ess_cube_entering = false;
       }
     } );
 
@@ -643,7 +647,10 @@ export default class CessCube {
       css: { opacity: 0},
       onComplete: ()=>{
         window.ess_cube_transitioning = false;
-        this.el_canvas.style.display = 'none';
+        if( !window.ess_cube_entering ) {
+          this.el_canvas.style.display = 'none';
+        }
+        
       }
     } );
             

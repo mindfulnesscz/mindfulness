@@ -33,7 +33,7 @@ $large = wp_get_attachment_image_src($thumb_id, 'large');
   <div class="ess-keypage-header">
     <div class="container">
       <div class="row row-container force-margin just-center">
-        <div class="col-xs-12 col-lg-8 no-padding">
+        <div class="col-xs-12 no-padding">
           <img src="
                                     <?php echo $small[0] ?>" srcset="
                                     <?php echo $small[0] . ' 400w'; ?>

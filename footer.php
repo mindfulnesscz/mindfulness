@@ -175,11 +175,11 @@ $template_url = get_template_directory_uri();
       $c = get_post_type_archive_link('case_solution');
       ?>
       <div class="footer-section col-footer-menu col-sm-12 col-lg-5 ">
-        <h6 class="footer-section-headline">Engineering Software Steyr</h6>
+        <h6 class="footer-section-headline">Quick Links</h6>
 
         <div class="row text-sm ">
-          <div class="col-xs-6 col-sm-3 ">
-            <ul>
+          <div class="col-xs-6 col-sm-4 p-zero">
+            <ul class="p-zero">
               <li>
                 <h6>ABOUT US</h6>
               </li>
@@ -189,8 +189,8 @@ $template_url = get_template_directory_uri();
               <li class="text-sm"><a href="<?php echo $h ?>/contact">Contact</a></li>
             </ul>
           </div>
-          <div class="col-xs-6 col-sm-3 ">
-            <ul>
+          <div class="col-xs-6 col-sm-4 p-zero">
+            <ul class="p-zero">
               <li>
                 <h6>INDUSTRIES</h6>
               </li>
@@ -200,24 +200,30 @@ $template_url = get_template_directory_uri();
               <li class="text-sm"><a href="<?php echo $h ?>/automotive">Automotive</a></li>
             </ul>
           </div>
-          <div class="col-xs-6 col-sm-3 ">
-            <ul>
+          <div class="col-xs-12 col-sm-4 p-zero">
+            <ul class="p-zero">
               <li>
                 <h6>SOLUTIONS</h6>
               </li>
-              <li class="text-sm"><a href="<?php echo $h ?>/alsim-paintshop">alsim Paintshop</a></li>
-              <li class="text-sm"><a href="<?php echo $h ?>/alsim-data-cleaning">alsim Data Cleaning</a></li>
-              <li class="text-sm"><a href="<?php echo $h ?>/alsim-processing">alsim Processing</a></li>
-              <li class="text-sm"><a href="<?php echo $h ?>/alsim-mobility">alsim Mobility</a></li>
 
             </ul>
-          </div>
-          <div class="col-xs-6 col-sm-3 m-top-double">
-            <ul>
-              <li class="text-sm"><a href="<?php echo $h ?>/alsim-environment">alsim Environment</a></li>
-              <li class="text-sm"><a href="<?php echo $h ?>/alsim-washing">alsim Washing</a></li>
-              <li class="text-sm"><a href="<?php echo $h ?>/alsim-oil-gas">alsim Oil & Gas</a></li>
-            </ul>
+            <div class="row">
+              <div class="col-xs-6 col-sm-12 p-zero">
+                <ul class="p-zero m-zero">
+                  <li class="text-sm"><a href="<?php echo $h ?>/alsim-paintshop">alsim Paintshop</a></li>
+                  <li class="text-sm"><a href="<?php echo $h ?>/alsim-data-cleaning">alsim Data Cleaning</a></li>
+                  <li class="text-sm"><a href="<?php echo $h ?>/alsim-processing">alsim Processing</a></li>
+                  <li class="text-sm"><a href="<?php echo $h ?>/alsim-mobility">alsim Mobility</a></li>
+                </ul>
+              </div>
+              <div class="col-xs-6 col-sm-12 p-zero">
+                <ul class="p-zero m-zero">
+                  <li class="text-sm"><a href="<?php echo $h ?>/alsim-environment">alsim Environment</a></li>
+                  <li class="text-sm"><a href="<?php echo $h ?>/alsim-washing">alsim Washing</a></li>
+                  <li class="text-sm"><a href="<?php echo $h ?>/alsim-oil-gas">alsim Oil & Gas</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
