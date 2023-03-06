@@ -44,7 +44,7 @@ const NavMenu: React.FC<NavMenuProps> = ( { mindGlobal } ) => {
 
   useEffect( ()=>{
     if( !( mindGlobal as unknown as Indexable )[device + 'Nav'] )
-      callScript( mindGlobal.templateUrl + '/assets/js/nav/' + device + '.js' );
+      callScript( mindGlobal.templateUrl + '/assets/js/nav/' + device + '.js?ver='+mindGlobal.templateVersion );
     else
       setMenuComp( ( mindGlobal as unknown as Indexable )[device + 'Nav'] );    
   }, [device] );

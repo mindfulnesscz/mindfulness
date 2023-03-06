@@ -32,7 +32,7 @@
 
   .single-thumbnail {
     max-width: 100%;
-    max-height: 900px;
+    max-height: 450px;
     display: block;
     margin: auto;
     position: relative;
@@ -218,9 +218,9 @@ html #ess-body {
 
 
 .ess-tiny-header {
-  background: color('gray', 'lighten-4');
+  background: color('gray', 'lighten-5');
   height: auto;
-  padding-top: $base-margin;
+  padding-top: $quad-margin;
   padding-bottom: $base-margin;
 
   h1 {

@@ -1,81 +1,80 @@
 .ess-posts-filter {
+  background-color: color('gray', 'lighten-5');
 
-	#filter-holder {
-		h6 {
-			padding: $half-margin 0 0 $double-margin;
-			margin: 0;
-			//border-bottom: 1px solid color('gray', 'lighten-2')
-		}
+  #filter-holder {
+    h6 {
+      padding: $half-margin 0 0 $double-margin;
+      margin: 0;
+      //border-bottom: 1px solid color('gray', 'lighten-2')
+    }
 
-		.filter-row {
-			border-bottom: 1px solid color('gray', 'lighten-2')-light-ii;
+    .filter-row {
+      border-bottom: 1px solid color('gray', 'lighten-2')-light-ii;
 
-			&:last-child {
-				border-bottom: none;
-			}
+      &:last-child {
+        border-bottom: none;
+      }
 
-			.filter-item {
+      .filter-item {
 
-				&::before { 
-					display: none; 
-				}
-				margin: 0;
+        &::before {
+          display: none;
+        }
 
-				display: inline-block;
+        margin: 0;
 
-				button {
-					border: none;
-					background: none;
-					padding: $half-margin;
-					color: $secondary-color;
+        display: inline-block;
 
-					&:focus {
-						color: $secondary-color;
-						background: none;
-					}
-				}
+        button {
+          border: none;
+          background: none;
+          padding: $half-margin;
+          color: $secondary-color;
 
-				.filter-active {
-					color: $white;
-					background: $primary-color;
+          &:focus {
+            color: $secondary-color;
+            background: none;
+          }
+        }
 
-					&:focus {
-						background: $primary-color;
-						color: $white;
-					}
-				}
+        .filter-active {
+          color: $white;
+          background: $primary-color;
 
-				.wm-button {
-					margin: 0;
-					font-size: 80%;
-				}
-			}
-		}
-	}
+          &:focus {
+            background: $primary-color;
+            color: $white;
+          }
+        }
+
+        .wm-button {
+          margin: 0;
+          font-size: 80%;
+        }
+      }
+    }
+  }
 }
 
 .filtr-container {
-	.filtr-item {
-		min-height: 490px;
+  .filtr-item {
+    min-height: 490px;
 
-		h4 {
-			min-height: 5rem;
+    h4 {
+      min-height: 5rem;
 
-			&+p {
-				display: none;
-			}
-		}
+      &+p {
+        display: none;
+      }
+    }
 
-		p {
-			min-height: 7rem;
+    p {
+      min-height: 7rem;
 
-			&:last-child {
-				display: none;
-			}
-		}
+    }
 
-		.image-link {
-			margin-bottom: $half-margin;
-		}
-	}
+    .image-link {
+      margin-bottom: $half-margin;
+    }
+  }
 }

@@ -11,7 +11,11 @@
   }
 
   .news-col {
-    //transition: all 0.5s ease;
+
+    a {
+      text-decoration: none
+    }
+
     padding: $half-margin;
     margin: 0;
     z-index: 0 !important;
@@ -35,17 +39,6 @@
       padding-bottom: $base-margin;
     }
 
-    div {
-      background: $white;
-    }
-
-    h4 {
-      a:hover {
-        text-decoration: underline;
-      }
-
-      margin-top: 0;
-    }
 
     .thumb-image {
       display: block;
@@ -54,7 +47,7 @@
     }
 
     .news-col-text {
-      padding-top: $base-margin  !important;
+      padding-top: $half-margin !important;
 
       .row {
         border-bottom: 1px solid color('gray', 'lighten-2');
@@ -88,6 +81,8 @@
     }
 
     .news-col-image {
+      padding: 0;
+
       a {
         display: block;
         margin: 0;
@@ -97,14 +92,22 @@
       }
 
       img {
-        transition: transform 0.2s ease;
+        transition: transform 0.6s ease;
       }
     }
   }
 
-  .news-col:hover .news-col-image img {
-    transform: scale(1.2);
+  .news-col:hover {
+    a {
+      text-decoration: underline
+    }
+
+    .news-col-image img {
+      transform: scale(1.1);
+    }
   }
+
+
 
 
   &.filtr-container {
@@ -166,7 +169,7 @@
 }
 
 #ess-body .container article {
-  padding: $double-margin 0 $quad-margin 0;
+  padding: 0 0 $quad-margin 0;
 }
 
 article figure {
@@ -209,12 +212,14 @@ article figure {
 
 @media only screen and (max-width: $medium-screen) {
   .news-col {
+    filter: drop-shadow(0px 10px 5px color('gray', 'lighten-5'));
+
     .no-margin {
       padding: $base-margin 0;
     }
 
     .news-col-text {
-      padding-left: $base-margin  !important;
+      padding-left: $base-margin !important;
 
       p {
         display: none;

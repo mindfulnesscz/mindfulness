@@ -45,6 +45,7 @@ function wm_grab_chunks()
 function mindfulness_scripts()
 {
 
+
   //wm_console(json_encode(wm_grab_chunks()));
 
   // NO CHUNKS AT THE MOMENT
@@ -102,7 +103,7 @@ function mindfulness_scripts()
     'MindGlobal',
     array(
       'templateUrl'   => get_template_directory_uri(),
-      'templateVersion'   => MINDFULNESS_VERSION,
+      'templateVersion'   => mindfulness_version(),
       'homeUrl'  => get_home_url()
     )
   );

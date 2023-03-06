@@ -21,11 +21,11 @@ const FrontContact: React.FC = () => {
       </div>
       <div className="css_block w_viii h_viii x_o y_iii css-gray">
         <a href={`${window.MindGlobal.homeUrl}/contact`}>
-          <h2>Contact</h2>
+          <h2>Contact Us</h2>
         </a>
       </div>
       <div className="css_block w_iv h_viii x_viii y_iii css-gray">
-        <a id="cube_subscribe_button" className="wmwp-subscribe-trigger" onClick={()=>{showSubscribe(); console.log( 'ahoooooj' );}}>
+        <a id="cube_subscribe_button" className="wmwp-subscribe-trigger" onClick={()=>{showSubscribe();}}>
           <h2>Subscribe</h2>
         </a>
       </div>

@@ -30,7 +30,8 @@ a:hover
 /* ============================== elements ================================= */
 
 main
-  margin: $quad-margin 0
+  margin: 0
+
   .row
     justify-content: center
 
@@ -52,8 +53,11 @@ section
   width: 100% !important
   max-width: 1440px !important
 
-body figure
-  margin: 0
+.wp-block-image
+  margin: $quad-margin 0
+
+figure
+  margin: $double-margin 0
   padding: 0
 
   &:hover
@@ -177,7 +181,6 @@ a.icon-headline:hover
   img
     width: 100%
     max-width: $base-margin !important
-
 
 // ======================== LISTS ========================
 

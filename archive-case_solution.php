@@ -29,7 +29,7 @@ get_header(); ?>
 
 <main class="ess-main no-padding">
 
-  <section class="ess-posts-filter bg-gray-lighter p-hor-base">
+  <section class="ess-posts-filter p-hor-base">
 
     <div class="container" id="filter-holder">
 
