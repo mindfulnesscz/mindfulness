@@ -22,15 +22,10 @@ $template_url = get_template_directory_uri();
       <div class="footer-section col-footer-contact col-xs-12 col-sm-4 col-lg-3 center">
         <div class="darker-gray ess-divider ess-show-on-small-and-down "></div>
         <h6 class="footer-section-headline center">Quick Contact</h6>
-        <p class="text-sm center">ESS Engineering Software Steyr<br> Berggasse 35, 4400 Steyr, Austria
+        <p class="text-sm center">ESS Engineering Software Steyr GmbH<br> Berggasse 35, 4400 Steyr, Austria
         </p>
         <p class="text-sm center">+43 7252 20446</p>
         <h6 class="center">STAY UPDATED</h6>
-
-
-
-
-
 
         <div class="transparent sm wm-button wmwp-modal-trigger wmwp-subscribe-trigger">
           Subscribe for Newsletter
@@ -202,7 +197,7 @@ $template_url = get_template_directory_uri();
               <li class="text-sm"><a href="<?php echo get_post_type_archive_link('case_solution'); ?>/energy-environment">Energy & Environment</a></li>
               <li class="text-sm"><a href="<?php echo $h ?>/oil-gas">Oil & Gas</a></li>
               <li class="text-sm"><a href="<?php echo $h ?>/processing">Mineral Processing</a></li>
-              <li class="text-sm"><a href="<?php echo $h ?>/automotive-industry">Automotive</a></li>
+              <li class="text-sm"><a href="<?php echo $h ?>/automotive">Automotive</a></li>
             </ul>
           </div>
           <div class="col-xs-6 col-sm-3 ">
@@ -214,20 +209,14 @@ $template_url = get_template_directory_uri();
               <li class="text-sm"><a href="<?php echo $h ?>/alsim-data-cleaning">alsim Data Cleaning</a></li>
               <li class="text-sm"><a href="<?php echo $h ?>/alsim-processing">alsim Processing</a></li>
               <li class="text-sm"><a href="<?php echo $h ?>/alsim-mobility">alsim Mobility</a></li>
+
+            </ul>
+          </div>
+          <div class="col-xs-6 col-sm-3 m-top-double">
+            <ul>
               <li class="text-sm"><a href="<?php echo $h ?>/alsim-environment">alsim Environment</a></li>
               <li class="text-sm"><a href="<?php echo $h ?>/alsim-washing">alsim Washing</a></li>
               <li class="text-sm"><a href="<?php echo $h ?>/alsim-oil-gas">alsim Oil & Gas</a></li>
-            </ul>
-          </div>
-          <div class="col-xs-6 col-sm-3 ">
-            <ul>
-              <li>
-                <h6>USE CASES</h6>
-              </li>
-              <li class="text-sm"><a href="<?php echo $c ?>">Energy & Environment</a></li>
-              <li class="text-sm"><a href="<?php echo $c ?>">Oil & Gas</a></li>
-              <li class="text-sm"><a href="<?php echo $c ?>">Mineral Processing</a></li>
-              <li class="text-sm"><a href="<?php echo $c ?>">Automotive</a></li>
             </ul>
           </div>
         </div>
@@ -238,7 +227,7 @@ $template_url = get_template_directory_uri();
   <div class="footer-copyright text-sm has-gray-lighten-1-background-color p-vert-base ">
     <div class="container ">
       <div class="copyright-element"> © <?php echo date('Y') ?> ESS - Engineering Software Steyr GmbH</div>
-      <div class="copyright-element"><a href="<?php echo home_url() . '/legal-notice' ?>">legal notice</a></div>
+      <div class="copyright-element"><a href="<?php echo home_url() . '/legal-notice' ?>">Legal Notice</a></div>
     </div>
   </div>
 
