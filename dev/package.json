@@ -1,6 +1,6 @@
 {
   "name": "ess_backend",
-  "version": "2.0.11",
+  "version": "2.0.12",
   "description": "Webpack bundle for generetinh ESS Website javascript files",
   "main": "index.js",
   "scripts": {

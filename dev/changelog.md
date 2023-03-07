@@ -9,6 +9,10 @@
 - clean styles and make html view of all possible classes
 - add the onscroll features on ess blocks
 
+## [2.0.12] - 2022-05-18 (Date of Last Commit)
+* Removed jQuery subscirbe form since we're turning to 3.0 with plugin instead of theme support
+* Added .hidden class (for the ess-career plugin compatibility)
+
 ## [2.0.11] - 2022-05-18 (Date of Last Commit)
 
 * Spacing and Layout classes edited and added (_spacing.scss, _z-indexes.scss, layout.scss)

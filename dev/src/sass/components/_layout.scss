@@ -54,7 +54,7 @@ a:hover {
 }
 
 .force-margin {
-  padding: 0 $base-margin  !important;
+  padding: 0 $base-margin !important;
 }
 
 .ess-padding {
@@ -292,7 +292,8 @@ body figure {
   background: $ess-blue;
 }
 
-.ess-hidden {
+.ess-hidden,
+.hidden {
   display: none;
 }
 
@@ -317,7 +318,7 @@ a.icon-headline {
 a.icon-headline:hover {
   .ess-icon {
     left: -1rem;
-    color: $secondary-color  !important;
+    color: $secondary-color !important;
   }
 
   *:last-child {
@@ -383,42 +384,42 @@ figure {
 .mega-icon {
   img {
     width: 100%;
-    max-width: $dodeca-margin  !important
+    max-width: $dodeca-margin !important
   }
 }
 
 .huge-icon {
   img {
     width: 100%;
-    max-width: $okto-margin  !important;
+    max-width: $okto-margin !important;
   }
 }
 
 .big-icon {
   img {
     width: 100%;
-    max-width: $sexta-margin  !important;
+    max-width: $sexta-margin !important;
   }
 }
 
 .medium-icon {
   img {
     width: 100%;
-    max-width: $quad-margin  !important;
+    max-width: $quad-margin !important;
   }
 }
 
 .normal-icon {
   img {
     width: 100%;
-    max-width: $double-margin  !important;
+    max-width: $double-margin !important;
   }
 }
 
 .small-icon {
   img {
     width: 100%;
-    max-width: $base-margin  !important;
+    max-width: $base-margin !important;
   }
 }
 
