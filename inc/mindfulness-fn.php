@@ -34,11 +34,13 @@ function ess_image_src($id, $sizes = array())
 
   $small = wp_get_attachment_image_src($id, 'small_uncropped');
 
-  return (array(
-    $small[0],
-    $output,
-    $small[1] / $small[2]
-  ));
+  if ($small) {
+    return (array(
+      $small[0],
+      $output,
+      $small[1] / $small[2] && $small[2] !=  0 ? $small[2] : 1
+    ));
+  } else return false;
 };
 
 

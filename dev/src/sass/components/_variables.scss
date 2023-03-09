@@ -48,13 +48,18 @@ $-okto-margin : calc((0.8rem + 0.5vw) * -8);
 $copy-font: 'Open Sans', Helvetica, Arial, sans-serif;
 $headline-font: 'Exo', sans-serif;
 
+$text-max-width: 720px;
+
+$headline-color: color('gray', 'darken-2');
+
+
 $bread-text-sm: 16px;
 $bread-text-md: 18px;
-$bread-text-lg: 20px;
+$bread-text-lg: 18px;
 
-$bread-text-sm-line: 28px;
-$bread-text-md-line: 30px;
-$bread-text-lg-line: 34px;
+$bread-text-sm-line: 26px;
+$bread-text-md-line: 28px;
+$bread-text-lg-line: 30px;
 
 $tiny-text-sm: 10px;
 $tiny-text-md: 11px;
@@ -66,11 +71,11 @@ $tiny-text-lg-line: 18px;
 
 $small-text-sm: 11px;
 $small-text-md: 12px;
-$small-text-lg: 13px;
+$small-text-lg: 14px;
 
 $small-text-sm-line: 16px;
 $small-text-md-line: 17px;
-$small-text-lg-line: 18px;
+$small-text-lg-line: 20px;
 
 $large-text-sm: 16px;
 $large-text-md: 18px;
@@ -92,6 +97,66 @@ $h4 : calc(1.32rem + 0.4vw);
 $h5 : calc(1.1rem + 0.1vw);
 $h6 : calc(0.7rem + 0.08vw);
 
+$h1-sm: 44px;
+$h1-md: 52px;
+$h1-lg: 60px;
+
+$h2-sm: 33px;
+$h2-md: 39px;
+$h2-lg: 44px;
+
+$h3-sm: 22px;
+$h3-md: 25px;
+$h3-lg: 29px;
+
+$h4-sm: 18px;
+$h4-md: 22px;
+$h4-lg: 25px;
+
+$h5-sm: $bread-text-sm;
+$h5-md: $bread-text-md;
+$h5-lg: $bread-text-lg;
+
+$h6-sm: 15px;
+$h6-md: 16px;
+$h6-lg: 17px;
+
+
+$bread-text-sm: 16px;
+$bread-text-md: 18px;
+$bread-text-lg: 18px;
+
+$bread-text-sm-line: 26px;
+$bread-text-md-line: 28px;
+$bread-text-lg-line: 30px;
+
+$tiny-text-sm: 10px;
+$tiny-text-md: 11px;
+$tiny-text-lg: 12px;
+
+$tiny-text-sm-line: 14px;
+$tiny-text-md-line: 16px;
+$tiny-text-lg-line: 18px;
+
+$small-text-sm: 11px;
+$small-text-md: 12px;
+$small-text-lg: 14px;
+
+$small-text-sm-line: 16px;
+$small-text-md-line: 17px;
+$small-text-lg-line: 20px;
+
+$large-text-sm: 16px;
+$large-text-md: 18px;
+$large-text-lg: 20px;
+
+$huge-text-sm: 26px;
+$huge-text-md: 36px;
+$huge-text-lg: 46px;
+
+$mega-text-sm: 40px;
+$mega-text-md: 52px;
+$mega-text-lg: 64px;
 
 $big-text : calc(2.5rem + 0.7vw);
 $bigger-text : calc(2.9rem + 0.9vw);

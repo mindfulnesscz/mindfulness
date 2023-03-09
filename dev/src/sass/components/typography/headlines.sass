@@ -1,26 +1,55 @@
 h1, h2, h3, h4, h5, h6
   font-family: $headline-font
+  color: $headline-color
   margin: $half-margin 0
   a
     font-family: $headline-font
 
+h2, h3, h4, h5, h6
+
+  max-width: $text-max-width
+  margin: 0 auto
+
 h1
-  font-size: $h1
+  font-size: $h1-sm
   font-weight: 500
+  @media (min-width: $medium-screen-up)
+    font-size: $h1-md
+  @media (min-width: $large-screen-up)
+    font-size: $h1-lg
 
 h2
-  font-size: $h2
+  font-size: $h2-sm
   font-weight: 500
+  @media (min-width: $medium-screen-up)
+    font-size: $h2-md
+  @media (min-width: $large-screen-up)
+    font-size: $h2-lg
 
 h3
-  font-size: $h3
+  font-size: $h3-sm
+  @media (min-width: $medium-screen-up)
+    font-size: $h3-md
+  @media (min-width: $large-screen-up)
+    font-size: $h3-lg
 
 h4
-  font-size: $h4
-  font-weight: bold
+  font-size: $h4-sm
+  @media (min-width: $medium-screen-up)
+    font-size: $h4-md
+  @media (min-width: $large-screen-up)
+    font-size: $h4-lg
 
 h5
-  font-size: $h5 !important
+  font-size: $h5-sm
+  @media (min-width: $medium-screen-up)
+    font-size: $h5-md
+  @media (min-width: $large-screen-up)
+    font-size: $h5-lg
 
 h6
-  font-size: $h6 !important
+  font-size: $h6-sm
+  @media (min-width: $medium-screen-up)
+    font-size: $h6-md
+  @media (min-width: $large-screen-up)
+    font-size: $h6-lg

@@ -33,7 +33,7 @@ $template_url = get_template_directory_uri();
 
 
         <div class="transparent sm wm-button wmwp-modal-trigger wmwp-subscribe-trigger">
-          Subscribe for Newsletter
+          Subscribe to our Newsletter
         </div>
       </div>
 
@@ -188,7 +188,7 @@ $template_url = get_template_directory_uri();
               <li>
                 <h6>ABOUT US</h6>
               </li>
-              <li class="text-sm"><a href="<?php echo $h ?>/about-us">Ess company</a></li>
+              <li class="text-sm"><a href="<?php echo $h ?>/about-us">ESS</a></li>
               <li class="text-sm"><a href="<?php echo $h ?>/about-us#our-team">Team</a></li>
               <li class="text-sm"><a href="<?php echo $h ?>/career-opportunities">Career</a></li>
               <li class="text-sm"><a href="<?php echo $h ?>/contact">Contact</a></li>

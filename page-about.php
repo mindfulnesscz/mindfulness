@@ -35,7 +35,7 @@ endwhile;
 
 <!--   TEAM  =========================================================================================================================-->
 
-<main id="our-team" class="has-gray-lighten-5-background-color p-top-double">
+<main id="our-team" class="p-top-double">
 
   <section class="wp-block-mindfulness-blocks-ess-section ess-section no-margin no-padding p-top-base">
     <div class="container">
@@ -81,96 +81,115 @@ endwhile;
 
         endforeach;
 
-        // ---------------------------- BIG BOSS ARRAY ------------------------	
+        // ---------------------------- PEASANTS ARRAY ------------------------					
 
-        if (!empty($big_boss_arr)) :
-
+        if (!empty($peasants_arr)) :
       ?>
-          <div class="row team-row">
+
+          <div class="ess-double-margin "></div>
+          <div class="row team-row p-hor-zer md-p-hor-base lg-p-hor-okta">
             <?php
 
-            foreach ($big_boss_arr as $big_boss_post) :
+            $tm_count = 0;
 
+            foreach ($peasants_arr as $peasant) :
 
-              $thumb_id = get_post_thumbnail_id($big_boss_post->ID);
+              $tm_count++;
+
+              $thumb_id = get_post_thumbnail_id($peasant->ID);
               if ($thumb_id == '')
                 $thumb_id = default_image_id();
 
-              $img_src = ess_image_src($thumb_id, array('small_uncropped', 'medium', 'large'));
-
-
+              $peasant_src = ess_image_src($thumb_id, array('small_uncropped'));
 
             ?>
-              <div class="ess-hover-block">
-                <img style="width: 100%;" src="<?php echo $img_src[0] ?>" class="responsive-img" srcset="<?php echo $img_src[1] ?>" sizes="
-								(min-width: 760px) calc((100vw/2.5)*<?php echo $i_ratio ?>),
-								(min-width: 830px) 400px,
-								calc(100vw - 20px)
-							">
-                <div class="ess-hover-toshow ">
-                  <h3><?php echo $big_boss_post->post_title ?></h3>
-                  <p><?php echo $big_boss_post->post_excerpt ?></p>
-                </div>
+
+              <div class="people_person col-xs-6 col-md-4 m-bot-base">
+                <img class=" circle responsive-img " src="<?php echo $peasant_src[0] ?>" srcset="<?php echo $peasant_src[1] ?>" sizes="
+                (min-width: 760px) calc((100vw/2.5)*<?php echo $i_ratio ?>),
+                (min-width: 830px) 400px,
+                calc(100vw - 20px)
+              ">
+                <h4 class="m-top-base m-bot-zero p-bot-half"><?php echo $peasant->post_title ?></h4>
+                <h5 class="m-top-zero p-top-zero"><?php echo $peasant->post_excerpt ?></h5>
               </div>
-
-
-
-
-            <?php
-            endforeach;
-            ?>
-          </div>
-        <?php
-        endif;
-      endif;
-
-      // ---------------------------- PEASANTS ARRAY ------------------------					
-
-      if (!empty($peasants_arr)) :
-        ?>
-
-        <div class="ess-double-margin "></div>
-        <div class="row team-row">
           <?php
+            endforeach;
+          endif;
+          ?>
+          </div>
+  </section>
 
-          $tm_count = 0;
 
-          foreach ($peasants_arr as $peasant) :
 
-            $tm_count++;
+  <?php
 
-            $thumb_id = get_post_thumbnail_id($peasant->ID);
+        // ---------------------------- BIG BOSS ARRAY ------------------------	
+        if (!empty($big_boss_arr)) :
+
+  ?>
+
+    <section class="has-gray-lighten-4-background-color">
+
+      <div class="container">
+        <h4 class="subsection-headline center">Advisery Board</h3>
+      </div>
+
+      <div class="row team-row p-hor-zer md-p-hor-base lg-p-hor-okta">
+        <?php
+
+          foreach ($big_boss_arr as $big_boss_post) :
+
+
+            $thumb_id = get_post_thumbnail_id($big_boss_post->ID);
             if ($thumb_id == '')
               $thumb_id = default_image_id();
 
-            $peasant_src = ess_image_src($thumb_id, array('small_uncropped'));
+            $img_src = ess_image_src($thumb_id, array('small_uncropped', 'medium', 'large'));
 
-          ?>
 
-            <div class="people_person col-xs-6 col-sm-4 col-md-4">
-              <img class=" circle responsive-img " src="<?php echo $peasant_src[0] ?>" srcset="<?php echo $peasant_src[1] ?>" sizes="
-								(min-width: 760px) calc((100vw/2.5)*<?php echo $i_ratio ?>),
-								(min-width: 830px) 400px,
-								calc(100vw - 20px)
-							">
-              <h4 class="m-bot-zero p-bot-zero"><?php echo $peasant->post_title ?></h4>
-              <h5 class="regular m-top-zero p-top-zero"><?php echo $peasant->post_excerpt ?></h5>
-            </div>
-        <?php
-          // line break after first two and than three members - removed 22.3.2022
-          /* if ($tm_count == 2 || $tm_count == 5) :
-            ?>
-        </div>
-        <div class="row team-row">
-    <?php
-            endif;*/
 
-          endforeach;
-        endif;
         ?>
-        </div>
-  </section>
-</main>
+          <div class="row advisory-member m-vert-double">
+            <div class="col-md-4 p-hor-quad items-center">
+              <img style="width: 100%;" src="<?php echo $img_src[0] ?>" class="responsive-img rounded-full" srcset="<?php echo $img_src[1] ?>" sizes="
+        (min-width: 760px) calc((100vw/2.5)*<?php echo $i_ratio ?>),
+        (min-width: 830px) 400px,
+        calc(100vw - 20px)
+      ">
+            </div>
+            <div class="col-md-6 items-center">
+              <h3><?php echo $big_boss_post->post_title ?></h3>
+              <p><?php echo $big_boss_post->post_excerpt ?></p>
+            </div>
+          </div>
+
+
+
+
+        <?php
+          endforeach;
+        ?>
+      </div>
+
+    </section>
+<?php
+        endif;
+      endif;
+?>
+
+
+<?php /* ---------------------- VISHAL --------------------------------------- */ ?>
+
+<section class="no-padding has-gray-darken-2-background-color">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>Vishal Nair</h2>
+      </div>
+    </div>
+  </div>
+</section>
 
 <div class='m-spacer-iv'></div>
 
@@ -181,6 +200,8 @@ endwhile;
     </div>
   </div>
 </section>
+
+
 
 
 
