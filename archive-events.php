@@ -240,10 +240,10 @@ $RunningEventsArray = [];
                   <div class="news-col-text col-xs-8 col-md-12">
                     <div class="icon-headline small-icon">
                       <span class="ess-icon icon_map"></span>
-                      <p class=" no-margin"><strong><?php echo $event_post['loc']; ?></strong></p>
+                      <p class="m-zero"><strong><?php echo $event_post['loc']; ?></strong></p>
                     </div>
                     <div class="icon-headline small-icon"><span class="ess-icon icon_calendar"></span>
-                      <p class=" no-margin"><strong><?php echo $event_post['starts']; ?> -
+                      <p class="m-zero"><strong><?php echo $event_post['starts']; ?> -
                           <?php echo $event_post['ends']; ?></strong></p>
                     </div>
                     <h4><a href="<?php echo $event_post['link']; ?>"><?php echo $event_post['title']; ?></a>

@@ -179,19 +179,30 @@ endwhile;
 ?>
 
 
+
+
 <?php /* ---------------------- VISHAL --------------------------------------- */ ?>
 
-<section class="no-padding has-gray-darken-2-background-color">
+<section class="p-top-quad p-bot-sexta">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12">
-        <h2>Vishal Nair</h2>
+      <div class="col-xs-12 col-md-6 col-lg-4 center">
+        <p class="text-lg italic center m-bot-base">We dedicate all our efforts to the memory<br>
+          of our great friend and colleague</p>
+        <h3 class="center">Vishal Nair</h3>
+        <p class="text-lg m-top-zero center">(1984-2021)</p>
+
+        <img style="max-width: 400px; border-radius: 20px " src="<?php echo get_template_directory_uri() . '/assets/images/thank_you_vishal_nair.webp'; ?>" alt='Thank You Vishal Nair' width='' height='' />
+
       </div>
     </div>
   </div>
 </section>
 
-<div class='m-spacer-iv'></div>
+
+
+<?php /* OUR SOLUTION SECTION IS hidden because I think there's no dignity in passing products after the memory message. It feels odd  */ ?>
+<!-- 
 
 <section class="bg-gray-lightest wp-block-mindfulness-blocks-ess-section ess-section no-margin no-padding p-top-base">
   <div class="container">
@@ -201,16 +212,13 @@ endwhile;
   </div>
 </section>
 
-
-
-
-
 <section class="no-padding bg-gray-lightest p-bot-double ">
   <div class="container">
     <div class="row p-top-double p-bot-double">
       <a href="<?php echo get_home_url(); ?>/alsim-cloud" class="p-top-double p-bot-quad col-xs-12 col-lg-4 ess-link-wrapper mf-scale-link aligncenter">
         <img style="max-width: 400px;" src="<?php echo get_template_directory_uri(); ?>/assets/images/product-logos/full_logo_cloud.svg">
-        <div class='m-spacer-iv'></div>
+        <div class=' m-spacer-iv'>
+      </div>
       </a>
       <a href="<?php echo get_home_url(); ?>/alsim-platform" class="p-top-double p-bot-quad col-xs-12 col-lg-4 ess-link-wrapper mf-scale-link aligncenter">
         <img style="max-width: 400px;" src="<?php echo get_template_directory_uri(); ?>/assets/images/product-logos/full_logo_platform.svg">
@@ -223,6 +231,10 @@ endwhile;
     </div>
   </div>
 </section>
+-->
+
+
+
 
 
 
