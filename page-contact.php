@@ -28,6 +28,15 @@ endwhile;
 
 ?>
 
+
+<section class="" style="background-color: #f4f4f4">
+  <h2 class="center p-bot-base m-vert-double">Arrange a meeting:</h2>
+  <div id="microsoft-booking-iframe-holder" style=" overflow: hidden;">
+    <iframe id="microsoft-booking-iframe" style="top: -240px; margin-bottom: -280px; width: 100%; border:0; height: 2100px; position: relative;  z-index: 0;" src="https://outlook.office365.com/owa/calendar/ESSEngineeringSoftwareSteyrGmbH@essteyr.com/bookings/" framborder="0">
+    </iframe>
+  </div>
+</section>
+
 <!-- ==========================================  MAP ========================================== -->
 
 

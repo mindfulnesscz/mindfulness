@@ -24,17 +24,17 @@ $template_url = get_template_directory_uri();
         <h6 class="footer-section-headline center">Quick Contact</h6>
         <p class="text-sm center">ESS Engineering Software Steyr GmbH<br> Berggasse 35, 4400 Steyr, Austria
         </p>
-        <p class="text-sm center">+43 7252 20446</p>
+        <p class="text-md center">+43 7252 20446<br>
+          info@essteyr.com</p>
+
+
+        <!-- subscribe deactivated at the moment
         <h6 class="center">STAY UPDATED</h6>
-
-
-
-
-
-
         <div class="transparent sm wm-button wmwp-modal-trigger wmwp-subscribe-trigger">
           Subscribe to our Newsletter
         </div>
+        -->
+
       </div>
 
 
