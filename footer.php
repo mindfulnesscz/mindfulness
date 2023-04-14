@@ -57,7 +57,7 @@ $template_url = get_template_directory_uri();
 
         // The Loop
         if ($the_query->have_posts()) : ?>
-          <h6 class="footer-section-headline">Hottest News:</h6>
+          <h6 class="footer-section-headline">News:</h6>
           <div class="mind-slider-holder">
             <ul class="mind-slider" id="ess-news-slider">
               <?php while ($the_query->have_posts()) :
