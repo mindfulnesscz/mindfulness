@@ -190,7 +190,7 @@ $template_url = get_template_directory_uri();
               </li>
               <li class="text-sm"><a href="<?php echo $h ?>/about-us">ESS</a></li>
               <li class="text-sm"><a href="<?php echo $h ?>/about-us#our-team">Team</a></li>
-              <li class="text-sm"><a href="<?php echo $h ?>/career-opportunities">Career</a></li>
+              <li class="text-sm"><a href="<?php echo $h ?>/career">Career</a></li>
               <li class="text-sm"><a href="<?php echo $h ?>/contact">Contact</a></li>
             </ul>
           </div>
