@@ -213,7 +213,7 @@ $template_url = get_template_directory_uri();
               <li><a href="<?php echo $h ?>/about-us">Ess company</a></li>
               <li><a href="<?php echo $h ?>/about-us#our-team">Team</a></li>
               <li><a href="<?php echo $h ?>/case-solutions">Case solutions</a></li>
-              <li><a href="<?php echo $h ?>/career-opportunities">Career</a></li>
+              <li><a href="<?php echo $h ?>/career">Career</a></li>
               <li><a href="<?php echo $h ?>/contact">Contact</a></li>
             </ul>
           </div>
