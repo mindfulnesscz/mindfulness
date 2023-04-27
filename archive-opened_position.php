@@ -20,7 +20,7 @@ get_header(); ?>
   <div class="ess-tiny-header">
     <a href="<?php echo get_post_type_archive_link('opened_position'); ?>">
       <h1 class="ess-cut-corners">
-        CAREER dfgdfg OPPORTUNITIES
+        CAREER OPPORTUNITIES
       </h1>
       <div class="cl-both"></div>
     </a>
