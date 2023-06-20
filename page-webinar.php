@@ -27,16 +27,16 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
 <header id="ess-header" class="fullsize">
   <div class="ess-keypage-header has-essblue-darken-5-background-color">
 
-    <div class="max-w-300 md-max-w-full max-h-300 md-max-h-full bkg-color-circle -right top"></div>
-    <div class="max-w-300 md-max-w-full max-h-300 md-max-h-full bkg-color-circle right blue"></div>
+    <!--<div class="max-w-300 md-max-w-full max-h-300 md-max-h-full bkg-color-circle -right top"></div>
+    <div class="max-w-300 md-max-w-full max-h-300 md-max-h-full bkg-color-circle right blue"></div>-->
 
     <div class="container">
 
       
 
       <div class="row row-container content-center">
-        <div class="divider div-bot div-left"></div>
-        <div class="divider div-bot div-right"></div>
+       <!-- <div class="divider div-bot div-left"></div>
+        <div class="divider div-bot div-right"></div>-->
 
         <div class="last-lg col-xs-12 col-md-8 col-lg-6 center align-center p-vert-double lg-p-vert-zero">
 
@@ -150,10 +150,10 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
     </div>
 
 
-    <div class="divider div-top div-gray div-left"></div>
+    <!--<div class="divider div-top div-gray div-left"></div>
     <div class="divider div-top div-gray div-right"></div>
     <div class="divider div-bot div-inverse div-gray div-left"></div>
-    <div class="divider div-bot div-inverse div-gray div-right"></div>
+    <div class="divider div-bot div-inverse div-gray div-right"></div>-->
 
     <div class="container max-w-800">
       <div class="row sm-p-hor-quad">
@@ -217,8 +217,8 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
 
   <section class="has-essblue-darken-5-background-color p-top-quad">
 
-    <div class="divider div-top div-inverse div-white div-left"></div>
-    <div class="divider div-top div-inverse div-whtie div-right"></div>
+   <!-- <div class="divider div-top div-inverse div-white div-left"></div>
+    <div class="divider div-top div-inverse div-whtie div-right"></div>-->
 
 
     <div class="max-w-300 md-max-w-full max-h-300 md-max-h-full bkg-color-circle top"></div>
