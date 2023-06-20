@@ -49,15 +49,15 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
         </div>
 
 
-        <div class="col-xs-12 col-md-10 col-lg-6 p-vert-okta p-hor-base md-p-hor-quad lg-p-hor-base center lg-left">
+        <div class="col-xs-12 col-md-10 col-lg-6 p-vert-double lg-p-vert-okta p-hor-base md-p-hor-quad lg-p-hor-base center lg-left">
           <div class="flex items-center content-center md-content-start">
             <div><img src="<?php echo get_template_directory_uri(); ?>/assets/images/webinar/webinar-icon.svg"></div>
-            <h3 class="has-basic-white-color m-zero p-left-half p-vert-base o-60">Join Unique Webinar</h3>
+            <h3 class="has-basic-white-color m-zero p-left-half p-vert-base o-60">Join the Webinar</h3>
           </div>
 
 
           <h1 class="center lg-left has-basic-white-color">
-            How to get the best paint shop for E-Cars’ rocker panel
+            How to get the best corrosion protection for E-Cars’ rocker panel
           </h1>
           
           <p class="has-basic-white-color o-60">Meet the CEO of ESS, Dr. Martin Schifko, and listen to him talking about the latest challenges in automotive paint shops and how to deal with them.</p>
@@ -83,8 +83,7 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
 
       <div class="row">
         <div class="col col-xs-12 p-vert-quad">
-          <p class="text-xl center">
-          WE WILL DISCUSS:</b>
+          <p class="text-xl center">KEY TOPICS TO BE COVERED:</b>
           </p>
         </div>
       </div>
@@ -93,7 +92,7 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
 
         <div class="col col-xs-12 col-md-6 p-vert-base">
           <div class="flex">
-            <div class="m-right-half"><img class="m-top-minus-base" src="<?php echo get_template_directory_uri(); ?>/assets/icons/checked.svg" width="60" height="60" alt="checked"></div>
+            <div class="m-right-half"><img class="m-top-base" src="<?php echo get_template_directory_uri(); ?>/assets/icons/checked.svg" width="60" height="60" alt="checked"></div>
             <div>
               <h3 class="p-bot-zero">The impact of e-cars</h3>
               <p class="center md-left">Understand how electric cars disrupt the existing stable processes and significantly affect painting quality.</p>
@@ -103,9 +102,19 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
 
         <div class="col col-xs-12 col-md-6 p-vert-base">
           <div class="flex">
-            <div class="m-right-half"><img class="m-top-minus-base" src="<?php echo get_template_directory_uri(); ?>/assets/icons/checked.svg" width="60" height="60" alt="checked"></div>
+            <div class="m-right-half"><img class="m-top-base" src="<?php echo get_template_directory_uri(); ?>/assets/icons/checked.svg" width="60" height="60" alt="checked"></div>
             <div>
-              <h3 class="p-bot-zero">The impact of e-cars</h3>
+              <h3 class="p-bot-zero">The Challenges</h3>
+              <p class="center md-left">Explore the two primary impacts on the quality of corrosion protection for electrophoretic deposition (E-coating) and the baking process.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col col-xs-12 col-md-6 p-vert-base">
+          <div class="flex">
+            <div class="m-right-half"><img class="m-top-base" src="<?php echo get_template_directory_uri(); ?>/assets/icons/checked.svg" width="60" height="60" alt="checked"></div>
+            <div>
+              <h3 class="p-bot-zero">Live Demo: The Power of Digital Twin</h3>
               <p class="center md-left">Understand how electric cars disrupt the existing stable processes and significantly affect painting quality.</p>
             </div>
           </div>
@@ -113,20 +122,10 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
 
         <div class="col col-xs-12 col-md-6 p-vert-base">
           <div class="flex">
-            <div class="m-right-half"><img class="m-top-minus-base" src="<?php echo get_template_directory_uri(); ?>/assets/icons/checked.svg" width="60" height="60" alt="checked"></div>
+            <div class="m-right-half"><img class="m-top-base" src="<?php echo get_template_directory_uri(); ?>/assets/icons/checked.svg" width="60" height="60" alt="checked"></div>
             <div>
-              <h3 class="p-bot-zero">The impact of e-cars</h3>
-              <p class="center md-left">Understand how electric cars disrupt the existing stable processes and significantly affect painting quality.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col col-xs-12 col-md-6 p-vert-base">
-          <div class="flex">
-            <div class="m-right-half"><img class="m-top-minus-base" src="<?php echo get_template_directory_uri(); ?>/assets/icons/checked.svg" width="60" height="60" alt="checked"></div>
-            <div>
-              <h3 class="p-bot-zero">The impact of e-cars</h3>
-              <p class="center md-left">Understand how electric cars disrupt the existing stable processes and significantly affect painting quality.</p>
+              <h3 class="p-bot-zero">Real-World Examples</h3>
+              <p class="center md-left">Gain insights into how premium car manufacturers are currently dealing with this problem. 100% of Top 10 Passenger Car OEMs benefits from ESS Technologies. Learn How and Why.</p>
             </div>
           </div>
         </div>
@@ -160,17 +159,17 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
       <div class="row sm-p-hor-quad">
         <div class="col-xs-12 col-md-8 col-lg-6 p-top-double">
           <h2 class="center">The challenge of electric mobility</h2>
-          <p class="center text-lg">CFD Simulation for your automotive paint shop</p>
-
         </div>
       </div>
       <div class="row max-w-1000 m-auto p-vert-quad sm-p-hor-quad">
         <div class="col-xs-12 col-md-6">
-          <p class="">This webinar offers a groundbreaking approach to address this issue head-on. We will introduce you to our cutting-edge CFD solutions, designed specifically to tackle corrosion quality concerns in electric vehicles.</p>
+          <p class="">As the industry moves towards electric mobility, traditional manufacturing processes face significant hurdles, with costs and long-term impacts on quality being compromised.</p>
+          <p>Car OEMs hesitate to make drastic changes, fearing unforeseen problems that may arise.</p>
         </div>
         <div class="col-xs-12 col-md-6">
-          <p class="">As the industry moves towards electric mobility, traditional manufacturing processes face significant hurdles, with costs and long-term impacts on quality being compromised. </p>
-          <p>Car OEMs hesitate to make drastic changes, fearing unforeseen problems that may arise.</p>
+          <h5>CFD Simulation for your automotive paint shop</h5>
+          <p class="">This webinar offers a groundbreaking approach to address this issue head-on. We will introduce you to our cutting-edge CFD solutions, designed specifically to tackle corrosion quality concerns in electric vehicles.</p>
+          
         </div>
       </div>
     </div>
@@ -180,7 +179,7 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
   <?php /* ----------------- SPEAKERS SECTION ----------------------- */?>
   <section>
     <div class="container p-vert-quad">
-      <div class="row p-top-quad p-bot-quad sm-p-hor-quad">
+      <div class="row p-double p-bot-quad sm-p-hor-quad">
         <div class="col-xs-12">
           <h2 class="center">Speakers</h2>
           <p class="center">Join Dr. Martin Schifko, a Domina expert in automotive manufacturing, along with Peter Koncz. Head of alsim Paint Shop for this exclusive webinar.</p>
@@ -199,10 +198,10 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
 
         <div class="col-xs-12 col-lg-6 center md-left p-vert-double">
           <div class="flex items-center f-col md-f-row">
-            <div class="grow min-w-100 max-w-200 lg-min-w-200"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/webinar/portrait-martin.webp" width="240" height="270" alt="Dr. Martin Schifko - portrait"></div>
+            <div class="grow min-w-100 max-w-200 lg-min-w-200"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/webinar/portrait-peter.webp" width="240" height="270" alt="Dr. Martin Schifko - portrait"></div>
             <div class="m-left-zero md-m-left-base">
-              <h3>Dr. Martin Schifko</h3>
-              <p>Since he founded ESS in 2015, one of his major goals is to revolutionize simulation software in innovative ways to make it accessible and easy to use for everybody.</p>
+              <h3>Peter Koncz</h3>
+              <p>Peter is a day 1 employee of ESS. His intricate knowledge of both CFD software and the automotive industry is invaluable to all processes and projects at ESS.</p>
             </div>
           </div>
         </div>
@@ -216,7 +215,7 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
 
   <?php /* ----------------- REGISTER SECTION ----------------------- */?>
 
-  <section class="has-essblue-darken-5-background-color">
+  <section class="has-essblue-darken-5-background-color p-top-quad">
 
     <div class="divider div-top div-inverse div-white div-left"></div>
     <div class="divider div-top div-inverse div-whtie div-right"></div>
@@ -304,10 +303,10 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
                   <div class="flex items-center content-center">
                     <div class="min-w-50">
                       <div class="rounded-full overflow-hidden shadow border has-basic-white-border-color">
-                        <img class="rounded-full" src="<?php echo get_template_directory_uri(); ?>/assets/images/webinar/flag-germany.png" width="30" height="30" />
+                        <img class="rounded-full" src="<?php echo get_template_directory_uri(); ?>/assets/images/webinar/flag-britain.png" width="30" height="30" />
                       </div>
                     </div>
-                    <div class="has-basic-white-color">Deutsch</div>
+                    <div class="has-basic-white-color">English</div>
                   </div>
 
                   <div class="m-top-double wm-button button rounded-full md">
@@ -345,10 +344,10 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
                   <div class="flex items-center content-center">
                     <div class="min-w-50">
                       <div class="rounded-full overflow-hidden shadow border has-basic-white-border-color">
-                        <img class="rounded-full" src="<?php echo get_template_directory_uri(); ?>/assets/images/webinar/flag-germany.png" width="30" height="30" />
+                        <img class="rounded-full" src="<?php echo get_template_directory_uri(); ?>/assets/images/webinar/flag-britain.png" width="30" height="30" />
                       </div>
                     </div>
-                    <div class="has-basic-white-color">Deutsch</div>
+                    <div class="has-basic-white-color">English</div>
                   </div>
 
                   <div class="m-top-double wm-button button rounded-full md">
