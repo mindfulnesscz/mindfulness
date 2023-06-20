@@ -6,7 +6,7 @@ body, a
 
 p,li
   max-width: 720px
-  margin: $double-margin auto
+  margin: $base-margin auto
 
 /* FONT SIZES ------------------------------------- */
 
@@ -43,17 +43,24 @@ p,li
 .text-lg
 
   font-size: $large-text-sm
+  line-height: $large-text-sm-line
   @media (min-width: $medium-screen)
     font-size: $large-text-md
+    line-height: $large-text-md-line
   @media (min-width: $large-screen)
     font-size: $large-text-lg
+    line-height: $large-text-lg-line
 
 .text-xl
+  max-width: 1000px
   font-size: $huge-text-sm
+  line-height: $huge-text-sm-line
   @media (min-width: $medium-screen)
     font-size: $huge-text-md
+    line-height: $huge-text-md-line
   @media (min-width: $large-screen)
     font-size: $huge-text-lg
+    line-height: $huge-text-lg-line
 
 .text-xxl
   font-size: $mega-text-sm
@@ -88,6 +95,8 @@ p,li
 
 .no-deco
   text-decoration: none
+  &:hover
+    text-decoration: none
 
 .italic
   font-style: italic
@@ -101,28 +110,3 @@ p,li
 .regular
   font-weight: normal
 
-/* alignment ------------------------------------- */
-
-.center, .sm-center
-  text-align: center
-
-.left, .sm-left
-  text-align: left
-
-.right, .sm-right
-  text-align: right
-
-  @media (min-width: $medium-screen)
-    .md-left
-      text-align: left
-    .md-right
-      text-align: right
-    .md-center
-      text-align: center
-  @media (min-width: $large-screen)
-    .lg-left
-      text-align: left
-    .lg-center
-      text-align: center
-    .lg-right
-      text-align: right

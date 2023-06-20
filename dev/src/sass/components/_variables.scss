@@ -1,13 +1,21 @@
 /* 
 TABLE OF CONTENTS
 
+  0. Layout
   1. Sizes
   2. Typography
   3. Colors
   4. Spacings
   5. Top Navbar
+  6. Buttons
 
 */
+
+
+// 0. Layout
+// ==========================================================================
+
+$base-corners: 10px;
 
 
 // 1. Sizes
@@ -20,6 +28,12 @@ $large-screen-up : 1201px;
 $small-screen : 460px;
 $medium-screen : 760px;
 $large-screen : 1200px;
+
+$screens: (
+  'sm': $small-screen,
+  'md': $medium-screen,
+  'lg': $large-screen
+);
 
 $base-margin : calc(0.8rem + 0.5vw);
 $double-margin : calc(1.6rem + 1vw);
@@ -34,6 +48,7 @@ $reduced-margin : 1rem;
 
 
 $-quarter-margin : calc((0.2rem + 0.15vw) * -1);
+$-half-margin: calc((0.4rem + 0.25vw) * -1);
 $-base-margin : calc((0.8rem + 0.5vw) * -1);
 $-double-margin : calc((0.8rem + 0.5vw) * -2);
 $-quad-margin : calc((0.8rem + 0.5vw) * -4);
@@ -51,7 +66,7 @@ $headline-font: 'Exo', sans-serif;
 
 $text-max-width: 720px;
 
-$headline-color: color('gray', 'darken-2');
+$headline-color: color('gray', 'darken-3');
 
 
 $bread-text-sm: 16px;
@@ -78,17 +93,29 @@ $small-text-sm-line: 16px;
 $small-text-md-line: 17px;
 $small-text-lg-line: 20px;
 
-$large-text-sm: 16px;
-$large-text-md: 18px;
-$large-text-lg: 20px;
+$large-text-sm: 18px;
+$large-text-md: 22px;
+$large-text-lg: 24px;
 
-$huge-text-sm: 26px;
-$huge-text-md: 36px;
-$huge-text-lg: 46px;
+$large-text-sm-line: 24px;
+$large-text-md-line: 28px;
+$large-text-lg-line: 32px;
+
+$huge-text-sm: 24px;
+$huge-text-md: 28px;
+$huge-text-lg: 34px;
+
+$huge-text-sm-line: 30px;
+$huge-text-md-line: 34px;
+$huge-text-lg-line: 40px;
 
 $mega-text-sm: 40px;
 $mega-text-md: 52px;
 $mega-text-lg: 64px;
+
+$mega-text-sm-line: 50px;
+$mega-text-md-line: 64px;
+$mega-text-lg-line: 76px;
 
 $h1 : calc(2.9rem + 1vw);
 $h1-h2 : calc(1.75rem + 1.1vw);
@@ -98,7 +125,7 @@ $h4 : calc(1.32rem + 0.4vw);
 $h5 : calc(1.1rem + 0.1vw);
 $h6 : calc(0.7rem + 0.08vw);
 
-$h1-sm: 44px;
+$h1-sm: 34px;
 $h1-md: 52px;
 $h1-lg: 60px;
 
@@ -147,17 +174,6 @@ $small-text-sm-line: 16px;
 $small-text-md-line: 17px;
 $small-text-lg-line: 20px;
 
-$large-text-sm: 16px;
-$large-text-md: 18px;
-$large-text-lg: 20px;
-
-$huge-text-sm: 26px;
-$huge-text-md: 36px;
-$huge-text-lg: 46px;
-
-$mega-text-sm: 40px;
-$mega-text-md: 52px;
-$mega-text-lg: 64px;
 
 $big-text : calc(2.5rem + 0.7vw);
 $bigger-text : calc(2.9rem + 0.9vw);
@@ -202,6 +218,8 @@ $footer-bg-color : color("gray", "lighten-4");
 $footer-copyright-font-color: color("gray", "lighten-2");
 $footer-copyright-bg-color : none;
 $ess-blue-transp : rgba(15, 42, 86, 0.2);
+$ess-blue-transp-hard : rgba(15, 42, 86, 0.8);
+
 
 
 
@@ -223,7 +241,7 @@ $nav-cube-background: rgba(12, 60, 146, 0.35);
 
 
 
-// 4. Spacings
+// 4. Spacings and Sizes
 // ==========================================================================
 
 
@@ -237,9 +255,11 @@ $spaces-map: (
   "sexta": $sexta-margin,
   "okta" : $okto-margin,
   "dodeca" : $dodeca-margin,
+  "minus-half": $-half-margin,
   "minus-base": $-base-margin,
   "minus-double": $-double-margin,
-  "minus-quad": $-quad-margin
+  "minus-quad": $-quad-margin,
+  "minus-okta": $-okto-margin,
 );
 
 $spaces-values: (
@@ -259,6 +279,61 @@ $spaces-values: (
   "p-vert": ("padding-top", "padding-bottom"),
 );
 
+$sizes: (
+  "full": 100%,
+  "auto": auto,
+  "50": 50px,
+  "100": 100px,
+  "150": 150px,
+  "200": 200px,
+  "300": 300px,
+  "400": 400px,
+  "600": 600px,
+  "700": 700px,
+  "800": 800px,
+  "1000": 1000px,
+  "1200": 1200px,
+  "1400": 1400px,
+);
+
+$offsets: (
+  "minus-600": -600px,
+  "minus-400": -400px,
+  "minus-300": -300px,
+  "minus-200": -200px,
+  "minus-150": -150px,
+  "minus-100": -100px,
+  "minus-50": -50px,
+  "minus-25": -25px,
+  "0": 0px,
+  "25": 25px,
+  "50": 50px,
+  "100": 100px,
+  "150": 150px,
+  "200": 200px,
+  "300": 300px,
+  "400": 400px,
+  "600": 600px,
+  "800": 800px,
+  "1000": 800px,
+  "1200": 800px,
+  "1400": 800px
+);
+
+$opacities: (
+  "0": 0,
+  "10": 0.1,
+  "20": 0.2,
+  "30": 0.3,
+  "40": 0.4,
+  "50": 0.5,
+  "60": 0.6,
+  "70": 0.7,
+  "80": 0.8,
+  "90": 0.9,
+  "100":1
+);
+
 
 // 5. Top Navbar
 // ==========================================================================
@@ -274,3 +349,11 @@ $nav_cube_side_shift_2: 1rem;
 // ==========================================================================
 
 $block-border-radius: 10px;
+
+// 6. Buttons
+// ==========================================================================
+
+$button-primary: color('essblue', 'darken-1');
+$button-secondary: color('essblue', 'darken-2');
+$button-text: white;
+$button-text-hover: white

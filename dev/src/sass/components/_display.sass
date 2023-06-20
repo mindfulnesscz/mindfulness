@@ -1,41 +1,17 @@
-.hidden
-  display: none
 
-.block
-  display: block
 
-.flex
-  display: flex
+@import './variables'
 
-.inline-block
-  display: inline-block
 
-@media (min-width: $medium-screen)
-  .md-hidden
-    display: none
-  .md-block
-    display: block
-  .md-flex
-    display: flex
-  .md-inline-block
-    display: inline-block
+$displays:( "block" : block, "inline-block" : inline-block, "inline" : inline, "hidden" : hidden, "flex" : flex)
 
-@media (min-width: $large-screen)
-  .lg-hidden
-    display: none
-  .lg-block
-    display: block
-  .lg-flex
-    display: flex
-  .lg-inline-block
-    display: inline-block
+@each $name, $value in $displays
+  .#{$name}
+    display: #{$value}
 
-@media (max-width: $small-screen)
-  .up-to-sm-hidden
-    display: hidden
-@media (max-width: $medium-screen)
-  .up-to-md-hidden
-    display: hidden
-@media (max-width: $large-screen)
-  .up-to-lg-hidden
-    display: hidden
+@each $size, $size-value in $screens
+  @each $name, $value in $displays
+    @media (min-width: #{$size-value})
+      .#{$size}-#{$name}
+        display: #{$value}
+  

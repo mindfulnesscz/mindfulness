@@ -1,0 +1,31 @@
+.divider
+  width: 10000px
+  height: 40px
+  background: url('../images/divider.svg') no-repeat top left
+  position: absolute
+
+  &.div-top
+    top: -40px
+  &.div-bot
+    bottom: 0
+  &.div-left
+    left: -9900px
+  &.div-right
+    right: -9900px
+    transform: scaleX(-1)
+  &.div-inverse
+    transform: scaleY(-1)
+    &.div-top
+      top:0px
+    &.div-bot
+      bottom: -40px
+    &.div-right
+      transform: scale(-1, -1)
+
+  &.div-gray
+    background: url('../images/divider-gray.svg') no-repeat top left
+
+    
+
+  
+  

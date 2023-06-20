@@ -3,6 +3,10 @@ html,
 body
   background-color: color("shades", "white")
   margin: 0
+  
+img
+  height: auto
+
 
 #ess-body
   overflow-x: hidden
@@ -98,7 +102,11 @@ figure
 .ess-hidden
   display: none
 
+
+
+
 /***** LINKS ******************** */
+
 a.icon-headline
 
   //transition: all .5s ease
@@ -189,6 +197,10 @@ a.icon-headline:hover
     width: 100%
     max-width: $base-margin !important
 
+
+
+
+
 // ======================== LISTS ========================
 
 ul
@@ -241,10 +253,16 @@ ul li
 .underline
   border-bottom: 1px solid $primary-color
 
+
+
+
 /* ============== BORDERS ======================== */
 
 .rounded-full
   border-radius: 999px
+
+
+
 
 /* ============== IMAGE LINK HOVER ======================== */
 
@@ -374,12 +392,6 @@ ul li
   .hide-md
     display: none
 
-  .center-md
-    text-align: center
-
-  .left-md
-    text-align: center
-
 @media only screen and (max-width: $small-screen)
   .show-sm
     display: none
@@ -388,8 +400,6 @@ ul li
   .hide-sm
     display: none
 
-  .center-sm
-    text-align: center
+.overflow-hidden
+  overflow: hidden
 
-  .left-sm
-    text-align: left

@@ -2,7 +2,7 @@
 
 /**
  * Responsive spacing folowing the {size}-{spacing}-{value}
- * Ex: md-vert-double, lg-bot-half etc.
+ * Eg.: md-vert-double, lg-bot-half etc.
  * CURRENTLY MOVED ONE LEVEL UP IN FOLDER AND IS EXPORTED IN SEPARATE CSS FILE THIS NOT USED ANYMORE
  * THIS MAY BE RETURNED AFTER DOING SIZE AND PERFORMANCE TESTS
  */
@@ -12,6 +12,13 @@
     .#{$class_name}-#{$space}
       @each $val in $attributes_map
         #{$val}: $value
+
+@media (min-width: $small-screen)
+  @each $class_name, $attributes_map in $spaces-values
+    @each $space, $value in $spaces-map
+      .sm-#{$class_name}-#{$space}
+        @each $val in $attributes_map
+          #{$val}: $value
 
 @media (min-width: $medium-screen)
   @each $class_name, $attributes_map in $spaces-values

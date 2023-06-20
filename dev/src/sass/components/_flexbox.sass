@@ -19,6 +19,11 @@
 .wrap 
   flex-wrap: wrap
 
+.f-row
+  flex-direction: row
+.f-col
+  flex-direction: column 
+
 .content-start 
   justify-content: start
 .content-center 
@@ -38,6 +43,13 @@
   align-items: baseline
 
 
+@media (min-width: $small-screen)
+  .sm-f-col
+    flex-direction: column
+  .sm-f-row
+    flex-direction: row
+
+
 @media (min-width: $medium-screen)
 
   .md-wrap
@@ -45,6 +57,11 @@
 
   .md-nowrap
     flex-wrap: nowrap
+
+  .md-f-col
+    flex-direction: column
+  .md-f-row
+    flex-direction: row
 
   .md-content-start
     justify-content: start
@@ -66,9 +83,13 @@
 
   .lg-wrap
     flex-wrap: wrap
-
   .lg-nowrap
     flex-wrap: nowrap
+
+  .lg-f-col
+    flex-direction: column
+  .lg-f-row
+    flex-direction: row
 
   .lg-content-start
     justify-content: start

@@ -1,3 +1,6 @@
+@import './variables'
+  
+  
 %wm-button
   position: relative
   display: inline-block
@@ -5,9 +8,8 @@
   padding: $half-margin $base-margin
   margin-top: $base-margin
   margin-bottom: $base-margin
-  background: $ess-gradient
+  background: $button-primary
   border: none
-  font-family: $headline-font
   font-weight: 500
   border-radius: 2px
   color: white
@@ -17,10 +19,13 @@
 .wm-button
   @extend %wm-button
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1)
+  color: $button-text
 
   &:hover
     text-decoration: none
-    background: linear-gradient(0deg, rgba(21, 161, 255, 1) 100%, rgba(21, 161, 255, 1) 100%)
+    background: $button-secondary
+    color: $button-text-hover
+    filter: drop-shadow(0 5px 10px $ess-blue-transp)
 
   &.sm
     font-size: $h6
@@ -33,7 +38,8 @@
     padding: 1.5rem 2rem
 
   &.xl
-    font-size: $h3
+    font-size: $h4
+    padding: $base-margin $double-margin
 
   &.rounded-full
     border-radius: 999px
@@ -64,3 +70,8 @@
       color: color('gray', 'darken-3')
       border-color: color("gray", "darken-3")
       background-color: rgba(0, 0, 0, 0.05)
+
+  &.enforced
+    border-width: 10px
+    border-style: solid
+    border-color: rgb(200,200,200)

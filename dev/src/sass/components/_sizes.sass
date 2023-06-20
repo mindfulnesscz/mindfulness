@@ -1,0 +1,50 @@
+@import './variables'
+
+
+@each $name, $value in $sizes
+  .w-#{$name}
+    width: $value
+  .h-#{$name}
+    height: $value
+  .min-w-#{$name}
+    min-width: $value
+  .max-w-#{$name}
+    max-width: $value
+  .min-h-#{$name}
+    min-height: $value
+  .max-h-#{$name}
+    max-height: $value
+
+@media (min-width: $medium-screen) 
+  @each $name, $value in $sizes
+    .md-w-#{$name}
+      width: $value
+    .md-h-#{$name}
+      height: $value
+    .md-min-w-#{$name}
+      min-width: $value
+    .md-max-w-#{$name}
+      max-width: $value
+    .md-min-h-#{$name}
+      min-height: $value
+    .md-max-h-#{$name}
+      max-height: $value
+
+@media (min-width: $large-screen)
+  @each $name, $value in $sizes
+    .lg-w-#{$name}
+      width: $value
+    .lg-h-#{$name}
+      height: $value
+    .lg-min-w-#{$name}
+      min-width: $value
+    .lg-max-w-#{$name}
+      max-width: $value
+    .lg-min-h-#{$name}
+      min-height: $value
+    .lg-max-h-#{$name}
+      max-height: $value
+
+  
+  
+  

@@ -21,5 +21,5 @@
     "./globals.ts",
     "src/helpers",
     "src/nav/components/csscube.js"
-  ]
+, "../assets/js/webinar.ts"  ]
 }
