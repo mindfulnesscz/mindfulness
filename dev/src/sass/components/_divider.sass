@@ -1,17 +1,34 @@
 .divider
-  width: 10000px
+  width: 20%
   height: 40px
-  background: url('../images/divider.svg') no-repeat top left
+  background: no-repeat top left white
   position: absolute
+
+  &::after
+    width: 40px
+    height: 40px
+    position: absolute
+    display: block
+    top: 0
+    z-index: 100
+    content: url('../images/divider-sm.svg')
+    background: url('../images/divider-sm.svg') no-repeat top left
+    right: -40px
+
+
+  &.d-left
+    &::after
+      right: -40px
+
 
   &.div-top
     top: -40px
   &.div-bot
     bottom: 0
   &.div-left
-    left: -9900px
+    left: 0px
   &.div-right
-    right: -9900px
+    right: 0px
     transform: scaleX(-1)
   &.div-inverse
     transform: scaleY(-1)

@@ -26,17 +26,17 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
 
 <header id="ess-header" class="fullsize">
   <div class="ess-keypage-header has-essblue-darken-5-background-color">
+        <div class="divider div-bot div-left d-left"></div>
+        <div class="divider div-bot div-right"></div>
 
-    <!--<div class="max-w-300 md-max-w-full max-h-300 md-max-h-full bkg-color-circle -right top"></div>
-    <div class="max-w-300 md-max-w-full max-h-300 md-max-h-full bkg-color-circle right blue"></div>-->
+    <div class="max-w-300 md-max-w-600 max-h-300 md-max-h-full bkg-color-circle -right top"></div>
+    <div class="max-w-300 md-max-w-600 max-h-300 md-max-h-full bkg-color-circle right blue"></div>
 
     <div class="container">
 
       
 
       <div class="row row-container content-center">
-       <!-- <div class="divider div-bot div-left"></div>
-        <div class="divider div-bot div-right"></div>-->
 
         <div class="last-lg col-xs-12 col-md-8 col-lg-6 center align-center p-vert-double lg-p-vert-zero">
 
@@ -60,7 +60,7 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
             How to get the best corrosion protection for E-Cars’ rocker panel
           </h1>
           
-          <p class="has-basic-white-color o-60">Meet the CEO of ESS, Dr. Martin Schifko, and listen to him talking about the latest challenges in automotive paint shops and how to deal with them.</p>
+          <p class="has-basic-white-color o-60">Join our CEO Martin Schifko discovering perfect solution to the pressing challenges faced by automotive OEMs today: to improve corrosion protection of rocker panels in electric cars. </p>
         
           <button class="md wm-button rounded-full scroll-button">Register Now</div>
 
@@ -78,23 +78,22 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
 
 <?php /* ----------------- TOPICS SECTION ----------------------- */?>
 
-  <section class="p-bot-okta">
+  <section class="p-bot-double">
     <div class="container">
 
       <div class="row">
-        <div class="col col-xs-12 p-vert-quad">
-          <p class="text-xl center">KEY TOPICS TO BE COVERED:</b>
-          </p>
+        <div class="col col-xs-12 p-top-okta p-bot-double">
+          <h2 class="center has-gray-color">Get deep insight in:</h2>
         </div>
       </div>
 
-      <div class="row row-container max-w-1200 m-auto sm-p-hor-quad">
+      <div class="row row-container max-w-1400 m-auto sm-p-hor-quad">
 
         <div class="col col-xs-12 col-md-6 p-vert-base">
           <div class="flex">
             <div class="m-right-half"><img class="m-top-base" src="<?php echo get_template_directory_uri(); ?>/assets/icons/checked.svg" width="60" height="60" alt="checked"></div>
-            <div>
-              <h3 class="p-bot-zero">The impact of e-cars</h3>
+            <div class="p-hor-base">
+              <h3 class="p-bot-zero">the impact of e-cars on paint quality</h3>
               <p class="center md-left">Understand how electric cars disrupt the existing stable processes and significantly affect painting quality.</p>
             </div>
           </div>
@@ -103,8 +102,8 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
         <div class="col col-xs-12 col-md-6 p-vert-base">
           <div class="flex">
             <div class="m-right-half"><img class="m-top-base" src="<?php echo get_template_directory_uri(); ?>/assets/icons/checked.svg" width="60" height="60" alt="checked"></div>
-            <div>
-              <h3 class="p-bot-zero">The Challenges</h3>
+            <div class="p-hor-base">
+              <h3 class="p-bot-zero">the Challenges of corrosion protection of rocker panels</h3>
               <p class="center md-left">Explore the two primary impacts on the quality of corrosion protection for electrophoretic deposition (E-coating) and the baking process.</p>
             </div>
           </div>
@@ -113,8 +112,8 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
         <div class="col col-xs-12 col-md-6 p-vert-base">
           <div class="flex">
             <div class="m-right-half"><img class="m-top-base" src="<?php echo get_template_directory_uri(); ?>/assets/icons/checked.svg" width="60" height="60" alt="checked"></div>
-            <div>
-              <h3 class="p-bot-zero">Live Demo: The Power of Digital Twin</h3>
+            <div class="p-hor-base">
+              <h3 class="p-bot-zero">the Power of Digital Twin</h3>
               <p class="center md-left">Understand how electric cars disrupt the existing stable processes and significantly affect painting quality.</p>
             </div>
           </div>
@@ -123,8 +122,8 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
         <div class="col col-xs-12 col-md-6 p-vert-base">
           <div class="flex">
             <div class="m-right-half"><img class="m-top-base" src="<?php echo get_template_directory_uri(); ?>/assets/icons/checked.svg" width="60" height="60" alt="checked"></div>
-            <div>
-              <h3 class="p-bot-zero">Real-World Examples</h3>
+            <div class="p-hor-base">
+              <h3 class="p-bot-zero">how big car manufacturers proceed</h3>
               <p class="center md-left">Gain insights into how premium car manufacturers are currently dealing with this problem. 100% of Top 10 Passenger Car OEMs benefits from ESS Technologies. Learn How and Why.</p>
             </div>
           </div>
@@ -137,7 +136,9 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
   </section>
 
   <?php /* ----------------- INFO SECTION ----------------------- */?>
-  <section class="relative has-gray-lighten-4-background-color p-bot-quad p-top-quad" >
+
+
+  <!--<section class="relative has-gray-lighten-4-background-color p-bot-quad p-top-quad" >
 
     <div class="m-top-minus-okta center relative z-10">
 
@@ -150,10 +151,10 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
     </div>
 
 
-    <!--<div class="divider div-top div-gray div-left"></div>
+    <div class="divider div-top div-gray div-left"></div>
     <div class="divider div-top div-gray div-right"></div>
     <div class="divider div-bot div-inverse div-gray div-left"></div>
-    <div class="divider div-bot div-inverse div-gray div-right"></div>-->
+    <div class="divider div-bot div-inverse div-gray div-right"></div>
 
     <div class="container max-w-800">
       <div class="row sm-p-hor-quad">
@@ -173,16 +174,15 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
         </div>
       </div>
     </div>
-  </section>
+  </section>-->
 
 
   <?php /* ----------------- SPEAKERS SECTION ----------------------- */?>
-  <section>
-    <div class="container p-vert-quad">
-      <div class="row p-double p-bot-quad sm-p-hor-quad">
+  <section class="has-gray-lighten-4-background-color">
+    <div class="container p-top-double p-bot-quad">
+      <div class="row p-double p-bot-base sm-p-hor-quad">
         <div class="col-xs-12">
-          <h2 class="center">Speakers</h2>
-          <p class="center">Join Dr. Martin Schifko, a Domina expert in automotive manufacturing, along with Peter Koncz. Head of alsim Paint Shop for this exclusive webinar.</p>
+          <h2 class="center has-gray-color">Meet our best</h2>
         </div>
       </div>
       <div class="row sm-p-hor-quad">
@@ -201,7 +201,7 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
             <div class="grow min-w-100 max-w-200 lg-min-w-200"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/webinar/portrait-peter.webp" width="240" height="270" alt="Dr. Martin Schifko - portrait"></div>
             <div class="m-left-zero md-m-left-base">
               <h3>Peter Koncz</h3>
-              <p>Peter is a day 1 employee of ESS. His intricate knowledge of both CFD software and the automotive industry is invaluable to all processes and projects at ESS.</p>
+              <p>Peter is a day 1 Hero of ESS. His intricate knowledge of both CFD software and the automotive industry is invaluable to all processes and projects at ESS.</p>
             </div>
           </div>
         </div>
@@ -215,22 +215,22 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
 
   <?php /* ----------------- REGISTER SECTION ----------------------- */?>
 
-  <section class="has-essblue-darken-5-background-color p-top-quad">
+  <section class="has-essblue-darken-5-background-color p-top-quad p-bot-okta" style="overflow: hidden; ">
 
-   <!-- <div class="divider div-top div-inverse div-white div-left"></div>
-    <div class="divider div-top div-inverse div-whtie div-right"></div>-->
+   <div class="divider div-top div-inverse div-white div-left"></div>
+    <div class="divider div-top div-inverse div-whtie div-right"></div>
 
 
-    <div class="max-w-300 md-max-w-full max-h-300 md-max-h-full bkg-color-circle top"></div>
-    <div class="max-w-300 md-max-w-full max-h-300 md-max-h-full bkg-color-circle right blue"></div>
+    <div class="max-w-450 max-h-450 md-max-w-1000 md-max-h-1000 bkg-color-circle top right"></div>
+    <div class="max-w-450 max-h-450 md-max-w-1000 md-max-h-1000 bkg-color-circle bottom blue"></div>
 
 
       <div class="container" id="webinar-register">
         <div class="row content-center center p-bot-quad">
 
         <div class="col-xs-12 has-basic-white-color p-vert-quad">
-          <h2 class="has-basic-white-color">Choose Your date</h2>
-          <p class="has-basic-white-color">Register now to secure your spot and be a part of this game-changing webinar. Make sure to reserve a spot for free consultation during the webinar.
+          <h2 class="has-basic-white-color">Join now</h2>
+          <p class="has-gray-color text-lg">and get <span class="has-basic-white-color"> free consultation</span> with the most relevant experts from within the industry.
 </p>
         </div>
 
@@ -259,17 +259,17 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
 
                 
 
-                  <div class="flex items-center content-center">
+                  <div class="items-center content-center m-top-base">
                     <div class="min-w-50">
                       <div class="rounded-full overflow-hidden shadow border has-basic-white-border-color">
-                        <img class="rounded-full" src="<?php echo get_template_directory_uri(); ?>/assets/images/webinar/flag-germany.png" width="30" height="30" />
+                        <img class="rounded-full" src="<?php echo get_template_directory_uri(); ?>/assets/images/webinar/flag-germany.png" width="40" height="40" />
                       </div>
                     </div>
-                    <div class="has-basic-white-color">Deutsch</div>
+                    <div class="has-gray-lighten-2-color text-sm">in Deutsch</div>
                   </div>
 
                   <div class="m-top-double wm-button button rounded-full md">
-                    Register Now
+                    Choose the Date
                   </div>
                 </div>
               </div>
@@ -283,7 +283,7 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
               <div class="c-content">
 
                 <div class="c-header p-hor-double p-top-base center has-basic-white-color">
-                  <span class="block text-lg font-headline bold o-50">Monday</span>
+                  <span class="block text-lg font-headline bold o-50">Tuesday</span>
                   <div class="relative m-top-minus-half"><span class="c-hover-scale inline-block text-xxl relative font-headline bold">12</span><span class="relative" style="vertical-align: top; top: 15px; right: -10px">th</span></div>
                   <span class="block text-lg font-headline bold m-top-minus-half o-50">of July</span>
                   <span class="block text-sm light o-50">2023</span>
@@ -300,17 +300,17 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
 
                 
 
-                  <div class="flex items-center content-center">
+                  <div class="items-center content-center m-top-base">
                     <div class="min-w-50">
                       <div class="rounded-full overflow-hidden shadow border has-basic-white-border-color">
-                        <img class="rounded-full" src="<?php echo get_template_directory_uri(); ?>/assets/images/webinar/flag-britain.png" width="30" height="30" />
+                        <img class="rounded-full" src="<?php echo get_template_directory_uri(); ?>/assets/images/webinar/flag-britain.png" width="40" height="40" />
                       </div>
                     </div>
-                    <div class="has-basic-white-color">English</div>
+                    <div class="has-gray-lighten-2-color text-sm">in English</div>
                   </div>
 
                   <div class="m-top-double wm-button button rounded-full md">
-                    Register Now
+                    Choose the Date
                   </div>
                 </div>
               </div>
@@ -323,8 +323,8 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
             <a href="" class="block m-auto card c-invert register-card no-deco">
               <div class="c-content">
 
-                <div class="c-header p-hor-double p-top-base center has-basic-white-color">
-                  <span class="block text-lg font-headline bold o-50">Monday</span>
+                <div class="c-header p-hor-double p-top-base p-bot-half center has-basic-white-color">
+                  <span class="block text-lg font-headline bold o-50">Wednesday</span>
                   <div class="relative m-top-minus-half"><span class="c-hover-scale inline-block text-xxl relative font-headline bold">13</span><span class="relative" style="vertical-align: top; top: 15px; right: -10px">th</span></div>
                   <span class="block text-lg font-headline bold m-top-minus-half o-50">of July</span>
                   <span class="block text-sm light o-50">2023</span>
@@ -341,23 +341,28 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
 
                 
 
-                  <div class="flex items-center content-center">
+                  <div class="items-center content-center m-top-base">
                     <div class="min-w-50">
                       <div class="rounded-full overflow-hidden shadow border has-basic-white-border-color">
-                        <img class="rounded-full" src="<?php echo get_template_directory_uri(); ?>/assets/images/webinar/flag-britain.png" width="30" height="30" />
+                        <img class="rounded-full" src="<?php echo get_template_directory_uri(); ?>/assets/images/webinar/flag-britain.png" width="40" height="40" />
                       </div>
                     </div>
-                    <div class="has-basic-white-color">English</div>
+                    <div class="has-gray-lighten-2-color text-sm">in English</div>
                   </div>
 
                   <div class="m-top-double wm-button button rounded-full md">
-                    Register Now
+                    Choose the Date
                   </div>
                 </div>
               </div>
             </a>
           </div>
+
+
+
+
       </div>
+      <p class="center has-basic-white-color">Seats are limited to 50. Be sure to register NOW.</p>
     </div>
   </section>
 
