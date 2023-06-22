@@ -52,7 +52,7 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
         <div class="col-xs-12 col-md-10 col-lg-6 p-vert-double lg-p-vert-okta p-hor-base md-p-hor-quad lg-p-hor-base center lg-left">
           <div class="flex items-center content-center md-content-start">
             <div><img src="<?php echo get_template_directory_uri(); ?>/assets/images/webinar/webinar-icon.svg"></div>
-            <h3 class="has-basic-white-color m-zero p-left-half p-vert-base o-60">Join the Webinar</h3>
+            <h3 class="has-basic-white-color m-zero p-left-half p-vert-base o-60">Join the Paint Shop Webinar</h3>
           </div>
 
 
@@ -60,9 +60,9 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
             How to get the best corrosion protection for E-Cars’ rocker panel
           </h1>
           
-          <p class="has-basic-white-color o-60">Join our CEO Martin Schifko discovering perfect solution to the pressing challenges faced by automotive OEMs today: to improve corrosion protection of rocker panels in electric cars. </p>
+          <p class="has-basic-white-color text-lg">Meet the CEO of ESS Dr. Martin Schifko exploring <span class="has-basic-white-color ">the most burning challenges that automotive OEMs are facing today. </span></p>
         
-          <button class="md wm-button rounded-full scroll-button">Register Now</div>
+          <button class="lg wm-button rounded-full scroll-button">Register Now</div>
 
         </div>
 
@@ -83,7 +83,7 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
 
       <div class="row">
         <div class="col col-xs-12 p-top-okta p-bot-double">
-          <h2 class="center has-gray-color">Get deep insight in:</h2>
+          <h2 class="center has-gray-color">In the webinar we focus on:</h2>
         </div>
       </div>
 
@@ -94,7 +94,7 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
             <div class="m-right-half"><img class="m-top-base" src="<?php echo get_template_directory_uri(); ?>/assets/icons/checked.svg" width="60" height="60" alt="checked"></div>
             <div class="p-hor-base">
               <h3 class="p-bot-zero">the impact of e-cars on paint quality</h3>
-              <p class="center md-left">Understand how electric cars disrupt the existing stable processes and significantly affect painting quality.</p>
+              <p class="center md-left">Understand how electric cars disrupt the existing stable processes and <b>significantly affect painting quality.</b></p>
             </div>
           </div>
         </div>
@@ -104,7 +104,7 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
             <div class="m-right-half"><img class="m-top-base" src="<?php echo get_template_directory_uri(); ?>/assets/icons/checked.svg" width="60" height="60" alt="checked"></div>
             <div class="p-hor-base">
               <h3 class="p-bot-zero">the Challenges of corrosion protection of rocker panels</h3>
-              <p class="center md-left">Explore the two primary impacts on the quality of corrosion protection for electrophoretic deposition (E-coating) and the baking process.</p>
+              <p class="center md-left">Explore the two primary impacts on the quality of corrosion protection for <b>electrophoretic deposition (E-coating) and the baking process.</b></p>
             </div>
           </div>
         </div>
@@ -113,8 +113,8 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
           <div class="flex">
             <div class="m-right-half"><img class="m-top-base" src="<?php echo get_template_directory_uri(); ?>/assets/icons/checked.svg" width="60" height="60" alt="checked"></div>
             <div class="p-hor-base">
-              <h3 class="p-bot-zero">the Power of Digital Twin</h3>
-              <p class="center md-left">Understand how electric cars disrupt the existing stable processes and significantly affect painting quality.</p>
+              <h3 class="p-bot-zero">the true power of Digital Twin</h3>
+              <p class="center md-left">Discover <a class="bold" href="https://www.essteyr.com/alsim-paintshop">alsim Paint Shop</a> digital twin solution, enabling quick feedback and optimization propositions for Rocker Panel Design and Paint Shop Settings.</p>
             </div>
           </div>
         </div>
@@ -123,8 +123,8 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
           <div class="flex">
             <div class="m-right-half"><img class="m-top-base" src="<?php echo get_template_directory_uri(); ?>/assets/icons/checked.svg" width="60" height="60" alt="checked"></div>
             <div class="p-hor-base">
-              <h3 class="p-bot-zero">how big car manufacturers proceed</h3>
-              <p class="center md-left">Gain insights into how premium car manufacturers are currently dealing with this problem. 100% of Top 10 Passenger Car OEMs benefits from ESS Technologies. Learn How and Why.</p>
+              <h3 class="p-bot-zero">how the big car manufacturers proceed</h3>
+              <p class="center md-left">Gain insights into how premium car manufacturers currently deal with this problem. <b>100% of Top 10 Passenger Car OEMs benefits from ESS Technologies</b>. Learn How and Why.</p>
             </div>
           </div>
         </div>
@@ -269,7 +269,7 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
                   </div>
 
                   <div class="m-top-double wm-button button rounded-full md">
-                    Choose the Date
+                    Select this date
                   </div>
                 </div>
               </div>
@@ -310,7 +310,7 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
                   </div>
 
                   <div class="m-top-double wm-button button rounded-full md">
-                    Choose the Date
+                    Select this date
                   </div>
                 </div>
               </div>
@@ -351,7 +351,7 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
                   </div>
 
                   <div class="m-top-double wm-button button rounded-full md">
-                    Choose the Date
+                    Select this date
                   </div>
                 </div>
               </div>
