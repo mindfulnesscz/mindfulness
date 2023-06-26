@@ -238,7 +238,7 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
 
         <?php /* ----------------- EUROPE - GERMANY  ----------------------- */?>
         <div id="webinar-card-germany" class="col-xs-12 col-lg-4 center max-w-300 lg-max-w-400 p-hor-double sm-p-hor-base m-vert-base">
-            <a href="" class="block m-auto card c-invert register-card no-deco">
+            <a href="https://app.livestorm.co/ess-engineering-software-steyr-gmbh/optimaler-korrosionsschutz-fuer-die-schwellerverkleidung-von-e-autos?s=c94185d1-d991-4bf7-abf6-7038e907886d" class="block m-auto card c-invert register-card no-deco">
               <div class="c-content">
 
                 <div class="c-header p-hor-double p-top-base center has-basic-white-color">
@@ -279,7 +279,7 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
         <?php /* ----------------- EMEA and ASIA PACIFIC  ----------------------- */?>
         
         <div id="webinar-card-emea" class="col-xs-12 col-lg-4 center max-w-300 lg-max-w-400 p-hor-double sm-p-hor-base m-vert-base">
-            <a href="" class="block m-auto card c-invert register-card no-deco">
+            <a href="https://app.livestorm.co/ess-engineering-software-steyr-gmbh/how-to-get-the-best-corrosion-protection-for-e-cars-rocker-panel?s=2d4260a2-81d2-4158-bd26-f0368a132e28" class="block m-auto card c-invert register-card no-deco">
               <div class="c-content">
 
                 <div class="c-header p-hor-double p-top-base center has-basic-white-color">
@@ -320,7 +320,7 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
         <?php /* ----------------- AMERICAS  ----------------------- */?>
 
         <div id="webinar-card-americas" class="col-xs-12 col-lg-4 center max-w-300 lg-max-w-400 p-hor-double sm-p-hor-base m-vert-base">
-            <a href="" class="block m-auto card c-invert register-card no-deco">
+            <a href="https://app.livestorm.co/ess-engineering-software-steyr-gmbh/how-to-get-the-best-corrosion-protection-for-e-cars-rocker-panel-or-ii?s=db5498c9-b998-483d-b8c6-d13c6dd84e12" class="block m-auto card c-invert register-card no-deco">
               <div class="c-content">
 
                 <div class="c-header p-hor-double p-top-base p-bot-half center has-basic-white-color">
