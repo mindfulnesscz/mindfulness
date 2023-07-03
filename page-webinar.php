@@ -242,7 +242,7 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
               <div class="c-content">
 
                 <div class="c-header p-hor-double p-top-base center has-basic-white-color">
-                  <span class="block text-lg font-headline bold o-50">Monday</span>
+                  <span class="block text-lg font-headline bold o-50">Tuesday</span>
                   <div class="relative m-top-minus-half"><span class="c-hover-scale inline-block text-xxl relative font-headline bold">11</span><span class="relative" style="vertical-align: top; top: 15px; right: -10px">th</span></div>
                   <span class="block text-lg font-headline bold m-top-minus-half o-50">of July</span>
                   <span class="block text-sm light o-50">2023</span>
@@ -283,7 +283,7 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
               <div class="c-content">
 
                 <div class="c-header p-hor-double p-top-base center has-basic-white-color">
-                  <span class="block text-lg font-headline bold o-50">Tuesday</span>
+                  <span class="block text-lg font-headline bold o-50">Wednesday</span>
                   <div class="relative m-top-minus-half"><span class="c-hover-scale inline-block text-xxl relative font-headline bold">12</span><span class="relative" style="vertical-align: top; top: 15px; right: -10px">th</span></div>
                   <span class="block text-lg font-headline bold m-top-minus-half o-50">of July</span>
                   <span class="block text-sm light o-50">2023</span>
@@ -324,7 +324,7 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
               <div class="c-content">
 
                 <div class="c-header p-hor-double p-top-base p-bot-half center has-basic-white-color">
-                  <span class="block text-lg font-headline bold o-50">Wednesday</span>
+                  <span class="block text-lg font-headline bold o-50">Thursday</span>
                   <div class="relative m-top-minus-half"><span class="c-hover-scale inline-block text-xxl relative font-headline bold">13</span><span class="relative" style="vertical-align: top; top: 15px; right: -10px">th</span></div>
                   <span class="block text-lg font-headline bold m-top-minus-half o-50">of July</span>
                   <span class="block text-sm light o-50">2023</span>
