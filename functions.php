@@ -122,7 +122,11 @@ function mind_type()
       'supports'  =>  array('title', 'editor', 'page-attributes', 'thumbnail', 'excerpt')
     )
   );
+
+  
 }
+
+
 
 
 // lowers the length of the excerpt

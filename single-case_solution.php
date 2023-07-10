@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The template for displaying signle news post
+ * The template for displaying single news post
  *
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
@@ -35,10 +35,10 @@ $large = wp_get_attachment_image_src($thumb_id, 'large');
       <div class="row row-container force-margin just-center">
         <div class="col-xs-12 no-padding">
           <img src="
-                                    <?php echo $small[0] ?>" srcset="
-                                    <?php echo $small[0] . ' 400w'; ?>
-                                    <?php echo (($medium[0] != '') ? ', ' . $medium[0] . ' 600w' : ''); ?>
-                                    <?php echo ($large[0] != '' ? ', ' . $large[0] . ' 900w' : ''); ?>
+                                    <?php //echo $small[0] ?>" srcset="
+                                    <?php //echo $small[0] . ' 400w'; ?>
+                                    <?php //echo (($medium[0] != '') ? ', ' . $medium[0] . ' 600w' : ''); ?>
+                                    <?php //echo ($large[0] != '' ? ', ' . $large[0] . ' 900w' : ''); ?>
                                     " sizes="
                                     calc(100vw - 20px),
                                     (min-width: 1200px) 83vw,  
@@ -74,11 +74,14 @@ $large = wp_get_attachment_image_src($thumb_id, 'large');
 
           <?php
 
+
           while (have_posts()) : the_post();
 
             // Include the page content template.
             get_template_part('template-parts/content/content', 'single-case-solution');
           endwhile;
+
+
 
           ?>
 

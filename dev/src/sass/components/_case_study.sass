@@ -1,0 +1,79 @@
+
+.topRow 
+    display: flex
+    flex-direction: row
+  
+.topColumn 
+  flex: 50%
+  
+.topTitle 
+  font-size: 2.5em
+  
+.topSubtitle 
+  font-size: 1.2em
+  
+.topColumnRight 
+  margin-left: 20px
+  margin-right: 0px
+  padding-left: 15px
+  border-left: 1.5px solid #d9d9d9
+  
+.topSocialIcons 
+  text-align: left
+  
+.blueBox 
+  width: 40%
+  background-color: #e6f2ff
+  padding: 35px
+  float: left
+  margin-right: 15px
+  
+.blueBoxText 
+  font-size: 0.9em
+  
+
+#topColumnMobile 
+  display: none
+  
+
+#topSocialIconsMobile 
+  display: none
+  
+
+  
+@media screen and (max-width: 1000px) 
+  .topRow 
+    flex-direction: column
+    
+  .blueBox 
+    width: 100%
+    float: none
+    margin-right: 0px
+    
+  .topColumnRight 
+    margin-left: 10px
+    margin-right: 10px  
+    padding: 15px
+
+  .topSocialIcons 
+    text-align: center
+    
+  #topColumnDesktop 
+    display: none
+    
+  #topTitleDesktop 
+    display: none
+    
+  #topSubtitleDesktop 
+    display: none
+    
+  #topColumnMobile 
+    display: block
+    
+  #topSocialIconsDesktop 
+    display: none
+    
+  #topSocialIconsMobile  
+    display: block
+    
+  
