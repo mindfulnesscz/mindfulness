@@ -58,11 +58,6 @@ $link = get_permalink();
 </style>
 
 
-<div class="row">
-  <div class="col-xs-12 col-md-6 col-lg-4 has-gray-background-color h-200 p-quad lg-p-double">dsfsfds</div>
-  <div class="col-xs-12 col-md-6 col-lg-3 has-green-background-color h-200">sdfsdf</div>
-</div>
-
 <div class="topRow has-gray-lighten-4-background-color">
   <div class="topColumn" id="topColumnMobile">
     <h2 class="topTitle" id="topTitleMobile"><?php echo the_title() ?></h2>
