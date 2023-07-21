@@ -25,9 +25,10 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js/w
 
 
 <header id="ess-header" class="fullsize">
-  <div class="ess-keypage-header has-essblue-darken-5-background-color">
-        <div class="divider div-bot div-left d-left"></div>
-        <div class="divider div-bot div-right"></div>
+  <div class="ess-keypage-header has-gray-lighten-4-background-color">
+
+        <div class="divider div-inverse div-gray div-bot div-left d-left"></div>
+        <div class="divider div-inverse div-gray div-bot div-right"></div>
 
     <div class="max-w-300 md-max-w-600 max-h-300 md-max-h-full bkg-color-circle -right top"></div>
     <div class="max-w-300 md-max-w-600 max-h-300 md-max-h-full bkg-color-circle right blue"></div>
