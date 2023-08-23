@@ -1,0 +1,40 @@
+.card
+  transition: transform .5s, filter .3s, background .2s
+  position: relative
+  padding: $half-margin
+  border-radius: calc($base-corners + $half-margin)
+  filter: drop-shadow(0px 5px 3px rgba(0, 0, 0, 0))
+  .c-hover-scale
+    transition: transform .5s
+
+  &:hover
+    //top: -20px
+    //transform: scale(1.05)
+    filter: drop-shadow(0px 8px 20px rgba(0, 0, 0, 0.4))
+    background-color: $ess-blue-transp-hard
+    .c-hover-scale
+      //transform: scale(1.1)
+    .wm-button
+      background: $button-secondary
+      color: $button-text-hover!important
+
+  .card-content
+    a
+      text-decoration: none
+      &:hover
+        text-decoration: none !important
+      
+.c-content
+  border-radius: $base-corners
+  overflow: hidden
+.c-invert
+  background: rgba(42,54,85,0.3)
+  border: 1px solid rgba(255, 255, 255, 0.8)
+  .c-body
+    border-top: 1px solid rgba(255,255,255, 0.2)
+
+
+
+
+
+

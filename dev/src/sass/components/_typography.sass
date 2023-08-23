@@ -1,0 +1,112 @@
+@import './typography/headlines'
+
+body, a
+  font-family: $copy-font
+  color: $primary-text
+
+p, h2, h3, h4, h5
+  max-width: 720px
+  margin: $base-margin auto
+  padding: 0 $base-margin
+
+/* FONT SIZES ------------------------------------- */
+
+.text-md, p, li
+  font-size: $bread-text-sm
+  line-height: $bread-text-sm-line
+
+  @media (min-width: $medium-screen-up)
+    font-size: $bread-text-md
+    line-height: $bread-text-md-line
+  @media (min-width: $large-screen-up)
+    font-size: $bread-text-lg
+    line-height: $bread-text-lg-line
+
+.text-xs
+
+  font-size: $tiny-text-sm
+  @media (min-width: $medium-screen)
+    font-size: $tiny-text-md
+  @media (min-width: $large-screen)
+    font-size: $tiny-text-lg
+
+.text-sm, .has-small-font-size
+
+  font-size: $small-text-sm
+  line-height: $small-text-sm-line
+  @media (min-width: $medium-screen)
+    font-size: $small-text-md
+    line-height: $small-text-md-line
+  @media (min-width: $large-screen)
+    font-size: $small-text-lg
+    line-height: $small-text-lg-line
+
+.text-lg
+
+  font-size: $large-text-sm
+  line-height: $large-text-sm-line
+  @media (min-width: $medium-screen)
+    font-size: $large-text-md
+    line-height: $large-text-md-line
+  @media (min-width: $large-screen)
+    font-size: $large-text-lg
+    line-height: $large-text-lg-line
+
+.text-xl
+  max-width: 1000px
+  font-size: $huge-text-sm
+  line-height: $huge-text-sm-line
+  @media (min-width: $medium-screen)
+    font-size: $huge-text-md
+    line-height: $huge-text-md-line
+  @media (min-width: $large-screen)
+    font-size: $huge-text-lg
+    line-height: $huge-text-lg-line
+
+.text-xxl
+  font-size: $mega-text-sm
+  @media (min-width: $medium-screen)
+    font-size: $mega-text-md
+  @media (min-width: $large-screen)
+    font-size: $mega-text-lg
+
+.dotted
+  ul
+    margin-left: 2.25rem !important
+
+    li::before
+      content: "•"
+      color: var(--wm-primary-color)
+      font-weight: bold
+      font-size: 140%
+      display: inline-block
+      width: 1rem
+      margin-left: -1.6rem!important
+      margin-right: 0.4rem
+      position: relative
+      top: 0.2rem
+
+/* font styles ------------------------------------- */
+
+.uppercase
+  text-transform: uppercase
+
+.font-headline
+  font-family: $headline-font
+
+.no-deco
+  text-decoration: none
+  &:hover
+    text-decoration: none
+
+.italic
+  font-style: italic
+
+/* font weights ------------------------------------- */
+
+.light
+  font-weight: 100
+.bold
+  font-weight: bold
+.regular
+  font-weight: normal

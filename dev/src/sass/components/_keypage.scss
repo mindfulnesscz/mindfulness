@@ -1,0 +1,181 @@
+.ess-keypage-header {
+  min-height: 85vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  align-content: center;
+
+  .ess-keypage-header-content-holder {
+    width: 100%;
+  }
+
+  .row-container {
+    min-height: 85vh;
+    position: relative;
+    align-items: center;
+    z-index: 10;
+
+    .col-container {
+      padding: $double-margin;
+      padding-top: 10rem;
+    }
+
+    .keypage-product-logo-holder {
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      padding: $base-margin;
+    }
+
+    .keypage-product-header-board {
+      padding: 0;
+      padding-left: 0;
+      padding-right: 0;
+
+      h3 {
+        background: none;
+      }
+    }
+
+  }
+
+  &>img {
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+  }
+
+  figure {
+    img {
+      //max-width: 85%;
+    }
+
+    &.size-full img {
+      max-width: 100%;
+    }
+
+    ;
+  }
+
+  .ess-color-block {
+    //margin: auto;
+  }
+}
+
+@media only screen and (max-width: $medium-screen) {
+  #ess-header {
+
+    text-align: center;
+
+    &.fullsize {
+      .ess-keypage-header {
+        min-height: auto;
+
+        .row-container {
+          min-height: auto;
+        }
+      }
+    }
+
+    &.halfsize {
+      .ess-keypage-header {
+        min-height: auto;
+
+        .row-container {
+          //min-height: auto;
+        }
+      }
+    }
+
+    &.basic {
+      .ess-keypage-header {
+        min-height: auto;
+
+        .row-container {
+          min-height: auto;
+        }
+      }
+    }
+  }
+
+  .ess-keypage-header {
+
+    justify-content: center;
+    flex-direction: column;
+    min-height: auto;
+
+    &>img {
+      position: relative;
+      width: 70%;
+      min-width: 280px;
+      margin: $base-margin auto;
+      align-self: center;
+      //padding-top: $quad-margin;
+      order: 1;
+    }
+
+    &>div {
+      order: 2;
+    }
+
+    figure {
+      text-align: center;
+    }
+
+    .ess-color-block {
+      margin: auto;
+    }
+  }
+}
+
+.product-link-wrapper {
+  transition: background .5s ease;
+  background: color('gray', 'lighten-2');
+
+  &:hover {
+    //background: color('gray', 'lighten-2')
+  }
+}
+
+
+/* =================== COLORS ================================ */
+
+
+/* ======================= ABOUT US ======================= */
+
+
+/* ======================= INDUSTRY PRODUCTS OFFER ======================= */
+
+
+
+
+/*** **************************** CONTACT ***********************************/
+
+#ess-main-map {
+  width: 100%;
+  height: 40vh;
+  z-index: 10;
+}
+
+.ess-page-contact-form {
+  padding: $double-margin 0;
+
+  .input-field {
+    margin: $double-margin $base-margin;
+  }
+}
+
+.g-recaptcha {
+  &>div {
+    margin: 0 auto;
+  }
+}
+
+.bookingSummaryForm {
+  position: relative;
+  top: 200px !important;
+}

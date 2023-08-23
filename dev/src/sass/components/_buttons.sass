@@ -1,0 +1,77 @@
+@import './variables'
+
+%wm-button
+  position: relative
+  display: inline-block
+  cursor: pointer
+  padding: 1rem $base-margin
+  margin-top: $base-margin
+  margin-bottom: $base-margin
+  background: $button-primary
+  border: none
+  font-weight: 500
+  border-radius: 2px
+  color: white
+  text-decoration: none
+  //filter: drop-shadow(0px 0px 3px rgba(2,41,180,0.28))
+
+.wm-button
+  @extend %wm-button
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1)
+  color: white
+
+  &:hover
+    text-decoration: none
+    background: $button-secondary
+    color: $button-text-hover
+    filter: drop-shadow(0 5px 10px $ess-blue-transp)
+
+  &.sm
+    font-size: $h6
+    padding: $half-margin $base-margin
+
+  &.md
+    font-size: $h5
+
+  &.lg
+    font-size: $h4
+    padding: 1.5rem 2rem
+
+  &.xl
+    font-size: $h4
+    padding: $base-margin $double-margin
+
+  &.rounded-full
+    border-radius: 999px
+
+  &.rounded-slight
+    border-radius: 4px
+
+  &.rounded-none
+    border-radius: 0
+
+  &.outlined
+    background: white
+    color: color('gray', 'darken-2')
+    border: 1px solid color('essblue', 'darken-1')
+    &:hover
+      color: color('gray', 'darken-3')
+      background: rgba(21,161, 255, 0.1)
+
+  &.transparent
+    background: none
+    border-width: 1px
+    border-style: solid
+    color: color("gray", "darken-2")
+    border-color: color("gray", "darken-2")
+    filter: none
+
+    &:hover
+      color: color('gray', 'darken-3')
+      border-color: color("gray", "darken-3")
+      background-color: rgba(0, 0, 0, 0.05)
+
+  &.enforced
+    border-width: 10px
+    border-style: solid
+    border-color: rgb(200,200,200)

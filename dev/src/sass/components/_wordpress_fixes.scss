@@ -1,0 +1,40 @@
+
+.wp-block-mindfulness-blocks-flexbox-row.wp-just-center>.container>.row {
+  justify-content: center;
+  justify-items: center;
+}
+
+.wp-block-mindfulness-blocks-flexbox-row.wp-align-items-center>.container>.row {
+  align-items: center;
+}
+
+.wp-block-mindfulness-blocks-flexbox-row {
+  &.wp-align-content-center>.container>.row {
+    align-content: center;
+  }
+
+  &.wp-align-items-center>.container>.row {
+    align-items: center;
+  }
+}
+
+.wp-block-image {
+  margin-bottom: 0;
+}
+
+.components-base-control__field>div {
+  max-height: 100px !important;
+}
+
+#wpadminbar {
+  //display: none !important
+}
+
+html#mindfulness {
+  margin-top: 0 !important;
+}
+
+/*.wp-block-mindfulness-blocks-flexbox-col figure img {
+  display: block;
+  margin: auto;
+}*/

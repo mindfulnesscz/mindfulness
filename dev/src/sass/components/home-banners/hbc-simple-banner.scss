@@ -1,0 +1,24 @@
+#ess-home-banner-classic {
+  margin: 0;
+  padding: 0;
+}
+
+.hbc-banner-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgb(0, 0, 0);
+  transition: opacity .5s;
+  opacity: 0.06;
+
+  &:hover {
+    opacity: 0;
+  }
+}
+
+.hbc-banner-image {
+  object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,34 @@
+#ess-body
+
+  .dark-block
+    background: url('../../assets/images/dark_color_background.webp') color('gray', 'darken-3')
+    background-size: cover
+    color: $white
+    padding: $double-margin
+    text-align: center
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5
+      margin-top: $base-margin
+      color: white
+
+    .ess-item
+      border-right: 1px solid $primary-color
+
+  .dark-block .row .ess-item:last-child
+    border-right: color('gray', 'lighten-2')
+
+  @media only screen and (max-width: $medium-screen)
+    .dark-block .row
+      padding: 0 $base-margin
+
+      .ess-item
+        border-right: none
+        padding: $base-margin 0
+        border-bottom: 1px solid $primary-color
+
+    .dark-block .row .ess-item:last-child
+      border-bottom: none

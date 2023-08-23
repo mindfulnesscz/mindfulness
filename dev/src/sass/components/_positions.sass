@@ -1,0 +1,38 @@
+@import './variables'
+
+
+$positions:( "absolute" : absolute, "relative" : relative, "fixed" : fixed )
+$directions:("t": top, "b": bottom, "l": left, "r": right)
+
+
+/* Types of positions */
+
+
+@each $name, $value in $positions
+  .#{$name}
+    position: #{$value}
+
+@each $size, $size-value in $screens
+  @each $name, $value in $positions
+    @media (min-width: #{$size-value})
+      .#{$size}-#{$name}
+        position: #{$value}
+
+
+
+/* Offsets (left, top, right, bottom) */
+
+
+@each $dir, $val in $directions
+  @each $name, $value in $offsets
+    .#{$dir}-#{$name}
+      #{$val}: $value
+
+@each $size, $size-value in $screens
+  @media (min-width: #{$size-value})
+    @each $dir, $val in $directions
+      @each $name, $value in $offsets
+        .#{$size}-#{$dir}-#{$name}
+          #{$val}: $value
+
+  

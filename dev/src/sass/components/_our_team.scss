@@ -1,0 +1,31 @@
+#our-team {
+  .team-row {
+    justify-content: center;
+  }
+
+  h4 {
+    line-height: 110%;
+    font-size: 120%;
+    //border-bottom: 1px solid color('gray', 'base')
+  }
+
+  h5 {
+    font-size: 95%;
+    font-weight: 100;
+  }
+
+  .people_person {
+
+    img {
+      width: 100%;
+      max-width: 240px;
+      margin: auto;
+      border-radius: 1rem;
+    }
+  }
+
+  .people_person {
+    padding-bottom: $double-margin;
+    text-align: center;
+  }
+}

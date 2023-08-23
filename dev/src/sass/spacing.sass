@@ -1,0 +1,35 @@
+@import './components/variables'
+
+//Outputs margins and paddings with responsive conditioning
+//Eg.: md-p-vert-double (medium and up padding-top and padding-bottom double times the base margin value)
+
+
+@each $class_name, $attributes_map in $spaces-values
+  @each $space, $value in $spaces-map
+    .#{$class_name}-#{$space}
+      @each $val in $attributes_map
+        #{$val}: $value
+
+@media (min-width: $small-screen)
+  @each $class_name, $attributes_map in $spaces-values
+    @each $space, $value in $spaces-map
+      .sm-#{$class_name}-#{$space}
+        @each $val in $attributes_map
+          #{$val}: $value
+
+@media (min-width: $medium-screen)
+  @each $class_name, $attributes_map in $spaces-values
+    @each $space, $value in $spaces-map
+      .md-#{$class_name}-#{$space}
+        @each $val in $attributes_map
+          #{$val}: $value
+
+@media (min-width: $large-screen)
+  @each $class_name, $attributes_map in $spaces-values
+    @each $space, $value in $spaces-map
+      .lg-#{$class_name}-#{$space}
+        @each $val in $attributes_map
+          #{$val}: $value
+
+.m-auto
+  margin: auto

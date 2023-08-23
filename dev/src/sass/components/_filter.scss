@@ -1,0 +1,80 @@
+.ess-posts-filter {
+  background-color: color('gray', 'lighten-5');
+
+  #filter-holder {
+    h6 {
+      padding: $half-margin 0 0 $double-margin;
+      margin: 0;
+      //border-bottom: 1px solid color('gray', 'lighten-2')
+    }
+
+    .filter-row {
+      border-bottom: 1px solid color('gray', 'lighten-2')-light-ii;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .filter-item {
+
+        &::before {
+          display: none;
+        }
+
+        margin: 0;
+
+        display: inline-block;
+
+        button {
+          border: none;
+          background: none;
+          padding: $half-margin;
+          color: $secondary-color;
+
+          &:focus {
+            color: $secondary-color;
+            background: none;
+          }
+        }
+
+        .filter-active {
+          color: $white;
+          background: $primary-color;
+
+          &:focus {
+            background: $primary-color;
+            color: $white;
+          }
+        }
+
+        .wm-button {
+          margin: 0;
+          font-size: 80%;
+        }
+      }
+    }
+  }
+}
+
+.filtr-container {
+  .filtr-item {
+    min-height: 490px;
+
+    h4 {
+      min-height: 5rem;
+
+      &+p {
+        display: none;
+      }
+    }
+
+    p {
+      min-height: 7rem;
+
+    }
+
+    .image-link {
+      margin-bottom: $half-margin;
+    }
+  }
+}

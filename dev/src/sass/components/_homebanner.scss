@@ -1,0 +1,198 @@
+/* ess merge demo banner */
+
+@keyframes breathIn {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.ess-cube-banner-item {
+
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-position: center right !important;
+  background-size: auto 100% !important;
+
+
+  &#ess-cube-banner-its {
+
+    padding-top: 35px;
+
+    &>a {
+      position: relative;
+      padding-top: 6rem;
+      background: $dynairix-cyan;
+      display: block;
+    }
+
+    //background: radial-gradient(circle, rgba(250, 250, 248, 1) 0%, rgba(225, 225, 225, 1) 100%);
+
+    .top-border {
+      height: 25px;
+      width: 100%;
+      background: linear-gradient(to bottom, $dynairix-cyan-darker, $dynairix-cyan);
+      top: 0;
+      left: 0;
+      position: absolute;
+    }
+
+    .bottom-border {
+      height: 20px;
+      width: 100%;
+      background: linear-gradient(to top, $dynairix-cyan-darker, $dynairix-cyan);
+      bottom: 0;
+      left: 0;
+      position: absolute;
+    }
+
+    .circle-tagline {
+      width: 185px;
+      height: 185px;
+      background: #0505ff;
+      border-radius: 999px;
+      margin: auto;
+      margin-top: 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      h3 {
+        letter-spacing: .2rem;
+        text-align: center;
+        color: white
+      }
+
+      transition: all .2s ease-in-out;
+      transform: scale(1.1);
+
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-name: breathIn;
+    }
+
+
+    .banner-mannequin {
+      position: relative;
+      text-align: center;
+      bottom: -40px;
+      left: 20px;
+      z-index: 30;
+      margin-top: -100px;
+
+    }
+
+
+
+    .banner-image-part {
+      height: 100%;
+      max-width: 40%;
+      margin: auto;
+    }
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &>a {
+    display: flex;
+    justify-content: flex-start !important;
+    align-items: center;
+    color: white;
+    height: 100%;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+
+  .banner-text-part {
+    text-align: center;
+    padding: 0 2rem !important;
+
+  }
+
+  h2 {
+    font-weight: 600;
+    padding: $base-margin 0;
+  }
+
+  h3 {
+    font-weight: 600;
+    color: black;
+    padding: $base-margin 0 $base-margin 0 !important;
+    line-height: 150%;
+  }
+
+  .wm-button {
+    font-family: "Exo";
+    font-weight: 300;
+    font-size: 100% !important;
+    margin-top: $half-margin  !important;
+    padding: $quarter-margin $base-margin  !important;
+    clip-path: polygon(.5rem 0,
+        0 .5rem,
+        0 100%,
+        calc(100% - .5rem) 100%,
+        100% calc(100% - .5rem),
+        100% 0,
+        .5rem 0);
+  }
+}
+
+
+#homepage-banner {
+  position: relative;
+  display: none;
+
+  .mind-slider-holder {
+    .slide>a {
+      flex-flow: column nowrap;
+      padding-bottom: $base-margin  !important;
+    }
+  }
+
+  .img-half {
+    width: 60%;
+    min-width: 10rem;
+    max-width: 60rem;
+  }
+}
+
+#ess-home-banner {
+  li {
+    &::before {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: $medium-screen) {
+  #homepage-banner {
+
+    .mind-slider-holder {
+
+      .ess-cube-banner-item {
+        .banner-text-part {
+          width: 100%;
+
+
+          &#ess-cube-banner-emd {
+            background: color("data-cleaning", "base") !important;
+          }
+        }
+      }
+    }
+  }
+}

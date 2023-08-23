@@ -1,0 +1,96 @@
+$ess-footer-border : 1px solid color('gray', 'base')
+
+#ess-footer
+  background: color('gray', 'lighten-2')
+
+  a
+    text-decoration: none
+    padding-top: .5rem
+    display: block
+    &:hover 
+      color: black
+      font-weight: bold
+    list-style-type: none
+  li
+    margin: 0
+    padding: 0
+
+
+#ess-footer-body-row
+  padding: 0 $base-margin
+
+/* Footer sections ------------------------------------- */
+
+.footer-section
+  margin: $base-margin 0
+  padding: $half-margin $base-margin
+
+
+/* Copyright bottom strip ------------------------------------- */
+
+.footer-copyright
+  text-align: center
+  a
+    text-decoration: underline
+
+.copyright-element
+  display: inline-block
+  padding: 0 $half-margin
+  border-left: $ess-footer-border
+
+  &:first-child
+    border-left: none
+
+.footer-section-headline
+    margin-bottom: $base-margin
+
+.footer-feed-img
+  display: block
+  border-radius: 4px
+  margin: 0
+  width: 100%
+  max-width: 250px
+ 
+
+
+/* 06 - Sections order and responsive borders ----------------------------------------------*/
+
+.col-footer-contact
+  order: 1
+  border-bottom: $ess-footer-border
+.col-footer-news
+  border-right: $ess-footer-border
+  order: 2
+.col-footer-events
+  border-right: none
+  order: 3
+.col-footer-menu
+  border-top: $ess-footer-border
+  order: 4
+
+@media only screen and (min-width: $small-screen)
+  .col-footer-contact
+    border-bottom: none
+    border-right: $ess-footer-border
+
+@media only screen and (min-width: $medium-screen)
+  .col-footer-news
+    order: 1
+  .col-footer-events
+    order: 2
+    border-right: $ess-footer-border
+  .col-footer-contact
+    order: 3
+    border-bottom: none
+    border-right: none
+  .col-footer-menu
+    order: 4
+
+@media only screen and (min-width: $large-screen)
+
+  .col-footer-contact
+    order: 4
+  .col-footer-menu
+    order: 3
+    border-top: none
+    border-right: $ess-footer-border

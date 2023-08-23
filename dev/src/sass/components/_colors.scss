@@ -1,0 +1,177 @@
+$ess-blue: #00C0F3;
+$ess-blue-dark: #0f2a56;
+$ess-blue-supplementary: #174f72;
+$ess-sand: #e1e0d4;
+$dynairix-cyan: #00f0f0;
+$dynairix-cyan-darker: #0ac4f3;
+
+$primary-color-transp: rgba(60, 180, 255, 0.5);
+$secondary-color-transp: rgba(15, 42, 86, 0.5);
+$ess-darkest-transp: rgba(12, 22, 46, 0.5);
+$ess-darkest-full: rgba(12, 22, 46, 1);
+
+$ess-gradient: linear-gradient(0deg, rgba(21, 161, 255, 1) 0%, rgba(20, 190, 240, 1) 100%);
+
+// background of the navigation cube on pages 
+$light-gray: rgb(240, 240, 240);
+
+
+$basic: (
+  "white" #fff,
+  "black" #000
+);
+
+$essblue: (
+  "base" : #14bef0,
+  "lighten-1" : #92e5ff,
+  "lighten-2" : #d2f5fa,
+  "lighten-3" : #f0faff,
+  "darken-1" : #14a0ff,
+  "darken-2" : #2d78c8,
+  "darken-3" : #0229BE,
+  "darken-4" : #0f2a57,
+  "darken-5" : #2A3655,
+);
+
+$green: (
+  "base" : #00F77F,
+  "lighten-2" : #81C784,
+  "lighten-1" : #5AFF7F,
+  "darken-1" : #00EE7A,
+  "darken-2" : #388E3C,
+);
+$yellow: (
+  "base": #FEFFC2,
+  "lighten-1": #FDFFE0,
+  "lighten-2": #FDFBF3,
+  "darken-1": #F3F4BD,
+  "darken-2": #E9E4B9 
+);
+
+
+$red: (
+  "base" : #F44336,
+  "lighten-2" : #E57373,
+  "lighten-1" : #EF5350,
+  "darken-1" : #E53935,
+  "darken-2" : #D32F2F
+);
+
+
+$gray: (
+  "base" : #BEBEBE,
+  "darken-1" : #787878,
+  "darken-2" : #4D4D4D,
+  "darken-3" : #2D2D2D,
+  "lighten-1" : #D4D4D4,
+  "lighten-2" : #E6E6E6,
+  "lighten-3" : #E1E1E1,
+  "lighten-4" : #F6F6F6,
+  "lighten-5" : #F9F9F9,
+
+);
+
+$processing: (
+  "base" : #d4cba4,
+  "darken-1" : #c2b98e,
+  "darken-2" : #9d906f,
+  "lighten-1": #e5debf,
+  "lighten-2": #f3efde,
+);
+
+$paintshop: (
+  "base" : #9b64aa,
+  "darken-1" : #895aa4,
+  "darken-2" : #5b266c,
+  "lighten-1": #bf8dcd,
+  "lighten-2": #f1e4f5,
+
+);
+
+$data-cleaning: (
+  "base" : #0ea285,
+  "darken-1" : #108673,
+  "darken-2" : #006654,
+  "lighten-1": #86d2c3,
+  "lighten-2": #ddf6f1
+);
+
+$mobility: (
+  "base" : #eeaa32,
+  "darken-1" : #be8b37,
+  "darken-2" : #ae7d36,
+  "lighten-1": #eec886,
+  "lighten-2": #f7ebd6
+);
+
+
+$washing: (
+  "base" : #9ad9eb,
+  "darken-1" : #68b2c6,
+  "darken-2" : #43888d,
+  "lighten-1": #c1e8f3,
+  "lighten-2": #e8f7fa,
+);
+$environment: (
+  "base" : #a4d06e,
+  "darken-1" : #78a94e,
+  "darken-2" : #577d40,
+  "lighten-1": #c7e5a2,
+  "lighten-2": #ecf9dd,
+);
+$oil-gas: (
+  "base" : #52656e,
+  "darken-1" : #294146,
+  "darken-2" : #001d27,
+  "lighten-1": #7995a2,
+  "lighten-2": #c5d6de,
+);
+
+$shades: (
+  "black" : #000000,
+  "white" : #FFFFFF,
+  "transparent" : transparent
+);
+
+
+$colors-ess: (
+  "basic": $basic,
+  "yellow": $yellow,
+  "essblue": $essblue,
+  "red": $red,
+  "green": $green,
+  "gray": $gray,
+  "shades": $shades,
+  "processing":$processing,
+  "data-cleaning": $data-cleaning,
+  "paintshop": $paintshop,
+  "mobility": $mobility,
+  "washing": $washing,
+  "environment": $environment,
+  "oil-gas": $oil-gas
+);
+
+@function color($color, $type) {
+  @if map-has-key($colors-ess, $color) {
+    $curr_color: map-get($colors-ess, $color);
+
+    @if map-has-key($curr_color, $type) {
+      @return map-get($curr_color, $type);
+    }
+  }
+
+  @warn "Unknown `#{$color}` - `#{$type}` in $colors.";
+  @return null;
+}
+
+
+// MIXINS FOR GRADIENT AND OPACITY -------------------------------
+
+
+@mixin opacity($value) {
+  opacity: $value;
+}
+
+@mixin radial-gradient($outer_color, $inner_color) {
+  background: radial-gradient($outer_color, $inner_color);
+}

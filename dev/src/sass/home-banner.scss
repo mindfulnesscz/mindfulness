@@ -1,0 +1,21 @@
+@import 'components/home-banners/hbc-simple-banner.scss';
+@import 'components/home-banners/hbc-dynairix.scss';
+
+.home-banner-cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  &>a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    position: relative;
+  }
+
+}
+
+.css_block .home-banner-cube>a {
+  padding: 0;
+}

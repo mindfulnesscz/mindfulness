@@ -1,0 +1,102 @@
+$cube_side_width : 4.2rem;
+$cube_side_shift: 3rem;
+$cube_side_shift_2 : 6rem;
+
+
+#scene {
+  perspective: 100rem;
+  position: relative;
+}
+
+#front,
+#left,
+#right,
+#back,
+#top,
+#bottom {
+  position: absolute;
+  backface-visibility: hidden;
+  width: $cube_side_width;
+  height: $cube_side_width;
+}
+
+#front:hover,
+#left:hover,
+#right:hover,
+#back:hover,
+#top:hover,
+#bottom:hover {
+  //background: red; there is a possibility to make the stuff interactive
+}
+
+#rotator {
+  width: $cube_side_shift_2;
+  height: $cube_side_shift_2;
+  position: relative;
+  transform-style: preserve-3d;
+  margin: 0 auto;
+  float: right;
+  padding-top: 1rem;
+  padding-right: 2rem;
+}
+
+#cube {
+  transform: rotateX(45deg) rotateZ(45deg);
+  transform-style: preserve-3d;
+  width: $cube_side_shift_2;
+  height: $cube_side_shift_2;
+  position: relative;
+}
+
+#front {
+  background: rgb(21, 161, 255);
+  transform: translateZ($cube_side_shift);
+}
+
+#left {
+  background: rgb(21, 161, 255);
+  transform: rotateY(-90deg) translateZ($cube_side_shift)
+}
+
+#right {
+  background: gray;
+  transform: rotateY(90deg) translateZ($cube_side_shift)
+}
+
+#back {
+  background: gray;
+  transform: rotateY(180deg) translateZ($cube_side_shift)
+}
+
+#top {
+  background: rgb(21, 161, 255);
+  transform: rotatex(90deg) translateZ($cube_side_shift)
+}
+
+#bottom {
+  background: gray;
+  transform: rotatex(-90deg) translateZ($cube_side_shift)
+}
+
+@keyframes rot {
+  to {
+    transform: rotateY(360deg)
+  }
+}
+
+#rotator {
+  animation: rot 8s linear infinite;
+}
+
+@media only screen and (max-width: $large-screen) {
+  #rotator {
+    float: none;
+    padding-right: 0rem;
+  }
+}
+
+#scene {
+  animation: opacity-up 4s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}

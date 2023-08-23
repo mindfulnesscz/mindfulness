@@ -1,0 +1,359 @@
+/* 
+TABLE OF CONTENTS
+
+  0. Layout
+  1. Sizes
+  2. Typography
+  3. Colors
+  4. Spacings
+  5. Top Navbar
+  6. Buttons
+
+*/
+
+
+// 0. Layout
+// ==========================================================================
+
+$base-corners: 10px;
+
+
+// 1. Sizes
+// ==========================================================================
+
+$small-screen-up : 461px;
+$medium-screen-up : 782px;
+$large-screen-up : 1201px;
+
+$small-screen : 460px;
+$medium-screen : 781px;
+$large-screen : 1200px;
+
+$screens: (
+  'sm': $small-screen,
+  'md': $medium-screen,
+  'lg': $large-screen
+);
+
+$base-margin : calc(0.8rem + 0.5vw);
+$double-margin : calc(1.6rem + 1vw);
+$quad-margin : calc(3.2rem + 2vw);
+$sexta-margin : calc(4.8rem + 3vw);
+$okto-margin : calc(6.4rem + 4vw);
+$dodeca-margin : calc(9.6rem + 6vw);
+
+$half-margin : calc(0.4rem + 0.25vw);
+$quarter-margin : calc(0.2rem + 0.15vw);
+$reduced-margin : 1rem;
+
+
+$-quarter-margin : calc((0.2rem + 0.15vw) * -1);
+$-half-margin: calc((0.4rem + 0.25vw) * -1);
+$-base-margin : calc((0.8rem + 0.5vw) * -1);
+$-double-margin : calc((0.8rem + 0.5vw) * -2);
+$-quad-margin : calc((0.8rem + 0.5vw) * -4);
+$-sexta-margin : calc((0.8rem + 0.5vw) * -6);
+$-okto-margin : calc((0.8rem + 0.5vw) * -8);
+
+
+// 2. Typography
+// ========================================================================== 
+
+
+//$copy-font: 'Open Sans', Helvetica, Arial, sans-serif;
+$copy-font: sans-serif;
+$headline-font: 'Exo', sans-serif;
+
+$text-max-width: 720px;
+
+$headline-color: color('gray', 'darken-3');
+
+
+$bread-text-sm: 16px;
+$bread-text-md: 18px;
+$bread-text-lg: 18px;
+
+$bread-text-sm-line: 26px;
+$bread-text-md-line: 28px;
+$bread-text-lg-line: 30px;
+
+$tiny-text-sm: 10px;
+$tiny-text-md: 11px;
+$tiny-text-lg: 12px;
+
+$tiny-text-sm-line: 14px;
+$tiny-text-md-line: 16px;
+$tiny-text-lg-line: 18px;
+
+$small-text-sm: 11px;
+$small-text-md: 12px;
+$small-text-lg: 14px;
+
+$small-text-sm-line: 16px;
+$small-text-md-line: 17px;
+$small-text-lg-line: 20px;
+
+$large-text-sm: 18px;
+$large-text-md: 22px;
+$large-text-lg: 24px;
+
+$large-text-sm-line: 24px;
+$large-text-md-line: 28px;
+$large-text-lg-line: 32px;
+
+$huge-text-sm: 24px;
+$huge-text-md: 28px;
+$huge-text-lg: 34px;
+
+$huge-text-sm-line: 30px;
+$huge-text-md-line: 34px;
+$huge-text-lg-line: 40px;
+
+$mega-text-sm: 40px;
+$mega-text-md: 52px;
+$mega-text-lg: 64px;
+
+$mega-text-sm-line: 50px;
+$mega-text-md-line: 64px;
+$mega-text-lg-line: 76px;
+
+$h1 : calc(2.9rem + 1vw);
+$h1-h2 : calc(1.75rem + 1.1vw);
+$h2 : calc(1.95rem + 1vw);
+$h3 : calc(1.56rem + 0.8vw);
+$h4 : calc(1.32rem + 0.4vw);
+$h5 : calc(1.1rem + 0.1vw);
+$h6 : calc(0.7rem + 0.08vw);
+
+$h1-sm: 34px;
+$h1-md: 40px;
+$h1-lg: 48px;
+
+$h2-sm: 28px;
+$h2-md: 34px;
+$h2-lg: 40px;
+
+$h3-sm: 22px;
+$h3-md: 25px;
+$h3-lg: 29px;
+
+$h4-sm: 18px;
+$h4-md: 22px;
+$h4-lg: 25px;
+
+$h5-sm: $bread-text-sm;
+$h5-md: $bread-text-md;
+$h5-lg: $bread-text-lg;
+
+$h6-sm: 15px;
+$h6-md: 16px;
+$h6-lg: 17px;
+
+
+$bread-text-sm: 16px;
+$bread-text-md: 18px;
+$bread-text-lg: 18px;
+
+$bread-text-sm-line: 26px;
+$bread-text-md-line: 28px;
+$bread-text-lg-line: 30px;
+
+$tiny-text-sm: 10px;
+$tiny-text-md: 11px;
+$tiny-text-lg: 12px;
+
+$tiny-text-sm-line: 14px;
+$tiny-text-md-line: 16px;
+$tiny-text-lg-line: 18px;
+
+$small-text-sm: 11px;
+$small-text-md: 12px;
+$small-text-lg: 14px;
+
+$small-text-sm-line: 16px;
+$small-text-md-line: 17px;
+$small-text-lg-line: 20px;
+
+
+$big-text : calc(2.5rem + 0.7vw);
+$bigger-text : calc(2.9rem + 0.9vw);
+$biggest-text : calc(3.2rem + 1.2vw);
+
+$h4-lineheight : calc(1.7rem + 0.2vw);
+$h4-padding : calc(1.7rem + 0.2vw) 0;
+
+$tiny-icon : calc(1.8rem + 0.4vw);
+$small-icon : calc(2rem + 0.5vw);
+$medium-icon : calc(2.6rem + 0.8vw);
+$big-icon : calc(4rem + 1vw);
+$huge-icon : calc(6rem + 1.6vw);
+$mega-icon: calc(8rem + 2vw);
+
+
+$mega-font : calc(2rem + 2vw);
+
+$lg-button: calc(4rem + 2vw);
+$md-button: calc(2rem + 1vw);
+$sm-button: calc(1rem + 0.5vw);
+
+// 3. Colors
+// ==========================================================================
+
+$primary-color : color("essblue", "base");
+$primary-color-hover : color("essblue", "darken-3");
+$primary-text : color("gray", "darken-2");
+$secondary-color : color("gray", "darken-2");
+$white : color("shades", "white");
+
+//SYSTEM
+$success-color : color("green", "base");
+$error-color : color("red", "base");
+
+$link-color : color("gray", "base");
+$ess-base-green : color("green", "base");
+
+$card-link-color : color("essblue", "base");
+$footer-font-color : color("gray", "base");
+$footer-bg-color : color("gray", "lighten-4");
+$footer-copyright-font-color: color("gray", "lighten-2");
+$footer-copyright-bg-color : none;
+$ess-blue-transp : rgba(15, 42, 86, 0.2);
+$ess-blue-transp-hard : rgba(15, 42, 86, 0.8);
+
+
+
+
+// GRADIENT
+$ess-blue-gradient : linear-gradient(to left, color('gray', 'base'), color('gray', 'lighten-1'));
+$ess-blue-gradient-reverse : linear-gradient(to right, $primary-color, $secondary-color);
+
+
+// button colors 
+$primary-button-bg : $primary-color;
+$primary-button-bg-hover : color('essblue', 'darken-1');
+
+// NAVIGATION CUBE
+// Current one
+//$nav-cube-background: radial-gradient(circle, rgba(230, 230, 230, 1) 0%, rgba(211, 211, 211, 0.85) 77%);
+
+// New one
+$nav-cube-background: rgba(12, 60, 146, 0.35);
+
+
+
+// 4. Spacings and Sizes
+// ==========================================================================
+
+
+$spaces-map: (
+  "zero" : 0,
+  "quarter": $quarter-margin,
+  "half": $half-margin,
+  "base" : $base-margin,
+  "double" : $double-margin,
+  "quad" : $quad-margin,
+  "sexta": $sexta-margin,
+  "okta" : $okto-margin,
+  "dodeca" : $dodeca-margin,
+  "minus-half": $-half-margin,
+  "minus-base": $-base-margin,
+  "minus-double": $-double-margin,
+  "minus-quad": $-quad-margin,
+  "minus-okta": $-okto-margin,
+);
+
+$spaces-values: (
+  "m": ("margin"),
+  "m-top": ("margin-top"),
+  "m-right": ("margin-right"),
+  "m-bot": ("margin-bottom"),
+  "m-left": ("margin-left"),
+  "m-hor": ("margin-left", "margin-right"),
+  "m-vert": ("margin-top", "margin-bottom"),
+  "p":("padding"),
+  "p-top": ("padding-top"),
+  "p-right": ("padding-right"),
+  "p-bot": ("padding-bottom"),
+  "p-left": ("padding-left"),
+  "p-hor": ("padding-left", "padding-right"),
+  "p-vert": ("padding-top", "padding-bottom"),
+);
+
+$sizes: (
+  "full": 100%,
+  "auto": auto,
+  "50": 50px,
+  "100": 100px,
+  "150": 150px,
+  "200": 200px,
+  "300": 300px,
+  "400": 400px,
+  "600": 600px,
+  "700": 700px,
+  "800": 800px,
+  "1000": 1000px,
+  "1200": 1200px,
+  "1400": 1400px,
+);
+
+$offsets: (
+  "minus-600": -600px,
+  "minus-400": -400px,
+  "minus-300": -300px,
+  "minus-200": -200px,
+  "minus-150": -150px,
+  "minus-100": -100px,
+  "minus-50": -50px,
+  "minus-25": -25px,
+  "0": 0px,
+  "25": 25px,
+  "50": 50px,
+  "100": 100px,
+  "150": 150px,
+  "200": 200px,
+  "300": 300px,
+  "400": 400px,
+  "600": 600px,
+  "800": 800px,
+  "1000": 800px,
+  "1200": 800px,
+  "1400": 800px
+);
+
+$opacities: (
+  "0": 0,
+  "10": 0.1,
+  "20": 0.2,
+  "30": 0.3,
+  "40": 0.4,
+  "50": 0.5,
+  "60": 0.6,
+  "70": 0.7,
+  "80": 0.8,
+  "90": 0.9,
+  "100":1
+);
+
+
+// 5. Top Navbar
+// ==========================================================================
+
+$topnav_padding: $base-margin;
+
+$nav_cube_side_width: 1.4rem;
+$nav_cube_side_shift: 0.9rem;
+$nav_cube_side_shift_2: 1rem;
+
+
+// 6. Blocks
+// ==========================================================================
+
+$block-border-radius: 10px;
+
+// 6. Buttons
+// ==========================================================================
+
+$button-primary: color('essblue', 'darken-1');
+$button-secondary: color('essblue', 'darken-2');
+$button-text: white;
+$button-text-hover: white

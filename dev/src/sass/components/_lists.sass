@@ -1,0 +1,20 @@
+ul.wm-list
+  list-style: none
+  max-width: 720px
+  padding: 0
+
+  li
+    margin: $half-margin 0 $half-margin $double-margin
+
+  li::before
+    content: "\2022"
+    color: color('essblue', 'darken-2')
+    font-weight: bold
+    display: inline-block
+    position: absolute
+    width: 1rem
+    height: 1rem
+    margin-left: -1rem
+
+.no-style
+  list-style: none

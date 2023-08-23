@@ -1,0 +1,54 @@
+.divider
+  width: 20%
+  height: 40px
+  background: no-repeat top left white
+  position: absolute
+
+  &::after
+    width: 40px
+    height: 40px
+    position: absolute
+    display: block
+    top: 0
+    z-index: 100
+    content: url('../images/divider-sm.svg')
+    background: url('../images/divider-sm.svg') no-repeat top left
+    right: -40px
+
+  &.d-left
+    &::after
+      right: -40px
+
+  &.div-top
+    top: -40px
+  &.div-bot
+    bottom: 0
+  &.div-left
+    left: 0px
+  &.div-right
+    right: 0px
+    transform: scaleX(-1)
+  &.div-inverse
+    transform: scaleY(-1)
+    &.div-top
+      top: 0px
+    &.div-bot
+      bottom: -40px
+    &.div-right
+      transform: scale(-1, -1)
+
+  &.div-gray
+    background: color('gray','lighten-4')
+
+    &::after
+      content: url('../images/divider-sm-gray.svg')
+      background: url('../images/divider-sm-gray.svg') no-repeat top left
+
+  &.div-gray-mid
+    background: color('gray', 'lighten-2')
+    &::after
+      content: url('../images/divider-sm-gray-mid.svg')
+      background: url('../images/divider-sm-gray-mid.svg') no-repeat top left
+
+.divider-lg
+  width: 40%

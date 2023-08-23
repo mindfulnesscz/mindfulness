@@ -1,0 +1,58 @@
+.ess-anim-icon
+  fill: color('gray', 'lighten-4')
+  stroke: color("essblue", "darken-1")
+  stroke-width: 1px
+  transition: all .5s ease
+  width: 100%
+  height: auto
+  max-width: 200px
+
+.ess-anim-icon-transp
+  fill: color('gray', 'lighten-2')
+  stroke: none
+
+#ipict_auto_body
+  animation: auto_anim 4s ease-in-out infinite
+
+#ipict_wind_body
+  transform-origin: 50% 38.5%
+  animation: full_rotate 8s linear infinite
+
+#ipict_oil_body_1
+  transform-origin: 49% 36.4%
+  animation: oil_rotate 4s ease-in-out infinite
+
+#ipict_oil_body_2
+  transform-origin: 24.5% 68%
+  animation: full_rotate 4s linear infinite
+
+#ipict_mill_body_1
+  transform-origin: 50% 49%
+  animation: full_rotate 16s linear infinite
+
+#ipict_mill_body_2
+  transform-origin: 50% 49%
+  animation: full_rotate 16s linear infinite
+  animation-direction: reverse
+
+@keyframes auto_anim
+  0%
+    transform: translateY(0%)
+  50%
+    transform: translateY(25%)
+  100%
+    transform: translateY(0%)
+
+@keyframes full_rotate
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
+@keyframes oil_rotate
+  0%
+    transform: rotate(0deg)
+  50%
+    transform: rotate(45deg)
+  100%
+    transform: rotate(0deg)

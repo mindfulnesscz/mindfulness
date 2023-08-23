@@ -1,0 +1,123 @@
+
+ 
+// FLEXBOX CLASSES
+
+// Table of Contents
+
+//  01. Flex Container
+//  02. Flex Items
+//  03. Flex Mixins
+
+
+
+
+/* 01 - Flex Container --------------------------------- */
+
+
+.nowrap 
+  flex-wrap: nowrap
+.wrap 
+  flex-wrap: wrap
+
+.f-row
+  flex-direction: row
+.f-col
+  flex-direction: column 
+
+.content-start 
+  justify-content: start
+.content-center 
+  justify-content: center
+.content-end
+  justify-content: end
+
+.items-start 
+  align-items: flex-start
+.items-center 
+  align-items: center
+.items-end
+  align-items: flex-end
+.items-stretch 
+  align-items: stretch
+.items-baseline 
+  align-items: baseline
+
+
+@media (min-width: $small-screen)
+  .sm-f-col
+    flex-direction: column
+  .sm-f-row
+    flex-direction: row
+
+
+@media (min-width: $medium-screen)
+
+  .md-wrap
+    flex-wrap: wrap
+
+  .md-nowrap
+    flex-wrap: nowrap
+
+  .md-f-col
+    flex-direction: column
+  .md-f-row
+    flex-direction: row
+
+  .md-content-start
+    justify-content: start
+  .md-content-center
+    justify-content: center
+  .md-content-end
+    justify-content: end
+
+  .md-contnt-start
+    align-items: flex-start
+  .md-items-center
+    align-items: center
+  .md-items-end
+    align-items: flex-end
+  .md-items-stretch
+    align-items: stretch
+
+@media (min-width: $large-screen)
+
+  .lg-wrap
+    flex-wrap: wrap
+  .lg-nowrap
+    flex-wrap: nowrap
+
+  .lg-f-col
+    flex-direction: column
+  .lg-f-row
+    flex-direction: row
+
+  .lg-content-start
+    justify-content: start
+  .lg-content-center
+    justify-content: center
+  .lg-content-end
+    justify-content: end
+
+  .lg-items-start
+    align-items: flex-start
+  .lg-items-center
+    align-items: center
+  .lg-items-end
+    align-items: flex-end
+  .lg-items-stretch
+    align-items: stretch
+
+
+
+/* 02 - Flex Items --------------------------------- */
+
+.grow
+  flex-grow: 1
+
+
+
+/* 03 - Flex Mixins --------------------------------- */
+
+@mixin flex-center ()
+  align-items: center
+  justify-content: center

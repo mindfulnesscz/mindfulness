@@ -1,0 +1,104 @@
+#ess-body .ess-industry-card {
+  position: relative;
+  transition: all 0.4s;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  align-content: flex-end;
+  text-decoration: none;
+  border-radius: .6rem;
+
+  @media only screen and (max-width: $medium-screen) {
+    padding-bottom: $double-margin  !important;
+
+    .ess-icon {
+      display: none;
+    }
+  }
+
+  h4 {
+    padding-top: $double-margin;
+    transition: color 0.5s, top 0.5s;
+    text-align: center;
+    margin: $double-margin auto;
+    width: 100%
+  }
+
+  //border: 2px solid white;
+  cursor: pointer;
+
+  +.ess-industry-card {
+
+    @media only screen and (max-width: $medium-screen) {
+      border-left: none;
+      border-top: 1px dotted color('gray', 'base');
+    }
+  }
+
+  .ess-svg-icon {
+    padding: 0;
+    max-width: 250px;
+    height: auto;
+    margin: auto;
+
+    @media only screen and (max-width: $medium-screen) {
+      max-width: 150px;
+    }
+  }
+
+
+  .ess-icon {
+    //position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: $big-icon;
+    color: color('gray', 'lighten-4');
+    transition: color .5s;
+    //border: 1px solid $secondary-color;
+  }
+
+  .ess-anim-icon {
+    fill: color('gray', 'lighten-4');
+    stroke: color('essblue', 'darken-2');
+    stroke-width: 2;
+  }
+
+  &:hover {
+    background: white;
+    text-decoration: none;
+
+    //background: color('gray', 'lighten-2');
+    .ess-anim-icon {
+      fill: white;
+      stroke: color('essblue', 'darken-2');
+    }
+
+    h4 {
+      color: $primary-color;
+    }
+
+    .ess-icon {
+      color: $primary-color;
+    }
+  }
+}
+
+.ess-industry-card:hover .ess-icon {
+  color: $primary-color;
+
+}
+
+.industry-3d-holder {
+  height: 250px;
+  height: 0px;
+}
+
+#ess-intro {
+  h1 {
+    //font-family: "exo";
+    border: none;
+    text-align: left;
+  }
+}
