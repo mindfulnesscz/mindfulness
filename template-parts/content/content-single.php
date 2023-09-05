@@ -11,21 +11,24 @@
 
 $link = get_permalink();
 ?>
-<article>
-  <h1>
-    <?php
+<article class="ess-news">
 
-    the_title();
-    ?>
-  </h1>
+  <div class="max-w-800 center p-top-okta p-bot-double m-auto">
+    <h1 class="center">
+      <?php
+
+      the_title();
+      ?>
+    </h1>
+  </div>
 
 
   <?php
   the_content();
 
   ?>
-  <div class="social-line">
-    <ul>
+  <div class="social-line max-w-1000 m-auto p-vert-double">
+    <ul class="center">
       <li>
         <a onclick="window.print(); return false;">
           <span class="ess-icon icon_print"></span>

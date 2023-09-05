@@ -49,13 +49,14 @@ const slideMain: React.FC<WmMnavSlide> = ( { className, callSlide, slideLinks} )
           <h2 className='center'>Contact</h2>
         </a>
       
-      <div className='w-full center m-vert-base'>
-        <a className='wm-button has-white-color rounded-full center m-auto' href={`${window.MindGlobal.homeUrl}/consult`}>Get Free Consultation</a>
-      </div>
+        <div className='w-full center m-vert-base'>
+          <a className='wm-button has-white-color rounded-full center m-auto' href={`${window.MindGlobal.homeUrl}/consult`}>Get Free Consultation</a>
+        </div>
 
-      <div className='w-full'></div>
-
-      <div className='center m-auto p-top-double'>
+        <div className='w-full'></div>
+        {
+        /*
+        <div className='center m-auto p-top-double'>
             <a 
             href={`${window.MindGlobal.homeUrl}/${loggedIn ? 'account' : 'login'}`} 
             className='center'>
@@ -74,6 +75,9 @@ const slideMain: React.FC<WmMnavSlide> = ( { className, callSlide, slideLinks} )
               </>
             }
         </div>
+          */
+          }
+
       </div>
     </div>
   );

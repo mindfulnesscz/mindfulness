@@ -1,10 +1,14 @@
 
 /* used as holder of top navigation for both mobile and desktop */  
+
+header
+  background: color('gray', 'lighten-4')
 #wm-header
   position: fixed
   top: 0
   z-index: 99999
   width: 100%
+  background: transparent
 
 #hot-news
   display: block
@@ -46,8 +50,7 @@
         transform: rotate(45deg)
 
 #ess-header
-
-  padding: $okto-margin 0 $quad-margin 0
+  padding: $sexta-margin 0 $quad-margin 0
 
   &.fullsize
     .ess-keypage-header
@@ -210,7 +213,7 @@ html #ess-body
 /* ======================= TINY HEADER ======================= */
 
 .ess-tiny-header
-  background: color('gray', 'lighten-5')
+  background: color('gray', 'lighten-4')
   height: auto
   padding-top: $double-margin
   padding-bottom: $base-margin

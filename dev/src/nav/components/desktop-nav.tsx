@@ -100,12 +100,16 @@ const DesktopNav: React.FC<DesktopNavProps> = ( { homeUrl, templateUrl} ) => {
           <li className='flex items-center'><a href={`${homeUrl}/consult`} className='uppercase wm-button sm m-zero rounded-full text-sm has-white-color m-right-half'>Free Consultation</a></li>
         </ul>
 
+       
         <div className='flex items-center p-right-double'>
+          {/* ------- LOGIN WIP 
           <a href={`${homeUrl}/${loggedIn ? 'account' : 'login'}`} className='login-info text-sm inline-block'>{loggedIn ? 'account' : 'login'}</a>
             {
               loggedIn && <><span className='inline-block has-gray-color m-hor-half'>|</span><a className='login-info text-sm' href={`${homeUrl}/logout`}>logout</a></>
             }
+          */}
         </div>
+      
 
       </div>
 

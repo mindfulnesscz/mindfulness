@@ -29,12 +29,11 @@ $template_url = get_template_directory_uri();
         </p>
 
 
-        <!-- subscribe deactivated at the moment
         <h6 class="center">STAY UPDATED</h6>
         <div class="transparent sm wm-button wmwp-modal-trigger wmwp-subscribe-trigger">
           Subscribe to our Newsletter
         </div>
-        -->
+
 
       </div>
 

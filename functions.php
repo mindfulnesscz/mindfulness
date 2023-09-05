@@ -14,7 +14,7 @@
  * @since Mindfulness 1.0
  */
 
-define("MINDFULNESS_VERSION", "3.0.1");
+define("MINDFULNESS_VERSION", "3.0.2");
 define("DEFAULT_IMAGE_ID", 155);
 
 /**
@@ -122,8 +122,6 @@ function mind_type()
       'supports'  =>  array('title', 'editor', 'page-attributes', 'thumbnail', 'excerpt')
     )
   );
-
-  
 }
 
 
