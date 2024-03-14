@@ -3,7 +3,7 @@
 /**
  * The template for Webinar
  *
- * Template Name: Webinar
+ * Template Name: Webinar Full
  * The shortened version of the templated. Full featured template is called industry-full
  * and can be loaded from page-industry-full.php
  *
@@ -49,9 +49,11 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js-s
           <h1 class="center lg-left">
             <span class="has-essblue-darken-1-color">Robotic</span> Simulation in <span class="has-essblue-darken-1-color">Sealing and Beyond</span>
           </h1>
-          <p class="text-lg p-left-zero ">Unlock the Potential of Robotic Simulation in Automotive Paint Shop processes</p>
+          <p class="text-lg p-left-zero ">The capacity of the Webinar is full. You can leave us you E-mail in order to receive the webinar recording.</p>
 
-          <button class="lg wm-button rounded-full scroll-button">Register Now
+          <div class="sm wm-button wmwp-modal-trigger wmwp-subscribe-trigger rounded-full">
+            Leave us your E-mail
+          </div>
         </div>
 
       </div>
@@ -161,7 +163,7 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js-s
 
 
 
-  <?php /* ----------------- REGISTER SECTION ----------------------- */ ?>
+  <?php /* ----------------- CAPACITY FULL ----------------------- */ ?>
 
   <section class="has-essblue-darken-5-background-color p-top-quad p-bot-okta" style="overflow: hidden; ">
 
@@ -177,98 +179,26 @@ wp_enqueue_script('webinar-script', get_template_directory_uri() . '/assets/js-s
       <div class="row content-center center p-bot-quad">
 
         <div class="col-xs-12 has-basic-white-color p-vert-quad">
-          <h2 class="has-basic-white-color">Join now</h2>
-          <p class="has-gray-color text-lg">and get <span class="has-basic-white-color"> free consultation</span> with the most relevant experts from within the industry.
+          <h2 class="has-basic-white-color">Our Capacity is full</h2>
+          <p class="has-gray-color text-lg">The capacity of <span class="has-basic-white-color">100 registrants</span> for this exclusive webinar is reached. You can leave us you E-mail in order to receive the webinar recording.
           </p>
+
+          <div class="MD wm-button wmwp-modal-trigger wmwp-subscribe-trigger rounded-full">
+            Leave us your E-mail
+          </div>
+
         </div>
 
-        <?php /* ----------------- EMEA and ASIA PACIFIC  ----------------------- */ ?>
-
-        <div id="webinar-card-emea" class="col-xs-12 col-lg-4 center max-w-300 lg-max-w-400 p-hor-double sm-p-hor-base m-vert-base">
-          <a id="webinar-link-emea" href="https://app.livestorm.co/ess-engineering-software-steyr-gmbh/digitalize-the-future-robotic-simulation-in-sealing-and-beyond?s=cf4830d7-3eda-4eef-983c-88980637d508&utm_medium=websiteDefault" class="block m-auto card c-invert register-card no-deco">
-            <div class="c-content">
-
-              <div class="c-header p-hor-double p-top-base center has-basic-white-color">
-                <span class="block text-lg font-headline bold o-50">Tuesday</span>
-                <div class="relative m-top-minus-half"><span class="c-hover-scale inline-block text-xxl relative font-headline bold">27</span><span class="relative" style="vertical-align: top; top: 15px; right: -10px">th</span></div>
-                <span class="block text-lg font-headline bold m-top-minus-half o-50">of February</span>
-                <span class="block text-sm light o-50">2024</span>
-              </div>
-
-              <div class="relative c-body center p-hor-double p-bot-zero m-hor-base">
-                <div class="relative inline-block">
-                  <span class="card-time c-hover-scale relative inline-block text-xxl font-headline bold has-basic-white-color">
-                    10:00
-                  </span>
-                  <span class="card-day-part block left absolute t-0 r-minus-50 w-50 p-left-quarter has-basic-white-color" style="top: 15px">AM<br></span>
-                </div>
-                <div class="m-top-minus-half m-bot-half"><span class="card-timezone text-sm has-gray-lighten-2-color">Central European Summer Time</span></div>
 
 
 
-                <div class="items-center content-center m-top-base">
-                  <div class="min-w-50">
-                    <div class="rounded-full overflow-hidden shadow border has-basic-white-border-color">
-                      <img class="rounded-full" src="<?php echo get_template_directory_uri(); ?>/assets/images/webinar/flag-britain.png" width="40" height="40" />
-                    </div>
-                  </div>
-                  <div class="has-gray-lighten-2-color text-sm">in English</div>
-                </div>
-
-                <div class="m-top-double wm-button button rounded-full md">
-                  Select this date
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <?php /* ----------------- AMERICAS  ----------------------- */ ?>
-
-        <div id="webinar-card-americas" class="col-xs-12 col-lg-4 center max-w-300 lg-max-w-400 p-hor-double sm-p-hor-base m-vert-base">
-          <a id="webinar-link-americas" href="https://app.livestorm.co/ess-engineering-software-steyr-gmbh/digitalize-the-future-robotic-simulation-in-sealing-and-beyond?s=1b3cf556-174b-4e05-a20a-26d017978b35&utm_medium=websiteDefault" class="block m-auto card c-invert register-card no-deco">
-            <div class="c-content">
-
-              <div class="c-header p-hor-double p-top-base p-bot-half center has-basic-white-color">
-                <span class="block text-lg font-headline bold o-50">Tuesday</span>
-                <div class="relative m-top-minus-half"><span class="c-hover-scale inline-block text-xxl relative font-headline bold">27</span><span class="relative" style="vertical-align: top; top: 15px; right: -10px">th</span></div>
-                <span class="block text-lg font-headline bold m-top-minus-half o-50">of February</span>
-                <span class="block text-sm light o-50">2024</span>
-              </div>
-
-              <div class="relative c-body center p-hor-double p-bot-zero m-hor-base">
-                <div class="relative inline-block">
-                  <span class="card-time c-hover-scale relative inline-block text-xxl font-headline bold has-basic-white-color">
-                    7:00
-                  </span>
-                  <span class="card-day-part block left absolute t-0 r-minus-50 w-50 p-left-quarter has-basic-white-color" style="top: 15px">pm<br></span>
-                </div>
-                <div class="m-top-minus-half m-bot-half"><span class="card-timezone text-sm has-gray-lighten-2-color">Central European Summer Time</span></div>
 
 
-
-                <div class="items-center content-center m-top-base">
-                  <div class="min-w-50">
-                    <div class="rounded-full overflow-hidden shadow border has-basic-white-border-color">
-                      <img class="rounded-full" src="<?php echo get_template_directory_uri(); ?>/assets/images/webinar/flag-britain.png" width="40" height="40" />
-                    </div>
-                  </div>
-                  <div class="has-gray-lighten-2-color text-sm">in English</div>
-                </div>
-
-                <div class="m-top-double wm-button button rounded-full md">
-                  Select this date
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
 
 
 
 
       </div>
-      <p class="center has-basic-white-color">Seats are limited to 50. Be sure to register NOW.</p>
     </div>
   </section>
 

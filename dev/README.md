@@ -1,10 +1,9 @@
 
 # DEVELOPMENT ENVIRONMENT FOR mindfulnESS THEME FOR ESSTEYR.COM
 
-
 There are some interesting and for development quite important notes:
 
-## javascript global properties:
+## javascript global properties
 
 All the properties should be available after content loaded via window.{porperty name}
 
@@ -16,8 +15,7 @@ All the properties should be available after content loaded via window.{porperty
 - **sc**: scroll value from top
 - **is_homepage**: boolean true if what seen is homepage false otherwise.
 
-
-## SQL queries to update posts in 3.0:
+## SQL queries to update posts in 3.0
 
 - **grey to gray:**<br/>
 UPDATE ess_191021_posts SET post_content = REPLACE(post_content, 'grey', 'gray') WHERE post_content LIKE ('%grey%');

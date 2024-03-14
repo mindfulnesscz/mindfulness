@@ -46,6 +46,8 @@ $alpha-inactive : 0.1;
     padding: $half-margin;
   }
 
+  // home banner
+
   &.css-gray>div,
   &.css-gray>a {
     background: color("gray", "lighten-2");
@@ -103,6 +105,9 @@ $alpha-inactive : 0.1;
   overflow: hidden !important;
 }
 
+#home-banner-cube a {
+padding: 0;
+}
 #csscube-cont {
 
   //position: relative;

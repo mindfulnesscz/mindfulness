@@ -1,8 +1,36 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
+import { wmFetch } from '../../../helpers/wm-fetch';
+
+
+declare interface Widget {
+  rendered: string
+}
+declare interface Sidebar {
+  widgets: Array<string>
+}
 
 
 const BottomAbout: React.FC = () => {
+
+  const [bannerFeed, setBannerFeed] = useState( '<h2>ahooooj</h2>' );
+
+  useEffect( ()=>{
+
+    const csFeed:Promise<Sidebar> = wmFetch( window.MindGlobal.homeUrl + '/wp-json/wp/v2/sidebars/home_banner' );
+    csFeed.then( $json => {
+
+      if($json.widgets[0]){
+        console.log('wwwwwwiiiiiiiddddggggeeeeetttttsssss');
+        const Banner:Promise<Widget> = wmFetch(window.MindGlobal.homeUrl + '/wp-json/wp/v2/widgets/' + $json.widgets[0] );
+        Banner.then( $widget => {
+          if (typeof $widget === 'object')
+          setBannerFeed( $widget.rendered );
+        } )
+      }      
+    } );  
+  }, [] );
 
 
   return ( 
@@ -36,17 +64,13 @@ const BottomAbout: React.FC = () => {
       </div>
       <div className="css_block w_xii h_iv x_0 y_xi">
         <div className="mind-slider-holder no-padding">
-
-
-
-          <div className="home-banner-cube" id="hbc-dynairix">
-
-            <a href=" https://www.essteyr.com/alsim-platform" target="_self">
-
-
-              <div className="hbc-banner-overlay"></div>
-              <img className="hbc-banner-image" width="3004" height="815" src="https://www.essteyr.com/ess-media/home-banner/230214_platform/hbc-platform-banner.webp" />
-            </a>
+          <div className="home-banner-cube" id="home-banner-cube">
+              {
+                /*
+                <img className="hbc-banner-image" width="3004" height="815" src={`${window.MindGlobal.homeUrl}/ess-media/home-banner/240215-robots-and-sealing-webinar/robots-and-sealing-web-banner.webp`} />
+                */   
+              }
+                <div dangerouslySetInnerHTML={{__html: bannerFeed}} /> 
           </div>
 
 

@@ -106,7 +106,7 @@
 
     // --------------------- T3.0.1 TOP hot news BANNER ------------------------ //
 
-    //get_template_part('template-parts/navigation/navigation', 'hot-news');
+    get_template_part('template-parts/navigation/navigation', 'hot-news');
 
 
     // --------------------- T3.0 TOP NAV BAR ------------------------ //

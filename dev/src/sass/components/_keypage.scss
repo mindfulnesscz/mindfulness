@@ -9,6 +9,10 @@
     width: 100%;
   }
 
+  &.autosize {
+    min-height: auto;
+  }
+
   .row-container {
     min-height: 85vh;
     position: relative;

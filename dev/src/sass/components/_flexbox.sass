@@ -1,5 +1,4 @@
 
- 
 // FLEXBOX CLASSES
 
 // Table of Contents
@@ -8,47 +7,45 @@
 //  02. Flex Items
 //  03. Flex Mixins
 
-
-
-
 /* 01 - Flex Container --------------------------------- */
 
+// .is-layout-flex is wordpress default flex class (not working for some reason on frontend theme - this is fix)
+.is-layout-flex
+  display: flex
 
-.nowrap 
+.nowrap
   flex-wrap: nowrap
-.wrap 
+.wrap
   flex-wrap: wrap
 
 .f-row
   flex-direction: row
 .f-col
-  flex-direction: column 
+  flex-direction: column
 
-.content-start 
+.content-start
   justify-content: start
-.content-center 
+.content-center
   justify-content: center
 .content-end
   justify-content: end
 
-.items-start 
+.items-start
   align-items: flex-start
-.items-center 
+.items-center
   align-items: center
 .items-end
   align-items: flex-end
-.items-stretch 
+.items-stretch
   align-items: stretch
-.items-baseline 
+.items-baseline
   align-items: baseline
-
 
 @media (min-width: $small-screen)
   .sm-f-col
     flex-direction: column
   .sm-f-row
     flex-direction: row
-
 
 @media (min-width: $medium-screen)
 
@@ -107,14 +104,10 @@
   .lg-items-stretch
     align-items: stretch
 
-
-
 /* 02 - Flex Items --------------------------------- */
 
 .grow
   flex-grow: 1
-
-
 
 /* 03 - Flex Mixins --------------------------------- */
 

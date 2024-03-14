@@ -8,21 +8,31 @@
 
 ?>
 
-<?php if(get_the_title() !== "Webinar: Corrosion protection of rocker panels in E-cars"): ?>
 
-<a id="hot-news" href="https://www.essteyr.com/webinar">
-  <div class="row max-w-1200 m-auto">
-    <div class="col-xs-12 center">
-    &#x1F393; Free webinar: <b>How to get the best corrosion protection for E-Cars’ rocker panel | CLICK HERE TO JOIN </b>
+
+<?php
+
+
+
+/*  DISABLED AT THE MOMENT
+
+
+if (get_the_title() !== "Webinar: Robotic Simulation in Sealing and Beyond") : ?>
+
+  <a id="hot-news" href="https://www.essteyr.com/webinar-robotic-sealing/?utm_medium=websiteBanner">
+    <div class="row max-w-1200 m-auto">
+      <div class="col-xs-12 center">
+        &#x1F393; Free webinar: <b>Robotic Simulation in Sealing and Beyond | CLICK HERE TO JOIN </b>
+      </div>
     </div>
-  </div>
+  </a>
 
-  <!-- <div id="x">
-    <div class="line a"></div>
-    <div class="line b"></div>
-  </div>
--->
+<?php 
 
-</a>
+endif; 
 
-<?php endif; ?>
+*/
+
+
+
+?>
