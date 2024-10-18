@@ -1,3 +1,5 @@
+
+@import './colors'; 
 /* 
 TABLE OF CONTENTS
 
@@ -238,6 +240,9 @@ $primary-button-bg-hover : color('essblue', 'darken-1');
 
 // New one
 $nav-cube-background: rgba(12, 60, 146, 0.35);
+
+
+$border-default-color: color('gray', 'darken-2');
 
 
 

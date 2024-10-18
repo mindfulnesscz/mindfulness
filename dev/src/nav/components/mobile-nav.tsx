@@ -52,11 +52,11 @@ const MobileNav: React.FC<DevicesNavProps> = ( { homeUrl, templateUrl} ) => {
         el: SlideAbout.current
       },
       {
-        name: 'Industries',
+        name: 'Products',
         el: SlideIndustries.current
       },
       {
-        name: 'Solutions',
+        name: 'Services',
         el: SlideSolutions.current
       }
     ] );
@@ -168,12 +168,12 @@ const MobileNav: React.FC<DevicesNavProps> = ( { homeUrl, templateUrl} ) => {
         </div>
 
         <div ref={SlideIndustries} className="wmnav-slide" id="wmnav-slide-industries" >
-          <SlideSub title="Industries" className="wmnav-slide-inner" callSlide={callSlide} slideLinks={[{name: 'main', el:SlideMain.current}]} >
+          <SlideSub title="Products" className="wmnav-slide-inner" callSlide={callSlide} slideLinks={[{name: 'main', el:SlideMain.current}]} >
             <IndustriesSlide homeUrl={homeUrl}/>
           </SlideSub>
         </div>
         <div ref={SlideSolutions} className="wmnav-slide" id="wmnav-slide-solutions" >
-          <SlideSub title="Solutions" className="wmnav-slide-inner" callSlide={callSlide} slideLinks={[{name: 'main', el:SlideMain.current}]} >
+          <SlideSub title="Services" className="wmnav-slide-inner" callSlide={callSlide} slideLinks={[{name: 'main', el:SlideMain.current}]} >
             <SolutionsSlide homeUrl={homeUrl} templateUrl={templateUrl} />
           </SlideSub>
         </div>

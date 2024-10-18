@@ -10,7 +10,7 @@ const EssLogo: React.FC<essLogoProps> = ( { homeUrl, templateUrl} ) => {
   return(
     <div id='wmnav-logo'>
       <a href={homeUrl}>
-        <img width='120' height='40' alt='ESS' loading='lazy' src={templateUrl+'/assets/images/ess_logo.svg'} />
+        <img width='120' height='40' alt='ESS' loading='lazy' src={templateUrl+'/assets/images/ess_logo_new.svg'} />
       </a>
     </div> );
 };

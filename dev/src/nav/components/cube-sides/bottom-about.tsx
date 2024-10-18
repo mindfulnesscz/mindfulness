@@ -37,7 +37,7 @@ const BottomAbout: React.FC = () => {
     <div id="csscube-bottom" className='wmcube-side'>
       <div className="css_block w_xii h_v x_o y_o css-gray-lighter">
         <a href={window.MindGlobal.homeUrl}>
-          <img loading="lazy" id="cube-ess-logo" alt="ESS - Engineering Software Steyr" src={`${window.MindGlobal.templateUrl}/assets/images/ess_logo.svg`} />
+          <img loading="lazy" id="cube-ess-logo" alt="ESS - Engineering Software Steyr" src={`${window.MindGlobal.templateUrl}/assets/images/ess_logo_new.svg`} />
         </a>
       </div>
 
@@ -65,11 +65,6 @@ const BottomAbout: React.FC = () => {
       <div className="css_block w_xii h_iv x_0 y_xi">
         <div className="mind-slider-holder no-padding">
           <div className="home-banner-cube" id="home-banner-cube">
-              {
-                /*
-                <img className="hbc-banner-image" width="3004" height="815" src={`${window.MindGlobal.homeUrl}/ess-media/home-banner/240215-robots-and-sealing-webinar/robots-and-sealing-web-banner.webp`} />
-                */   
-              }
                 <div dangerouslySetInnerHTML={{__html: bannerFeed}} /> 
           </div>
 

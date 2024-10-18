@@ -17,9 +17,9 @@ import '../../../globals'; // for .svg import support in typescript
 import CssCube from './csscube';
 import BottomAbout from './cube-sides/bottom-about';
 import LeftCaseSolutions from './cube-sides/left-case-solutions';
-import RightIndustries from './cube-sides/right-industries';
+import RightProducts from './cube-sides/right-products';
 import FrontContact from './cube-sides/front-contact';
-import BackProducts from './cube-sides/back-products';
+import BackProducts from './cube-sides/back-services';
 
 import { CubeArrow } from './icons';
 
@@ -93,9 +93,9 @@ const DesktopNav: React.FC<DesktopNavProps> = ( { homeUrl, templateUrl} ) => {
 
         <ul id="wmnav-list" className={`no-style ${scrolled && 'scrolled'}`}>
           <li><a className='wm-cube-menu-link text-sm' data-target='bottom'>ESS</a></li>
-          <li><a className='wm-cube-menu-link text-sm' data-target='right'>Industries</a></li>
-          <li><a className='wm-cube-menu-link text-sm' data-target='back'>Solutions</a></li>
-          <li><a className='wm-cube-menu-link text-sm' data-target='left'>Case Solutions</a></li>
+          <li><a className='wm-cube-menu-link text-sm' data-target='right'>Products</a></li>
+          <li><a className='wm-cube-menu-link text-sm' data-target='back'>Services</a></li>
+          <li><a className='wm-cube-menu-link text-sm' data-target='left'>Case Studies</a></li>
           <li><a className='wm-cube-menu-link text-sm' data-target='front'>Contact</a></li>
           <li className='flex items-center'><a href={`${homeUrl}/consult`} className='uppercase wm-button sm m-zero rounded-full text-sm has-white-color m-right-half'>Free Consultation</a></li>
         </ul>
@@ -136,7 +136,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ( { homeUrl, templateUrl} ) => {
 
                 <LeftCaseSolutions />
 
-                <RightIndustries />
+                <RightProducts homeUrl={homeUrl} templateUrl={templateUrl} />
 
                 <BottomAbout />
 

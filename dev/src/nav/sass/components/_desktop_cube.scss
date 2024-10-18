@@ -449,7 +449,7 @@ padding: 0;
 
 // CSS ESS CUBE - Small logos inside Product panels of the Cube
 
-#csscube-cont #csscube-scene #csscube-rotator #csscube #csscube-back .product-block {
+#csscube-cont #csscube-scene #csscube-rotator #csscube .product-block {
   a {
     flex-direction: column;
     flex-wrap: nowrap;
@@ -460,8 +460,11 @@ padding: 0;
     }
   }
 
-  h3 {
-    margin-top: -.2em;
+  h3.claim {
+    border-left: 1px solid color('gray', 'lighten-1');
+    margin-left: 1rem;
+    padding: 2rem 1rem;
+    text-align: left;
   }
 
   .svg-ess-cube {
@@ -474,6 +477,11 @@ padding: 0;
       font-weight: bold;
     }
 
+  }
+
+  #cube-paintshop {
+    background: url('../../../../assets/images/cube/ps-cube-bkg.webp') right center no-repeat white;
+    background-size: contain;
   }
 
   .main-product-logo {

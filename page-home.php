@@ -34,6 +34,7 @@ endwhile;
 
 
 <!--   INDUSTRIES  =========================================================================================================================-->
+<!-- commented on the 18th of October 2024
 
 <section class="border-bot-gray border-top-light has-gray-lighten-4-background-color">
   <div class="container">
@@ -45,8 +46,10 @@ endwhile;
   </div>
 </section>
 
-<?php get_template_part('template-parts/content/content', 'industries'); ?>
+<?php /* get_template_part('template-parts/content/content', 'industries'); */ ?>
 
 </div>
+
+-->
 
 <?php get_footer();
