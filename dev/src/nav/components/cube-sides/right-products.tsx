@@ -35,7 +35,7 @@ const RightProducts: React.FC<WmNavSubpage> = ({homeUrl, templateUrl} ) => {
 
       <div className="css_block w_iv h_ii x_o y_vii css-white product-block main-product-block">
         <a href={`${homeUrl}/alsim-paintshop`}>    
-          <img loading="lazy" src={`${templateUrl}/assets/images/product-logos/logo-ess-merge.svg`}/>
+          <img width="200" height="100" src={`${templateUrl}/assets/images/product-logos/logo-ess-merge.svg`}/>
         </a>
       </div>
 
@@ -43,7 +43,7 @@ const RightProducts: React.FC<WmNavSubpage> = ({homeUrl, templateUrl} ) => {
 
       <div className="css_block w_iv h_ii x_iv y_vii css-white product-block main-product-block">
         <a href={`${homeUrl}/alsim-paintshop`}>    
-          <img loading="lazy" src={`${templateUrl}/assets/images/product-logos/logo-ess-dip-paint.svg`}/>
+          <img src={`${templateUrl}/assets/images/product-logos/logo-ess-dip-paint.svg`}/>
         </a>
       </div>
 
@@ -51,7 +51,7 @@ const RightProducts: React.FC<WmNavSubpage> = ({homeUrl, templateUrl} ) => {
 
       <div className="css_block w_iv h_ii x_viii y_vii css-white product-block main-product-block">
         <a href={`${homeUrl}/alsim-paintshop`}>    
-          <img loading="lazy" src={`${templateUrl}/assets/images/product-logos/logo-ess-e-coating.svg`}/>
+          <img src={`${templateUrl}/assets/images/product-logos/logo-ess-e-coating.svg`}/>
         </a>
       </div>
 
@@ -59,7 +59,7 @@ const RightProducts: React.FC<WmNavSubpage> = ({homeUrl, templateUrl} ) => {
 
       <div className="css_block w_iv h_ii x_o y_ix css-white product-block main-product-block">
         <a href={`${homeUrl}/alsim-paintshop`}>    
-          <img loading="lazy" src={`${templateUrl}/assets/images/product-logos/logo-ess-oven.svg`}/>
+          <img src={`${templateUrl}/assets/images/product-logos/logo-ess-oven.svg`}/>
         </a>
       </div>
 
@@ -67,7 +67,7 @@ const RightProducts: React.FC<WmNavSubpage> = ({homeUrl, templateUrl} ) => {
 
       <div className="css_block w_iv h_ii x_iv y_ix css-white product-block main-product-block">
         <a href={`${homeUrl}/alsim-paintshop`}>    
-          <img loading="lazy" src={`${templateUrl}/assets/images/product-logos/logo-ess-sealing.svg`}/>
+          <img src={`${templateUrl}/assets/images/product-logos/logo-ess-sealing.svg`}/>
         </a>
       </div>
 
@@ -75,7 +75,7 @@ const RightProducts: React.FC<WmNavSubpage> = ({homeUrl, templateUrl} ) => {
 
       <div className="css_block w_iv h_ii x_viii y_ix css-white product-block main-product-block ">
         <a /*className='has-paintshop-lighten-2-background-color'*/ href={`${homeUrl}/alsim-paintshop`}>    
-        <img loading="lazy" src={`${templateUrl}/assets/images/product-logos/logo-ess-top-coating.svg`}/>
+        <img src={`${templateUrl}/assets/images/product-logos/logo-ess-top-coating.svg`}/>
         </a>
       </div>
 
@@ -84,7 +84,7 @@ const RightProducts: React.FC<WmNavSubpage> = ({homeUrl, templateUrl} ) => {
 
       <div className="css_block w_iv h_ii x_o y_xi css-white product-block main-product-block">
         <a href={`${homeUrl}/alsim-paintshop`}>    
-          <img loading="lazy" src={`${templateUrl}/assets/images/product-logos/logo-ess-powder-coating.svg`}/>
+          <img src={`${templateUrl}/assets/images/product-logos/logo-ess-powder-coating.svg`}/>
         </a>
       </div>
 
@@ -92,7 +92,7 @@ const RightProducts: React.FC<WmNavSubpage> = ({homeUrl, templateUrl} ) => {
 
       <div className="css_block w_iv h_ii x_iv y_xi css-white product-block main-product-block">
         <a href={`${homeUrl}/alsim-paintshop`}>    
-          <img loading="lazy" src={`${templateUrl}/assets/images/product-logos/logo-ess-rinsing.svg`}/>
+          <img src={`${templateUrl}/assets/images/product-logos/logo-ess-rinsing.svg`}/>
         </a>
       </div>
 
@@ -100,7 +100,7 @@ const RightProducts: React.FC<WmNavSubpage> = ({homeUrl, templateUrl} ) => {
 
       <div className="css_block w_iv h_ii x_viii y_xi css-white product-block main-product-block ">
         <a /*className='has-paintshop-lighten-2-background-color'*/ href={`${homeUrl}/alsim-paintshop`}>    
-        <img loading="lazy" src={`${templateUrl}/assets/images/product-logos/logo-ess-anodizing.svg`}/>
+        <img src={`${templateUrl}/assets/images/product-logos/logo-ess-anodizing.svg`}/>
         </a>
       </div>
 

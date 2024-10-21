@@ -21,7 +21,7 @@ const BackServices: React.FC<WmNavSubpage> = ( {homeUrl, templateUrl} ) => {
         <div className='flex nowrap items-center'>
           <div className=''>
             <a href={`${homeUrl}/consult`}>
-              <img loading="lazy" className="main-product-logo" width={200} height={120} style={{objectFit: 'contain'}} src={`${templateUrl}/assets/images/cube/logo-ess-services.svg`}/>
+              <img className="main-product-logo" width={200} height={120} style={{objectFit: 'contain'}} src={`${templateUrl}/assets/images/cube/logo-ess-services.svg`}/>
             </a>
           </div>
           <div className={'max-w-300'}>
@@ -41,7 +41,7 @@ const BackServices: React.FC<WmNavSubpage> = ( {homeUrl, templateUrl} ) => {
 
       <div className="css_block w_iv h_viii x_o y_vii css-white">
         <a href={`${homeUrl}/consult`} className='ess-service'>
-          <img loading="lazy" style={{objectFit: 'contain'}} src={`${templateUrl}/assets/images/cube/illust-simulations.webp`}/>
+          <img style={{objectFit: 'contain'}} src={`${templateUrl}/assets/images/cube/illust-simulations.webp`}/>
           <div>
           <h3 className='p-hor-zero m-hor-zero'>Simulations</h3>
           <h4 className='p-hor-zero m-hor-zero'>On demand CFD Simulations with supreme accuracy and blazing fast results</h4>
@@ -54,7 +54,7 @@ const BackServices: React.FC<WmNavSubpage> = ( {homeUrl, templateUrl} ) => {
 
       <div className="css_block w_iv h_viii x_iv y_vii css-white">
         <a href={`${homeUrl}/consult`} className='ess-service'>
-          <img loading="lazy" style={{objectFit: 'contain'}} src={`${templateUrl}/assets/images/cube/illust-consultations.webp`}/>
+          <img style={{objectFit: 'contain'}} src={`${templateUrl}/assets/images/cube/illust-consultations.webp`}/>
           <div>
           <h3 className='p-hor-zero m-hor-zero'>Consultations</h3>
           <h4 className='p-hor-zero m-hor-zero'>Dedicated group of experts with 10 years of experience on your side.</h4>
@@ -66,7 +66,7 @@ const BackServices: React.FC<WmNavSubpage> = ( {homeUrl, templateUrl} ) => {
 
       <div className="css_block w_iv h_viii x_viii y_vii css-white">
         <a href={`${homeUrl}/consult`} className='ess-service'>
-          <img loading="lazy" style={{objectFit: 'contain'}} src={`${templateUrl}/assets/images/cube/illust-trainings.webp`}/>
+          <img style={{objectFit: 'contain'}} src={`${templateUrl}/assets/images/cube/illust-trainings.webp`}/>
           <div>
           <h3 className='p-hor-zero m-hor-zero'>Trainings</h3>
           <h4 className='p-hor-zero m-hor-zero'>Get the most of digital twins for paint shops in our advanced training programs.</h4>

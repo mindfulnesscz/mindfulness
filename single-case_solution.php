@@ -31,6 +31,7 @@ $postMetaSubtitle = get_post_meta(get_the_ID(), 'sub_title', true);
 $postMetaClient = get_post_meta(get_the_ID(), 'client', true);
 $postMetaServices = get_post_meta(get_the_ID(), 'services', true);
 $postMetaTimescope = get_post_meta(get_the_ID(), 'time_scope', true);
+$postMetaClientLogo = get_post_meta(get_the_ID(), 'client_logo', true);
 
 
 $theme_url = get_template_directory_uri();
@@ -83,6 +84,12 @@ while (have_posts()) :
 
             if ($postMetaTimescope != '')
               echo ('time scope: <b>' . $postMetaTimescope . '</b>');
+
+            if ($postMetaClientLogo != ''):
+              echo '<img style="width: 150px; height: auto" src="' . wp_get_attachment_image_src($postMetaClientLogo, 'thumb')[0] . '" />';
+            endif;
+
+
 
             ?>
             <div class="topSocialIcons" id="topSocialIconsDesktop">

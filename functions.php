@@ -14,7 +14,7 @@
  * @since Mindfulness 1.0
  */
 
-define("MINDFULNESS_VERSION", "3.0.10");
+define("MINDFULNESS_VERSION", "3.0.11");
 define("DEFAULT_IMAGE_ID", 155);
 
 /**
