@@ -17,6 +17,8 @@ import SlideSub from './slide-sub';
 import AboutSlide from './device-slides/slide-about';
 import IndustriesSlide from './device-slides/slide-industries';
 import SolutionsSlide from './device-slides/slide-solutions';
+import ProductsSlide from './device-slides/slide-products';
+import ServicesSlide from './device-slides/slide-services';
 
 //assets
 import EssLogo from './ess-logo';
@@ -169,12 +171,12 @@ const MobileNav: React.FC<DevicesNavProps> = ( { homeUrl, templateUrl} ) => {
 
         <div ref={SlideIndustries} className="wmnav-slide" id="wmnav-slide-industries" >
           <SlideSub title="Products" className="wmnav-slide-inner" callSlide={callSlide} slideLinks={[{name: 'main', el:SlideMain.current}]} >
-            <IndustriesSlide homeUrl={homeUrl}/>
+            <ProductsSlide homeUrl={homeUrl} templateUrl={templateUrl}/>
           </SlideSub>
         </div>
         <div ref={SlideSolutions} className="wmnav-slide" id="wmnav-slide-solutions" >
           <SlideSub title="Services" className="wmnav-slide-inner" callSlide={callSlide} slideLinks={[{name: 'main', el:SlideMain.current}]} >
-            <SolutionsSlide homeUrl={homeUrl} templateUrl={templateUrl} />
+            <ServicesSlide homeUrl={homeUrl} templateUrl={templateUrl} />
           </SlideSub>
         </div>
       </div>
