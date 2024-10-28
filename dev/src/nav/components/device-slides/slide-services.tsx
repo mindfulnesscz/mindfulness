@@ -37,7 +37,7 @@ const ServicesSlide: React.FC<WmNavSubpage> = ( { homeUrl, templateUrl} ) => {
           <img height="50" src={`${templateUrl}/assets/images/cube/illust-consultations.webp`} />
         </div>
         <div className='col-xs-8 p-left-half p-right-zero'>
-          <h4>Simulations</h4>
+          <h4>Consultations</h4>
           <p className='text-sm'>Dedicated group of experts with 10 years of experience on your side.</p>
         </div>
       </div>
@@ -50,7 +50,7 @@ const ServicesSlide: React.FC<WmNavSubpage> = ( { homeUrl, templateUrl} ) => {
           <img height="50" src={`${templateUrl}/assets/images/cube/illust-trainings.webp`} />
         </div>
         <div className='col-xs-8 p-left-half p-right-zero'>
-          <h4>Simulations</h4>
+          <h4>Trainings</h4>
           <p className='text-sm'>Get the most of digital twins for paint shops in our advanced training programs.</p>
         </div>
       </div>

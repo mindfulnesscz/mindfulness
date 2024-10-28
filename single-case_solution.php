@@ -65,7 +65,7 @@ while (have_posts()) :
               (min-width: 1440px) 1200px" class="single-thumbnail">
           </div>
 
-          <div class="col-xs-12 col-md-6 p-vert-double">
+          <div class="col-xs-12 col-md-6 p-vert-double bl b-gray">
             <h1><?php echo the_title() ?></h1>
             <h4><?php echo $postMetaSubtitle; ?></h4>
 
