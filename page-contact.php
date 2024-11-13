@@ -28,6 +28,9 @@ endwhile;
 
 ?>
 
+<?php
+
+/* ------ getting rid of the form most likely for good causing issues since could not be tracked with GA and respondents don't send E-mails ---------
 
 <section class="" style="background-color: #f4f4f4">
   <h2 class="center p-bot-base m-vert-double">Arrange a meeting:</h2>
@@ -36,6 +39,9 @@ endwhile;
     </iframe>
   </div>
 </section>
+*/
+
+?>
 
 <!-- ==========================================  MAP ========================================== -->
 
