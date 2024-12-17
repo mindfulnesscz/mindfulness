@@ -266,6 +266,17 @@ $template_url = get_template_directory_uri();
 wm_print_console();
 ?>
 
+<script type="text/javascript">
+  var leady_track_key = "7SLeEyLNB93a9xJ2";
+  (function() {
+    var l = document.createElement("script");
+    l.type = "text/javascript";
+    l.async = true;
+    l.src = 'https://ct.leady.com/' + leady_track_key + "/L.js";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(l, s);
+  })();
+</script>
 
 </body>
 

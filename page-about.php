@@ -132,7 +132,7 @@ endwhile;
     <section class="has-gray-lighten-4-background-color">
 
       <div class="container">
-        <h4 class="subsection-headline center">Advisery Board</h3>
+        <h4 class="subsection-headline center">Advisory Board</h3>
       </div>
 
       <div class="row team-row p-hor-zer md-p-hor-base lg-p-hor-okta">

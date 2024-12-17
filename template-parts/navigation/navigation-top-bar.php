@@ -10,6 +10,6 @@
 
 <div id="wmnav-cont">
   <?php
-  // Here renders mobile menu slides nad desktop cube
+  // Here renders mobile menu slides and desktop cube
   ?>
 </div>
