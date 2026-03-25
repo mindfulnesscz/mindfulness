@@ -25,7 +25,7 @@ $template_url = get_template_directory_uri();
         <p class="text-sm center">ESS Engineering Software Steyr GmbH<br> Berggasse 35, 4400 Steyr, Austria
         </p>
         <p class="text-md center" style="margin-top: -0.2em; line-height: 1.2;"><a href="tel:0043725220446">+43 7252 20446</a>
-          <a href="mailto:info@essteyr.com">info@essteyr.com</a>
+          <a href="mailto:office@essteyr.com">office@essteyr.com</a>
         </p>
 
 
@@ -196,6 +196,7 @@ $template_url = get_template_directory_uri();
           </div>
           <div class="col-xs-6 col-sm-4 p-zero">
             <ul class="p-zero no-style">
+              <?php /*
               <li>
                 <h6>INDUSTRIES</h6>
               </li>
@@ -203,10 +204,14 @@ $template_url = get_template_directory_uri();
               <li class="text-sm"><a href="<?php echo $h ?>/oil-gas">Oil & Gas</a></li>
               <li class="text-sm"><a href="<?php echo $h ?>/processing">Mineral Processing</a></li>
               <li class="text-sm"><a href="<?php echo $h ?>/automotive">Automotive</a></li>
+              */
+              ?>
             </ul>
           </div>
           <div class="col-xs-12 col-sm-4 p-zero">
+            <?php /*
             <ul class="p-zero no-style">
+            
               <li>
                 <h6>SOLUTIONS</h6>
               </li>
@@ -229,17 +234,18 @@ $template_url = get_template_directory_uri();
               </div>
             </div>
           </div>
+          */ ?>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="footer-copyright text-sm has-gray-lighten-1-background-color p-vert-base ">
-    <div class="container ">
-      <div class="copyright-element"> © <?php echo date('Y') ?> ESS - Engineering Software Steyr GmbH</div>
-      <div class="copyright-element"><a href="<?php echo home_url() . '/legal-notice' ?>">Legal Notice</a></div>
+    <div class="footer-copyright text-sm has-gray-lighten-1-background-color p-vert-base ">
+      <div class="container ">
+        <div class="copyright-element"> © <?php echo date('Y') ?> ESS - Engineering Software Steyr GmbH</div>
+        <div class="copyright-element"><a href="<?php echo home_url() . '/legal-notice' ?>">Legal Notice</a></div>
+      </div>
     </div>
-  </div>
 
 </footer>
 
@@ -267,15 +273,20 @@ wm_print_console();
 ?>
 
 <script type="text/javascript">
-  var leady_track_key = "7SLeEyLNB93a9xJ2";
-  (function() {
-    var l = document.createElement("script");
-    l.type = "text/javascript";
-    l.async = true;
-    l.src = 'https://ct.leady.com/' + leady_track_key + "/L.js";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(l, s);
-  })();
+  function initApollo() {
+    var n = Math.random().toString(36).substring(7),
+      o = document.createElement("script");
+    o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" + n,
+      o.async = !0,
+      o.defer = !0,
+      o.onload = function() {
+        window.trackingFunctions.onLoad({
+          appId: "67b32cae76109e00150ae42e"
+        })
+      },
+      document.head.appendChild(o)
+  }
+  initApollo();
 </script>
 
 </body>

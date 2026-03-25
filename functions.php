@@ -14,7 +14,7 @@
  * @since Mindfulness 1.0
  */
 
-define("MINDFULNESS_VERSION", "3.0.14");
+define("MINDFULNESS_VERSION", "3.0.20");
 define("DEFAULT_IMAGE_ID", 155);
 
 /**
@@ -137,3 +137,24 @@ function add_categories_to_pages()
   register_taxonomy_for_object_type('category', 'page');
 }
 add_action('init', 'add_categories_to_pages');
+
+
+// hides users from restapi
+
+add_filter('rest_authentication_errors', function ($result) {
+  // If another plugin already set an error, respect it.
+  if (!empty($result)) return $result;
+
+  $request_uri = $_SERVER['REQUEST_URI'] ?? '';
+  $is_users_route = strpos($request_uri, '/wp-json/wp/v2/users') !== false;
+
+  if ($is_users_route && !is_user_logged_in()) {
+    return new WP_Error(
+      'rest_forbidden',
+      'Users endpoint is not accessible.',
+      array('status' => 401)
+    );
+  }
+
+  return $result;
+});

@@ -192,7 +192,6 @@ class Mindfulness_Setup
 
   public function mindfulness_i18n()
   {
-
     $path = get_template_directory() . '/languages';
 
     $result = load_theme_textdomain('mindfulness', $path);

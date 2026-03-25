@@ -34,15 +34,15 @@ const RightProducts: React.FC<WmNavSubpage> = ({homeUrl, templateUrl} ) => {
       {/* ---------- Merge --------------- */}
 
       <div className="css_block w_iv h_ii x_o y_vii css-white product-block main-product-block">
-        <a href={`${homeUrl}/alsim-paintshop`}>    
-          <img width="200" height="100" src={`${templateUrl}/assets/images/product-logos/logo-ess-merge.svg`}/>
+        <a href={`https://www.essteyr.com/wp-content/uploads/2025/01/ess-merge.pdf`}>
+          <img src={`${templateUrl}/assets/images/product-logos/logo-ess-merge.svg`}/>
         </a>
       </div>
 
       {/* ---------- Dip Paint --------------- */}
 
       <div className="css_block w_iv h_ii x_iv y_vii css-white product-block main-product-block">
-        <a href={`${homeUrl}/alsim-paintshop`}>    
+        <a href={`https://www.essteyr.com/wp-content/uploads/2025/01/ess-dip-paint.pdf`}>    
           <img src={`${templateUrl}/assets/images/product-logos/logo-ess-dip-paint.svg`}/>
         </a>
       </div>
@@ -50,7 +50,7 @@ const RightProducts: React.FC<WmNavSubpage> = ({homeUrl, templateUrl} ) => {
       {/* ---------- E-Coating --------------- */}
 
       <div className="css_block w_iv h_ii x_viii y_vii css-white product-block main-product-block">
-        <a href={`${homeUrl}/alsim-paintshop`}>    
+        <a href={`https://www.essteyr.com/wp-content/uploads/2025/01/ess-e-coating.pdf`}>    
           <img src={`${templateUrl}/assets/images/product-logos/logo-ess-e-coating.svg`}/>
         </a>
       </div>
@@ -58,7 +58,7 @@ const RightProducts: React.FC<WmNavSubpage> = ({homeUrl, templateUrl} ) => {
       {/* ---------- Oven --------------- */}
 
       <div className="css_block w_iv h_ii x_o y_ix css-white product-block main-product-block">
-        <a href={`${homeUrl}/alsim-paintshop`}>    
+        <a href={`https://www.essteyr.com/wp-content/uploads/2025/01/ess-oven.pdf`}>    
           <img src={`${templateUrl}/assets/images/product-logos/logo-ess-oven.svg`}/>
         </a>
       </div>
@@ -66,7 +66,7 @@ const RightProducts: React.FC<WmNavSubpage> = ({homeUrl, templateUrl} ) => {
       {/* ---------- Sealing --------------- */}
 
       <div className="css_block w_iv h_ii x_iv y_ix css-white product-block main-product-block">
-        <a href={`${homeUrl}/alsim-paintshop`}>    
+        <a href={`https://www.essteyr.com/wp-content/uploads/2025/01/ess-sealing.pdf`}>    
           <img src={`${templateUrl}/assets/images/product-logos/logo-ess-sealing.svg`}/>
         </a>
       </div>
@@ -74,7 +74,7 @@ const RightProducts: React.FC<WmNavSubpage> = ({homeUrl, templateUrl} ) => {
       {/* ---------- Top Coating --------------- */}
 
       <div className="css_block w_iv h_ii x_viii y_ix css-white product-block main-product-block ">
-        <a /*className='has-paintshop-lighten-2-background-color'*/ href={`${homeUrl}/alsim-paintshop`}>    
+        <a href={`${homeUrl}/wp-content/uploads/2025/01/alsim-top-coating.pdf`}>    
         <img src={`${templateUrl}/assets/images/product-logos/logo-ess-top-coating.svg`}/>
         </a>
       </div>
@@ -83,7 +83,7 @@ const RightProducts: React.FC<WmNavSubpage> = ({homeUrl, templateUrl} ) => {
       {/* ---------- Powder Coating --------------- */}
 
       <div className="css_block w_iv h_ii x_o y_xi css-white product-block main-product-block">
-        <a href={`${homeUrl}/alsim-paintshop`}>    
+        <a href={`https://www.essteyr.com/wp-content/uploads/2025/01/ess-powder-coating.pdf`}>    
           <img src={`${templateUrl}/assets/images/product-logos/logo-ess-powder-coating.svg`}/>
         </a>
       </div>
@@ -99,7 +99,7 @@ const RightProducts: React.FC<WmNavSubpage> = ({homeUrl, templateUrl} ) => {
       {/* ---------- Anodizing --------------- */}
 
       <div className="css_block w_iv h_ii x_viii y_xi css-white product-block main-product-block ">
-        <a /*className='has-paintshop-lighten-2-background-color'*/ href={`${homeUrl}/alsim-paintshop`}>    
+        <a href={`https://www.essteyr.com/wp-content/uploads/2025/01/ess-anodizing.pdf`}>    
         <img src={`${templateUrl}/assets/images/product-logos/logo-ess-anodizing.svg`}/>
         </a>
       </div>

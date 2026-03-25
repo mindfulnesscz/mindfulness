@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying single Events
  *
@@ -17,7 +18,7 @@ get_header(); ?>
 	<div class="ess-tiny-header">
 		<a href="<?php echo get_post_type_archive_link('events'); ?>">
 			<h1 class="ess-cut-corners">
-				Events
+				Events voeee
 			</h1>
 			<div class="cl-both"></div>
 		</a>
@@ -41,17 +42,13 @@ get_header(); ?>
 
 				<!-- ------------ Single sidebar MAIN  ------------------ -->
 				<div class="col-single-main col-xs-12 col-md-6 col-lg-8">
+					<?php
+					while (have_posts()) : the_post();
+						// Include the page content template.
+						get_template_part('template-parts/content/content', 'single');
+					endwhile;
 
-
-					<?php 
-
- while ( have_posts() ) : the_post();
- 
-            // Include the page content template.
-            get_template_part( 'template-parts/content/content', 'single' );
-endwhile;
-
-?>
+					?>
 
 				</div>
 
@@ -67,8 +64,8 @@ endwhile;
 	<!-- ========================================== CONTACT STRIP ========================================== -->
 
 
-	<?php 
-	get_template_part( 'template-parts/content/content', 'contactstrip' );
-?>
+	<?php
+	get_template_part('template-parts/content/content', 'contactstrip');
+	?>
 
 	<?php get_footer();
