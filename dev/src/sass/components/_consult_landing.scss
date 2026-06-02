@@ -1,0 +1,345 @@
+.ess-consult-landing {
+  color: $white;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(20, 160, 255, 0.2),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(15, 42, 87, 0.28),
+      transparent 24%
+    ),
+    linear-gradient(180deg, #09090b 0%, #111827 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  .container {
+    max-width: 1440px;
+  }
+
+  .ess-consult-hero-copy {
+    max-width: 760px;
+  }
+
+  .ess-consult-hero-illustration {
+    display: block;
+    width: min(220px, 80%);
+    max-width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: $base-margin;
+    transform: scaleX(-1);
+  }
+
+  .ess-consult-badge,
+  .ess-consult-section-kicker,
+  .ess-consult-form-kicker {
+    letter-spacing: 0.16em;
+    font-weight: 600;
+  }
+
+  .ess-consult-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    color: color("essblue", "lighten-1");
+    border: 1px solid rgba(20, 160, 255, 0.35);
+    background: rgba(20, 160, 255, 0.08);
+    margin-bottom: $base-margin;
+  }
+
+  .ess-consult-hero-title {
+    max-width: 760px;
+    color: $white;
+    line-height: 1.05;
+    font-size: $mega-text-sm;
+
+    span {
+      color: color("essblue", "lighten-1");
+    }
+
+    @media (min-width: $medium-screen-up) {
+      font-size: $mega-text-md;
+    }
+
+    @media (min-width: $large-screen-up) {
+      font-size: 64px;
+    }
+  }
+
+  .ess-consult-hero-text,
+  .ess-consult-proof p,
+  .ess-consult-contact-card p,
+  .ess-consult-benefit-card p {
+    max-width: none;
+  }
+
+  .ess-consult-hero-text {
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .ess-consult-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .ess-consult-proof {
+    height: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid color("green", "base");
+    backdrop-filter: blur(12px);
+  }
+
+  .ess-consult-form-card {
+    background: $white;
+    color: color("gray", "darken-3");
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.28);
+  }
+
+  .ess-consult-form-head p,
+  .ess-consult-form-head h2,
+  .ess-consult-form-footer p {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+  }
+
+  .ess-consult-form-kicker,
+  .ess-consult-section-kicker {
+    color: $primary-color;
+  }
+
+  .ess-consult-form-content {
+    margin-top: $base-margin;
+
+    .wm-subscribe-wrapper,
+    .wm-subscribe-form,
+    .wms-row {
+      width: 100%;
+    }
+
+    .wm-subscribe-wrapper {
+      color: color("gray", "darken-3");
+    }
+
+    .wm-subscribe-form {
+      background: transparent;
+      padding: 0;
+    }
+
+    label,
+    .wm-top-label,
+    .label-field {
+      color: color("gray", "darken-3");
+    }
+
+    .wms-required-mark {
+      margin-left: 0.2rem;
+      color: color("essblue", "darken-1");
+    }
+
+    .field {
+      margin-bottom: $half-margin;
+    }
+
+    .wms-consult-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0;
+      padding: 1rem 1.2rem;
+      background: color("gray", "lighten-4");
+      border: 1px solid color("gray", "lighten-2");
+      border-radius: 18px;
+    }
+
+    .wms-consult-consent .wms-input[type="checkbox"] {
+      width: auto;
+      margin-top: 0.2rem;
+      margin-right: 0;
+      flex: 0 0 auto;
+      background: $white;
+    }
+
+    .wms-consult-consent-label {
+      flex: 1 1 auto;
+      margin: 0;
+      color: color("gray", "darken-2");
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .wms-consult-consent-label a {
+      color: color("gray", "darken-2");
+      text-decoration: underline;
+    }
+
+    .wm-subscribe-form .wm-top-label {
+      padding-left: 0.6rem;
+    }
+    .wm-top-label > div {
+      margin-top: 0.2rem;
+    }
+
+    .wms-input,
+    textarea,
+    select {
+      width: 100%;
+      border: 1px solid color("gray", "darken-1");
+      background-color: color("essblue", "lighten-4");
+      border-radius: 18px;
+      padding: 1rem;
+      box-sizing: border-box;
+      background: color("essblue", "lighten-4");
+    }
+
+    textarea {
+      min-height: 0;
+      height: 58px;
+      resize: vertical;
+      overflow: hidden;
+      transition: height 0.18s ease-out;
+    }
+
+    textarea:focus,
+    textarea:active {
+      height: 10rem;
+    }
+
+    input[type="checkbox"] {
+      width: auto;
+      margin-right: 0.6rem;
+    }
+
+    .submit,
+    button[type="submit"] {
+      @extend %wm-button;
+      width: 100%;
+      margin-bottom: 0;
+      border-radius: 999px;
+      text-align: center;
+      font-size: $h5;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+      &:hover {
+        text-decoration: none;
+        background: $button-secondary;
+        color: $button-text-hover;
+        filter: drop-shadow(0 5px 10px $ess-blue-transp);
+      }
+    }
+
+    .wms-col {
+      margin-bottom: 0;
+      padding: 0.4rem $quarter-margin;
+    }
+  }
+}
+
+.ess-consult-section {
+  background: #0b0f17;
+  color: $white;
+
+  h2,
+  h3 {
+    color: $white;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.78);
+  }
+}
+
+.ess-consult-benefits {
+  background: color("gray", "lighten-4");
+  color: color("gray", "darken-3");
+
+  h2,
+  h3 {
+    color: color("gray", "darken-3");
+  }
+
+  p {
+    color: rgba(45, 45, 45, 0.82);
+  }
+
+  .ess-consult-benefit-card {
+    height: 100%;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid color("gray", "lighten-2");
+    box-shadow: 0 0.75rem 1.75rem rgba(15, 42, 87, 0.08);
+
+    p {
+      color: color("gray", "darken-2");
+    }
+  }
+
+  .ess-consult-benefit-icon {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: $base-margin;
+    background: rgba(20, 160, 255, 0.12);
+  }
+}
+
+.ess-consult-contact {
+  background: color("gray", "lighten-4");
+  color: color("gray", "darken-3");
+  border-top: 1px solid color("gray", "lighten-2");
+  border-bottom: 1px solid color("gray", "lighten-2");
+
+  h2,
+  h3 {
+    color: color("gray", "darken-3");
+  }
+
+  p {
+    color: rgba(45, 45, 45, 0.82);
+  }
+
+  .ess-consult-contact-card {
+    height: 100%;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid color("gray", "lighten-2");
+    box-shadow: 0 0.75rem 1.75rem rgba(15, 42, 87, 0.08);
+
+    p {
+      color: color("gray", "darken-3");
+    }
+
+    p.text-sm {
+      color: color("gray", "darken-1");
+    }
+  }
+}
+
+.ess-consult-cta {
+  background: linear-gradient(
+    135deg,
+    rgba(20, 160, 255, 0.12),
+    rgba(15, 42, 87, 0.22)
+  );
+  border: 1px solid rgba(20, 160, 255, 0.2);
+}
+
+@media only screen and (max-width: $medium-screen) {
+  .ess-consult-landing {
+    .ess-consult-hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .ess-consult-hero-actions .wm-button {
+      text-align: center;
+      width: 100%;
+    }
+
+    .ess-consult-form-card {
+      margin-top: $double-margin;
+    }
+  }
+}

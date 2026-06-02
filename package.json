@@ -4,8 +4,8 @@
   "description": "Webpack bundle for generetinh ESS Website javascript files",
   "main": "index.js",
   "scripts": {
-    "start:css": "grunt watch",
-    "build:css": "grunt",
+    "start:css": "sass --watch --style=compressed --load-path=./dev --load-path=./node_modules --no-source-map dev/src/sass/mindfulness.scss:assets/css/mindfulness.css dev/src/sass/mindfulness-backend.scss:assets/css/mindfulness-backend.css dev/src/sass/home-banner.scss:assets/css/home-banner.css dev/src/sass/spacing.sass:assets/css/wm-spacing.css dev/src/sass/product-page.scss:assets/css/product-page.css",
+    "build:css": "sass --style=compressed --load-path=./dev --load-path=./node_modules --no-source-map dev/src/sass/mindfulness.scss:assets/css/mindfulness.css dev/src/sass/mindfulness-backend.scss:assets/css/mindfulness-backend.css dev/src/sass/home-banner.scss:assets/css/home-banner.css dev/src/sass/spacing.sass:assets/css/wm-spacing.css dev/src/sass/product-page.scss:assets/css/product-page.css",
     "start:js": "webpack --watch --mode=development",
     "build:js": "webpack --mode=production",
     "test": "jest"

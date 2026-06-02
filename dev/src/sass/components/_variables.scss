@@ -1,5 +1,4 @@
-
-@import './colors'; 
+@use "./colors";
 /* 
 TABLE OF CONTENTS
 
@@ -13,63 +12,57 @@ TABLE OF CONTENTS
 
 */
 
-
 // 0. Layout
 // ==========================================================================
 
 $base-corners: 10px;
 
-
 // 1. Sizes
 // ==========================================================================
 
-$small-screen-up : 461px;
-$medium-screen-up : 782px;
-$large-screen-up : 1201px;
+$small-screen-up: 461px;
+$medium-screen-up: 782px;
+$large-screen-up: 1201px;
 
-$small-screen : 460px;
-$medium-screen : 781px;
-$large-screen : 1200px;
+$small-screen: 460px;
+$medium-screen: 781px;
+$large-screen: 1200px;
 
 $screens: (
-  'sm': $small-screen,
-  'md': $medium-screen,
-  'lg': $large-screen
+  "sm": $small-screen,
+  "md": $medium-screen,
+  "lg": $large-screen,
 );
 
-$base-margin : calc(0.8rem + 0.5vw);
-$double-margin : calc(1.6rem + 1vw);
-$quad-margin : calc(3.2rem + 2vw);
-$sexta-margin : calc(4.8rem + 3vw);
-$okto-margin : calc(6.4rem + 4vw);
-$dodeca-margin : calc(9.6rem + 6vw);
+$base-margin: calc(0.8rem + 0.5vw);
+$double-margin: calc(1.6rem + 1vw);
+$quad-margin: calc(3.2rem + 2vw);
+$sexta-margin: calc(4.8rem + 3vw);
+$okto-margin: calc(6.4rem + 4vw);
+$dodeca-margin: calc(9.6rem + 6vw);
 
-$half-margin : calc(0.4rem + 0.25vw);
-$quarter-margin : calc(0.2rem + 0.15vw);
-$reduced-margin : 1rem;
+$half-margin: calc(0.4rem + 0.25vw);
+$quarter-margin: calc(0.2rem + 0.15vw);
+$reduced-margin: 1rem;
 
-
-$-quarter-margin : calc((0.2rem + 0.15vw) * -1);
+$-quarter-margin: calc((0.2rem + 0.15vw) * -1);
 $-half-margin: calc((0.4rem + 0.25vw) * -1);
-$-base-margin : calc((0.8rem + 0.5vw) * -1);
-$-double-margin : calc((0.8rem + 0.5vw) * -2);
-$-quad-margin : calc((0.8rem + 0.5vw) * -4);
-$-sexta-margin : calc((0.8rem + 0.5vw) * -6);
-$-okto-margin : calc((0.8rem + 0.5vw) * -8);
-
+$-base-margin: calc((0.8rem + 0.5vw) * -1);
+$-double-margin: calc((0.8rem + 0.5vw) * -2);
+$-quad-margin: calc((0.8rem + 0.5vw) * -4);
+$-sexta-margin: calc((0.8rem + 0.5vw) * -6);
+$-okto-margin: calc((0.8rem + 0.5vw) * -8);
 
 // 2. Typography
-// ========================================================================== 
-
+// ==========================================================================
 
 //$copy-font: 'Open Sans', Helvetica, Arial, sans-serif;
 $copy-font: sans-serif;
-$headline-font: 'Exo', sans-serif;
+$headline-font: "essGrotesk", sans-serif;
 
 $text-max-width: 720px;
 
-$headline-color: color('gray', 'darken-3');
-
+$headline-color: colors.color("gray", "darken-3");
 
 $bread-text-sm: 16px;
 $bread-text-md: 18px;
@@ -119,13 +112,13 @@ $mega-text-sm-line: 50px;
 $mega-text-md-line: 64px;
 $mega-text-lg-line: 76px;
 
-$h1 : calc(2.9rem + 1vw);
-$h1-h2 : calc(1.75rem + 1.1vw);
-$h2 : calc(1.95rem + 1vw);
-$h3 : calc(1.56rem + 0.8vw);
-$h4 : calc(1.32rem + 0.4vw);
-$h5 : calc(1.1rem + 0.1vw);
-$h6 : calc(0.7rem + 0.08vw);
+$h1: calc(2.9rem + 1vw);
+$h1-h2: calc(1.75rem + 1.1vw);
+$h2: calc(1.95rem + 1vw);
+$h3: calc(1.56rem + 0.8vw);
+$h4: calc(1.32rem + 0.4vw);
+$h5: calc(1.1rem + 0.1vw);
+$h6: calc(0.7rem + 0.08vw);
 
 $h1-sm: 34px;
 $h1-md: 40px;
@@ -151,7 +144,6 @@ $h6-sm: 15px;
 $h6-md: 16px;
 $h6-lg: 17px;
 
-
 $bread-text-sm: 16px;
 $bread-text-md: 18px;
 $bread-text-lg: 18px;
@@ -176,23 +168,21 @@ $small-text-sm-line: 16px;
 $small-text-md-line: 17px;
 $small-text-lg-line: 20px;
 
+$big-text: calc(2.5rem + 0.7vw);
+$bigger-text: calc(2.9rem + 0.9vw);
+$biggest-text: calc(3.2rem + 1.2vw);
 
-$big-text : calc(2.5rem + 0.7vw);
-$bigger-text : calc(2.9rem + 0.9vw);
-$biggest-text : calc(3.2rem + 1.2vw);
+$h4-lineheight: calc(1.7rem + 0.2vw);
+$h4-padding: calc(1.7rem + 0.2vw) 0;
 
-$h4-lineheight : calc(1.7rem + 0.2vw);
-$h4-padding : calc(1.7rem + 0.2vw) 0;
-
-$tiny-icon : calc(1.8rem + 0.4vw);
-$small-icon : calc(2rem + 0.5vw);
-$medium-icon : calc(2.6rem + 0.8vw);
-$big-icon : calc(4rem + 1vw);
-$huge-icon : calc(6rem + 1.6vw);
+$tiny-icon: calc(1.8rem + 0.4vw);
+$small-icon: calc(2rem + 0.5vw);
+$medium-icon: calc(2.6rem + 0.8vw);
+$big-icon: calc(4rem + 1vw);
+$huge-icon: calc(6rem + 1.6vw);
 $mega-icon: calc(8rem + 2vw);
 
-
-$mega-font : calc(2rem + 2vw);
+$mega-font: calc(2rem + 2vw);
 
 $lg-button: calc(4rem + 2vw);
 $md-button: calc(2rem + 1vw);
@@ -201,38 +191,42 @@ $sm-button: calc(1rem + 0.5vw);
 // 3. Colors
 // ==========================================================================
 
-$primary-color : color("essblue", "base");
-$primary-color-hover : color("essblue", "darken-3");
-$primary-text : color("gray", "darken-2");
-$secondary-color : color("gray", "darken-2");
-$white : color("shades", "white");
+$primary-color: colors.color("essblue", "base");
+$primary-color-hover: colors.color("essblue", "darken-3");
+$primary-text: colors.color("gray", "darken-2");
+$secondary-color: colors.color("gray", "darken-2");
+$white: colors.color("shades", "white");
 
 //SYSTEM
-$success-color : color("green", "base");
-$error-color : color("red", "base");
+$success-color: colors.color("green", "base");
+$error-color: colors.color("red", "base");
 
-$link-color : color("gray", "base");
-$ess-base-green : color("green", "base");
+$link-color: colors.color("gray", "base");
+$ess-base-green: colors.color("green", "base");
 
-$card-link-color : color("essblue", "base");
-$footer-font-color : color("gray", "base");
-$footer-bg-color : color("gray", "lighten-4");
-$footer-copyright-font-color: color("gray", "lighten-2");
-$footer-copyright-bg-color : none;
-$ess-blue-transp : rgba(15, 42, 86, 0.2);
-$ess-blue-transp-hard : rgba(15, 42, 86, 0.8);
-
-
-
+$card-link-color: colors.color("essblue", "base");
+$footer-font-color: colors.color("gray", "base");
+$footer-bg-color: colors.color("gray", "lighten-4");
+$footer-copyright-font-color: colors.color("gray", "lighten-2");
+$footer-copyright-bg-color: none;
+$ess-blue-transp: rgba(15, 42, 86, 0.2);
+$ess-blue-transp-hard: rgba(15, 42, 86, 0.8);
 
 // GRADIENT
-$ess-blue-gradient : linear-gradient(to left, color('gray', 'base'), color('gray', 'lighten-1'));
-$ess-blue-gradient-reverse : linear-gradient(to right, $primary-color, $secondary-color);
+$ess-blue-gradient: linear-gradient(
+  to left,
+  colors.color("gray", "base"),
+  colors.color("gray", "lighten-1")
+);
+$ess-blue-gradient-reverse: linear-gradient(
+  to right,
+  $primary-color,
+  $secondary-color
+);
 
-
-// button colors 
-$primary-button-bg : $primary-color;
-$primary-button-bg-hover : color('essblue', 'darken-1');
+// button colors
+$primary-button-bg: $primary-color;
+$primary-button-bg-hover: colors.color("essblue", "darken-1");
 
 // NAVIGATION CUBE
 // Current one
@@ -241,25 +235,21 @@ $primary-button-bg-hover : color('essblue', 'darken-1');
 // New one
 $nav-cube-background: rgba(12, 60, 146, 0.35);
 
-
-$border-default-color: color('gray', 'darken-2');
-
-
+$border-default-color: colors.color("gray", "base");
 
 // 4. Spacings and Sizes
 // ==========================================================================
 
-
 $spaces-map: (
-  "zero" : 0,
+  "zero": 0,
   "quarter": $quarter-margin,
   "half": $half-margin,
-  "base" : $base-margin,
-  "double" : $double-margin,
-  "quad" : $quad-margin,
+  "base": $base-margin,
+  "double": $double-margin,
+  "quad": $quad-margin,
   "sexta": $sexta-margin,
-  "okta" : $okto-margin,
-  "dodeca" : $dodeca-margin,
+  "okta": $okto-margin,
+  "dodeca": $dodeca-margin,
   "minus-half": $-half-margin,
   "minus-base": $-base-margin,
   "minus-double": $-double-margin,
@@ -268,20 +258,52 @@ $spaces-map: (
 );
 
 $spaces-values: (
-  "m": ("margin"),
-  "m-top": ("margin-top"),
-  "m-right": ("margin-right"),
-  "m-bot": ("margin-bottom"),
-  "m-left": ("margin-left"),
-  "m-hor": ("margin-left", "margin-right"),
-  "m-vert": ("margin-top", "margin-bottom"),
-  "p":("padding"),
-  "p-top": ("padding-top"),
-  "p-right": ("padding-right"),
-  "p-bot": ("padding-bottom"),
-  "p-left": ("padding-left"),
-  "p-hor": ("padding-left", "padding-right"),
-  "p-vert": ("padding-top", "padding-bottom"),
+  "m": (
+    "margin",
+  ),
+  "m-top": (
+    "margin-top",
+  ),
+  "m-right": (
+    "margin-right",
+  ),
+  "m-bot": (
+    "margin-bottom",
+  ),
+  "m-left": (
+    "margin-left",
+  ),
+  "m-hor": (
+    "margin-left",
+    "margin-right",
+  ),
+  "m-vert": (
+    "margin-top",
+    "margin-bottom",
+  ),
+  "p": (
+    "padding",
+  ),
+  "p-top": (
+    "padding-top",
+  ),
+  "p-right": (
+    "padding-right",
+  ),
+  "p-bot": (
+    "padding-bottom",
+  ),
+  "p-left": (
+    "padding-left",
+  ),
+  "p-hor": (
+    "padding-left",
+    "padding-right",
+  ),
+  "p-vert": (
+    "padding-top",
+    "padding-bottom",
+  ),
 );
 
 $sizes: (
@@ -322,7 +344,7 @@ $offsets: (
   "800": 800px,
   "1000": 800px,
   "1200": 800px,
-  "1400": 800px
+  "1400": 800px,
 );
 
 $opacities: (
@@ -336,9 +358,8 @@ $opacities: (
   "70": 0.7,
   "80": 0.8,
   "90": 0.9,
-  "100":1
+  "100": 1,
 );
-
 
 // 5. Top Navbar
 // ==========================================================================
@@ -349,7 +370,6 @@ $nav_cube_side_width: 1.4rem;
 $nav_cube_side_shift: 0.9rem;
 $nav_cube_side_shift_2: 1rem;
 
-
 // 6. Blocks
 // ==========================================================================
 
@@ -358,7 +378,7 @@ $block-border-radius: 10px;
 // 6. Buttons
 // ==========================================================================
 
-$button-primary: color('essblue', 'darken-1');
-$button-secondary: color('essblue', 'darken-2');
+$button-primary: colors.color("essblue", "base");
+$button-secondary: colors.color("essblue", "darken-2");
 $button-text: white;
-$button-text-hover: white
+$button-text-hover: white;

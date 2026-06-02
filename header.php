@@ -98,7 +98,7 @@
 
 
 
-<body id="ess-body" class="ess-body-frontend<?php echo ((is_front_page() ? ' ess-homepage' : '')); ?>">
+<body id="ess-body" class="ess-body-frontend<?php echo ((is_front_page() ? ' ess-homepage' : '')); ?><?php echo ((is_page_template('page-consult-landing.php') || mindfulness_is_product_template()) ? ' ess-nav-on-dark' : ''); ?>">
 
 
   <header id="wm-header">

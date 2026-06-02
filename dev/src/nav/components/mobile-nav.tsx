@@ -31,6 +31,13 @@ declare type DevicesNavProps = {
 }
 
 const MobileNav: React.FC<DevicesNavProps> = ( { homeUrl, templateUrl} ) => {
+  type HeaderStyle = {
+    transition: string
+    backgroundColor?: string
+    borderBottom?: string
+    backdropFilter?: string
+    WebkitBackdropFilter?: string
+  }
 
   const [isActive, setIsActive] = useState( false );
   const [activeSlide, setActiveSlide] = useState<HTMLDivElement>( );
@@ -42,11 +49,24 @@ const MobileNav: React.FC<DevicesNavProps> = ( { homeUrl, templateUrl} ) => {
   const SlideSolutions = useRef<HTMLDivElement>( null );
   const SlideIndustries = useRef<HTMLDivElement>( null );
 
-  const [headerStyle, setHeaderStyle] = useState({
+  const [headerStyle, setHeaderStyle] = useState<HeaderStyle>({
     transition: 'all 200ms ease-in'
   })
+  const [isTop, setIsTop] = useState(true);
+  const [darkOnTop, setDarkOnTop] = useState(false);
 
   useEffect( ()=>{
+
+    setDarkOnTop(document.body.classList.contains('ess-nav-on-dark'));
+    const initialIsTop = window.scrollY <= 0;
+    setIsTop(initialIsTop);
+    setHeaderStyle({
+      transition: 'all 200ms ease-in',
+      backgroundColor: initialIsTop ? 'rgba(255,255,255,0)' : 'rgba(255,255,255,0.7)',
+      borderBottom: initialIsTop ? 'none' : '1px solid rgba(153,153,153,0.35)',
+      backdropFilter: initialIsTop ? 'none' : 'blur(14px)',
+      WebkitBackdropFilter: initialIsTop ? 'none' : 'blur(14px)'
+    });
 
     setSlidesArray( [
       {
@@ -69,15 +89,15 @@ const MobileNav: React.FC<DevicesNavProps> = ( { homeUrl, templateUrl} ) => {
   useScrollPosition(
     ({ prevPos, currPos }) => {
       const isVisible = currPos.y > prevPos.y;
-      const isTop = currPos.y >= 0;
-
-      console.log(currPos.y);
-      console.log(isTop);
+      const nextIsTop = currPos.y >= 0;
+      setIsTop(nextIsTop);
   
       const shouldBeStyle = {
         transition: `all 200ms ${isVisible ? 'ease-in' : 'ease-out'}`,
-        backgroundColor: `${isTop ? 'rgba(255,255,255,0)' : 'rgba(255,255,255,1)'}`,
-        borderBottom: `${isTop ? 'none': '1px solid #999'}`
+        backgroundColor: `${nextIsTop ? 'rgba(255,255,255,0)' : 'rgba(255,255,255,0.7)'}`,
+        borderBottom: `${nextIsTop ? 'none': '1px solid rgba(153,153,153,0.35)'}`,
+        backdropFilter: `${nextIsTop ? 'none' : 'blur(14px)'}`,
+        WebkitBackdropFilter: `${nextIsTop ? 'none' : 'blur(14px)'}`
       }
   
       if (JSON.stringify(shouldBeStyle) === JSON.stringify(headerStyle)) return
@@ -141,9 +161,9 @@ const MobileNav: React.FC<DevicesNavProps> = ( { homeUrl, templateUrl} ) => {
   return (
     <div id='wmnav-wrap'>
 
-      <div id="wmnav-bar"  style={{ ...headerStyle }}>
+      <div id="wmnav-bar" className={`${darkOnTop && isTop ? 'on-dark-top' : ''}`} style={{ ...headerStyle }}>
 
-        <EssLogo homeUrl={homeUrl} templateUrl={templateUrl} />
+        <EssLogo homeUrl={homeUrl} templateUrl={templateUrl} inverted={darkOnTop && isTop} />
       
         <div id='wm-burger'>
           <button onClick={navToggle} id="main-nav-toggler" className="m-right-base hamburger hamburger--collapse" type="button" data-toggle="top-menu" aria-label="hamburger navigation toggle">

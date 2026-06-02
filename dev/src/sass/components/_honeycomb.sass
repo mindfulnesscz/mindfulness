@@ -1,0 +1,103 @@
+@use "./colors"
+@use "./variables" as vars
+
+.mind-honeycomb-wrap
+  container-type: inline-size
+
+.mind-honeycomb
+  --hc-slots: 3
+  --hc-rows: 3
+  --hc-gap: 14px
+  --hc-shadow-light: drop-shadow(0 20px 32px rgba(0, 0, 0, 0.14))
+  --hc-shadow-dark: drop-shadow(0 24px 36px rgba(3, 19, 39, 0.24))
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  gap: 1rem 1rem
+  width: 100%
+  margin: 0 auto
+
+  @media (min-width: vars.$medium-screen-up)
+    --hc-hex-width: calc((100cqw - ((var(--hc-slots) - 1) * var(--hc-gap))) / (1 + ((var(--hc-slots) - 1) * 0.75)))
+    --hc-hex-height: calc(var(--hc-hex-width) * 442 / 500)
+    // For this flat-top hex ratio, these two formulas keep spacing consistent
+    // between horizontal, vertical and angled adjacency.
+    --hc-step-x: calc((var(--hc-hex-width) * 0.75) + (var(--hc-gap) * 0.866))
+    --hc-step-y: calc((var(--hc-hex-height) * 0.5) + (var(--hc-gap) * 0.5))
+    position: relative
+    display: block
+    width: 100%
+    height: calc(var(--hc-hex-height) + ((var(--hc-rows) - 1) * var(--hc-step-y)))
+
+@each $slots in 2, 3, 4, 6, 12
+  .mind-honeycomb--slots-#{$slots}
+    --hc-slots: #{$slots}
+
+@for $rows from 1 through 6
+  .mind-honeycomb--rows-#{$rows}
+    --hc-rows: #{$rows}
+
+.mind-honeycomb__node
+  position: relative
+  width: calc(50% - 0.5rem)
+  max-width: 220px
+  aspect-ratio: 500 / 442
+  display: flex
+  align-items: center
+  justify-content: center
+  text-align: center
+  padding: 1.3rem 1rem
+  color: colors.color("gray", "darken-3")
+  background: colors.color('essblue', "lighten-4")
+  -webkit-mask-image: url("../images/hexa-shape.svg")
+  mask-image: url("../images/hexa-shape.svg")
+  -webkit-mask-repeat: no-repeat
+  mask-repeat: no-repeat
+  -webkit-mask-position: center
+  mask-position: center
+  -webkit-mask-size: contain
+  mask-size: contain
+  filter: var(--hc-shadow-light)
+  transition: transform 0.25s ease, filter 0.25s ease
+
+  &::before
+    content: ""
+    position: absolute
+    inset: 1.5px
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0))
+    -webkit-mask-image: url("../images/hexa-shape.svg")
+    mask-image: url("../images/hexa-shape.svg")
+    -webkit-mask-repeat: no-repeat
+    mask-repeat: no-repeat
+    -webkit-mask-position: center
+    mask-position: center
+    -webkit-mask-size: contain
+    mask-size: contain
+    pointer-events: none
+
+  &:hover
+    transform: translateY(-4px)
+
+  @media (min-width: vars.$medium-screen-up)
+    position: absolute
+    width: var(--hc-hex-width)
+    max-width: none
+    padding: 2rem 1.8rem
+    left: calc(((var(--hc-col) - 1) * var(--hc-step-x)) + (var(--hc-shift-x, 0) * var(--hc-step-x)))
+    top: calc(((var(--hc-row) - 1) * var(--hc-step-y)) + (var(--hc-shift-y, 0) * var(--hc-step-y)))
+
+.mind-honeycomb__node--dark
+  color: vars.$white
+  background: colors.color('essblue', 'darken-4')
+  filter: var(--hc-shadow-dark)
+
+.mind-honeycomb__content
+  position: relative
+  z-index: 1
+  color: inherit
+  font-size: 0.92rem
+  line-height: 1.16
+  font-weight: 500
+
+  @media (min-width: vars.$medium-screen-up)
+    font-size: 1.2rem

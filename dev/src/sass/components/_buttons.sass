@@ -1,5 +1,10 @@
 @import './variables'
 
+$spacy-svg-tl-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40'%3E%3Cpath d='M98 4 L19 4 L2 34' stroke='%23142340' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+$spacy-svg-br-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40'%3E%3Cpath d='M2 36 L81 36 L98 6' stroke='%23142340' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+$spacy-svg-tl-white: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40'%3E%3Cpath d='M98 4 L19 4 L2 34' stroke='white' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+$spacy-svg-br-white: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40'%3E%3Cpath d='M2 36 L81 36 L98 6' stroke='white' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+
 %wm-button
   position: relative
   display: inline-block
@@ -88,3 +93,146 @@
 
     &:hove
       background-color: color('paintshop', 'lighten-1')
+
+  &.spacy
+    overflow: visible
+    background: transparent
+    color: rgba(20, 35, 60, 0.85)
+    font-family: $headline-font
+    font-size: $h5
+    padding: 1.2rem $base-margin
+    transition: color 0.35s ease, filter 0.35s ease
+
+    // currentColor in background-image SVGs resolves to black in all browsers,
+    // so stroke color is hardcoded per variant ($spacy-svg-* at top of file).
+    // Element aspect ratio 2.5:1 is preserved across sm/md/lg — 60° angle holds.
+    // scale() origin pinned to vertex: arms grow outward from the corner on hover.
+
+    &::before,
+    &::after
+      content: ''
+      position: absolute
+      width: 100px
+      height: 40px
+      opacity: 0.85
+      pointer-events: none
+      background-repeat: no-repeat
+      background-size: 100% 100%
+      transition: transform 0.45s cubic-bezier(0.34, 1.4, 0.64, 1), opacity 0.35s ease
+
+    &::before
+      top: -2px
+      left: -19px
+      background-image: $spacy-svg-tl-dark
+      transform: scale(0.65)
+      transform-origin: 19% 10%
+
+    &::after
+      bottom: -2px
+      right: -19px
+      background-image: $spacy-svg-br-dark
+      transform: scale(0.65)
+      transform-origin: 81% 90%
+
+    &.sm
+      &::before,
+      &::after
+        width: 70px
+        height: 28px
+      &::before
+        left: -13px
+      &::after
+        right: -13px
+
+    &.lg
+      &::before,
+      &::after
+        width: 140px
+        height: 56px
+      &::before
+        left: -27px
+      &::after
+        right: -27px
+
+    &.inverse
+      color: rgba(255, 255, 255, 0.85)
+      &::before
+        background-image: $spacy-svg-tl-white
+      &::after
+        background-image: $spacy-svg-br-white
+      &:hover
+        color: white
+
+    // Filled: clip-path lives on ::before (the polygon fill) NOT on the button,
+    // so ::after (bracket lines) can protrude freely outside the fill shape.
+    // ::after combines both bracket SVGs as two background-image layers, stretched
+    // 19px/4px past the button edges to match the default bracket positions.
+    &.filled
+      --spacy-cx: 14px
+      --spacy-cy: 24px
+      border-radius: 0
+      color: white
+
+      &::before
+        background-image: none
+        background: rgba($button-primary, 0.3)
+        clip-path: polygon(var(--spacy-cx) 0%, 100% 0%, 100% calc(100% - var(--spacy-cy)), calc(100% - var(--spacy-cx)) 100%, 0% 100%, 0% var(--spacy-cy))
+        transform: none
+        opacity: 1
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        width: auto
+        height: auto
+        transition: background 0.35s ease
+
+      &::after
+        background-image: $spacy-svg-tl-white, $spacy-svg-br-white
+        background-repeat: no-repeat, no-repeat
+        background-position: left top, right bottom
+        background-size: 100px 40px, 100px 40px
+        transform: none
+        top: -4px
+        right: -19px
+        bottom: -4px
+        left: -19px
+        width: auto
+        height: auto
+
+      &.white
+        color: rgba(20, 35, 60, 0.85)
+        &::before
+          background: rgba(255, 255, 255, 0.3)
+        &::after
+          background-image: $spacy-svg-tl-dark, $spacy-svg-br-dark
+        &:hover
+          color: rgba(20, 35, 60, 1)
+          &::before
+            background: rgba(255, 255, 255, 0.6)
+
+      &.dark
+        color: rgba(255, 255, 255, 0.85)
+        &::before
+          background: rgba(13, 25, 45, 0.3)
+        &:hover
+          color: white
+          &::before
+            background: rgba(13, 25, 45, 0.6)
+
+      &:hover
+        color: white
+        filter: none
+        &::before
+          background: rgba($button-primary, 0.6)
+        &::after
+          opacity: 1
+
+    &:hover
+      background: transparent
+      filter: none
+      color: rgba(20, 35, 60, 1)
+      &::before,
+      &::after
+        opacity: 1
+        transform: scale(1)

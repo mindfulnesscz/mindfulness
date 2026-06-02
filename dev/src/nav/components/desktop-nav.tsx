@@ -34,17 +34,38 @@ declare type DesktopNavProps = {
 }
 
 const DesktopNav: React.FC<DesktopNavProps> = ( { homeUrl, templateUrl} ) => {
+  type HeaderStyle = {
+    transition: string
+    backgroundColor?: string
+    borderBottom?: string
+    backdropFilter?: string
+    WebkitBackdropFilter?: string
+  }
 
   const [loggedIn, setLoggedIn] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isTop, setIsTop] = useState(true);
+  const [darkOnTop, setDarkOnTop] = useState(false);
 
-  const [headerStyle, setHeaderStyle] = useState({
+  const [headerStyle, setHeaderStyle] = useState<HeaderStyle>({
     transition: 'all 200ms ease-in'
   })
 
   useEffect( ()=>{
 
     setLoggedIn(document.cookie.includes('wp-settings-time'));
+    setDarkOnTop(document.body.classList.contains('ess-nav-on-dark'));
+
+    const initialIsTop = window.scrollY <= 0;
+    setIsTop(initialIsTop);
+    setScrolled(!initialIsTop);
+    setHeaderStyle({
+      transition: 'all 200ms ease-in',
+      backgroundColor: initialIsTop ? 'rgba(255,255,255,0)' : 'rgba(255,255,255,0.7)',
+      borderBottom: initialIsTop ? 'none' : '1px solid rgba(153,153,153,0.35)',
+      backdropFilter: initialIsTop ? 'none' : 'blur(14px)',
+      WebkitBackdropFilter: initialIsTop ? 'none' : 'blur(14px)'
+    });
 
     const CSSCube = new CssCube();
 
@@ -62,17 +83,17 @@ const DesktopNav: React.FC<DesktopNavProps> = ( { homeUrl, templateUrl} ) => {
   useScrollPosition(
     ({ prevPos, currPos }) => {
       const isVisible = currPos.y > prevPos.y;
-      const isTop = currPos.y >= 0;
-      setScrolled(!isTop);
-
-      console.log(currPos.y);
-      console.log(isTop);
+      const nextIsTop = currPos.y >= 0;
+      setIsTop(nextIsTop);
+      setScrolled(!nextIsTop);
   
       const shouldBeStyle = {
         //visibility: isVisible ? 'visible' : 'hidden',
         transition: `all 200ms ${isVisible ? 'ease-in' : 'ease-out'}`,
-        backgroundColor: `${isTop ? 'rgba(255,255,255,0)' : 'rgba(255,255,255,1)'}`,
-        borderBottom: `${isTop ? 'none': '1px solid #999'}`
+        backgroundColor: `${nextIsTop ? 'rgba(255,255,255,0)' : 'rgba(255,255,255,0.7)'}`,
+        borderBottom: `${nextIsTop ? 'none': '1px solid rgba(153,153,153,0.35)'}`,
+        backdropFilter: `${nextIsTop ? 'none' : 'blur(14px)'}`,
+        WebkitBackdropFilter: `${nextIsTop ? 'none' : 'blur(14px)'}`
         //transform: isVisible ? 'none' : 'translate(0, -100%)'
       }
   
@@ -87,9 +108,9 @@ const DesktopNav: React.FC<DesktopNavProps> = ( { homeUrl, templateUrl} ) => {
   return (
     <div id="wmnav-wrap">
 
-      <div id="wmnav-bar" style={{ ...headerStyle }} >
+      <div id="wmnav-bar" className={`${darkOnTop && isTop ? 'on-dark-top' : ''}`} style={{ ...headerStyle }} >
 
-        <EssLogo homeUrl={homeUrl} templateUrl={templateUrl} />
+        <EssLogo homeUrl={homeUrl} templateUrl={templateUrl} inverted={darkOnTop && isTop} />
 
         <ul id="wmnav-list" className={`no-style ${scrolled && 'scrolled'}`}>
           <li><a className='wm-cube-menu-link text-sm' data-target='bottom'>ESS</a></li>

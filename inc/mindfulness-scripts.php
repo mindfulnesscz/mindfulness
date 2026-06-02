@@ -10,6 +10,13 @@ add_action('admin_enqueue_scripts', 'mindfulness_backend_scripts');
 
 if (!is_admin()) add_filter('script_loader_tag', 'mind_defer_scripts', 10, 3);
 
+function mindfulness_is_product_template()
+{
+  $template_slug = get_page_template_slug();
+
+  return is_page() && is_string($template_slug) && strpos($template_slug, 'page-product-') === 0;
+}
+
 
 
 function mindfulness_backend_scripts()
@@ -66,6 +73,10 @@ function mindfulness_scripts()
   wp_enqueue_style('wm-spacing', get_template_directory_uri() . '/assets/css/wm-spacing.css', array(), mindfulness_version());
 
   wp_enqueue_style('home-banner', get_template_directory_uri() . '/assets/css/home-banner.css', array(), mindfulness_version());
+
+  if (mindfulness_is_product_template()) {
+    wp_enqueue_style('product-page', get_template_directory_uri() . '/assets/css/product-page.css', array(), mindfulness_version());
+  }
 
 
 

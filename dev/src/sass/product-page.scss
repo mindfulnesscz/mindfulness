@@ -1,0 +1,187 @@
+@use "./components/colors";
+@use "./components/variables" as vars;
+
+.product-landing,
+.product-intro,
+.product-workflow,
+.product-problems,
+.product-issues,
+.product-specs,
+.product-cta {
+  overflow: hidden;
+
+  .container {
+    max-width: 1440px;
+  }
+}
+
+.product-kicker {
+  letter-spacing: 0.16em;
+}
+
+.product-hero {
+  color: vars.$white;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(20, 160, 255, 0.22),
+      transparent 30%
+    ),
+    radial-gradient(circle at 85% 15%, rgba(15, 42, 87, 0.55), transparent 28%),
+    linear-gradient(180deg, #07101d 0%, #0f2240 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  .product-logo {
+    width: 180px;
+    max-width: 60%;
+    height: auto;
+  }
+
+  .product-hero-title {
+    color: vars.$white;
+    line-height: 0.98;
+    font-size: vars.$mega-text-sm;
+
+    @media (min-width: vars.$medium-screen-up) {
+      font-size: 54px;
+    }
+
+    @media (min-width: vars.$large-screen-up) {
+      font-size: 68px;
+    }
+  }
+
+  .product-hero-text {
+    color: rgba(255, 255, 255, 0.82);
+    max-width: 42rem;
+  }
+
+  .product-hero-illustration {
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    margin: 0 auto;
+  }
+}
+
+.product-intro {
+  background: colors.color("gray", "lighten-4");
+
+  .product-intro-question {
+    line-height: 1.2;
+  }
+
+  .product-rotating-term {
+    position: relative;
+    display: inline-block;
+    min-width: 12ch;
+    height: 1.2em;
+    margin: 0 0.25rem;
+    vertical-align: bottom;
+    color: vars.$primary-color;
+    overflow: hidden;
+
+    span {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      animation: product-rotate-term 9s infinite;
+    }
+
+    span:nth-child(2) {
+      animation-delay: 3s;
+    }
+
+    span:nth-child(3) {
+      animation-delay: 6s;
+    }
+  }
+}
+
+@keyframes product-rotate-term {
+  0%,
+  1.8% {
+    opacity: 0;
+    transform: translateY(18%);
+  }
+  4.5%,
+  31.5% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  33.333%,
+  100% {
+    opacity: 0;
+    transform: translateY(-45%);
+  }
+}
+
+.product-workflow {
+  background: url("../images/BlackBoxImages/wall-of-report.webp");
+
+  .product-workflow-step {
+    height: 100%;
+    border: 1px solid vars.$border-default-color;
+  }
+
+  .product-step-image {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+  }
+}
+
+.product-problems {
+  .product-problem-image {
+    width: 100%;
+    max-width: 50px;
+    height: auto;
+  }
+}
+
+.product-issues {
+  .product-issue-visual {
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  .product-issue-icon {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+  }
+}
+
+.product-cta {
+  color: vars.$white;
+  background: colors.color("essblue", "darken-5");
+
+  h2,
+  p {
+    color: vars.$white;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .product-footer-logo {
+    width: 120px;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: vars.$medium-screen) {
+  .product-intro .product-rotating-term {
+    display: block;
+    margin: 0.35rem auto;
+  }
+}
+
+.gui-background {
+  background: url("../images/gui-background.jpg");
+}

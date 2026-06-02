@@ -40,6 +40,28 @@
   position: relative
   z-index: 1000
 
+  &.on-dark-top
+    #wmnav-list
+      li
+        .wm-cube-menu-link
+          color: $white
+
+          &.active
+            &::after
+              background: color('essblue', 'lighten-1')
+
+        .wm-cube-menu-link::after
+          background: color('essblue', 'lighten-1')
+
+    #main-nav-toggler,
+    .login-info
+      color: $white
+
+    .hamburger-inner,
+    .hamburger-inner::before,
+    .hamburger-inner::after
+      background-color: $white
+
 // 2. TOP NAVBAR LOGO ----------------------------------------------------
 
 #wmnav-logo
