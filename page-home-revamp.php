@@ -115,23 +115,35 @@ $intro_cards = [
 
 $process_cards = [
   [
+    'key' => 'geometry',
     'title' => 'Geometry risks',
     'text' => 'Early coating risks in CAD and BIW geometry.',
+    'icon' => $template_uri . '/assets/images/revamp/home/process/icon-geometry.svg',
+    'marker' => 'hex',
     'active' => true,
   ],
   [
+    'key' => 'liquid',
     'title' => 'Trapped liquid',
-    'text' => 'Drainage risks before production trials.',
+    'text' => 'Drainage risks before paint carryover.',
+    'icon' => $template_uri . '/assets/images/revamp/home/process/icon-liquid.svg',
+    'marker' => 'top',
     'active' => false,
   ],
   [
+    'key' => 'air',
     'title' => 'Air entrapment',
-    'text' => 'Trapped air before unwanted defects appear.',
+    'text' => 'Trapped air before unpainted areas appear.',
+    'icon' => $template_uri . '/assets/images/revamp/home/process/icon-air.svg',
+    'marker' => 'right',
     'active' => false,
   ],
   [
+    'key' => 'film',
     'title' => 'Film build',
     'text' => 'Coverage and coating thickness before testing.',
+    'icon' => $template_uri . '/assets/images/revamp/home/process/icon-film.svg',
+    'marker' => 'bottom',
     'active' => false,
   ],
 ];
@@ -164,9 +176,11 @@ while (have_posts()) :
       'home-process',
       [
         'title' => 'Digitally validate the full paint shop process',
-        'image' => $template_uri . '/assets/images/revamp/home/hero-biw.png',
+        'image' => $template_uri . '/assets/images/revamp/home/process/biw-process.png',
         'image_alt' => 'Blue digital body-in-white validation model',
         'cards' => $process_cards,
+        'marker_plus' => $template_uri . '/assets/images/revamp/home/process/marker-plus.svg',
+        'marker_hex' => $template_uri . '/assets/images/revamp/home/process/marker-hex.svg',
       ]
     );
     ?>

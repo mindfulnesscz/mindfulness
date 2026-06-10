@@ -82,7 +82,62 @@
     startAutoplay();
   }
 
+  function initHomeProcess(section) {
+    var targets = Array.prototype.slice.call(section.querySelectorAll('[data-process-target]'));
+    var defaultKey = section.getAttribute('data-process-default') || '';
+
+    if (!targets.length) {
+      return;
+    }
+
+    function setActive(key) {
+      targets.forEach(function (target) {
+        var isActive = target.getAttribute('data-process-target') === key;
+
+        target.classList.toggle('is-active', isActive);
+
+        if (target.hasAttribute('aria-pressed')) {
+          target.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        }
+      });
+    }
+
+    targets.forEach(function (target) {
+      var key = target.getAttribute('data-process-target');
+
+      target.addEventListener('mouseenter', function () {
+        setActive(key);
+      });
+
+      target.addEventListener('focus', function () {
+        setActive(key);
+      });
+
+      target.addEventListener('click', function () {
+        setActive(key);
+      });
+
+      target.addEventListener('keydown', function (event) {
+        if (event.key !== 'Enter' && event.key !== ' ') {
+          return;
+        }
+
+        event.preventDefault();
+        setActive(key);
+      });
+    });
+
+    section.addEventListener('mouseleave', function () {
+      if (defaultKey) {
+        setActive(defaultKey);
+      }
+    });
+
+    setActive(defaultKey || targets[0].getAttribute('data-process-target'));
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     Array.prototype.forEach.call(document.querySelectorAll('[data-home-hero-carousel]'), initHomeHeroCarousel);
+    Array.prototype.forEach.call(document.querySelectorAll('[data-process-section]'), initHomeProcess);
   });
 }());

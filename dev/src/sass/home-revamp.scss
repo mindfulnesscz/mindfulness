@@ -275,7 +275,6 @@
 
 .revamp-home-intro__frame {
   padding-top: 128px;
-  border-bottom: 1px solid rgba(45, 45, 45, 0.38);
 }
 
 .revamp-home-intro__inner {
@@ -472,160 +471,238 @@
   position: relative;
   background: #f5f4f3;
   color: #2d2d2d;
-  padding: 38px 0 72px;
+  padding: 32px 0 0;
   overflow: hidden;
+}
+
+.revamp-home-process,
+.revamp-home-process *,
+.revamp-home-process *::before,
+.revamp-home-process *::after {
+  box-sizing: border-box;
+}
+
+.revamp-home-process::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 32px;
+  right: 0;
+  left: 0;
+  border-top: 1px solid #2d2d2d;
+  pointer-events: none;
+}
+
+.revamp-home-process__frame {
+  padding: 0 0 72px;
 }
 
 .revamp-home-process__inner {
   position: relative;
+  z-index: 2;
+  padding-top: 24px;
+}
+
+.revamp-home-process__title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 80px;
 }
 
 .revamp-home-process__title {
-  max-width: 760px;
+  flex: 1 1 auto;
+  max-width: 1057px;
   margin: 0;
+  padding: 0;
   color: #2d2d2d;
-  font-size: 54px;
-  line-height: 0.98;
-  letter-spacing: 0;
+  font-size: 63px;
+  line-height: 1;
+  letter-spacing: -0.63px;
   text-transform: uppercase;
   font-weight: 400;
 }
 
+.revamp-home-process__title-spacer {
+  flex: 0 0 279px;
+}
+
 .revamp-home-process__body {
-  display: grid;
-  grid-template-columns: 360px minmax(0, 1fr);
-  gap: 80px;
+  display: flex;
+  gap: 12px;
   align-items: end;
-  margin-top: 120px;
+  margin-top: 24px;
 }
 
 .revamp-home-process__cards {
+  flex: 0 0 420px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(2, 200px);
+  grid-auto-rows: 210px;
+  gap: 20px;
   align-self: end;
-  max-width: 336px;
 }
 
 .revamp-home-process-card {
-  min-height: 154px;
+  width: 200px;
+  height: 210px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 18px 14px 14px;
-  border-radius: 6px;
+  padding: 20px;
+  border: 0;
+  border-radius: 10px;
   background: #efeeec;
-  color: rgba(45, 45, 45, 0.22);
+  color: #d5d4cf;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+  --stroke-0: #d5d4cf;
+}
+
+.revamp-home-process-card:hover,
+.revamp-home-process-card:focus-visible {
+  outline: 0;
 }
 
 .revamp-home-process-card.is-active {
   background: #2d2d2d;
   color: #f5f4f3;
+  --stroke-0: #f5f4f3;
 }
 
 .revamp-home-process-card__icon {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 32px;
+  display: inline-flex;
+  opacity: 0.68;
+}
+
+.revamp-home-process-card__icon img {
+  width: 100%;
+  height: 100%;
   display: block;
-  background: url("../images/hexa-shape.svg") center / contain no-repeat;
-  filter: grayscale(1) brightness(0);
-  opacity: 0.35;
+  filter: brightness(0) saturate(100%) invert(91%) sepia(5%) saturate(106%) hue-rotate(354deg) brightness(94%) contrast(91%);
 }
 
-.revamp-home-process-card.is-active .revamp-home-process-card__icon {
-  filter: invert(1);
-  opacity: 0.75;
+.revamp-home-process-card__icon--liquid,
+.revamp-home-process-card__icon--film {
+  width: 32px;
+  height: 28px;
 }
 
-.revamp-home-process-card__title {
-  margin: auto 0 8px;
+.revamp-home-process-card__icon--liquid img {
+  transform: rotate(90deg);
+}
+
+.revamp-home-process-card__icon--air img {
+  transform: rotate(180deg);
+}
+
+.revamp-home-process-card__icon--film img {
+  transform: rotate(-90deg);
+}
+
+.revamp-home-process-card.is-active .revamp-home-process-card__icon img {
+  filter: brightness(0) saturate(100%) invert(97%) sepia(3%) saturate(183%) hue-rotate(338deg) brightness(103%) contrast(92%);
+}
+
+.revamp-home-process-card__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 150px;
+  opacity: 0.8;
+}
+
+.revamp-home-process-card__title,
+.revamp-home-process-card__text {
+  margin: 0;
+  padding: 0;
   color: currentColor;
-  font-size: 13px;
-  line-height: 1.18;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0.14px;
   font-weight: 400;
 }
 
-.revamp-home-process-card__text {
-  margin: 0;
-  color: currentColor;
-  font-size: 10px;
-  line-height: 1.25;
-}
-
 .revamp-home-process__visual {
+  flex: 1 1 auto;
   position: relative;
-  min-height: 480px;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 646px;
+  overflow: visible;
 }
 
-.revamp-home-process__visual img {
-  width: min(720px, 62vw);
+.revamp-home-process__visual-stage {
+  position: relative;
+  width: min(878px, 100%);
+  aspect-ratio: 878 / 646;
+  min-height: 420px;
+}
+
+.revamp-home-process__image {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 6%;
+  width: 91%;
   max-width: none;
+  height: auto;
   display: block;
-  margin: 0 auto;
-  transform: rotate(-8deg);
+  transform: rotate(-11.14deg);
+  transform-origin: center;
 }
 
 .revamp-home-process__marker {
   position: absolute;
-  width: 24px;
-  height: 24px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  background: #dfded9;
-  color: rgba(45, 45, 45, 0.45);
-  font-size: 18px;
-  line-height: 1;
+  z-index: 2;
+  width: 29px;
+  height: 25px;
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.62;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.revamp-home-process__marker:hover,
+.revamp-home-process__marker:focus-visible,
+.revamp-home-process__marker.is-active {
+  opacity: 1;
+  transform: scale(1.12);
+  outline: 0;
+}
+
+.revamp-home-process__marker img {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .revamp-home-process__marker--top {
-  top: 8%;
-  left: 52%;
+  top: 2.54%;
+  left: 52.72%;
 }
 
 .revamp-home-process__marker--left {
-  top: 24%;
-  left: 18%;
-  width: 20px;
-  height: 20px;
-  background: #2d2d2d;
-  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+  top: 25.73%;
+  left: 23.44%;
 }
 
 .revamp-home-process__marker--right {
-  top: 45%;
-  right: 11%;
+  top: 64.34%;
+  left: 90.35%;
 }
 
 .revamp-home-process__marker--bottom {
-  right: 28%;
-  bottom: 18%;
-}
-
-.revamp-home-process__toggles {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  gap: 4px;
-  align-items: center;
-  text-transform: uppercase;
-  font-size: 9px;
-  line-height: 1;
-}
-
-.revamp-home-process__toggles span {
-  min-width: 86px;
-  padding: 8px 12px;
-  color: rgba(45, 45, 45, 0.5);
-  background: #efeeec;
-  text-align: center;
-}
-
-.revamp-home-process__toggles span.is-active {
-  color: #f5f4f3;
-  background: #2d2d2d;
+  top: 89.52%;
+  left: 61%;
 }
 
 @media only screen and (max-width: vars.$large-screen) {
@@ -816,36 +893,74 @@
   }
 
   .revamp-home-process {
-    padding: 32px 0 60px;
+    padding-top: 28px;
+  }
+
+  .revamp-home-process__frame {
+    padding-bottom: 56px;
+  }
+
+  .revamp-home-process__inner {
+    padding-top: 20px;
+  }
+
+  .revamp-home-process__title-row {
+    display: block;
   }
 
   .revamp-home-process__title {
-    font-size: 36px;
+    max-width: 720px;
+    font-size: 38px;
+    letter-spacing: 0;
   }
 
   .revamp-home-process__body {
-    grid-template-columns: minmax(0, 1fr);
+    flex-direction: column-reverse;
+    align-items: stretch;
     gap: 36px;
-    margin-top: 54px;
+    margin-top: 28px;
   }
 
   .revamp-home-process__visual {
-    order: -1;
-    min-height: 300px;
+    min-height: 0;
   }
 
-  .revamp-home-process__visual img {
-    width: 112%;
-    transform: translateX(-5%) rotate(-8deg);
+  .revamp-home-process__visual-stage {
+    width: min(100%, 680px);
+    min-height: 0;
+    margin: 0 auto;
+  }
+
+  .revamp-home-process__image {
+    left: 0;
+    width: 105%;
+    transform: translateX(-2%) rotate(-11.14deg);
   }
 
   .revamp-home-process__cards {
-    max-width: none;
+    flex: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: minmax(178px, auto);
+    gap: 12px;
   }
 
-  .revamp-home-process__toggles {
-    position: static;
-    justify-content: flex-end;
-    margin-top: 28px;
+  .revamp-home-process-card {
+    width: auto;
+    height: auto;
+    min-height: 178px;
+  }
+}
+
+@media only screen and (max-width: vars.$small-screen) {
+  .revamp-home-process__title {
+    font-size: 32px;
+  }
+
+  .revamp-home-process__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .revamp-home-process-card {
+    min-height: 154px;
   }
 }
