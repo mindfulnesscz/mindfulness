@@ -17,7 +17,6 @@ if (empty($slides) || !is_array($slides)) {
 <section class="revamp-home-hero" data-home-hero-carousel data-revamp-section="home-hero">
   <div class="revamp-home-hero__background" aria-hidden="true"></div>
   <div class="revamp-home-hero__hexagon" aria-hidden="true"></div>
-  <div class="revamp-home-hero__rule" aria-hidden="true"></div>
 
   <div class="revamp-home-hero__controls" aria-label="Homepage carousel controls">
     <button class="revamp-home-hero__arrow" type="button" data-carousel-prev aria-label="Previous slide">
@@ -46,6 +45,8 @@ if (empty($slides) || !is_array($slides)) {
         <div class="container revamp-home-hero__inner">
           <div class="revamp-home-hero__content">
             <div class="revamp-home-hero__copy">
+              <div class="revamp-home-hero__rule" aria-hidden="true"></div>
+
               <?php if ($title) : ?>
                 <?php if ($index === 0) : ?>
                   <h1 class="revamp-home-hero__title"><?php echo esc_html($title); ?></h1>

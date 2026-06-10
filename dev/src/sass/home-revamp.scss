@@ -59,11 +59,9 @@
 }
 
 .revamp-home-hero__rule {
-  position: absolute;
-  z-index: 3;
-  top: 108px;
-  right: 0;
-  left: 0;
+  width: 100%;
+  max-width: 620px;
+  margin: 0 0 42px;
   border-top: 1px solid rgba(245, 244, 243, 0.78);
   pointer-events: none;
 }
@@ -102,6 +100,12 @@
 
 .revamp-home-hero__copy {
   max-width: 760px;
+  align-self: center;
+  text-align: left;
+}
+
+.revamp-home-hero__copy > * {
+  margin-left: 0;
 }
 
 .revamp-home-hero__title {
@@ -116,7 +120,7 @@
 
 .revamp-home-hero__text {
   max-width: 760px;
-  margin: 28px 0 0;
+  margin: 28px 0 0 0;
   color: rgba(245, 244, 243, 0.82);
   font-size: 16px;
   line-height: 1.8;
@@ -128,7 +132,9 @@
   flex-wrap: wrap;
   gap: 12px 18px;
   align-items: center;
-  margin-top: 22px;
+  justify-content: flex-start;
+  margin: 22px 0 0;
+  padding-left: 19px;
 }
 
 .revamp-home-hero__cta {
@@ -261,55 +267,75 @@
 @media only screen and (max-width: vars.$medium-screen) {
   .revamp-home-hero {
     height: auto;
-    min-height: 780px;
+    min-height: 0;
     max-height: none;
+    overflow: hidden;
   }
 
   .revamp-home-hero__slides {
     position: relative;
-    min-height: 780px;
+    min-height: 0;
+  }
+
+  .revamp-home-hero__slide {
+    position: absolute;
+  }
+
+  .revamp-home-hero__slide.is-active {
+    position: relative;
   }
 
   .revamp-home-hero__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 28px;
-    min-height: 780px;
-    padding-top: 132px;
-    padding-bottom: 220px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    align-content: start;
+    gap: 24px;
+    min-height: 0;
+    padding-top: 164px;
+    padding-bottom: 210px;
   }
 
   .revamp-home-hero__title {
-    font-size: 40px;
+    font-size: 38px;
+    line-height: 1.02;
   }
 
   .revamp-home-hero__text {
     margin-top: 22px;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .revamp-home-hero__actions {
+    padding-left: 19px;
   }
 
   .revamp-home-hero__visual {
-    order: -1;
+    order: initial;
     width: 100%;
     min-height: 210px;
-    height: 260px;
+    height: 280px;
     max-height: none;
+    grid-row: 2;
   }
 
   .revamp-home-hero__visual img {
-    width: 118%;
-    transform: translate(-8%, 0) rotate(-6deg);
+    width: 112%;
+    max-height: 320px;
+    transform: translate(-4%, 0) rotate(-6deg);
   }
 
   .revamp-home-hero__hexagon {
-    top: 130px;
+    top: 210px;
     right: -36%;
     width: 118vw;
     height: 360px;
   }
 
   .revamp-home-hero__rule {
-    top: 128px;
+    max-width: 100%;
+    margin-bottom: 24px;
   }
 
   .revamp-home-hero__controls {
@@ -318,7 +344,7 @@
   }
 
   .revamp-home-hero__tabs-wrap {
-    bottom: 24px;
+    bottom: 20px;
   }
 
   .revamp-home-hero__tabs {
