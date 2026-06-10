@@ -104,6 +104,7 @@ function mindfulness_scripts()
 
   // main script
   wp_register_script('ess', get_template_directory_uri() . '/assets/js/index.js', $chunks_deps, mindfulness_version(), true);
+  wp_register_script('home-revamp', get_template_directory_uri() . '/assets/js/home-revamp.js', array(), mindfulness_version(), true);
 
   //wp_enqueue_script('cdn-react');
   //wp_enqueue_script('cdn-react-dom');
@@ -112,6 +113,10 @@ function mindfulness_scripts()
   wp_enqueue_script('ScrollTtrigger');
 
   wp_enqueue_script('ess');
+
+  if (mindfulness_is_home_revamp_template()) {
+    wp_enqueue_script('home-revamp');
+  }
 
 
   //creates an object 'subscribe_ajax_obj in scope of the subscribe.js script with ajaxurl path to ajax function.. clever and overcomplicated I'd say 
