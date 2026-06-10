@@ -95,6 +95,47 @@ $hero_slides = [
   ],
 ];
 
+$intro_cards = [
+  [
+    'title' => 'No physical testing',
+    'text' => 'Validate paint shop processes digitally before production trials are needed.',
+    'size' => 'large',
+  ],
+  [
+    'title' => 'No defects in production',
+    'text' => 'Predict coating risks before they appear on finished parts.',
+    'size' => 'small',
+  ],
+  [
+    'title' => 'No more trial-and-error',
+    'text' => 'Replace trial-and-error setup with simulation, measurement, and process optimization.',
+    'size' => 'small',
+  ],
+];
+
+$process_cards = [
+  [
+    'title' => 'Geometry risks',
+    'text' => 'Early coating risks in CAD and BIW geometry.',
+    'active' => true,
+  ],
+  [
+    'title' => 'Trapped liquid',
+    'text' => 'Drainage risks before production trials.',
+    'active' => false,
+  ],
+  [
+    'title' => 'Air entrapment',
+    'text' => 'Trapped air before unwanted defects appear.',
+    'active' => false,
+  ],
+  [
+    'title' => 'Film build',
+    'text' => 'Coverage and coating thickness before testing.',
+    'active' => false,
+  ],
+];
+
 while (have_posts()) :
   the_post();
 ?>
@@ -106,6 +147,26 @@ while (have_posts()) :
       'home-hero',
       [
         'slides' => $hero_slides,
+      ]
+    );
+
+    get_template_part(
+      'template-parts/revamp/section',
+      'home-intro',
+      [
+        'statement' => 'ESS replaces physical paint shop testing with digital validation that predicts defects and optimizes production before the line is touched.',
+        'cards' => $intro_cards,
+      ]
+    );
+
+    get_template_part(
+      'template-parts/revamp/section',
+      'home-process',
+      [
+        'title' => 'Digitally validate the full paint shop process',
+        'image' => $template_uri . '/assets/images/revamp/home/hero-biw.png',
+        'image_alt' => 'Blue digital body-in-white validation model',
+        'cards' => $process_cards,
       ]
     );
     ?>
