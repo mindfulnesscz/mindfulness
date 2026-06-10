@@ -16,6 +16,8 @@ if (empty($slides) || !is_array($slides)) {
 
 <section class="revamp-home-hero" data-home-hero-carousel data-revamp-section="home-hero">
   <div class="revamp-home-hero__background" aria-hidden="true"></div>
+  <div class="revamp-home-hero__hexagon" aria-hidden="true"></div>
+  <div class="revamp-home-hero__rule" aria-hidden="true"></div>
 
   <div class="revamp-home-hero__controls" aria-label="Homepage carousel controls">
     <button class="revamp-home-hero__arrow" type="button" data-carousel-prev aria-label="Previous slide">
@@ -88,6 +90,7 @@ if (empty($slides) || !is_array($slides)) {
     <div class="revamp-home-hero__tabs" role="tablist" aria-label="Homepage hero slides">
       <?php foreach ($slides as $index => $slide) :
         $tab_title = $slide['tab_title'] ?? ($slide['title'] ?? '');
+        $tab_image = $slide['thumbnail'] ?? ($slide['image'] ?? '');
         $is_active = $index === 0;
       ?>
         <button
@@ -98,7 +101,12 @@ if (empty($slides) || !is_array($slides)) {
           data-carousel-index="<?php echo esc_attr($index); ?>"
           aria-selected="<?php echo $is_active ? 'true' : 'false'; ?>"
         >
-          <?php echo esc_html($tab_title); ?>
+          <?php if ($tab_image) : ?>
+            <span class="revamp-home-hero__tab-thumb" aria-hidden="true">
+              <img src="<?php echo esc_url($tab_image); ?>" alt="" loading="lazy" />
+            </span>
+          <?php endif; ?>
+          <span class="revamp-home-hero__tab-label"><?php echo esc_html($tab_title); ?></span>
         </button>
       <?php endforeach; ?>
     </div>

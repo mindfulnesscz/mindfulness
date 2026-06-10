@@ -22,17 +22,50 @@
   inset: 0;
   z-index: -2;
   background:
-    linear-gradient(90deg, rgba(4, 9, 18, 0.94) 0%, rgba(4, 9, 18, 0.74) 45%, rgba(4, 9, 18, 0.44) 100%),
-    url("../images/revamp/home/hero-background.png") center / cover no-repeat,
+    linear-gradient(90deg, rgba(4, 9, 18, 0.9) 0%, rgba(4, 9, 18, 0.66) 44%, rgba(4, 9, 18, 0.5) 100%),
+    url("../images/dark_color_background.webp") center / cover no-repeat,
     radial-gradient(circle at 78% 44%, rgba(60, 133, 243, 0.36), transparent 34%),
     #040912;
 }
 
+.revamp-home-hero__background::before,
 .revamp-home-hero__background::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.32);
+}
+
+.revamp-home-hero__background::before {
+  background: url("../images/revamp/home/hero-background.png") center / cover no-repeat;
+  filter: brightness(3) saturate(1.6);
+  mix-blend-mode: screen;
+  opacity: 0.45;
+}
+
+.revamp-home-hero__background::after {
+  background: rgba(0, 0, 0, 0.14);
+}
+
+.revamp-home-hero__hexagon {
+  position: absolute;
+  z-index: -1;
+  top: 12%;
+  right: 3%;
+  width: min(62vw, 980px);
+  height: min(64vh, 660px);
+  background: url("../images/revamp/home/hero-blue-shape.svg") center / contain no-repeat;
+  opacity: 0.92;
+  pointer-events: none;
+}
+
+.revamp-home-hero__rule {
+  position: absolute;
+  z-index: 3;
+  top: 108px;
+  right: 0;
+  left: 0;
+  border-top: 1px solid rgba(245, 244, 243, 0.78);
+  pointer-events: none;
 }
 
 .revamp-home-hero__slides {
@@ -60,8 +93,8 @@
 .revamp-home-hero__content {
   height: 100%;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(420px, 45vw);
-  gap: 60px;
+  grid-template-columns: minmax(0, 0.92fr) minmax(420px, 48vw);
+  gap: 42px;
   align-items: center;
   padding-top: 112px;
   padding-bottom: 142px;
@@ -105,28 +138,22 @@
 
 .revamp-home-hero__visual {
   position: relative;
+  z-index: 1;
   min-height: 360px;
   height: 54vh;
   max-height: 560px;
 }
 
-.revamp-home-hero__visual::before {
-  content: "";
-  position: absolute;
-  inset: -22% -14% -10% -24%;
-  background: url("../images/revamp/home/hero-blue-shape.svg") center / contain no-repeat;
-  opacity: 0.88;
-  mix-blend-mode: plus-lighter;
-}
-
 .revamp-home-hero__visual img {
   position: relative;
   z-index: 1;
-  width: 150%;
+  width: 138%;
   max-width: none;
+  max-height: 64vh;
   height: auto;
   display: block;
-  transform: translate(-18%, -4%) rotate(-8deg);
+  object-fit: contain;
+  transform: translate(-12%, 0) rotate(-8deg);
   transform-origin: center;
 }
 
@@ -140,23 +167,24 @@
 }
 
 .revamp-home-hero__arrow {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 32px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(245, 244, 243, 0.72);
-  border-radius: 999px;
-  color: #f5f4f3;
-  background: rgba(4, 9, 18, 0.34);
+  border: 0;
+  color: #040912;
+  background: rgba(245, 244, 243, 0.94);
+  clip-path: polygon(22% 0, 78% 0, 100% 50%, 78% 100%, 22% 100%, 0 50%);
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .revamp-home-hero__arrow:hover,
 .revamp-home-hero__arrow:focus-visible {
-  border-color: #f5f4f3;
-  background: rgba(60, 133, 243, 0.42);
+  color: #f5f4f3;
+  background: #3c85f3;
+  transform: translateY(-1px);
 }
 
 .revamp-home-hero__tabs-wrap {
@@ -174,8 +202,12 @@
 }
 
 .revamp-home-hero__tab {
-  min-height: 72px;
-  padding: 12px 12px 12px 32px;
+  min-height: 88px;
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  padding: 12px 12px 12px 0;
   border: 0;
   border-top: 2px solid rgba(245, 244, 243, 0.36);
   color: rgba(245, 244, 243, 0.72);
@@ -186,6 +218,26 @@
   text-align: left;
   cursor: pointer;
   transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.revamp-home-hero__tab-thumb {
+  width: 54px;
+  height: 42px;
+  display: block;
+  overflow: hidden;
+  background: rgba(60, 133, 243, 0.15);
+  clip-path: polygon(14% 0, 100% 0, 100% 78%, 86% 100%, 0 100%, 0 22%);
+}
+
+.revamp-home-hero__tab-thumb img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.revamp-home-hero__tab-label {
+  display: block;
 }
 
 .revamp-home-hero__tab.is-active,
@@ -249,6 +301,17 @@
     transform: translate(-8%, 0) rotate(-6deg);
   }
 
+  .revamp-home-hero__hexagon {
+    top: 130px;
+    right: -36%;
+    width: 118vw;
+    height: 360px;
+  }
+
+  .revamp-home-hero__rule {
+    top: 128px;
+  }
+
   .revamp-home-hero__controls {
     top: 96px;
     right: 24px;
@@ -267,8 +330,13 @@
 
   .revamp-home-hero__tab {
     flex: 0 0 220px;
-    min-height: 78px;
-    padding-left: 0;
+    min-height: 86px;
+    grid-template-columns: 48px minmax(0, 1fr);
     font-size: 14px;
+  }
+
+  .revamp-home-hero__tab-thumb {
+    width: 48px;
+    height: 38px;
   }
 }
