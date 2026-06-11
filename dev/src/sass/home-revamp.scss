@@ -1044,6 +1044,8 @@
   top: 130px;
   left: 50%;
   width: 286px;
+  filter: brightness(0) saturate(100%) invert(75%) sepia(47%) saturate(1526%) hue-rotate(179deg) brightness(101%) contrast(101%);
+  opacity: 0.85;
   transform: translateX(-50%);
 }
 
@@ -1051,6 +1053,8 @@
   top: 130px;
   left: 50%;
   width: 266px;
+  filter: brightness(0) saturate(100%) invert(55%) sepia(86%) saturate(1872%) hue-rotate(191deg) brightness(104%) contrast(101%);
+  opacity: 0.92;
   transform: translateX(-50%);
 }
 
@@ -1058,6 +1062,8 @@
   top: 109px;
   left: 50%;
   width: 188px;
+  filter: brightness(0) saturate(100%) invert(78%) sepia(40%) saturate(1472%) hue-rotate(184deg) brightness(103%) contrast(102%);
+  opacity: 0.92;
   transform: translateX(-50%);
 }
 
