@@ -1,14 +1,29 @@
 @use "./components/variables" as vars;
 
 .ess-home-revamp {
+  --revamp-content-max: 1512px;
+  --revamp-gutter: 48px;
   background: #f5f4f3;
   color: #2d2d2d;
   overflow: hidden;
 }
 
-.ess-home-revamp > section > .container,
-.ess-home-revamp > section .container {
-  max-width: 1440px;
+.ess-home-revamp :where(h1, h2, h3, h4, h5, h6, p) {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ess-home-revamp .container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--revamp-content-max);
+  margin-top: 0;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
+  padding-right: var(--revamp-gutter);
+  padding-left: var(--revamp-gutter);
 }
 
 .revamp-home-hero {
@@ -720,6 +735,106 @@
   left: 61%;
 }
 
+.revamp-home-paint-iq {
+  position: relative;
+  min-height: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #f5f4f3;
+  background: #2d2d2d var(--paint-iq-bg) center / cover no-repeat;
+  overflow: hidden;
+}
+
+.revamp-home-paint-iq::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 382px;
+  right: 0;
+  left: 0;
+  border-top: 1px solid rgba(245, 244, 243, 0.78);
+  pointer-events: none;
+}
+
+.revamp-home-paint-iq__feature {
+  position: relative;
+  z-index: 2;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  min-height: 0;
+  padding-top: 132px;
+}
+
+.revamp-home-paint-iq__inner {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.revamp-home-paint-iq__title-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 480px;
+  align-items: center;
+  gap: 0;
+}
+
+.revamp-home-paint-iq__title {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  color: #f5f4f3;
+  font-size: 224px;
+  line-height: 1;
+  letter-spacing: -2.24px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.revamp-home-paint-iq__copy {
+  width: 342px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: #f5f4f3;
+}
+
+.revamp-home-paint-iq__headline {
+  margin: 0;
+  padding: 0;
+  color: currentColor;
+  font-size: 42px;
+  line-height: 1.18;
+  letter-spacing: -0.42px;
+  font-weight: 400;
+}
+
+.revamp-home-paint-iq__description {
+  margin: 0;
+  padding: 0;
+  color: currentColor;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0.14px;
+  opacity: 0.8;
+  font-weight: 400;
+}
+
+.revamp-home-paint-iq__cta-row {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 52px;
+  left: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.revamp-home-paint-iq__cta {
+  margin: 0 0 0 18px;
+}
+
 @media only screen and (max-width: vars.$large-screen) {
   .revamp-home-hero__title {
     font-size: 54px;
@@ -729,9 +844,22 @@
     grid-template-columns: minmax(0, 1fr) minmax(360px, 42vw);
     gap: 36px;
   }
+
+  .revamp-home-paint-iq__title {
+    font-size: 172px;
+    letter-spacing: -1.72px;
+  }
+
+  .revamp-home-paint-iq__title-row {
+    grid-template-columns: minmax(0, 1fr) 380px;
+  }
 }
 
 @media only screen and (max-width: vars.$medium-screen) {
+  .ess-home-revamp {
+    --revamp-gutter: 24px;
+  }
+
   .revamp-home-hero {
     height: auto;
     min-height: 0;
@@ -964,9 +1092,57 @@
     height: auto;
     min-height: 178px;
   }
+
+  .revamp-home-paint-iq {
+    min-height: 760px;
+    background-position: 42% center;
+  }
+
+  .revamp-home-paint-iq::before {
+    top: 132px;
+  }
+
+  .revamp-home-paint-iq__feature {
+    align-items: flex-start;
+    padding-top: 132px;
+  }
+
+  .revamp-home-paint-iq__inner {
+    padding-top: 20px;
+  }
+
+  .revamp-home-paint-iq__title-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .revamp-home-paint-iq__title {
+    font-size: 76px;
+    letter-spacing: -0.76px;
+  }
+
+  .revamp-home-paint-iq__copy {
+    width: min(100%, 360px);
+  }
+
+  .revamp-home-paint-iq__headline {
+    font-size: 34px;
+  }
+
+  .revamp-home-paint-iq__cta-row {
+    bottom: 36px;
+  }
+
+  .revamp-home-paint-iq__cta {
+    margin-left: 18px;
+  }
 }
 
 @media only screen and (max-width: vars.$small-screen) {
+  .ess-home-revamp {
+    --revamp-gutter: 18px;
+  }
+
   .revamp-home-process__title {
     font-size: 32px;
   }
@@ -977,5 +1153,18 @@
 
   .revamp-home-process-card {
     min-height: 154px;
+  }
+
+  .revamp-home-paint-iq {
+    min-height: 680px;
+  }
+
+  .revamp-home-paint-iq__title {
+    font-size: 58px;
+    letter-spacing: -0.58px;
+  }
+
+  .revamp-home-paint-iq__headline {
+    font-size: 30px;
   }
 }

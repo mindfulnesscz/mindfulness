@@ -183,6 +183,21 @@ while (have_posts()) :
         'marker_plus_active' => $template_uri . '/assets/images/revamp/home/process/marker-plus-active.svg',
       ]
     );
+
+    get_template_part(
+      'template-parts/revamp/section',
+      'home-paint-iq',
+      [
+        'title' => 'Paint IQ',
+        'headline' => 'Measure. Optimise. Spray.',
+        'description' => 'A standalone laser sensor system that replaces manual spray measurement with a 5-second scan, generates optimized robot paths, and predicts 3D film build before a single production body is sprayed.',
+        'background' => $template_uri . '/assets/images/revamp/home/paint-iq/background.png',
+        'cta' => [
+          'label' => 'Explore PaintIQ',
+          'url' => home_url('/paint-iq'),
+        ],
+      ]
+    );
     ?>
   </main>
 
