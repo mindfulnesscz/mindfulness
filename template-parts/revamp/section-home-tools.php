@@ -12,6 +12,7 @@ $eyebrow = $args['eyebrow'] ?? '';
 $cards = $args['cards'] ?? [];
 $arrow_left = $args['arrow_left'] ?? '';
 $arrow_right = $args['arrow_right'] ?? '';
+$meta_arrow = $args['meta_arrow'] ?? '';
 
 if (!$statement && empty($cards)) {
   return;
@@ -78,7 +79,13 @@ if (!$statement && empty($cards)) {
                   <div class="revamp-home-tool-card__meta">
                     <div class="revamp-home-tool-card__meta-head">
                       <p><?php echo esc_html($card['label'] ?? ($card['title'] ?? '')); ?></p>
-                      <span><?php echo esc_html($card['action'] ?? 'Show'); ?></span>
+                      <span class="revamp-home-tool-card__meta-action">
+                        <?php if ($meta_arrow) : ?>
+                          <img src="<?php echo esc_url($meta_arrow); ?>" alt="" aria-hidden="true">
+                        <?php else : ?>
+                          <?php echo esc_html($card['action'] ?? 'Show'); ?>
+                        <?php endif; ?>
+                      </span>
                     </div>
 
                     <?php if (!empty($card['description'])) : ?>

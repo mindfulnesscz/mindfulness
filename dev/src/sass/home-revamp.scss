@@ -997,7 +997,7 @@
 
 .revamp-home-tool-card__title {
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   top: 70px;
   left: 50%;
   margin: 0;
@@ -1021,7 +1021,7 @@
 
 .revamp-home-tool-card__image {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   display: block;
   max-width: none;
   height: auto;
@@ -1030,21 +1030,21 @@
 }
 
 .revamp-home-tool-card--paint-iq .revamp-home-tool-card__image {
-  top: 150px;
+  top: 141px;
   left: 50%;
-  width: 342px;
+  width: 386px;
   transform: translateX(-50%) rotate(-11.14deg);
 }
 
 .revamp-home-tool-card--black-box .revamp-home-tool-card__image {
-  top: 144px;
+  top: 130px;
   left: 50%;
   width: 286px;
   transform: translateX(-50%);
 }
 
 .revamp-home-tool-card--anode-iq .revamp-home-tool-card__image {
-  top: 141px;
+  top: 130px;
   left: 50%;
   width: 266px;
   transform: translateX(-50%);
@@ -1108,6 +1108,20 @@
   opacity: 0;
 }
 
+.revamp-home-tool-card__meta-action {
+  width: 10px;
+  height: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.revamp-home-tool-card__meta-action img {
+  width: 10px;
+  height: 9px;
+  display: block;
+}
+
 .revamp-home-tool-card.is-active .revamp-home-tool-card__meta-head span,
 .revamp-home-tool-card:hover .revamp-home-tool-card__meta-head span,
 .revamp-home-tool-card:focus-within .revamp-home-tool-card__meta-head span {
@@ -1148,7 +1162,6 @@
   width: 20%;
   height: 1px;
   background: #f5f4f3;
-  transform: translateX(0);
 }
 
 @media only screen and (max-width: vars.$large-screen) {
@@ -1171,7 +1184,7 @@
   }
 
   .revamp-home-tool-card {
-    flex-basis: 340px;
+    flex: 0 0 340px;
     width: 340px;
   }
 
@@ -1184,18 +1197,22 @@
   }
 
   .revamp-home-tool-card--paint-iq .revamp-home-tool-card__image {
-    width: 310px;
+    top: 135px;
+    width: 342px;
   }
 
   .revamp-home-tool-card--black-box .revamp-home-tool-card__image {
+    top: 126px;
     width: 260px;
   }
 
   .revamp-home-tool-card--anode-iq .revamp-home-tool-card__image {
+    top: 126px;
     width: 245px;
   }
 
   .revamp-home-tool-card--sealing .revamp-home-tool-card__image {
+    top: 108px;
     width: 170px;
   }
 }
@@ -1594,12 +1611,12 @@
   }
 
   .revamp-home-tool-card--black-box .revamp-home-tool-card__image {
-    top: 122px;
+    top: 110px;
     width: 228px;
   }
 
   .revamp-home-tool-card--anode-iq .revamp-home-tool-card__image {
-    top: 122px;
+    top: 110px;
     width: 220px;
   }
 

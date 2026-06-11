@@ -157,7 +157,7 @@ $tools_cards = [
     'description' => 'Fast, reliable and cost-effective tool that can be used by anyone, developed for ease of use and quick turnaround times.',
     'image' => $template_uri . '/assets/images/revamp/home/tools/paint-iq-biw.png',
     'image_alt' => 'Blue body-in-white Paint IQ validation model',
-    'icon' => $template_uri . '/assets/images/revamp/home/tools/icon-paint-iq.svg',
+    'icon' => $template_uri . '/assets/images/revamp/home/tools/icon-paint-iq.png',
     'active' => false,
   ],
   [
@@ -168,7 +168,7 @@ $tools_cards = [
     'description' => 'Fast, reliable and cost-effective tool that can be used by anyone, developed for ease of use and quick turnaround times.',
     'image' => $template_uri . '/assets/images/revamp/home/tools/black-box-biw.png',
     'image_alt' => 'Blue Black Box automotive risk model',
-    'icon' => $template_uri . '/assets/images/revamp/home/tools/icon-black-box.svg',
+    'icon' => $template_uri . '/assets/images/revamp/home/tools/icon-black-box.png',
     'active' => true,
   ],
   [
@@ -179,7 +179,7 @@ $tools_cards = [
     'description' => 'Fast, reliable and cost-effective tool that can be used by anyone, developed for ease of use and quick turnaround times.',
     'image' => $template_uri . '/assets/images/revamp/home/tools/anode-iq-biw.png',
     'image_alt' => 'Blue Anode IQ vehicle body model',
-    'icon' => $template_uri . '/assets/images/revamp/home/tools/icon-anode-iq.svg',
+    'icon' => $template_uri . '/assets/images/revamp/home/tools/icon-anode-iq.png',
     'active' => false,
   ],
   [
@@ -190,7 +190,7 @@ $tools_cards = [
     'description' => 'Fast, reliable and cost-effective tool that can be used by anyone, developed for ease of use and quick turnaround times.',
     'image' => $template_uri . '/assets/images/revamp/home/tools/sealing-tool.png',
     'image_alt' => 'Blue sealing robot tool',
-    'icon' => $template_uri . '/assets/images/revamp/home/tools/icon-sealing.svg',
+    'icon' => $template_uri . '/assets/images/revamp/home/tools/icon-sealing.png',
     'active' => false,
   ],
 ];
@@ -255,6 +255,7 @@ while (have_posts()) :
         'cards' => $tools_cards,
         'arrow_left' => $template_uri . '/assets/images/revamp/home/tools/arrow-left.svg',
         'arrow_right' => $template_uri . '/assets/images/revamp/home/tools/arrow-right.svg',
+        'meta_arrow' => $template_uri . '/assets/images/revamp/home/tools/meta-arrow.svg',
       ]
     );
     ?>

@@ -202,7 +202,7 @@
       var left = scrollable > 0 ? (viewport.scrollLeft / scrollable) * maxLeft : 0;
 
       indicator.style.width = thumbWidth + '%';
-      indicator.style.transform = 'translateX(' + left + '%)';
+      indicator.style.left = left + '%';
     }
 
     cards.forEach(function (card, index) {
