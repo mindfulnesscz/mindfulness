@@ -148,6 +148,53 @@ $process_cards = [
   ],
 ];
 
+$tools_cards = [
+  [
+    'slug' => 'paint-iq',
+    'title' => 'Paint IQ',
+    'label' => 'PaintIQ',
+    'action' => 'Show',
+    'description' => 'Fast, reliable and cost-effective tool that can be used by anyone, developed for ease of use and quick turnaround times.',
+    'image' => $template_uri . '/assets/images/revamp/home/tools/paint-iq-biw.png',
+    'image_alt' => 'Blue body-in-white Paint IQ validation model',
+    'icon' => $template_uri . '/assets/images/revamp/home/tools/icon-paint-iq.svg',
+    'active' => false,
+  ],
+  [
+    'slug' => 'black-box',
+    'title' => 'Black Box',
+    'label' => 'Black Box',
+    'action' => 'Show',
+    'description' => 'Fast, reliable and cost-effective tool that can be used by anyone, developed for ease of use and quick turnaround times.',
+    'image' => $template_uri . '/assets/images/revamp/home/tools/black-box-biw.png',
+    'image_alt' => 'Blue Black Box automotive risk model',
+    'icon' => $template_uri . '/assets/images/revamp/home/tools/icon-black-box.svg',
+    'active' => true,
+  ],
+  [
+    'slug' => 'anode-iq',
+    'title' => 'Anode IQ',
+    'label' => 'Anode IQ',
+    'action' => 'Show',
+    'description' => 'Fast, reliable and cost-effective tool that can be used by anyone, developed for ease of use and quick turnaround times.',
+    'image' => $template_uri . '/assets/images/revamp/home/tools/anode-iq-biw.png',
+    'image_alt' => 'Blue Anode IQ vehicle body model',
+    'icon' => $template_uri . '/assets/images/revamp/home/tools/icon-anode-iq.svg',
+    'active' => false,
+  ],
+  [
+    'slug' => 'sealing',
+    'title' => 'Sealing',
+    'label' => 'Sealing',
+    'action' => 'Show',
+    'description' => 'Fast, reliable and cost-effective tool that can be used by anyone, developed for ease of use and quick turnaround times.',
+    'image' => $template_uri . '/assets/images/revamp/home/tools/sealing-tool.png',
+    'image_alt' => 'Blue sealing robot tool',
+    'icon' => $template_uri . '/assets/images/revamp/home/tools/icon-sealing.svg',
+    'active' => false,
+  ],
+];
+
 while (have_posts()) :
   the_post();
 ?>
@@ -196,6 +243,18 @@ while (have_posts()) :
           'label' => 'Explore PaintIQ',
           'url' => home_url('/paint-iq'),
         ],
+      ]
+    );
+
+    get_template_part(
+      'template-parts/revamp/section',
+      'home-tools',
+      [
+        'statement' => 'ESS replaces physical paint shop testing with digital validation that predicts defects and optimizes production before the line is touched.',
+        'eyebrow' => 'Discover ess products',
+        'cards' => $tools_cards,
+        'arrow_left' => $template_uri . '/assets/images/revamp/home/tools/arrow-left.svg',
+        'arrow_right' => $template_uri . '/assets/images/revamp/home/tools/arrow-right.svg',
       ]
     );
     ?>
