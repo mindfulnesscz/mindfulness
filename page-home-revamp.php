@@ -180,7 +180,7 @@ while (have_posts()) :
         'image_alt' => 'Blue digital body-in-white validation model',
         'cards' => $process_cards,
         'marker_plus' => $template_uri . '/assets/images/revamp/home/process/marker-plus.svg',
-        'marker_hex' => $template_uri . '/assets/images/revamp/home/process/marker-hex.svg',
+        'marker_plus_active' => $template_uri . '/assets/images/revamp/home/process/marker-plus-active.svg',
       ]
     );
     ?>

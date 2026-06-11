@@ -85,6 +85,7 @@
   function initHomeProcess(section) {
     var targets = Array.prototype.slice.call(section.querySelectorAll('[data-process-target]'));
     var defaultKey = section.getAttribute('data-process-default') || '';
+    var committedKey = defaultKey || (targets[0] ? targets[0].getAttribute('data-process-target') : '');
 
     if (!targets.length) {
       return;
@@ -109,12 +110,21 @@
         setActive(key);
       });
 
+      target.addEventListener('mouseleave', function () {
+        setActive(committedKey);
+      });
+
       target.addEventListener('focus', function () {
         setActive(key);
       });
 
+      target.addEventListener('blur', function () {
+        setActive(committedKey);
+      });
+
       target.addEventListener('click', function () {
-        setActive(key);
+        committedKey = key;
+        setActive(committedKey);
       });
 
       target.addEventListener('keydown', function (event) {
@@ -123,17 +133,12 @@
         }
 
         event.preventDefault();
-        setActive(key);
+        committedKey = key;
+        setActive(committedKey);
       });
     });
 
-    section.addEventListener('mouseleave', function () {
-      if (defaultKey) {
-        setActive(defaultKey);
-      }
-    });
-
-    setActive(defaultKey || targets[0].getAttribute('data-process-target'));
+    setActive(committedKey);
   }
 
   document.addEventListener('DOMContentLoaded', function () {

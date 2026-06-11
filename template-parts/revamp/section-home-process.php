@@ -12,7 +12,7 @@ $image = $args['image'] ?? '';
 $image_alt = $args['image_alt'] ?? '';
 $cards = $args['cards'] ?? [];
 $marker_plus = $args['marker_plus'] ?? '';
-$marker_hex = $args['marker_hex'] ?? '';
+$marker_plus_active = $args['marker_plus_active'] ?? '';
 $active_key = '';
 
 if (!$title && !$image && empty($cards)) {
@@ -88,12 +88,10 @@ if (!$active_key && !empty($cards[0])) {
               $card_key = $card['key'] ?? sanitize_title($card['title'] ?? '');
               $card_title = $card['title'] ?? '';
               $marker_position = $card['marker'] ?? '';
-              $is_hex = $marker_position === 'hex';
-              $marker_src = $is_hex ? $marker_hex : $marker_plus;
-              $marker_class = $is_hex ? 'left' : $marker_position;
+              $marker_class = $marker_position === 'hex' ? 'left' : $marker_position;
               $is_active = $card_key === $active_key;
 
-              if (!$marker_src || !$marker_class) {
+              if (!$marker_plus || !$marker_plus_active || !$marker_class) {
                 continue;
               }
             ?>
@@ -104,7 +102,12 @@ if (!$active_key && !empty($cards[0])) {
                 aria-pressed="<?php echo $is_active ? 'true' : 'false'; ?>"
                 data-process-target="<?php echo esc_attr($card_key); ?>"
               >
-                <img src="<?php echo esc_url($marker_src); ?>" alt="" loading="lazy" />
+                <span class="revamp-home-process__marker-asset revamp-home-process__marker-asset--idle" aria-hidden="true">
+                  <img src="<?php echo esc_url($marker_plus); ?>" alt="" loading="lazy" />
+                </span>
+                <span class="revamp-home-process__marker-asset revamp-home-process__marker-asset--active" aria-hidden="true">
+                  <img src="<?php echo esc_url($marker_plus_active); ?>" alt="" loading="lazy" />
+                </span>
               </button>
             <?php endforeach; ?>
           </div>
