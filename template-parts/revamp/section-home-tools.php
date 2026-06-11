@@ -81,10 +81,11 @@ if (!$statement && empty($cards)) {
                       <p><?php echo esc_html($card['label'] ?? ($card['title'] ?? '')); ?></p>
                       <span class="revamp-home-tool-card__meta-action">
                         <?php if ($meta_arrow) : ?>
-                          <img src="<?php echo esc_url($meta_arrow); ?>" alt="" aria-hidden="true">
+                          <img class="revamp-home-tool-card__meta-arrow" src="<?php echo esc_url($meta_arrow); ?>" alt="" aria-hidden="true">
                         <?php else : ?>
-                          <?php echo esc_html($card['action'] ?? 'Show'); ?>
+                          <span class="revamp-home-tool-card__meta-arrow" aria-hidden="true">&rarr;</span>
                         <?php endif; ?>
+                        <span class="revamp-home-tool-card__meta-show"><?php echo esc_html($card['action'] ?? 'Show'); ?></span>
                       </span>
                     </div>
 
