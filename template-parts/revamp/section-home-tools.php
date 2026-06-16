@@ -90,51 +90,62 @@ if (!$statement && empty($cards)) {
                 <?php
                 $slug = $card['slug'] ?? sanitize_title($card['title'] ?? ('tool-' . $index));
                 $is_active = !empty($card['active']);
+                $card_url = $card['url'] ?? '';
                 ?>
                 <article class="revamp-home-tool-card revamp-home-tool-card--<?php echo esc_attr($slug); ?><?php echo $is_active ? ' is-active' : ''; ?>" data-tools-card data-tools-index="<?php echo esc_attr((string) $index); ?>">
-                  <div class="revamp-home-tool-card__visual">
-                    <?php if (!empty($card['title'])) : ?>
-                      <h3 class="revamp-home-tool-card__title"><?php echo esc_html($card['title']); ?></h3>
-                    <?php endif; ?>
-
-                    <?php if (!empty($card['image'])) : ?>
-                      <img class="revamp-home-tool-card__image" src="<?php echo esc_url($card['image']); ?>" alt="<?php echo esc_attr($card['image_alt'] ?? ''); ?>">
-                    <?php endif; ?>
-
-                    <?php if (!empty($card['icon'])) : ?>
-                      <img class="revamp-home-tool-card__icon" src="<?php echo esc_url($card['icon']); ?>" alt="" aria-hidden="true">
-                    <?php endif; ?>
-                  </div>
-
-                  <div class="revamp-home-tool-card__meta">
-                    <div class="revamp-home-tool-card__meta-head">
-                      <?php if (!empty($card['category'])) : ?>
-                        <p class="revamp-home-tool-card__meta-name"><?php echo esc_html($card['label'] ?? ($card['title'] ?? '')); ?></p>
-                        <p class="revamp-home-tool-card__meta-category"><?php echo esc_html($card['category']); ?></p>
-                      <?php else : ?>
-                        <div class="revamp-home-tool-card__meta-copy">
-                          <?php if (!empty($card['kicker'])) : ?>
-                            <span class="revamp-home-tool-card__meta-kicker"><?php echo esc_html($card['kicker']); ?></span>
-                          <?php endif; ?>
-                          <p><?php echo esc_html($card['label'] ?? ($card['title'] ?? '')); ?></p>
-                        </div>
-                      <?php endif; ?>
-                      <span class="revamp-home-tool-card__meta-action">
-                        <?php if ($meta_arrow) : ?>
-                          <img class="revamp-home-tool-card__meta-arrow" src="<?php echo esc_url($meta_arrow); ?>" alt="" aria-hidden="true">
-                        <?php else : ?>
-                          <span class="revamp-home-tool-card__meta-arrow" aria-hidden="true">&rarr;</span>
+                  <?php if ($card_url) : ?>
+                    <a class="revamp-home-tool-card__link" href="<?php echo esc_url($card_url); ?>" aria-label="<?php echo esc_attr($card['label'] ?? ($card['title'] ?? __('View product', 'mindfulness'))); ?>">
+                  <?php else : ?>
+                    <div class="revamp-home-tool-card__link">
+                  <?php endif; ?>
+                      <div class="revamp-home-tool-card__visual">
+                        <?php if (!empty($card['title'])) : ?>
+                          <h3 class="revamp-home-tool-card__title"><?php echo esc_html($card['title']); ?></h3>
                         <?php endif; ?>
-                        <span class="revamp-home-tool-card__meta-show"><?php echo esc_html($card['action'] ?? 'Show'); ?></span>
-                      </span>
-                    </div>
 
-                    <?php if (!empty($card['description'])) : ?>
-                      <div class="revamp-home-tool-card__description">
-                        <p><?php echo esc_html($card['description']); ?></p>
+                        <?php if (!empty($card['image'])) : ?>
+                          <img class="revamp-home-tool-card__image" src="<?php echo esc_url($card['image']); ?>" alt="<?php echo esc_attr($card['image_alt'] ?? ''); ?>">
+                        <?php endif; ?>
+
+                        <?php if (!empty($card['icon'])) : ?>
+                          <img class="revamp-home-tool-card__icon" src="<?php echo esc_url($card['icon']); ?>" alt="" aria-hidden="true">
+                        <?php endif; ?>
                       </div>
-                    <?php endif; ?>
-                  </div>
+
+                      <div class="revamp-home-tool-card__meta">
+                        <div class="revamp-home-tool-card__meta-head">
+                          <?php if (!empty($card['category'])) : ?>
+                            <p class="revamp-home-tool-card__meta-name"><?php echo esc_html($card['label'] ?? ($card['title'] ?? '')); ?></p>
+                            <p class="revamp-home-tool-card__meta-category"><?php echo esc_html($card['category']); ?></p>
+                          <?php else : ?>
+                            <div class="revamp-home-tool-card__meta-copy">
+                              <?php if (!empty($card['kicker'])) : ?>
+                                <span class="revamp-home-tool-card__meta-kicker"><?php echo esc_html($card['kicker']); ?></span>
+                              <?php endif; ?>
+                              <p><?php echo esc_html($card['label'] ?? ($card['title'] ?? '')); ?></p>
+                            </div>
+                          <?php endif; ?>
+                          <span class="revamp-home-tool-card__meta-action">
+                            <?php if ($meta_arrow) : ?>
+                              <img class="revamp-home-tool-card__meta-arrow" src="<?php echo esc_url($meta_arrow); ?>" alt="" aria-hidden="true">
+                            <?php else : ?>
+                              <span class="revamp-home-tool-card__meta-arrow" aria-hidden="true">&rarr;</span>
+                            <?php endif; ?>
+                            <span class="revamp-home-tool-card__meta-show"><?php echo esc_html($card['action'] ?? 'Show'); ?></span>
+                          </span>
+                        </div>
+
+                        <?php if (!empty($card['description'])) : ?>
+                          <div class="revamp-home-tool-card__description">
+                            <p><?php echo esc_html($card['description']); ?></p>
+                          </div>
+                        <?php endif; ?>
+                      </div>
+                  <?php if ($card_url) : ?>
+                    </a>
+                  <?php else : ?>
+                    </div>
+                  <?php endif; ?>
                 </article>
               <?php endforeach; ?>
             </div>

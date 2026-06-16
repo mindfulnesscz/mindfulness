@@ -33,14 +33,24 @@ if (!$title && empty($cases)) {
         <?php
         $corner_class = 0 === $index ? ' revamp-home-case--first' : '';
         $corner_class .= count($cases) - 1 === $index ? ' revamp-home-case--last' : '';
+        $case_url = $case['url'] ?? '';
+        $media_label = !empty($case['title']) ? wp_strip_all_tags($case['title']) : __('View case study', 'mindfulness');
         ?>
         <article class="revamp-home-case<?php echo esc_attr($corner_class); ?>">
           <div class="container revamp-home-case__inner">
-            <div class="revamp-home-case__media" aria-hidden="true">
+            <?php if ($case_url) : ?>
+              <a class="revamp-home-case__media" href="<?php echo esc_url($case_url); ?>" aria-label="<?php echo esc_attr($media_label); ?>">
+            <?php else : ?>
+              <div class="revamp-home-case__media" aria-hidden="true">
+            <?php endif; ?>
               <?php if (!empty($case['image'])) : ?>
                 <img src="<?php echo esc_url($case['image']); ?>" alt="" loading="lazy">
               <?php endif; ?>
-            </div>
+            <?php if ($case_url) : ?>
+              </a>
+            <?php else : ?>
+              </div>
+            <?php endif; ?>
 
             <div class="revamp-home-case__content">
               <div class="revamp-home-case__main">

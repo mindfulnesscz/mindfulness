@@ -316,7 +316,11 @@
     }
 
     cards.forEach(function (card, index) {
-      card.setAttribute('tabindex', '0');
+      var cardLink = card.querySelector('a[href]');
+
+      if (!cardLink) {
+        card.setAttribute('tabindex', '0');
+      }
 
       card.addEventListener('mouseenter', function () {
         setActive(index);
@@ -331,6 +335,10 @@
       });
 
       card.addEventListener('keydown', function (event) {
+        if (cardLink) {
+          return;
+        }
+
         if (event.key !== 'Enter' && event.key !== ' ') {
           return;
         }

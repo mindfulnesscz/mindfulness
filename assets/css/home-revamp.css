@@ -1236,8 +1236,9 @@ TABLE OF CONTENTS
 .revamp-home-tools__intro-mark {
   flex: 0 0 158px;
   width: 158px;
-  height: auto;
+  height: 139px;
   display: block;
+  object-fit: contain;
 }
 
 .revamp-home-tools__intro-copy {
@@ -1365,6 +1366,23 @@ TABLE OF CONTENTS
   color: #f5f4f3;
 }
 
+.revamp-home-tool-card__link {
+  min-width: 0;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 16px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.revamp-home-tool-card__link:hover,
+.revamp-home-tool-card__link:focus-visible {
+  color: inherit;
+  text-decoration: none;
+  outline: 0;
+}
+
 .revamp-home-tool-card__visual {
   position: relative;
   height: 468px;
@@ -1448,8 +1466,10 @@ TABLE OF CONTENTS
   bottom: 40px;
   left: 50%;
   width: 54px;
-  height: 48px;
+  max-height: 48px;
+  height: auto;
   display: block;
+  object-fit: contain;
   transform: translateX(-50%);
   pointer-events: none;
 }
@@ -1770,19 +1790,17 @@ TABLE OF CONTENTS
 }
 
 .revamp-home-numbers__graphic {
-  --numbers-bleed: calc(max(calc((100vw - var(--revamp-content-max)) / 2), 0px) + var(--revamp-gutter));
-  width: 100vw;
+  width: 100%;
   margin-top: 32px;
-  margin-left: calc(0px - var(--numbers-bleed));
-  overflow: hidden;
+  overflow: visible;
 }
 
 .revamp-home-numbers__graphic img {
-  width: 1794px;
-  max-width: none;
+  width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .revamp-home-services {
@@ -1985,9 +2003,19 @@ TABLE OF CONTENTS
 .revamp-home-case__media {
   position: relative;
   height: 829px;
+  display: block;
   overflow: hidden;
   background: #f5f4f3;
+  color: inherit;
+  text-decoration: none;
   isolation: isolate;
+}
+
+.revamp-home-case__media:hover,
+.revamp-home-case__media:focus-visible {
+  color: inherit;
+  text-decoration: none;
+  outline: 0;
 }
 
 .revamp-home-case--first .revamp-home-case__media {
@@ -2474,6 +2502,7 @@ TABLE OF CONTENTS
   .revamp-home-tools__intro-mark {
     flex-basis: 124px;
     width: 124px;
+    height: 109px;
   }
   .revamp-home-tools__intro-copy {
     width: min(100%, 365px);
@@ -2534,8 +2563,9 @@ TABLE OF CONTENTS
     margin-left: 0;
   }
   .revamp-home-numbers__graphic img {
-    width: 1120px;
-    transform: translateX(-26%);
+    width: 100%;
+    max-width: 100%;
+    transform: none;
   }
   .revamp-home-services {
     min-height: 760px;
@@ -2595,6 +2625,10 @@ TABLE OF CONTENTS
   }
   .revamp-home-case__media {
     height: 420px;
+    border-radius: 10px;
+  }
+  .revamp-home-case--last {
+    padding-bottom: 40px;
   }
   .revamp-home-case__content,
   .revamp-home-case--last .revamp-home-case__content {
@@ -2695,6 +2729,7 @@ TABLE OF CONTENTS
   .revamp-home-tools__intro-mark {
     flex-basis: 88px;
     width: 88px;
+    height: 78px;
   }
   .revamp-home-tools__intro-title {
     margin-bottom: 10px;
@@ -2749,6 +2784,7 @@ TABLE OF CONTENTS
   }
   .revamp-home-tool-card__icon {
     bottom: 32px;
+    max-height: 42px;
   }
   .revamp-home-tool-card__meta-head,
   .revamp-home-tool-card__description p {
@@ -2761,8 +2797,9 @@ TABLE OF CONTENTS
     margin-top: 36px;
   }
   .revamp-home-numbers__graphic img {
-    width: 760px;
-    transform: translateX(-25%);
+    width: 100%;
+    max-width: 100%;
+    transform: none;
   }
   .revamp-home-services {
     min-height: 680px;

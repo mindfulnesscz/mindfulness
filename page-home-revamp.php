@@ -206,6 +206,7 @@ $modules_cards = [
     'image' => $template_uri . '/assets/images/revamp/home/modules/dip-paint-biw.png',
     'image_alt' => 'Blue body-in-white dip paint simulation model',
     'icon' => $template_uri . '/assets/images/revamp/home/modules/icon-dip-paint.svg',
+    'url' => home_url('/dip-paint'),
     'active' => false,
   ],
   [
@@ -218,6 +219,7 @@ $modules_cards = [
     'image' => $template_uri . '/assets/images/revamp/home/modules/merge-biw.png',
     'image_alt' => 'Blue vehicle body merge utility model',
     'icon' => $template_uri . '/assets/images/revamp/home/modules/icon-merge.svg',
+    'url' => home_url('/merge'),
     'active' => true,
   ],
   [
@@ -230,6 +232,7 @@ $modules_cards = [
     'image' => $template_uri . '/assets/images/revamp/home/modules/sealing-biw.png',
     'image_alt' => 'Blue sealing module vehicle body model',
     'icon' => $template_uri . '/assets/images/revamp/home/modules/icon-sealing.svg',
+    'url' => home_url('/sealing'),
     'active' => false,
   ],
   [
@@ -242,6 +245,7 @@ $modules_cards = [
     'image' => $template_uri . '/assets/images/revamp/home/modules/report-tool.png',
     'image_alt' => 'Blue report module robot tool',
     'icon' => $template_uri . '/assets/images/revamp/home/modules/icon-report.svg',
+    'url' => home_url('/report'),
     'active' => false,
   ],
 ];
