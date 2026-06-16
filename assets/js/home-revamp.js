@@ -190,19 +190,35 @@
       });
     }
 
-    function updateIndicator() {
-      if (!indicator) {
-        return;
+    function updateControls(scrollable) {
+      var maxScroll = typeof scrollable === 'number' ? scrollable : viewport.scrollWidth - viewport.clientWidth;
+      var atStart = viewport.scrollLeft <= 1;
+      var atEnd = maxScroll <= 1 || viewport.scrollLeft >= maxScroll - 1;
+
+      if (prev) {
+        prev.disabled = atStart;
+        prev.setAttribute('aria-disabled', atStart ? 'true' : 'false');
       }
 
+      if (next) {
+        next.disabled = atEnd;
+        next.setAttribute('aria-disabled', atEnd ? 'true' : 'false');
+      }
+    }
+
+    function updateIndicator() {
       var scrollable = viewport.scrollWidth - viewport.clientWidth;
       var widthRatio = viewport.scrollWidth > 0 ? viewport.clientWidth / viewport.scrollWidth : 1;
       var thumbWidth = Math.min(1, Math.max(0.12, widthRatio)) * 100;
       var maxLeft = 100 - thumbWidth;
       var left = scrollable > 0 ? (viewport.scrollLeft / scrollable) * maxLeft : 0;
 
-      indicator.style.width = thumbWidth + '%';
-      indicator.style.left = left + '%';
+      if (indicator) {
+        indicator.style.width = thumbWidth + '%';
+        indicator.style.left = left + '%';
+      }
+
+      updateControls(scrollable);
     }
 
     cards.forEach(function (card, index) {
