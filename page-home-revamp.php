@@ -246,6 +246,27 @@ $modules_cards = [
   ],
 ];
 
+$case_studies = [
+  [
+    'title' => 'The Audi ESS Journey<br>in Transformative<br>Paint Shop Innovation',
+    'description' => 'Audi uses ESS technologies to reduce physical testing, validate paint shop processes digitally, and detect coating risks before production starts.',
+    'image' => $template_uri . '/assets/images/revamp/home/case-studies/audi-car.png',
+    'logo' => $template_uri . '/assets/images/revamp/home/case-studies/logo-audi.svg',
+    'logo_alt' => 'Audi',
+    'link_label' => 'View Case Study',
+    'url' => home_url('/case-studies'),
+  ],
+  [
+    'title' => 'Paint Shop Simulation<br>Proven in Production',
+    'description' => 'Audi uses ESS technologies to reduce physical testing, validate paint shop processes digitally, and detect coating risks before production starts.',
+    'image' => $template_uri . '/assets/images/revamp/home/case-studies/skoda-factory.png',
+    'logo' => $template_uri . '/assets/images/revamp/home/case-studies/logo-skoda.svg',
+    'logo_alt' => 'Skoda',
+    'link_label' => 'View Case Study',
+    'url' => home_url('/case-studies'),
+  ],
+];
+
 while (have_posts()) :
   the_post();
 ?>
@@ -360,6 +381,15 @@ while (have_posts()) :
           'Custom Projects',
         ],
         'background' => $template_uri . '/assets/images/revamp/home/services/background.png',
+      ]
+    );
+
+    get_template_part(
+      'template-parts/revamp/section',
+      'home-case-studies',
+      [
+        'title' => 'Real Paint Shop Results',
+        'cases' => $case_studies,
       ]
     );
     ?>
