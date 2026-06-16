@@ -88,7 +88,7 @@ function mindfulness_scripts()
     wp_enqueue_style('product-page', get_template_directory_uri() . '/assets/css/product-page.css', array(), mindfulness_version());
   }
 
-  if (mindfulness_is_home_revamp_template()) {
+  if (mindfulness_is_revamp_template()) {
     wp_enqueue_style('home-revamp', get_template_directory_uri() . '/assets/css/home-revamp.css', array(), mindfulness_version());
   }
 
@@ -114,7 +114,7 @@ function mindfulness_scripts()
 
   wp_enqueue_script('ess');
 
-  if (mindfulness_is_home_revamp_template()) {
+  if (mindfulness_is_revamp_template()) {
     wp_enqueue_script('home-revamp');
   }
 

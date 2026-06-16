@@ -7,7 +7,7 @@
  * @subpackage MindfulnESS
  */
 
-get_header();
+get_header('revamp');
 
 $template_uri = get_template_directory_uri();
 
@@ -398,4 +398,4 @@ while (have_posts()) :
 <?php
 endwhile;
 
-get_footer();
+get_footer('revamp');

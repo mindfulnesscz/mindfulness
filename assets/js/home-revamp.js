@@ -1,4 +1,19 @@
 (function () {
+  function initRevampNavScrollState() {
+    var header = document.querySelector('.ess-revamp-header');
+
+    if (!header) {
+      return;
+    }
+
+    function updateHeaderState() {
+      header.classList.toggle('is-scrolled', window.scrollY > 2);
+    }
+
+    updateHeaderState();
+    window.addEventListener('scroll', updateHeaderState, { passive: true });
+  }
+
   function initHomeHeroCarousel(carousel) {
     var slides = Array.prototype.slice.call(carousel.querySelectorAll('[data-carousel-slide]'));
     var tabs = Array.prototype.slice.call(carousel.querySelectorAll('[data-carousel-tab]'));
@@ -269,9 +284,16 @@
     updateIndicator();
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
+  function initHomeRevamp() {
+    initRevampNavScrollState();
     Array.prototype.forEach.call(document.querySelectorAll('[data-home-hero-carousel]'), initHomeHeroCarousel);
     Array.prototype.forEach.call(document.querySelectorAll('[data-process-section]'), initHomeProcess);
     Array.prototype.forEach.call(document.querySelectorAll('[data-tools-carousel]'), initHomeToolsCarousel);
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHomeRevamp);
+  } else {
+    initHomeRevamp();
+  }
 }());

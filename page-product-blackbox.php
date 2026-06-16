@@ -7,7 +7,7 @@
  * @subpackage MindfulnESS
  */
 
-get_header();
+get_header('revamp');
 
 $workflow_array = ['➀', '➁', '➂',];
 
@@ -388,4 +388,4 @@ endwhile;
 
 </main>
 
-<?php get_footer(); ?>
+<?php get_footer('revamp'); ?>
