@@ -258,6 +258,19 @@ while (have_posts()) :
         'meta_arrow' => $template_uri . '/assets/images/revamp/home/tools/meta-arrow.svg',
       ]
     );
+
+    get_template_part(
+      'template-parts/revamp/section',
+      'home-numbers',
+      [
+        'title_lines' => [
+          'Paint Shop Simulation',
+          'Proven in Production',
+        ],
+        'graphic' => $template_uri . '/assets/images/revamp/home/numbers/numbers-graphic.svg',
+        'graphic_alt' => 'Experience numbers over a dotted world map',
+      ]
+    );
     ?>
   </main>
 
