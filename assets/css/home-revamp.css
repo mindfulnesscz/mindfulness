@@ -15,6 +15,7 @@ TABLE OF CONTENTS
   --revamp-gutter: 48px;
   background: #f5f4f3;
   color: #2d2d2d;
+  font-family: "essGrotesk", sans-serif;
   overflow: hidden;
 }
 
@@ -900,6 +901,48 @@ TABLE OF CONTENTS
   align-self: stretch;
 }
 
+.revamp-home-tools__intro {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.revamp-home-tools__intro-mark {
+  flex: 0 0 158px;
+  width: 158px;
+  height: auto;
+  display: block;
+}
+
+.revamp-home-tools__intro-copy {
+  width: 365px;
+  max-width: 100%;
+}
+
+.revamp-home-tools__intro-title {
+  margin: 0 0 16px;
+  padding: 0;
+  color: #2d2d2d;
+  font-size: 42px;
+  line-height: 1;
+  letter-spacing: -0.462px;
+  font-weight: 400;
+}
+
+.revamp-home-tools__intro-title span {
+  display: block;
+}
+
+.revamp-home-tools__intro-text {
+  margin: 0;
+  padding: 0;
+  color: #2d2d2d;
+  font-size: 14px;
+  line-height: 1.17;
+  letter-spacing: -0.154px;
+  font-weight: 400;
+}
+
 .revamp-home-tools__carousel {
   margin-top: 136px;
 }
@@ -1113,11 +1156,31 @@ TABLE OF CONTENTS
   letter-spacing: 0.16px;
 }
 
+.revamp-home-tool-card__meta-copy {
+  min-width: 0;
+}
+
 .revamp-home-tool-card__meta-head p,
 .revamp-home-tool-card__meta-head span,
 .revamp-home-tool-card__description p {
   margin: 0;
   padding: 0;
+}
+
+.revamp-home-tool-card__meta-copy p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.revamp-home-tool-card__meta-kicker {
+  display: block;
+  margin-bottom: 2px;
+  color: currentColor;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.12px;
+  opacity: 0.72;
 }
 
 .revamp-home-tool-card__meta-action {
@@ -1195,6 +1258,125 @@ TABLE OF CONTENTS
   width: 20%;
   height: 1px;
   background: #f5f4f3;
+}
+
+.revamp-home-tools--modules {
+  background: #f5f4f3;
+  color: #2d2d2d;
+}
+
+.revamp-home-tools--modules::before {
+  border-top-color: #2d2d2d;
+}
+
+.revamp-home-tools--modules .revamp-home-tools__statement,
+.revamp-home-tools--modules .revamp-home-tools__eyebrow {
+  color: #2d2d2d;
+}
+
+.revamp-home-tools--modules .revamp-home-tools__statement {
+  max-width: 760px;
+}
+
+.revamp-home-tools--modules .revamp-home-tools__carousel-head {
+  justify-content: flex-end;
+}
+
+.revamp-home-tools--modules .revamp-home-tool-card {
+  color: #2d2d2d;
+}
+
+.revamp-home-tools--modules .revamp-home-tool-card__visual {
+  background: rgba(213, 212, 207, 0.4);
+}
+
+.revamp-home-tools--modules .revamp-home-tool-card.is-active .revamp-home-tool-card__visual,
+.revamp-home-tools--modules .revamp-home-tool-card:hover .revamp-home-tool-card__visual,
+.revamp-home-tools--modules .revamp-home-tool-card:focus-within .revamp-home-tool-card__visual {
+  background: rgba(213, 212, 207, 0.2);
+}
+
+.revamp-home-tools--modules .revamp-home-tool-card__title {
+  color: #2d2d2d;
+  opacity: 0.22;
+}
+
+.revamp-home-tools--modules .revamp-home-tool-card.is-active .revamp-home-tool-card__title,
+.revamp-home-tools--modules .revamp-home-tool-card:hover .revamp-home-tool-card__title,
+.revamp-home-tools--modules .revamp-home-tool-card:focus-within .revamp-home-tool-card__title {
+  opacity: 1;
+}
+
+.revamp-home-tools--modules .revamp-home-tool-card__meta-head {
+  display: grid;
+  grid-template-columns: 120px 120px 52px;
+  gap: 0;
+  border-bottom-color: rgba(45, 45, 45, 0.5);
+  color: #2d2d2d;
+}
+
+.revamp-home-tools--modules .revamp-home-tool-card__meta-name,
+.revamp-home-tools--modules .revamp-home-tool-card__meta-category {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.revamp-home-tools--modules .revamp-home-tool-card__meta-category {
+  text-align: center;
+}
+
+.revamp-home-tools--modules .revamp-home-tool-card__meta-action {
+  width: 52px;
+  color: #2d2d2d;
+}
+
+.revamp-home-tools--modules .revamp-home-tool-card__description {
+  color: #2d2d2d;
+}
+
+.revamp-home-tools--modules .revamp-home-tool-card__description p {
+  opacity: 0.78;
+}
+
+.revamp-home-tools--modules .revamp-home-tools__indicator {
+  background: rgba(45, 45, 45, 0.24);
+}
+
+.revamp-home-tools--modules .revamp-home-tools__indicator span {
+  background: #2d2d2d;
+}
+
+.revamp-home-tools--modules .revamp-home-tool-card--dip-paint .revamp-home-tool-card__image {
+  top: 50%;
+  left: 50%;
+  width: 342px;
+  transform: translate(-50%, -50%) rotate(-11.14deg);
+}
+
+.revamp-home-tools--modules .revamp-home-tool-card--module-sealing .revamp-home-tool-card__image {
+  top: 50%;
+  left: 50%;
+  width: 266px;
+  filter: grayscale(1) sepia(1) hue-rotate(178deg) saturate(3.4) brightness(1.1);
+  transform: translate(-50%, -50%);
+}
+
+.revamp-home-tools--modules .revamp-home-tool-card--merge .revamp-home-tool-card__image {
+  top: 50%;
+  left: 50%;
+  width: 286px;
+  filter: grayscale(1) sepia(1) hue-rotate(178deg) saturate(3.4) brightness(1.1);
+  transform: translate(-50%, -50%);
+}
+
+.revamp-home-tools--modules .revamp-home-tool-card--report .revamp-home-tool-card__image {
+  top: 50%;
+  left: 50%;
+  width: 188px;
+  filter: grayscale(1) sepia(1) hue-rotate(178deg) saturate(3.4) brightness(1.1);
+  transform: translate(-50%, -50%);
 }
 
 .revamp-home-numbers {
@@ -1317,6 +1499,26 @@ TABLE OF CONTENTS
   .revamp-home-tool-card--sealing .revamp-home-tool-card__image {
     top: 108px;
     width: 170px;
+  }
+  .revamp-home-tools--modules .revamp-home-tool-card--dip-paint .revamp-home-tool-card__image {
+    top: 50%;
+    width: 302px;
+    transform: translate(-50%, -50%) rotate(-11.14deg);
+  }
+  .revamp-home-tools--modules .revamp-home-tool-card--module-sealing .revamp-home-tool-card__image {
+    top: 50%;
+    width: 235px;
+    transform: translate(-50%, -50%);
+  }
+  .revamp-home-tools--modules .revamp-home-tool-card--merge .revamp-home-tool-card__image {
+    top: 50%;
+    width: 250px;
+    transform: translate(-50%, -50%);
+  }
+  .revamp-home-tools--modules .revamp-home-tool-card--report .revamp-home-tool-card__image {
+    top: 50%;
+    width: 166px;
+    transform: translate(-50%, -50%);
   }
 }
 @media only screen and (max-width: 781px) {
@@ -1568,6 +1770,19 @@ TABLE OF CONTENTS
     font-size: 30px;
     letter-spacing: 0;
   }
+  .revamp-home-tools__intro {
+    gap: 28px;
+  }
+  .revamp-home-tools__intro-mark {
+    flex-basis: 124px;
+    width: 124px;
+  }
+  .revamp-home-tools__intro-copy {
+    width: min(100%, 365px);
+  }
+  .revamp-home-tools__intro-title {
+    font-size: 34px;
+  }
   .revamp-home-tools__carousel {
     margin-top: 72px;
   }
@@ -1654,6 +1869,21 @@ TABLE OF CONTENTS
   .revamp-home-tools__controls {
     gap: 6px;
   }
+  .revamp-home-tools__intro {
+    align-items: flex-start;
+    gap: 18px;
+  }
+  .revamp-home-tools__intro-mark {
+    flex-basis: 88px;
+    width: 88px;
+  }
+  .revamp-home-tools__intro-title {
+    margin-bottom: 10px;
+    font-size: 30px;
+  }
+  .revamp-home-tools__intro-text {
+    font-size: 13px;
+  }
   .revamp-home-tool-card__visual {
     height: 340px;
   }
@@ -1677,6 +1907,26 @@ TABLE OF CONTENTS
   .revamp-home-tool-card--sealing .revamp-home-tool-card__image {
     top: 96px;
     width: 146px;
+  }
+  .revamp-home-tools--modules .revamp-home-tool-card--dip-paint .revamp-home-tool-card__image {
+    top: 50%;
+    width: 250px;
+    transform: translate(-50%, -50%) rotate(-11.14deg);
+  }
+  .revamp-home-tools--modules .revamp-home-tool-card--module-sealing .revamp-home-tool-card__image {
+    top: 50%;
+    width: 210px;
+    transform: translate(-50%, -50%);
+  }
+  .revamp-home-tools--modules .revamp-home-tool-card--merge .revamp-home-tool-card__image {
+    top: 50%;
+    width: 220px;
+    transform: translate(-50%, -50%);
+  }
+  .revamp-home-tools--modules .revamp-home-tool-card--report .revamp-home-tool-card__image {
+    top: 50%;
+    width: 144px;
+    transform: translate(-50%, -50%);
   }
   .revamp-home-tool-card__icon {
     bottom: 32px;

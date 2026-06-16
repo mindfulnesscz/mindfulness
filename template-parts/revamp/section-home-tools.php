@@ -13,16 +13,46 @@ $cards = $args['cards'] ?? [];
 $arrow_left = $args['arrow_left'] ?? '';
 $arrow_right = $args['arrow_right'] ?? '';
 $meta_arrow = $args['meta_arrow'] ?? '';
+$variant = !empty($args['variant']) ? sanitize_html_class($args['variant']) : '';
+$section_label = $args['section_label'] ?? __('ESS tools carousel controls', 'mindfulness');
+$prev_label = $args['prev_label'] ?? __('Previous tool', 'mindfulness');
+$next_label = $args['next_label'] ?? __('Next tool', 'mindfulness');
+$intro = $args['intro'] ?? [];
+$section_classes = 'revamp-home-tools';
+
+if ($variant) {
+  $section_classes .= ' revamp-home-tools--' . $variant;
+}
 
 if (!$statement && empty($cards)) {
   return;
 }
 ?>
 
-<section class="revamp-home-tools" data-revamp-section="home-tools" data-tools-carousel>
-  <div class="revamp-home-tools__frame">
-    <div class="container revamp-home-tools__inner">
-      <?php if ($statement) : ?>
+<section class="<?php echo esc_attr($section_classes); ?>" data-revamp-section="<?php echo esc_attr($variant ? 'home-' . $variant : 'home-tools'); ?>" data-tools-carousel>
+    <div class="revamp-home-tools__frame">
+      <div class="container revamp-home-tools__inner">
+      <?php if (!empty($intro)) : ?>
+        <div class="revamp-home-tools__intro">
+          <?php if (!empty($intro['image'])) : ?>
+            <img class="revamp-home-tools__intro-mark" src="<?php echo esc_url($intro['image']); ?>" alt="" aria-hidden="true">
+          <?php endif; ?>
+
+          <div class="revamp-home-tools__intro-copy">
+            <?php if (!empty($intro['title_lines'])) : ?>
+              <h2 class="revamp-home-tools__intro-title">
+                <?php foreach ($intro['title_lines'] as $line) : ?>
+                  <span><?php echo esc_html($line); ?></span>
+                <?php endforeach; ?>
+              </h2>
+            <?php endif; ?>
+
+            <?php if (!empty($intro['description'])) : ?>
+              <p class="revamp-home-tools__intro-text"><?php echo esc_html($intro['description']); ?></p>
+            <?php endif; ?>
+          </div>
+        </div>
+      <?php elseif ($statement) : ?>
         <div class="revamp-home-tools__title-row">
           <h2 class="revamp-home-tools__statement"><?php echo esc_html($statement); ?></h2>
           <div class="revamp-home-tools__title-spacer" aria-hidden="true"></div>
@@ -36,15 +66,15 @@ if (!$statement && empty($cards)) {
               <p class="revamp-home-tools__eyebrow"><?php echo esc_html($eyebrow); ?></p>
             <?php endif; ?>
 
-            <div class="revamp-home-tools__controls" aria-label="<?php esc_attr_e('ESS tools carousel controls', 'mindfulness'); ?>">
-              <button class="revamp-home-tools__control revamp-home-tools__control--prev" type="button" data-tools-prev aria-label="<?php esc_attr_e('Previous tool', 'mindfulness'); ?>">
+            <div class="revamp-home-tools__controls" aria-label="<?php echo esc_attr($section_label); ?>">
+              <button class="revamp-home-tools__control revamp-home-tools__control--prev" type="button" data-tools-prev aria-label="<?php echo esc_attr($prev_label); ?>">
                 <?php if ($arrow_left) : ?>
                   <img src="<?php echo esc_url($arrow_left); ?>" alt="" aria-hidden="true">
                 <?php else : ?>
                   <span aria-hidden="true">&larr;</span>
                 <?php endif; ?>
               </button>
-              <button class="revamp-home-tools__control revamp-home-tools__control--next" type="button" data-tools-next aria-label="<?php esc_attr_e('Next tool', 'mindfulness'); ?>">
+              <button class="revamp-home-tools__control revamp-home-tools__control--next" type="button" data-tools-next aria-label="<?php echo esc_attr($next_label); ?>">
                 <?php if ($arrow_right) : ?>
                   <img src="<?php echo esc_url($arrow_right); ?>" alt="" aria-hidden="true">
                 <?php else : ?>
@@ -78,7 +108,17 @@ if (!$statement && empty($cards)) {
 
                   <div class="revamp-home-tool-card__meta">
                     <div class="revamp-home-tool-card__meta-head">
-                      <p><?php echo esc_html($card['label'] ?? ($card['title'] ?? '')); ?></p>
+                      <?php if (!empty($card['category'])) : ?>
+                        <p class="revamp-home-tool-card__meta-name"><?php echo esc_html($card['label'] ?? ($card['title'] ?? '')); ?></p>
+                        <p class="revamp-home-tool-card__meta-category"><?php echo esc_html($card['category']); ?></p>
+                      <?php else : ?>
+                        <div class="revamp-home-tool-card__meta-copy">
+                          <?php if (!empty($card['kicker'])) : ?>
+                            <span class="revamp-home-tool-card__meta-kicker"><?php echo esc_html($card['kicker']); ?></span>
+                          <?php endif; ?>
+                          <p><?php echo esc_html($card['label'] ?? ($card['title'] ?? '')); ?></p>
+                        </div>
+                      <?php endif; ?>
                       <span class="revamp-home-tool-card__meta-action">
                         <?php if ($meta_arrow) : ?>
                           <img class="revamp-home-tool-card__meta-arrow" src="<?php echo esc_url($meta_arrow); ?>" alt="" aria-hidden="true">

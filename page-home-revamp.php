@@ -195,6 +195,57 @@ $tools_cards = [
   ],
 ];
 
+$modules_cards = [
+  [
+    'slug' => 'dip-paint',
+    'title' => 'DipPaint',
+    'category' => 'Module',
+    'label' => 'DipPaint',
+    'action' => 'Show',
+    'description' => 'Fast, reliable and cost-effective tool that can be used by anyone, developed for ease of use and quick turnaround times.',
+    'image' => $template_uri . '/assets/images/revamp/home/modules/dip-paint-biw.png',
+    'image_alt' => 'Blue body-in-white dip paint simulation model',
+    'icon' => $template_uri . '/assets/images/revamp/home/modules/icon-dip-paint.svg',
+    'active' => false,
+  ],
+  [
+    'slug' => 'merge',
+    'title' => 'Merge',
+    'category' => 'Utility',
+    'label' => 'PaintIQ',
+    'action' => 'Show',
+    'description' => 'Here will be three lines description about the product. Here will be three lines description about the product.',
+    'image' => $template_uri . '/assets/images/revamp/home/modules/merge-biw.png',
+    'image_alt' => 'Blue vehicle body merge utility model',
+    'icon' => $template_uri . '/assets/images/revamp/home/modules/icon-merge.svg',
+    'active' => true,
+  ],
+  [
+    'slug' => 'module-sealing',
+    'title' => 'Sealing',
+    'category' => 'Module',
+    'label' => 'Sealing',
+    'action' => 'Show',
+    'description' => 'Fast, reliable and cost-effective tool that can be used by anyone, developed for ease of use and quick turnaround times.',
+    'image' => $template_uri . '/assets/images/revamp/home/modules/sealing-biw.png',
+    'image_alt' => 'Blue sealing module vehicle body model',
+    'icon' => $template_uri . '/assets/images/revamp/home/modules/icon-sealing.svg',
+    'active' => false,
+  ],
+  [
+    'slug' => 'report',
+    'title' => 'Report',
+    'category' => 'Module',
+    'label' => 'Report',
+    'action' => 'Show',
+    'description' => 'Fast, reliable and cost-effective tool that can be used by anyone, developed for ease of use and quick turnaround times.',
+    'image' => $template_uri . '/assets/images/revamp/home/modules/report-tool.png',
+    'image_alt' => 'Blue report module robot tool',
+    'icon' => $template_uri . '/assets/images/revamp/home/modules/icon-report.svg',
+    'active' => false,
+  ],
+];
+
 while (have_posts()) :
   the_post();
 ?>
@@ -269,6 +320,30 @@ while (have_posts()) :
         ],
         'graphic' => $template_uri . '/assets/images/revamp/home/numbers/numbers-graphic.svg',
         'graphic_alt' => 'Experience numbers over a dotted world map',
+      ]
+    );
+
+    get_template_part(
+      'template-parts/revamp/section',
+      'home-tools',
+      [
+        'variant' => 'modules',
+        'intro' => [
+          'image' => $template_uri . '/assets/images/revamp/home/modules/paintshop-mark.svg',
+          'title_lines' => [
+            'ess',
+            'PaintShop',
+          ],
+          'description' => 'PaintShop brings ESS simulation tools into one modular platform for validating and optimizing the full automotive paint shop process.',
+        ],
+        'eyebrow' => '',
+        'cards' => $modules_cards,
+        'arrow_left' => $template_uri . '/assets/images/revamp/home/modules/arrow-right.svg',
+        'arrow_right' => $template_uri . '/assets/images/revamp/home/modules/arrow-right.svg',
+        'meta_arrow' => $template_uri . '/assets/images/revamp/home/modules/meta-arrow.svg',
+        'section_label' => __('Paintshop modules carousel controls', 'mindfulness'),
+        'prev_label' => __('Previous module', 'mindfulness'),
+        'next_label' => __('Next module', 'mindfulness'),
       ]
     );
     ?>
