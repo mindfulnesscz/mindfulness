@@ -14,6 +14,85 @@
     window.addEventListener('scroll', updateHeaderState, { passive: true });
   }
 
+  function initRevampLinkCursor() {
+    if (!document.body.classList.contains('ess-revamp-shell')) {
+      return;
+    }
+
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      return;
+    }
+
+    var links = Array.prototype.slice.call(document.querySelectorAll('a[href]')).filter(function (link) {
+      var href = link.getAttribute('href') || '';
+
+      return href &&
+        href.charAt(0) !== '#' &&
+        href.indexOf('mailto:') !== 0 &&
+        href.indexOf('tel:') !== 0 &&
+        href.indexOf('javascript:') !== 0;
+    });
+
+    if (!links.length) {
+      return;
+    }
+
+    var cursor = document.createElement('div');
+    var mouse = {
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2,
+    };
+    var rendered = {
+      x: mouse.x,
+      y: mouse.y,
+    };
+    var isActive = false;
+    var scale = 0.72;
+
+    cursor.className = 'ess-revamp-link-cursor';
+    cursor.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(cursor);
+
+    function setMousePosition(event) {
+      mouse.x = event.clientX;
+      mouse.y = event.clientY;
+    }
+
+    function setActive(event) {
+      isActive = true;
+      setMousePosition(event);
+      cursor.classList.add('is-active');
+    }
+
+    function setInactive() {
+      isActive = false;
+      cursor.classList.remove('is-active');
+    }
+
+    function render() {
+      rendered.x += (mouse.x - rendered.x) * 0.22;
+      rendered.y += (mouse.y - rendered.y) * 0.22;
+      scale += ((isActive ? 1 : 0.72) - scale) * 0.2;
+
+      cursor.style.transform = 'translate3d(' + rendered.x + 'px, ' + rendered.y + 'px, 0) translate(-50%, -50%) scale(' + scale + ')';
+
+      window.requestAnimationFrame(render);
+    }
+
+    links.forEach(function (link) {
+      link.classList.add('ess-revamp-cursor-target');
+      link.addEventListener('mouseenter', setActive);
+      link.addEventListener('mousemove', setMousePosition);
+      link.addEventListener('mouseleave', setInactive);
+    });
+
+    window.addEventListener('mousemove', setMousePosition, { passive: true });
+    window.addEventListener('blur', setInactive);
+    document.addEventListener('mouseleave', setInactive);
+
+    render();
+  }
+
   function initHomeHeroCarousel(carousel) {
     var slides = Array.prototype.slice.call(carousel.querySelectorAll('[data-carousel-slide]'));
     var tabs = Array.prototype.slice.call(carousel.querySelectorAll('[data-carousel-tab]'));
@@ -286,6 +365,7 @@
 
   function initHomeRevamp() {
     initRevampNavScrollState();
+    initRevampLinkCursor();
     Array.prototype.forEach.call(document.querySelectorAll('[data-home-hero-carousel]'), initHomeHeroCarousel);
     Array.prototype.forEach.call(document.querySelectorAll('[data-process-section]'), initHomeProcess);
     Array.prototype.forEach.call(document.querySelectorAll('[data-tools-carousel]'), initHomeToolsCarousel);

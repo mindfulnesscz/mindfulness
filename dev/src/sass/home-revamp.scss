@@ -173,8 +173,63 @@
 
 #ess-footer.ess-revamp-footer a:hover,
 #ess-footer.ess-revamp-footer a:focus-visible {
+  font-size: inherit;
   text-decoration: underline;
+  transform: none;
   outline: 0;
+}
+
+.ess-revamp-link-cursor {
+  position: fixed;
+  z-index: 2147483647;
+  top: 0;
+  left: 0;
+  display: none;
+  --revamp-cursor-hex-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='91' height='80' viewBox='0 0 91 80'%3E%3Cpath d='M89.7383 37.026L70.078 2.974C69.0173 1.13691 67.0555 0 64.9341 0H25.6066C23.4853 0 21.5234 1.12998 20.4627 2.974L0.795494 37.026C-0.265165 38.8631 -0.265165 41.13 0.795494 42.9671L20.4558 77.026C21.5165 78.8631 23.4783 80 25.5997 80H64.9272C67.0485 80 69.0104 78.87 70.0711 77.026L89.7314 42.9671C90.792 41.13 90.792 38.8631 89.7314 37.026H89.7383Z' fill='black'/%3E%3C/svg%3E");
+  width: 91px;
+  height: 80px;
+  background: rgba(45, 45, 45, 0.34);
+  backdrop-filter: invert(1) grayscale(1) contrast(1.65) saturate(1.25);
+  -webkit-backdrop-filter: invert(1) grayscale(1) contrast(1.65) saturate(1.25);
+  mask-image: var(--revamp-cursor-hex-mask);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-image: var(--revamp-cursor-hex-mask);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+  will-change: transform, opacity;
+}
+
+.ess-revamp-link-cursor::before {
+  content: none;
+}
+
+.ess-revamp-link-cursor::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #f5f4f3;
+  clip-path: path("M36.5375 51.4761L33.8262 48.7648L50.218 32.373L36.1631 32.6953L36.286 28.9105L51.3499 28.565C54.5933 28.4907 56.8117 30.709 56.7373 33.9524L56.3919 49.0164L52.607 49.1392L52.9293 35.0843L36.5375 51.4761Z");
+}
+
+.ess-revamp-link-cursor.is-active {
+  opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ess-revamp-link-cursor {
+    display: block;
+  }
+
+  .ess-revamp-shell .ess-revamp-cursor-target,
+  .ess-revamp-shell .ess-revamp-cursor-target * {
+    cursor: none;
+  }
 }
 
 .ess-revamp-footer__main {
