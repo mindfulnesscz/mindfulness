@@ -346,6 +346,22 @@ while (have_posts()) :
         'next_label' => __('Next module', 'mindfulness'),
       ]
     );
+
+    get_template_part(
+      'template-parts/revamp/section',
+      'home-services',
+      [
+        'statement' => 'ESS supports the full path from digital validation to production use, helping paint shop teams simulate processes, interpret results, implement solutions, and extend the technology to specific production challenges.',
+        'eyebrow' => 'Engineering Support',
+        'items' => [
+          'Simulation',
+          'Consultation',
+          'Training',
+          'Custom Projects',
+        ],
+        'background' => $template_uri . '/assets/images/revamp/home/services/background.png',
+      ]
+    );
     ?>
   </main>
 
