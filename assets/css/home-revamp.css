@@ -980,7 +980,8 @@ TABLE OF CONTENTS
   position: relative;
   min-width: 0;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-end;
   justify-content: flex-end;
   min-height: 646px;
   overflow: visible;
@@ -1067,6 +1068,58 @@ TABLE OF CONTENTS
 .revamp-home-process__marker--bottom {
   top: 89.52%;
   left: 61%;
+}
+
+.revamp-home-process__mode-toggle {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 18px;
+  margin-right: -24px;
+}
+
+.revamp-home-process__mode-button {
+  width: 144px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 3px;
+  background: #d5d4cf;
+  color: #70706d;
+  font-family: "essGrotesk", sans-serif;
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+
+.revamp-home-process__mode-button:hover {
+  background: #cbc9c4;
+  color: #70706d;
+  outline: 0;
+}
+
+.revamp-home-process__mode-button:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 2px;
+}
+
+.revamp-home-process__mode-button.is-active {
+  background: #2d2d2d;
+  color: #f5f4f3;
+  outline: 0;
+}
+
+.revamp-home-process__mode-button.is-active:hover {
+  background: #393939;
+  color: #f5f4f3;
 }
 
 .revamp-home-paint-iq {
@@ -2431,6 +2484,9 @@ TABLE OF CONTENTS
     min-height: 0;
     margin: 0 auto;
   }
+  .revamp-home-process__mode-toggle {
+    margin-right: 0;
+  }
   .revamp-home-process__image {
     left: 0;
     width: 105%;
@@ -2712,6 +2768,16 @@ TABLE OF CONTENTS
   }
   .revamp-home-process-card {
     min-height: 154px;
+  }
+  .revamp-home-process__mode-toggle {
+    width: 100%;
+    gap: 8px;
+  }
+  .revamp-home-process__mode-button {
+    width: auto;
+    flex: 1 1 0;
+    padding-right: 12px;
+    padding-left: 12px;
   }
   .revamp-home-paint-iq {
     min-height: 680px;

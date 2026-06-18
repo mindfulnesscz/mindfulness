@@ -86,15 +86,18 @@ Enqueue revamp CSS only on the matching templates, following the existing templa
 
 ### JavaScript and Animations
 
-Use GSAP and ScrollTrigger for scroll-driven interactions, since the theme already registers them.
+Use the Motion-powered architecture defined in [revamp-motion-guidelines.md](revamp-motion-guidelines.md). Motion is the default library for entrance reveals, staggered sequences, and lightweight state transitions. CSS remains responsible for ordinary hover/focus transitions.
 
 Keep animation hooks generic and reusable:
 
-- `data-animate="fade-up"`
-- `data-parallax`
+- `data-reveal="fade-up"`
+- `data-reveal-group`
+- `data-reveal-order`
 - `data-product-carousel`
 
-Prefer reusable animation initializers over one-off section scripts. Contact CTAs, product cards, carousels, and repeated reveal effects should use shared hooks when possible.
+Use Motion's `inView`, `animate`, and `stagger` utilities behind one reusable initializer. Prefer declarative hooks over one-off section scripts. GSAP/ScrollTrigger is an exception for an approved pinned, scrubbed, or unusually complex timeline; it is not the default merely because the legacy theme registers an older version.
+
+Motion must preserve server-rendered content, layout dimensions, keyboard behavior, and `prefers-reduced-motion`. Animate `transform` and `opacity`; do not animate layout properties for decorative effects.
 
 ### Assets
 

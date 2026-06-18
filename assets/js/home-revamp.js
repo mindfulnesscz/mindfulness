@@ -178,8 +178,11 @@
 
   function initHomeProcess(section) {
     var targets = Array.prototype.slice.call(section.querySelectorAll('[data-process-target]'));
+    var modeButtons = Array.prototype.slice.call(section.querySelectorAll('[data-process-mode]'));
+    var modeCopies = Array.prototype.slice.call(section.querySelectorAll('[data-process-mode-copy]'));
     var defaultKey = section.getAttribute('data-process-default') || '';
     var committedKey = defaultKey || (targets[0] ? targets[0].getAttribute('data-process-target') : '');
+    var activeMode = 'risks';
 
     if (!targets.length) {
       return;
@@ -195,6 +198,38 @@
           target.setAttribute('aria-pressed', isActive ? 'true' : 'false');
         }
       });
+    }
+
+    function setMode(mode) {
+      activeMode = mode === 'optimization' ? 'optimization' : 'risks';
+      section.setAttribute('data-process-mode-active', activeMode);
+
+      modeButtons.forEach(function (button) {
+        var isActive = button.getAttribute('data-process-mode') === activeMode;
+        button.classList.toggle('is-active', isActive);
+        button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+
+      modeCopies.forEach(function (copy) {
+        var title = copy.querySelector('[data-process-card-title]');
+        var text = copy.querySelector('[data-process-card-text]');
+
+        if (title) {
+          title.textContent = copy.getAttribute('data-' + activeMode + '-title') || '';
+        }
+
+        if (text) {
+          text.textContent = copy.getAttribute('data-' + activeMode + '-text') || '';
+        }
+      });
+
+      targets.forEach(function (target) {
+        if (target.tagName === 'BUTTON' && target.classList.contains('revamp-home-process__marker')) {
+          target.setAttribute('aria-label', target.getAttribute('data-' + activeMode + '-label') || '');
+        }
+      });
+
+      setActive(committedKey);
     }
 
     targets.forEach(function (target) {
@@ -232,7 +267,13 @@
       });
     });
 
-    setActive(committedKey);
+    modeButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        setMode(button.getAttribute('data-process-mode'));
+      });
+    });
+
+    setMode(activeMode);
   }
 
   function initHomeToolsCarousel(section) {

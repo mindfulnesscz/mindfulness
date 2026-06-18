@@ -48,6 +48,8 @@ if (!$active_key && !empty($cards[0])) {
               $card_key = $card['key'] ?? sanitize_title($card['title'] ?? '');
               $card_title = $card['title'] ?? '';
               $card_text = $card['text'] ?? '';
+              $optimization_title = $card['optimization_title'] ?? $card_title;
+              $optimization_text = $card['optimization_text'] ?? $card_text;
               $card_icon = $card['icon'] ?? '';
               $is_active = $card_key === $active_key;
             ?>
@@ -64,13 +66,20 @@ if (!$active_key && !empty($cards[0])) {
                   </span>
                 <?php endif; ?>
 
-                <span class="revamp-home-process-card__copy">
+                <span
+                  class="revamp-home-process-card__copy"
+                  data-process-mode-copy
+                  data-risks-title="<?php echo esc_attr($card_title); ?>"
+                  data-risks-text="<?php echo esc_attr($card_text); ?>"
+                  data-optimization-title="<?php echo esc_attr($optimization_title); ?>"
+                  data-optimization-text="<?php echo esc_attr($optimization_text); ?>"
+                >
                   <?php if ($card_title) : ?>
-                    <span class="revamp-home-process-card__title"><?php echo esc_html($card_title); ?></span>
+                    <span class="revamp-home-process-card__title" data-process-card-title><?php echo esc_html($card_title); ?></span>
                   <?php endif; ?>
 
                   <?php if ($card_text) : ?>
-                    <span class="revamp-home-process-card__text"><?php echo esc_html($card_text); ?></span>
+                    <span class="revamp-home-process-card__text" data-process-card-text><?php echo esc_html($card_text); ?></span>
                   <?php endif; ?>
                 </span>
               </article>
@@ -87,6 +96,7 @@ if (!$active_key && !empty($cards[0])) {
             <?php foreach ($cards as $card) :
               $card_key = $card['key'] ?? sanitize_title($card['title'] ?? '');
               $card_title = $card['title'] ?? '';
+              $optimization_title = $card['optimization_title'] ?? $card_title;
               $marker_position = $card['marker'] ?? '';
               $marker_class = $marker_position === 'hex' ? 'left' : $marker_position;
               $is_active = $card_key === $active_key;
@@ -101,6 +111,8 @@ if (!$active_key && !empty($cards[0])) {
                 aria-label="<?php echo esc_attr(sprintf(__('Show %s', 'mindfulness'), $card_title)); ?>"
                 aria-pressed="<?php echo $is_active ? 'true' : 'false'; ?>"
                 data-process-target="<?php echo esc_attr($card_key); ?>"
+                data-risks-label="<?php echo esc_attr(sprintf(__('Show %s', 'mindfulness'), $card_title)); ?>"
+                data-optimization-label="<?php echo esc_attr(sprintf(__('Show %s', 'mindfulness'), $optimization_title)); ?>"
               >
                 <span class="revamp-home-process__marker-asset revamp-home-process__marker-asset--idle" aria-hidden="true">
                   <img src="<?php echo esc_url($marker_plus); ?>" alt="" loading="lazy" />
@@ -110,6 +122,11 @@ if (!$active_key && !empty($cards[0])) {
                 </span>
               </button>
             <?php endforeach; ?>
+          </div>
+
+          <div class="revamp-home-process__mode-toggle" role="group" aria-label="Process view">
+            <button class="revamp-home-process__mode-button is-active" type="button" aria-pressed="true" data-process-mode="risks">Risks</button>
+            <button class="revamp-home-process__mode-button" type="button" aria-pressed="false" data-process-mode="optimization">Optimization</button>
           </div>
         </div>
       </div>
