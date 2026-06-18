@@ -82,6 +82,74 @@ function initRevealGroup(section) {
   });
 }
 
+function initIntroMotion(section) {
+  const rule = section.querySelector('[data-motion-intro-rule]');
+  const statement = section.querySelector('[data-motion-intro-statement]');
+  const words = Array.from(section.querySelectorAll('[data-motion-intro-word]'));
+  const cardsContainer = section.querySelector('.revamp-home-intro__cards');
+  const cards = Array.from(section.querySelectorAll('.revamp-home-intro-card'));
+  let cardsHavePlayed = false;
+
+  if (!rule || !statement || !words.length || !cardsContainer || !cards.length) {
+    return;
+  }
+
+  words.forEach((word) => {
+    word.style.opacity = '0.28';
+  });
+
+  initScrollRule(rule, () => {}, ['start 92%', 'start 62%']);
+
+  scroll((progress) => {
+    words.forEach((word, index) => {
+      const wordStart = (index / words.length) * 0.76;
+      const wordProgress = Math.min(1, Math.max(0, (progress - wordStart) / 0.24));
+      const easedProgress = wordProgress * wordProgress * (3 - 2 * wordProgress);
+      word.style.opacity = String(0.28 + easedProgress * 0.72);
+    });
+  }, {
+    target: statement,
+    offset: ['start 65%', 'center 48%'],
+  });
+
+  cards.forEach((card) => {
+    const title = card.querySelector('.revamp-home-intro-card__title');
+    const text = card.querySelector('.revamp-home-intro-card__text');
+
+    [title, text].filter(Boolean).forEach((element) => {
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(14px)';
+    });
+  });
+
+  inView(cardsContainer, () => {
+    if (cardsHavePlayed) {
+      return;
+    }
+
+    cardsHavePlayed = true;
+    cards.forEach((card, index) => {
+      const title = card.querySelector('.revamp-home-intro-card__title');
+      const text = card.querySelector('.revamp-home-intro-card__text');
+      const cardDelay = index * 0.18;
+
+      [title, text].filter(Boolean).forEach((element, contentIndex) => {
+        animate(element, {
+          opacity: 1,
+          transform: 'translateY(0px)',
+        }, {
+          duration: 0.5,
+          delay: cardDelay + contentIndex * 0.11,
+          ease: [0.22, 1, 0.36, 1],
+        });
+      });
+    });
+  }, {
+    amount: 0.42,
+    margin: '0px 0px -12% 0px',
+  });
+}
+
 function initProcessMotion(section) {
   const rule = section.querySelector('[data-motion-process-rule]');
   const title = section.querySelector('.revamp-home-process__title');
@@ -216,6 +284,7 @@ function initToolsMotion(section) {
     element.style.opacity = '0';
     element.style.transform = 'translateY(26px)';
   });
+
   carouselHead.style.opacity = '0';
   carouselHead.style.transform = 'translateY(16px)';
 
@@ -535,6 +604,7 @@ function initRevampMotion() {
   }
 
   document.querySelectorAll('[data-motion-reveal-group]').forEach(initRevealGroup);
+  document.querySelectorAll('[data-motion-intro]').forEach(initIntroMotion);
   document.querySelectorAll('[data-motion-process]').forEach(initProcessMotion);
   document.querySelectorAll('[data-motion-tools]').forEach(initToolsMotion);
   document.querySelectorAll('[data-motion-numbers]').forEach(initNumbersMotion);
