@@ -456,6 +456,10 @@ function initNumbersMotion(section) {
   const title = section.querySelector('.revamp-home-numbers__title');
   const graphic = section.querySelector('[data-motion-numbers-graphic]');
   const svg = section.querySelector('[data-motion-numbers-svg]');
+  const mobileGraphic = section.querySelector('[data-motion-numbers-mobile]');
+  const mobileBackground = section.querySelector('[data-motion-numbers-mobile-background]');
+  const mobileStats = Array.from(section.querySelectorAll('[data-motion-numbers-mobile-stat]'));
+  const useMobileGraphic = window.matchMedia('(max-width: 1096px)').matches;
   let titleHasPlayed = false;
   let graphicHasPlayed = false;
 
@@ -480,6 +484,45 @@ function initNumbersMotion(section) {
       ease: [0.22, 1, 0.36, 1],
     });
   }, ['start 92%', 'start 62%']);
+
+  if (useMobileGraphic && mobileGraphic && mobileBackground && mobileStats.length) {
+    mobileBackground.style.clipPath = 'inset(0 0 100% 0)';
+
+    mobileStats.forEach((stat) => {
+      stat.style.opacity = '0';
+      stat.style.transform = 'translateY(20px)';
+    });
+
+    inView(mobileGraphic, () => {
+      if (graphicHasPlayed) {
+        return;
+      }
+
+      graphicHasPlayed = true;
+      animate(mobileBackground, {
+        clipPath: 'inset(0 0 0% 0)',
+      }, {
+        duration: 0.9,
+        ease: [0.76, 0, 0.24, 1],
+      });
+
+      mobileStats.forEach((stat, index) => {
+        animate(stat, {
+          opacity: 1,
+          transform: 'translateY(0px)',
+        }, {
+          duration: 0.6,
+          delay: 0.52 + index * 0.13,
+          ease: [0.22, 1, 0.36, 1],
+        });
+      });
+    }, {
+      amount: 0.16,
+      margin: '0px 0px -8% 0px',
+    });
+
+    return;
+  }
 
   if (!svg) {
     return;

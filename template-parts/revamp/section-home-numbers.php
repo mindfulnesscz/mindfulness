@@ -11,6 +11,8 @@ $title = $args['title'] ?? '';
 $title_lines = $args['title_lines'] ?? [];
 $graphic = $args['graphic'] ?? '';
 $graphic_alt = $args['graphic_alt'] ?? '';
+$mobile_background = $args['mobile_background'] ?? '';
+$mobile_stats = $args['mobile_stats'] ?? [];
 $inline_graphic = '';
 
 if ($graphic && 0 === strpos($graphic, trailingslashit(get_template_directory_uri()))) {
@@ -62,6 +64,17 @@ if (!$title && empty($title_lines) && !$graphic) {
           <?php else : ?>
             <img src="<?php echo esc_url($graphic); ?>" alt="" loading="lazy">
           <?php endif; ?>
+        </div>
+      <?php endif; ?>
+
+      <?php if ($mobile_background && !empty($mobile_stats)) : ?>
+        <div class="revamp-home-numbers__mobile-graphic" data-motion-numbers-mobile role="img" aria-label="<?php echo esc_attr($graphic_alt); ?>">
+          <img class="revamp-home-numbers__mobile-background" data-motion-numbers-mobile-background src="<?php echo esc_url($mobile_background); ?>" alt="" loading="lazy">
+          <div class="revamp-home-numbers__mobile-grid">
+            <?php foreach ($mobile_stats as $stat) : ?>
+              <img class="revamp-home-numbers__mobile-stat" data-motion-numbers-mobile-stat src="<?php echo esc_url($stat); ?>" alt="" loading="lazy">
+            <?php endforeach; ?>
+          </div>
         </div>
       <?php endif; ?>
     </div>

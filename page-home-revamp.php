@@ -357,6 +357,13 @@ while (have_posts()) :
         ],
         'graphic' => $template_uri . '/assets/images/revamp/home/numbers/numbers-graphic.svg',
         'graphic_alt' => 'Experience numbers over a dotted world map',
+        'mobile_background' => $template_uri . '/assets/images/revamp/home/numbers/mobile-bg.png',
+        'mobile_stats' => [
+          $template_uri . '/assets/images/revamp/home/numbers/stat-1.svg',
+          $template_uri . '/assets/images/revamp/home/numbers/stat-2.svg',
+          $template_uri . '/assets/images/revamp/home/numbers/stat-3.svg',
+          $template_uri . '/assets/images/revamp/home/numbers/stat-4.svg',
+        ],
       ]
     );
 
