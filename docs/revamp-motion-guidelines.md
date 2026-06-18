@@ -133,7 +133,7 @@ Rules:
 
 - Hero: one initial-load sequence for heading, body copy, CTA, and visual; do not tie the main hero to scroll.
 - Intro statement and cards: heading reveal followed by a short card stagger.
-- Digital validation process: title, card grid, then BIW graphic; markers may use a very subtle one-time opacity/scale entrance. Toggle state changes use a short copy cross-fade.
+- Digital validation process: scroll-linked rule, title, BIW, staggered markers/toggles, then cards in clockwise order. Mode changes replay the BIW/controls/cards sequence but not the rule or title.
 - Paint IQ feature: copy and CTA reveal independently from the background; no heavy background zoom.
 - New tools and modules: reveal section heading and carousel chrome once; do not animate every card again during horizontal scrolling.
 - Production numbers: reveal title, then the complete SVG as one visual. Avoid animating every SVG path.

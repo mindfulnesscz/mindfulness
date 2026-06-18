@@ -832,13 +832,18 @@ TABLE OF CONTENTS
 }
 
 .revamp-home-process::before {
-  content: "";
+  content: none;
+}
+
+.revamp-home-process__rule {
   position: absolute;
   z-index: 1;
   top: 32px;
   right: 0;
   left: 0;
-  border-top: 1px solid #2d2d2d;
+  height: 1px;
+  display: block;
+  background: #2d2d2d;
   pointer-events: none;
 }
 

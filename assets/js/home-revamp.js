@@ -200,7 +200,7 @@
       });
     }
 
-    function setMode(mode) {
+    function setMode(mode, announceChange) {
       activeMode = mode === 'optimization' ? 'optimization' : 'risks';
       section.setAttribute('data-process-mode-active', activeMode);
 
@@ -230,6 +230,12 @@
       });
 
       setActive(committedKey);
+
+      if (announceChange) {
+        section.dispatchEvent(new CustomEvent('revamp:process-mode-change', {
+          detail: { mode: activeMode },
+        }));
+      }
     }
 
     targets.forEach(function (target) {
@@ -269,11 +275,11 @@
 
     modeButtons.forEach(function (button) {
       button.addEventListener('click', function () {
-        setMode(button.getAttribute('data-process-mode'));
+        setMode(button.getAttribute('data-process-mode'), true);
       });
     });
 
-    setMode(activeMode);
+    setMode(activeMode, false);
   }
 
   function initHomeToolsCarousel(section) {

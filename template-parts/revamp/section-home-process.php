@@ -31,7 +31,8 @@ if (!$active_key && !empty($cards[0])) {
 }
 ?>
 
-<section class="revamp-home-process" data-revamp-section="home-process" data-process-section data-process-default="<?php echo esc_attr($active_key); ?>">
+<section class="revamp-home-process" data-revamp-section="home-process" data-process-section data-motion-process data-process-default="<?php echo esc_attr($active_key); ?>">
+  <span class="revamp-home-process__rule" data-motion-process-rule aria-hidden="true"></span>
   <div class="revamp-home-process__frame">
     <div class="container revamp-home-process__inner">
       <div class="revamp-home-process__title-row">
