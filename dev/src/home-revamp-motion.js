@@ -197,6 +197,10 @@ function initProcessMotion(section) {
 function initToolsMotion(section) {
   const rule = section.querySelector('[data-motion-tools-rule]');
   const title = section.querySelector('.revamp-home-tools__statement');
+  const introMark = section.querySelector('.revamp-home-tools__intro-mark');
+  const introTitle = section.querySelector('.revamp-home-tools__intro-title');
+  const introText = section.querySelector('.revamp-home-tools__intro-text');
+  const leadElements = [title, introMark, introTitle, introText].filter(Boolean);
   const carousel = section.querySelector('.revamp-home-tools__carousel');
   const carouselHead = section.querySelector('.revamp-home-tools__carousel-head');
   const cards = Array.from(section.querySelectorAll('.revamp-home-tool-card'));
@@ -204,12 +208,14 @@ function initToolsMotion(section) {
   let titleHasPlayed = false;
   let carouselHasPlayed = false;
 
-  if (!rule || !title || !carousel || !carouselHead || !cards.length) {
+  if (!rule || !leadElements.length || !carousel || !carouselHead || !cards.length) {
     return;
   }
 
-  title.style.opacity = '0';
-  title.style.transform = 'translateY(26px)';
+  leadElements.forEach((element) => {
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(26px)';
+  });
   carouselHead.style.opacity = '0';
   carouselHead.style.transform = 'translateY(16px)';
 
@@ -230,12 +236,15 @@ function initToolsMotion(section) {
     }
 
     titleHasPlayed = true;
-    animate(title, {
-      opacity: 1,
-      transform: 'translateY(0px)',
-    }, {
-      duration: 0.64,
-      ease: [0.22, 1, 0.36, 1],
+    leadElements.forEach((element, index) => {
+      animate(element, {
+        opacity: 1,
+        transform: 'translateY(0px)',
+      }, {
+        duration: 0.64,
+        delay: index * 0.1,
+        ease: [0.22, 1, 0.36, 1],
+      });
     });
   }
 

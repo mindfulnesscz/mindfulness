@@ -29,10 +29,8 @@ if (!$statement && empty($cards)) {
 }
 ?>
 
-<section class="<?php echo esc_attr($section_classes); ?>" data-revamp-section="<?php echo esc_attr($variant ? 'home-' . $variant : 'home-tools'); ?>" data-tools-carousel<?php echo !$variant ? ' data-motion-tools' : ''; ?>>
-    <?php if (!$variant) : ?>
-      <span class="revamp-home-tools__rule" data-motion-tools-rule aria-hidden="true"></span>
-    <?php endif; ?>
+<section class="<?php echo esc_attr($section_classes); ?>" data-revamp-section="<?php echo esc_attr($variant ? 'home-' . $variant : 'home-tools'); ?>" data-tools-carousel data-motion-tools>
+    <span class="revamp-home-tools__rule" data-motion-tools-rule aria-hidden="true"></span>
     <div class="revamp-home-tools__frame">
       <div class="container revamp-home-tools__inner">
       <?php if (!empty($intro)) : ?>

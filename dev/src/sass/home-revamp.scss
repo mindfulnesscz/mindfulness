@@ -1714,8 +1714,14 @@
 }
 
 .revamp-home-tools--modules::before {
+  content: none;
   top: 72px;
   border-top-color: #2d2d2d;
+}
+
+.revamp-home-tools--modules .revamp-home-tools__rule {
+  top: 72px;
+  background: #2d2d2d;
 }
 
 .revamp-home-tools--modules .revamp-home-tools__frame {
@@ -1750,14 +1756,35 @@
 }
 
 .revamp-home-tools--modules .revamp-home-tool-card__title {
-  color: #2d2d2d;
-  opacity: 0.22;
+  color: rgba(45, 45, 45, 0.22);
+  opacity: 1;
 }
 
 .revamp-home-tools--modules .revamp-home-tool-card.is-active .revamp-home-tool-card__title,
 .revamp-home-tools--modules .revamp-home-tool-card:hover .revamp-home-tool-card__title,
 .revamp-home-tools--modules .revamp-home-tool-card:focus-within .revamp-home-tool-card__title {
   opacity: 1;
+}
+
+.revamp-home-tools--modules .revamp-home-tool-card__title::after {
+  content: attr(data-title);
+  position: absolute;
+  inset: 0;
+  color: #2d2d2d;
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 540ms cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.revamp-home-tools--modules .revamp-home-tool-card.is-active .revamp-home-tool-card__title::after,
+.revamp-home-tools--modules .revamp-home-tool-card:hover .revamp-home-tool-card__title::after,
+.revamp-home-tools--modules .revamp-home-tool-card:focus-within .revamp-home-tool-card__title::after {
+  clip-path: inset(0 0 0 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .revamp-home-tools--modules .revamp-home-tool-card__title::after {
+    transition: none;
+  }
 }
 
 .revamp-home-tools--modules .revamp-home-tool-card__meta-head {
