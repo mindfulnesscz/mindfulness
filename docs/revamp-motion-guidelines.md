@@ -114,17 +114,17 @@ These values are shared Motion configuration tokens, not values to duplicate thr
 Use declarative hooks in templates:
 
 ```html
-<section data-reveal-group>
-  <h2 data-reveal="fade-up" data-reveal-order="1">...</h2>
-  <div data-reveal="fade-up" data-reveal-order="2">...</div>
+<section data-motion-reveal-group>
+  <h2 data-motion-reveal data-motion-reveal-order="1">...</h2>
+  <div data-motion-reveal data-motion-reveal-order="2">...</div>
 </section>
 ```
 
 Rules:
 
-- `data-reveal` selects a supported shared variant;
-- `data-reveal-order` selects a bounded stagger step, not an arbitrary millisecond delay;
-- `data-reveal-group` is optional and scopes ordering;
+- `data-motion-reveal` marks an item for the shared entrance treatment;
+- `data-motion-reveal-order` may select a bounded stagger step when DOM order is not appropriate;
+- `data-motion-reveal-group` scopes related reveal items; each item still triggers from its own visibility;
 - section-specific selectors may position content but must not duplicate or bypass the Motion adapter;
 - use direct Motion code only for an approved component-specific sequence that cannot use the shared hooks.
 
@@ -151,14 +151,14 @@ Rules:
 
 ## Implementation Shape
 
-The future implementation should add four reusable pieces:
+The implementation uses four reusable pieces:
 
 1. a pinned `motion` npm dependency and revamp-only bundle entry;
 2. shared motion configuration and safe initial/fallback states in revamp Sass;
 3. one `initRevampMotion()` adapter using `inView`, `animate`, and `stagger`;
 4. declarative data attributes in section templates.
 
-Do not begin with per-section animation functions. Add a section-specific initializer only for behavior that cannot be represented by the shared variants.
+The Paint IQ feature is the first rollout and uses only the generic group/item hooks. Do not add per-section animation functions unless behavior cannot be represented by the shared adapter.
 
 ## Validation Gate
 

@@ -18,21 +18,21 @@ if (!$title && !$headline && !$description && !$background) {
 }
 ?>
 
-<section class="revamp-home-paint-iq" data-revamp-section="home-paint-iq"<?php echo $background ? ' style="' . esc_attr('--paint-iq-bg: url(' . esc_url($background) . ');') . '"' : ''; ?>>
+<section class="revamp-home-paint-iq" data-revamp-section="home-paint-iq" data-motion-reveal-group="paint-iq"<?php echo $background ? ' style="' . esc_attr('--paint-iq-bg: url(' . esc_url($background) . ');') . '"' : ''; ?>>
   <div class="revamp-home-paint-iq__feature">
     <div class="container revamp-home-paint-iq__inner">
       <div class="revamp-home-paint-iq__title-row">
         <?php if ($title) : ?>
-          <h2 class="revamp-home-paint-iq__title"><?php echo esc_html($title); ?></h2>
+          <h2 class="revamp-home-paint-iq__title" data-motion-reveal><?php echo esc_html($title); ?></h2>
         <?php endif; ?>
 
         <div class="revamp-home-paint-iq__copy">
           <?php if ($headline) : ?>
-            <p class="revamp-home-paint-iq__headline"><?php echo esc_html($headline); ?></p>
+            <p class="revamp-home-paint-iq__headline" data-motion-reveal><?php echo esc_html($headline); ?></p>
           <?php endif; ?>
 
           <?php if ($description) : ?>
-            <p class="revamp-home-paint-iq__description"><?php echo esc_html($description); ?></p>
+            <p class="revamp-home-paint-iq__description" data-motion-reveal><?php echo esc_html($description); ?></p>
           <?php endif; ?>
         </div>
       </div>
@@ -40,7 +40,7 @@ if (!$title && !$headline && !$description && !$background) {
   </div>
 
   <?php if (!empty($cta['label']) && !empty($cta['url'])) : ?>
-    <div class="container revamp-home-paint-iq__cta-row">
+    <div class="container revamp-home-paint-iq__cta-row" data-motion-reveal>
       <?php
       get_template_part(
         'template-parts/revamp/component',

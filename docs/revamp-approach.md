@@ -90,9 +90,9 @@ Use the Motion-powered architecture defined in [revamp-motion-guidelines.md](rev
 
 Keep animation hooks generic and reusable:
 
-- `data-reveal="fade-up"`
-- `data-reveal-group`
-- `data-reveal-order`
+- `data-motion-reveal`
+- `data-motion-reveal-group`
+- `data-motion-reveal-order`
 - `data-product-carousel`
 
 Use Motion's `inView`, `animate`, and `stagger` utilities behind one reusable initializer. Prefer declarative hooks over one-off section scripts. GSAP/ScrollTrigger is an exception for an approved pinned, scrubbed, or unusually complex timeline; it is not the default merely because the legacy theme registers an older version.
