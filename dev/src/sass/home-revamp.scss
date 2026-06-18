@@ -2675,6 +2675,15 @@
 }
 
 @media only screen and (max-width: 1096px) {
+  .revamp-home-intro__title-spacer,
+  .revamp-home-process__title-spacer,
+  .revamp-home-tools__title-spacer,
+  .revamp-home-numbers__title-spacer,
+  .revamp-home-services__title-spacer,
+  .revamp-home-cases__title-spacer {
+    flex-basis: 180px;
+  }
+
   .revamp-home-paint-iq {
     min-height: 760px;
     background-position: 42% center;
