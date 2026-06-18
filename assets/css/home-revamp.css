@@ -1134,13 +1134,18 @@ TABLE OF CONTENTS
 }
 
 .revamp-home-paint-iq::before {
-  content: "";
+  content: none;
+}
+
+.revamp-home-paint-iq__rule {
   position: absolute;
   z-index: 1;
   top: 382px;
   right: 0;
   left: 0;
-  border-top: 1px solid rgba(245, 244, 243, 0.78);
+  height: 1px;
+  display: block;
+  background: rgba(245, 244, 243, 0.78);
   pointer-events: none;
 }
 
@@ -2508,6 +2513,9 @@ TABLE OF CONTENTS
     background-position: 42% center;
   }
   .revamp-home-paint-iq::before {
+    top: 132px;
+  }
+  .revamp-home-paint-iq__rule {
     top: 132px;
   }
   .revamp-home-paint-iq__feature {

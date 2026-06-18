@@ -123,6 +123,7 @@ Use declarative hooks in templates:
 Rules:
 
 - `data-motion-reveal` marks an item for the shared entrance treatment;
+- `data-motion-reveal-rule` marks a reversible section divider whose left-to-right scale is linked directly to scroll progress;
 - `data-motion-reveal-order` may select a bounded stagger step when DOM order is not appropriate;
 - `data-motion-reveal-group` scopes related reveal items; each item still triggers from its own visibility;
 - section-specific selectors may position content but must not duplicate or bypass the Motion adapter;
@@ -182,5 +183,6 @@ Before shipping motion changes:
 - [Motion: Quick start and installation](https://motion.dev/docs/quick-start)
 - [Motion: `inView`](https://motion.dev/docs/inview)
 - [Motion: `animate`](https://motion.dev/docs/animate)
+- [Motion: `scroll`](https://motion.dev/docs/scroll)
 - [web.dev: High-performance CSS animations](https://web.dev/articles/animations-guide)
 - [web.dev: Optimize Cumulative Layout Shift](https://web.dev/articles/optimize-cls)
