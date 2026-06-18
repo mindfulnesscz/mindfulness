@@ -29,7 +29,10 @@ if (!$statement && empty($cards)) {
 }
 ?>
 
-<section class="<?php echo esc_attr($section_classes); ?>" data-revamp-section="<?php echo esc_attr($variant ? 'home-' . $variant : 'home-tools'); ?>" data-tools-carousel>
+<section class="<?php echo esc_attr($section_classes); ?>" data-revamp-section="<?php echo esc_attr($variant ? 'home-' . $variant : 'home-tools'); ?>" data-tools-carousel<?php echo !$variant ? ' data-motion-tools' : ''; ?>>
+    <?php if (!$variant) : ?>
+      <span class="revamp-home-tools__rule" data-motion-tools-rule aria-hidden="true"></span>
+    <?php endif; ?>
     <div class="revamp-home-tools__frame">
       <div class="container revamp-home-tools__inner">
       <?php if (!empty($intro)) : ?>
@@ -100,7 +103,7 @@ if (!$statement && empty($cards)) {
                   <?php endif; ?>
                       <div class="revamp-home-tool-card__visual">
                         <?php if (!empty($card['title'])) : ?>
-                          <h3 class="revamp-home-tool-card__title"><?php echo esc_html($card['title']); ?></h3>
+                          <h3 class="revamp-home-tool-card__title" data-title="<?php echo esc_attr($card['title']); ?>"><?php echo esc_html($card['title']); ?></h3>
                         <?php endif; ?>
 
                         <?php if (!empty($card['image'])) : ?>

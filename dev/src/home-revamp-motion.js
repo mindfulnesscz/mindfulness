@@ -194,6 +194,96 @@ function initProcessMotion(section) {
   initScrollRule(rule, playInitialSequence, ['start 92%', 'start 62%']);
 }
 
+function initToolsMotion(section) {
+  const rule = section.querySelector('[data-motion-tools-rule]');
+  const title = section.querySelector('.revamp-home-tools__statement');
+  const carousel = section.querySelector('.revamp-home-tools__carousel');
+  const carouselHead = section.querySelector('.revamp-home-tools__carousel-head');
+  const cards = Array.from(section.querySelectorAll('.revamp-home-tool-card'));
+  const indicator = section.querySelector('.revamp-home-tools__indicator');
+  let titleHasPlayed = false;
+  let carouselHasPlayed = false;
+
+  if (!rule || !title || !carousel || !carouselHead || !cards.length) {
+    return;
+  }
+
+  title.style.opacity = '0';
+  title.style.transform = 'translateY(26px)';
+  carouselHead.style.opacity = '0';
+  carouselHead.style.transform = 'translateY(16px)';
+
+  cards.forEach((card) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(42px) scale(0.965)';
+  });
+
+  if (indicator) {
+    indicator.style.opacity = '0';
+    indicator.style.transform = 'scaleX(0.82)';
+    indicator.style.transformOrigin = 'left center';
+  }
+
+  function playTitle() {
+    if (titleHasPlayed) {
+      return;
+    }
+
+    titleHasPlayed = true;
+    animate(title, {
+      opacity: 1,
+      transform: 'translateY(0px)',
+    }, {
+      duration: 0.64,
+      ease: [0.22, 1, 0.36, 1],
+    });
+  }
+
+  function playCarouselSequence() {
+    if (carouselHasPlayed) {
+      return;
+    }
+
+    carouselHasPlayed = true;
+
+    animate(carouselHead, {
+      opacity: 1,
+      transform: 'translateY(0px)',
+    }, {
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1],
+    });
+
+    cards.forEach((card, index) => {
+      animate(card, {
+        opacity: 1,
+        transform: 'translateY(0px) scale(1)',
+      }, {
+        duration: 0.72,
+        delay: 0.16 + index * 0.11,
+        ease: [0.16, 1, 0.3, 1],
+      });
+    });
+
+    if (indicator) {
+      animate(indicator, {
+        opacity: 1,
+        transform: 'scaleX(1)',
+      }, {
+        duration: 0.48,
+        delay: 0.3 + cards.length * 0.11,
+        ease: [0.22, 1, 0.36, 1],
+      });
+    }
+  }
+
+  initScrollRule(rule, playTitle, ['start 92%', 'start 62%']);
+  inView(carousel, playCarouselSequence, {
+    amount: 0.22,
+    margin: '0px 0px -10% 0px',
+  });
+}
+
 function initRevampMotion() {
   if (reducedMotion.matches) {
     return;
@@ -201,6 +291,7 @@ function initRevampMotion() {
 
   document.querySelectorAll('[data-motion-reveal-group]').forEach(initRevealGroup);
   document.querySelectorAll('[data-motion-process]').forEach(initProcessMotion);
+  document.querySelectorAll('[data-motion-tools]').forEach(initToolsMotion);
 }
 
 if (document.readyState === 'loading') {

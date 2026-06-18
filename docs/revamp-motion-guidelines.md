@@ -135,7 +135,8 @@ Rules:
 - Intro statement and cards: heading reveal followed by a short card stagger.
 - Digital validation process: scroll-linked rule, title, BIW, staggered markers/toggles, then cards in clockwise order. Mode changes replay the BIW/controls/cards sequence but not the rule or title.
 - Paint IQ feature: copy and CTA reveal independently from the background; no heavy background zoom.
-- New tools and modules: reveal section heading and carousel chrome once; do not animate every card again during horizontal scrolling.
+- New tools: scroll-linked rule, statement, carousel chrome, then cards with an eased stagger and the indicator. Product names use a clipped bottom-to-top fill on hover/focus. Do not replay cards during horizontal scrolling.
+- Modules: reveal section heading and carousel chrome once; do not animate every card again during horizontal scrolling.
 - Production numbers: reveal title, then the complete SVG as one visual. Avoid animating every SVG path.
 - Services and case studies: copy/media pair reveal with a short offset, preserving reading order.
 - Footer: optional simple fade only; no stagger across every link.
