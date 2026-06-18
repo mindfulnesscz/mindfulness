@@ -293,6 +293,78 @@ function initToolsMotion(section) {
   });
 }
 
+function initServicesMotion(section) {
+  const rule = section.querySelector('[data-motion-services-rule]');
+  const statement = section.querySelector('[data-motion-services-statement]');
+  const words = Array.from(section.querySelectorAll('[data-motion-services-word]'));
+  const listItems = Array.from(section.querySelectorAll('[data-motion-services-list-item]'));
+  const background = section.querySelector('[data-motion-services-background]');
+  let listHasPlayed = false;
+
+  if (!rule || !statement || !words.length) {
+    return;
+  }
+
+  words.forEach((word) => {
+    word.style.opacity = '0.28';
+  });
+
+  initScrollRule(rule, () => {}, ['start 92%', 'start 62%']);
+
+  scroll(
+    (progress) => {
+      words.forEach((word, index) => {
+        const wordStart = (index / words.length) * 0.76;
+        const wordProgress = Math.min(1, Math.max(0, (progress - wordStart) / 0.24));
+        const easedProgress = wordProgress * wordProgress * (3 - 2 * wordProgress);
+        word.style.opacity = String(0.28 + easedProgress * 0.72);
+      });
+    },
+    {
+      target: statement,
+      offset: ['start 65%', 'center 48%'],
+    }
+  );
+
+  listItems.forEach((item) => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(18px)';
+  });
+
+  if (listItems.length) {
+    inView(section.querySelector('.revamp-home-services__bottom'), () => {
+      if (listHasPlayed) {
+        return;
+      }
+
+      listHasPlayed = true;
+      listItems.forEach((item, index) => {
+        animate(item, {
+          opacity: 1,
+          transform: 'translateY(0px)',
+        }, {
+          duration: 0.55,
+          delay: index * 0.1,
+          ease: [0.22, 1, 0.36, 1],
+        });
+      });
+    }, {
+      amount: 0.35,
+      margin: '0px 0px -8% 0px',
+    });
+  }
+
+  if (background) {
+    scroll((progress) => {
+      const translateY = (progress - 0.5) * 120;
+      background.style.transform = `translate3d(0, ${translateY}px, 0)`;
+    }, {
+      target: section,
+      offset: ['start end', 'end start'],
+    });
+  }
+}
+
 function initRevampMotion() {
   if (reducedMotion.matches) {
     return;
@@ -301,6 +373,7 @@ function initRevampMotion() {
   document.querySelectorAll('[data-motion-reveal-group]').forEach(initRevealGroup);
   document.querySelectorAll('[data-motion-process]').forEach(initProcessMotion);
   document.querySelectorAll('[data-motion-tools]').forEach(initToolsMotion);
+  document.querySelectorAll('[data-motion-services]').forEach(initServicesMotion);
 }
 
 if (document.readyState === 'loading') {
