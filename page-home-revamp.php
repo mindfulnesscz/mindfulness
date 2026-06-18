@@ -158,6 +158,7 @@ $tools_cards = [
     'image' => $template_uri . '/assets/images/revamp/home/tools/paint-iq-biw.png',
     'image_alt' => 'Blue body-in-white Paint IQ validation model',
     'icon' => $template_uri . '/assets/images/revamp/home/tools/icon-paint-iq.svg',
+    'url' => home_url('/paint-iq'),
     'active' => false,
   ],
   [
@@ -169,6 +170,7 @@ $tools_cards = [
     'image' => $template_uri . '/assets/images/revamp/home/tools/black-box-biw.png',
     'image_alt' => 'Blue Black Box automotive risk model',
     'icon' => $template_uri . '/assets/images/revamp/home/tools/icon-black-box.svg',
+    'url' => home_url('/black-box'),
     'active' => true,
   ],
   [
@@ -180,6 +182,7 @@ $tools_cards = [
     'image' => $template_uri . '/assets/images/revamp/home/tools/anode-iq-biw.png',
     'image_alt' => 'Blue Anode IQ vehicle body model',
     'icon' => $template_uri . '/assets/images/revamp/home/tools/icon-anode-iq.svg',
+    'url' => home_url('/anode-iq'),
     'active' => false,
   ],
   [
@@ -191,6 +194,7 @@ $tools_cards = [
     'image' => $template_uri . '/assets/images/revamp/home/tools/sealing-tool.png',
     'image_alt' => 'Blue sealing robot tool',
     'icon' => $template_uri . '/assets/images/revamp/home/tools/icon-sealing.svg',
+    'url' => home_url('/sealing'),
     'active' => false,
   ],
 ];

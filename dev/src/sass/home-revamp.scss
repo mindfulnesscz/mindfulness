@@ -174,6 +174,7 @@
 #ess-footer.ess-revamp-footer a:hover,
 #ess-footer.ess-revamp-footer a:focus-visible {
   font-size: inherit;
+  font-weight: inherit;
   text-decoration: underline;
   transform: none;
   outline: 0;
@@ -1608,7 +1609,12 @@
 }
 
 .revamp-home-tools--modules::before {
+  top: 72px;
   border-top-color: #2d2d2d;
+}
+
+.revamp-home-tools--modules .revamp-home-tools__frame {
+  padding-top: 72px;
 }
 
 .revamp-home-tools--modules .revamp-home-tools__statement,
@@ -1723,7 +1729,7 @@
 
 .revamp-home-numbers {
   position: relative;
-  min-height: 1054px;
+  min-height: 0;
   color: #2d2d2d;
   background: #f5f4f3;
   overflow: hidden;
@@ -1792,11 +1798,11 @@
 }
 
 .revamp-home-numbers__graphic img {
-  width: 100%;
-  max-width: 100%;
+  width: 130%;
+  max-width: none;
   height: auto;
   display: block;
-  margin: 0;
+  margin: 0 0 0 -15%;
 }
 
 .revamp-home-services {
@@ -2646,7 +2652,7 @@
 
   .revamp-home-numbers__inner {
     padding-top: 20px;
-    padding-bottom: 72px;
+    padding-bottom: 0;
   }
 
   .revamp-home-numbers__title-row {
@@ -2670,8 +2676,9 @@
   }
 
   .revamp-home-numbers__graphic img {
-    width: 100%;
-    max-width: 100%;
+    width: 130%;
+    max-width: none;
+    margin-left: -15%;
     transform: none;
   }
 
@@ -2967,8 +2974,9 @@
   }
 
   .revamp-home-numbers__graphic img {
-    width: 100%;
-    max-width: 100%;
+    width: 130%;
+    max-width: none;
+    margin-left: -15%;
     transform: none;
   }
 
