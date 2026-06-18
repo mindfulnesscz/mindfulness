@@ -1875,13 +1875,25 @@
 }
 
 .revamp-home-numbers::before {
-  content: "";
+  content: none;
   position: absolute;
   z-index: 1;
   top: 128px;
   right: 0;
   left: 0;
   border-top: 1px solid #2d2d2d;
+  pointer-events: none;
+}
+
+.revamp-home-numbers__rule {
+  position: absolute;
+  z-index: 3;
+  top: 128px;
+  right: 0;
+  left: 0;
+  height: 1px;
+  display: block;
+  background: #2d2d2d;
   pointer-events: none;
 }
 
@@ -1929,12 +1941,17 @@
   overflow: visible;
 }
 
-.revamp-home-numbers__graphic img {
+.revamp-home-numbers__graphic img,
+.revamp-home-numbers__graphic svg {
   width: 130%;
   max-width: none;
   height: auto;
   display: block;
   margin: 0 0 0 -15%;
+}
+
+.revamp-home-numbers__graphic svg {
+  overflow: visible;
 }
 
 .revamp-home-services {
@@ -2880,6 +2897,10 @@
     top: 72px;
   }
 
+  .revamp-home-numbers__rule {
+    top: 72px;
+  }
+
   .revamp-home-numbers__frame {
     padding-top: 72px;
   }
@@ -2909,7 +2930,8 @@
     margin-left: 0;
   }
 
-  .revamp-home-numbers__graphic img {
+  .revamp-home-numbers__graphic img,
+  .revamp-home-numbers__graphic svg {
     width: 130%;
     max-width: none;
     margin-left: -15%;
@@ -3227,7 +3249,8 @@
     margin-top: 36px;
   }
 
-  .revamp-home-numbers__graphic img {
+  .revamp-home-numbers__graphic img,
+  .revamp-home-numbers__graphic svg {
     width: 130%;
     max-width: none;
     margin-left: -15%;

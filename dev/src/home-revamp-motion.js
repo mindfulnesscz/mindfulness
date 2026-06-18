@@ -365,6 +365,94 @@ function initServicesMotion(section) {
   }
 }
 
+function initNumbersMotion(section) {
+  const rule = section.querySelector('[data-motion-numbers-rule]');
+  const title = section.querySelector('.revamp-home-numbers__title');
+  const graphic = section.querySelector('[data-motion-numbers-graphic]');
+  const svg = section.querySelector('[data-motion-numbers-svg]');
+  let titleHasPlayed = false;
+  let graphicHasPlayed = false;
+
+  if (!rule || !title || !graphic) {
+    return;
+  }
+
+  title.style.opacity = '0';
+  title.style.transform = 'translateY(26px)';
+
+  initScrollRule(rule, () => {
+    if (titleHasPlayed) {
+      return;
+    }
+
+    titleHasPlayed = true;
+    animate(title, {
+      opacity: 1,
+      transform: 'translateY(0px)',
+    }, {
+      duration: 0.64,
+      ease: [0.22, 1, 0.36, 1],
+    });
+  }, ['start 92%', 'start 62%']);
+
+  if (!svg) {
+    return;
+  }
+
+  const directChildren = Array.from(svg.children);
+  const globe = directChildren.find((element) => element.tagName.toLowerCase() === 'g');
+  const statisticPaths = directChildren.filter((element) => element.tagName.toLowerCase() === 'path');
+  const statisticGroups = [];
+
+  statisticPaths.forEach((path) => {
+    const centerX = path.getBBox().x + path.getBBox().width / 2;
+    const groupIndex = centerX < 520 ? 0 : centerX < 890 ? 1 : centerX < 1320 ? 2 : 3;
+
+    if (!statisticGroups[groupIndex]) {
+      statisticGroups[groupIndex] = [];
+    }
+
+    statisticGroups[groupIndex].push(path);
+    path.style.opacity = '0';
+    path.style.transform = 'translateY(18px)';
+  });
+
+  if (globe) {
+    globe.style.clipPath = 'inset(0 0 100% 0)';
+  }
+
+  inView(graphic, () => {
+    if (graphicHasPlayed) {
+      return;
+    }
+
+    graphicHasPlayed = true;
+
+    if (globe) {
+      animate(globe, {
+        clipPath: 'inset(0 0 0% 0)',
+      }, {
+        duration: 0.9,
+        ease: [0.76, 0, 0.24, 1],
+      });
+    }
+
+    statisticGroups.filter(Boolean).forEach((paths, index) => {
+      animate(paths, {
+        opacity: 1,
+        transform: 'translateY(0px)',
+      }, {
+        duration: 0.62,
+        delay: 0.58 + index * 0.14,
+        ease: [0.22, 1, 0.36, 1],
+      });
+    });
+  }, {
+    amount: 0.2,
+    margin: '0px 0px -8% 0px',
+  });
+}
+
 function initCasesMotion(section) {
   const headerRule = section.querySelector('[data-motion-cases-header-rule]');
   const heading = section.querySelector('.revamp-home-cases__title');
@@ -449,6 +537,7 @@ function initRevampMotion() {
   document.querySelectorAll('[data-motion-reveal-group]').forEach(initRevealGroup);
   document.querySelectorAll('[data-motion-process]').forEach(initProcessMotion);
   document.querySelectorAll('[data-motion-tools]').forEach(initToolsMotion);
+  document.querySelectorAll('[data-motion-numbers]').forEach(initNumbersMotion);
   document.querySelectorAll('[data-motion-services]').forEach(initServicesMotion);
   document.querySelectorAll('[data-motion-cases]').forEach(initCasesMotion);
 }
