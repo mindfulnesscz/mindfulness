@@ -1,7 +1,24 @@
 import { inView, scroll } from 'motion';
 import { animate } from 'motion/mini';
+import Lenis from 'lenis';
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+function initRevampSmoothScroll() {
+  if (!document.body.classList.contains('ess-revamp-shell') || reducedMotion.matches) {
+    return;
+  }
+
+  const lenis = new Lenis({
+    anchors: true,
+    autoRaf: true,
+    lerp: 0.085,
+    smoothWheel: true,
+    stopInertiaOnNavigate: true,
+  });
+
+  window.addEventListener('pagehide', () => lenis.destroy(), { once: true });
+}
 
 function initScrollRule(rule, onLead, offset = ['start 85%', 'start 45%']) {
   let hasLed = false;
@@ -598,7 +615,37 @@ function initCasesMotion(section) {
   });
 }
 
+function initFooterMotion(footer) {
+  const items = [
+    footer.querySelector('.ess-revamp-footer__brand'),
+    footer.querySelector('.ess-revamp-footer__contact'),
+    ...footer.querySelectorAll('.ess-revamp-footer__column'),
+    ...footer.querySelectorAll('.ess-revamp-footer__bottom > *'),
+  ].filter(Boolean);
+
+  items.forEach((item, index) => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(18px)';
+
+    inView(item, () => {
+      animate(item, {
+        opacity: 1,
+        transform: 'translateY(0px)',
+      }, {
+        duration: 0.56,
+        delay: Math.min(index * 0.045, 0.24),
+        ease: [0.22, 1, 0.36, 1],
+      });
+    }, {
+      amount: 0.25,
+      margin: '0px 0px -5% 0px',
+    });
+  });
+}
+
 function initRevampMotion() {
+  initRevampSmoothScroll();
+
   if (reducedMotion.matches) {
     return;
   }
@@ -610,6 +657,7 @@ function initRevampMotion() {
   document.querySelectorAll('[data-motion-numbers]').forEach(initNumbersMotion);
   document.querySelectorAll('[data-motion-services]').forEach(initServicesMotion);
   document.querySelectorAll('[data-motion-cases]').forEach(initCasesMotion);
+  document.querySelectorAll('[data-motion-footer]').forEach(initFooterMotion);
 }
 
 if (document.readyState === 'loading') {

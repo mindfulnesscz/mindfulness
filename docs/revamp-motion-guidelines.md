@@ -17,6 +17,10 @@ This is the default for revamp pages. Motion avoids maintaining our own animatio
 
 ## Library Decision
 
+### Page scrolling: Lenis
+
+Use the locally bundled, pinned `lenis` package for wheel smoothing on templates that render the `ess-revamp-shell` body class. Keep touch scrolling native, enable anchor handling, and do not initialize Lenis when `prefers-reduced-motion: reduce` matches. Lenis is responsible only for page-scroll interpolation; Motion remains responsible for section reveals and scroll-linked visual effects.
+
 ### Default: Motion
 
 Use the locally bundled `motion` npm package. Prefer the smallest import that supports the approved effect:

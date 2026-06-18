@@ -70,6 +70,7 @@
   },
   "homepage": "https://github.com/mindfulnesscz/mindfulness#readme",
   "dependencies": {
+    "lenis": "1.3.23",
     "motion": "12.40.0"
   }
 }

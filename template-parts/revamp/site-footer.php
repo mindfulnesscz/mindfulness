@@ -63,7 +63,7 @@ $footer_columns = [
 ];
 ?>
 
-<footer class="ess-revamp-footer" id="ess-footer">
+<footer class="ess-revamp-footer" id="ess-footer" data-motion-footer>
   <div class="ess-revamp-footer__main">
     <a class="ess-revamp-footer__brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('ESS home', 'mindfulness'); ?>">
       <img src="<?php echo esc_url($template_uri . '/assets/images/revamp/ess-logo-white.svg'); ?>" alt="ESS" width="112" height="36">
