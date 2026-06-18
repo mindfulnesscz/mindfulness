@@ -365,6 +365,82 @@ function initServicesMotion(section) {
   }
 }
 
+function initCasesMotion(section) {
+  const headerRule = section.querySelector('[data-motion-cases-header-rule]');
+  const heading = section.querySelector('.revamp-home-cases__title');
+  const cases = Array.from(section.querySelectorAll('[data-motion-case]'));
+  let headingHasPlayed = false;
+
+  if (!headerRule || !heading) {
+    return;
+  }
+
+  heading.style.opacity = '0';
+  heading.style.transform = 'translateY(28px)';
+
+  initScrollRule(headerRule, () => {
+    if (headingHasPlayed) {
+      return;
+    }
+
+    headingHasPlayed = true;
+    animate(heading, {
+      opacity: 1,
+      transform: 'translateY(0px)',
+    }, {
+      duration: 0.66,
+      ease: [0.22, 1, 0.36, 1],
+    });
+  }, ['start 92%', 'start 62%']);
+
+  cases.forEach((caseStudy) => {
+    const rule = caseStudy.querySelector('[data-motion-case-rule]');
+    const media = caseStudy.querySelector('.revamp-home-case__media');
+    const contentItems = [
+      caseStudy.querySelector('.revamp-home-case__logo'),
+      caseStudy.querySelector('.revamp-home-case__title'),
+      caseStudy.querySelector('.revamp-home-case__summary'),
+      caseStudy.querySelector('.revamp-home-case__link'),
+    ].filter(Boolean);
+    let hasPlayed = false;
+
+    if (!rule || !media) {
+      return;
+    }
+
+    media.style.clipPath = 'inset(0 0 100% 0)';
+    contentItems.forEach((item) => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(20px)';
+    });
+
+    initScrollRule(rule, () => {
+      if (hasPlayed) {
+        return;
+      }
+
+      hasPlayed = true;
+      animate(media, {
+        clipPath: 'inset(0 0 0% 0)',
+      }, {
+        duration: 0.9,
+        ease: [0.76, 0, 0.24, 1],
+      });
+
+      contentItems.forEach((item, index) => {
+        animate(item, {
+          opacity: 1,
+          transform: 'translateY(0px)',
+        }, {
+          duration: 0.58,
+          delay: index * 0.13,
+          ease: [0.22, 1, 0.36, 1],
+        });
+      });
+    }, ['start 92%', 'start 66%']);
+  });
+}
+
 function initRevampMotion() {
   if (reducedMotion.matches) {
     return;
@@ -374,6 +450,7 @@ function initRevampMotion() {
   document.querySelectorAll('[data-motion-process]').forEach(initProcessMotion);
   document.querySelectorAll('[data-motion-tools]').forEach(initToolsMotion);
   document.querySelectorAll('[data-motion-services]').forEach(initServicesMotion);
+  document.querySelectorAll('[data-motion-cases]').forEach(initCasesMotion);
 }
 
 if (document.readyState === 'loading') {
