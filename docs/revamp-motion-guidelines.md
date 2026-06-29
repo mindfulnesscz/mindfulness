@@ -7,7 +7,7 @@ Use Motion for JavaScript as the default animation library, with CSS and progres
 - semantic HTML and all meaningful content are rendered by PHP;
 - CSS owns ordinary hover/focus transitions and safe no-JavaScript presentation;
 - Motion's `inView` utility owns viewport detection;
-- Motion's `animate`/`animate mini` and `stagger` utilities own entrance motion and sequencing;
+- Motion's `animate`/`animate mini` utilities own entrance motion and bounded staggered sequencing;
 - one small revamp initializer translates shared data attributes into Motion calls;
 - existing component JavaScript continues to own state changes such as carousels, toggles, and markers;
 - GSAP/ScrollTrigger is reserved for an approved pinned, scrubbed, or unusually complex timeline;
@@ -19,7 +19,9 @@ This is the default for revamp pages. Motion avoids maintaining our own animatio
 
 ### Page scrolling: Lenis
 
-Use the locally bundled, pinned `lenis` package for wheel smoothing on templates that render the `ess-revamp-shell` body class. Keep touch scrolling native, enable anchor handling, and do not initialize Lenis when `prefers-reduced-motion: reduce` matches. Lenis is responsible only for page-scroll interpolation; Motion remains responsible for section reveals and scroll-linked visual effects.
+Use the locally bundled, pinned `lenis` package for wheel smoothing on templates that render the `ess-revamp-shell` body class. This is a shared revamp-shell behavior, not a homepage-only behavior: every revamp template should use `get_header('revamp')` so the same smooth-scroll setup applies consistently. Keep touch scrolling native, enable anchor handling, and do not initialize Lenis when `prefers-reduced-motion: reduce` matches. Lenis is responsible only for page-scroll interpolation; Motion remains responsible for section reveals and scroll-linked visual effects.
+
+Do not add a second per-page smooth-scroll initializer. If a future revamp page cannot use Lenis, document the exception in that template or component and keep the default revamp-shell path unchanged.
 
 ### Default: Motion
 
@@ -47,9 +49,9 @@ Use GSAP only for a design that requires pinning, scroll scrubbing, snapping, de
 
 Do not adopt AOS. Its stable release line is old/inactive, it adds a second styling convention, and its fixed reveal catalog is less adaptable than Motion for the same use case.
 
-## Why This Fits the Site
+## Why This Fits the Revamp
 
-The homepage is server-rendered WordPress content with large visual sections, repeated card patterns, carousels, and a small number of interactive controls. Most desired motion is one of three simple types:
+The revamp pages are server-rendered WordPress templates with large visual sections, repeated card patterns, carousels, and a small number of interactive controls. Most desired motion is one of three simple types:
 
 1. a section or child enters once when it reaches the viewport;
 2. related items enter with a short stagger;
@@ -133,7 +135,7 @@ Rules:
 - section-specific selectors may position content but must not duplicate or bypass the Motion adapter;
 - use direct Motion code only for an approved component-specific sequence that cannot use the shared hooks.
 
-## Proposed Homepage Application
+## Current Homepage Application
 
 - Hero: one initial-load sequence for heading, body copy, CTA, and visual; do not tie the main hero to scroll.
 - Intro statement and cards: heading reveal followed by a short card stagger.
@@ -141,16 +143,19 @@ Rules:
 - Paint IQ feature: copy and CTA reveal independently from the background; no heavy background zoom.
 - New tools: scroll-linked rule, statement, carousel chrome, then cards with an eased stagger and the indicator. Product names use a clipped bottom-to-top fill on hover/focus. Do not replay cards during horizontal scrolling.
 - Modules: reveal section heading and carousel chrome once; do not animate every card again during horizontal scrolling.
-- Production numbers: reveal title, then the complete SVG as one visual. Avoid animating every SVG path.
-- Services and case studies: copy/media pair reveal with a short offset, preserving reading order.
-- Footer: optional simple fade only; no stagger across every link.
+- Production numbers: reveal title, then animate the desktop SVG in grouped statistic clusters, or use the mobile graphic sequence below the `1096px` breakpoint. Avoid per-path choreography beyond those coarse groups.
+- Services: scroll-linked rule and word opacity treatment, list-item entrance, and a restrained background transform.
+- Case studies: section heading reveal followed by per-case rule, media clip reveal, and content entrance that preserves reading order.
+- Footer: simple grouped fade/translate; keep the delay cap short so link access is not meaningfully delayed.
 
 ## WordPress Integration
 
-- Enqueue revamp motion code through `wp_enqueue_scripts` and only for revamp templates.
-- Install and pin Motion through npm and bundle it locally; do not use a `latest` CDN URL.
-- Build Motion into a revamp-only bundle so legacy pages do not pay for it.
-- Keep the adapter in the existing revamp source structure unless build organization makes a dedicated module clearer.
+- Enqueue revamp motion code through `wp_enqueue_scripts` and only for `mindfulness_is_revamp_template()`.
+- `mindfulness_is_revamp_template()` currently covers `page-home-revamp.php` and product templates whose slug starts with `page-product-`.
+- Revamp templates should call `get_header('revamp')` and `get_footer('revamp')`; `header-revamp.php` supplies the `ess-revamp-shell` class required by shared Lenis initialization.
+- Install and pin Motion and Lenis through npm and bundle them locally; do not use a `latest` CDN URL.
+- Build Motion/Lenis into a revamp-only bundle so legacy pages do not pay for it.
+- The current bundle is compiled from `dev/src/home-revamp-motion.js` to `assets/js/home-revamp-motion.js`. Despite the filename, it is the shared revamp motion bundle until the files are renamed or split.
 - The theme currently declares WordPress 5.3 compatibility, so retain footer loading for compatibility. If the minimum WordPress version moves to 6.3 or newer, use the official `strategy => defer` enqueue argument instead of custom tag rewriting.
 - Do not add a runtime CDN dependency for standard reveals.
 - If GSAP is approved for a complex sequence, pin the version, enqueue it only where needed, declare dependencies through WordPress, and document why Motion was insufficient.
@@ -159,12 +164,13 @@ Rules:
 
 The implementation uses four reusable pieces:
 
-1. a pinned `motion` npm dependency and revamp-only bundle entry;
+1. pinned `motion` and `lenis` npm dependencies and a revamp-only bundle entry;
 2. shared motion configuration and safe initial/fallback states in revamp Sass;
-3. one `initRevampMotion()` adapter using `inView`, `animate`, and `stagger`;
-4. declarative data attributes in section templates.
+3. one `initRevampMotion()` adapter using `inView`, `scroll`, `animate`, and Lenis;
+4. declarative data attributes in section templates;
+5. `initRevampSmoothScroll()` guarded by `ess-revamp-shell` and `prefers-reduced-motion`.
 
-The Paint IQ feature is the first rollout and uses only the generic group/item hooks. Do not add per-section animation functions unless behavior cannot be represented by the shared adapter.
+Generic group/item hooks remain the default. Homepage-specific hooks exist for the more composed sections, but new revamp pages should start with the generic hooks and add section-specific functions only when behavior cannot be represented by the shared adapter.
 
 ## Validation Gate
 
@@ -172,6 +178,7 @@ Before shipping motion changes:
 
 - verify with JavaScript disabled that all content is visible and usable;
 - verify reduced-motion mode;
+- verify smooth scrolling on each revamp template and confirm it is disabled in reduced-motion mode;
 - test keyboard navigation and focus visibility;
 - confirm no animation-induced layout shift;
 - inspect mobile and desktop breakpoints;

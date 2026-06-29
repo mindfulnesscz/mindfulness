@@ -9,9 +9,14 @@ This theme is being revamped incrementally while the existing live website remai
 - Keep legacy templates available until the matching revamp page is ready to replace them.
 - Promote a revamped page by assigning the new template to the intended live page, or by swapping the page used for that route.
 
-## Current Example
+## Current Revamp Templates
 
-`page-product-blackbox.php` is the current revamp-style template example. It defines a custom page template:
+Current revamp templates include:
+
+- `page-home-revamp.php`, assigned through the WordPress page editor as `Home Revamp`.
+- `page-product-blackbox.php`, assigned through the WordPress page editor as `Product Blackbox`.
+
+Each revamp template defines a custom page template header, for example:
 
 ```php
 /**
@@ -19,11 +24,11 @@ This theme is being revamped incrementally while the existing live website remai
  */
 ```
 
-WordPress exposes that template in the page editor, where it can be assigned to a page created for the Blackbox product.
+WordPress exposes these templates in the page editor, where they can be assigned to their matching pages.
 
-## Upcoming Work
+## Active Pattern
 
-- Homepage revamp should follow the same template-based approach with a new homepage template.
+- Homepage revamp now follows the template-based approach through `page-home-revamp.php`.
 - Future product pages should use separate templates when their layout or content structure differs meaningfully.
 - Shared UI, assets, and repeated sections should be extracted only when reuse becomes clear across multiple revamp pages.
 
@@ -41,6 +46,7 @@ Each template should include a clear `Template Name` header so it can be assigne
 ### Templates
 
 Keep page templates focused on page composition, section order, and page-specific data arrays.
+Revamp templates should call `get_header('revamp')` and `get_footer('revamp')` so they use the shared revamp navigation, footer, body class, smooth scroll, and motion setup.
 
 Examples:
 
@@ -82,11 +88,22 @@ Suggested compiled output:
 
 - `assets/css/home-revamp.css`
 
-Enqueue revamp CSS only on the matching templates, following the existing template-specific pattern used for `product-page.css`.
+Current behavior:
+
+- `assets/css/home-revamp.css` is enqueued for every `mindfulness_is_revamp_template()` page and is the shared revamp stylesheet despite the homepage-oriented filename.
+- `assets/css/product-page.css` is still enqueued for product templates.
+- Legacy templates should not depend on revamp Sass, and revamp templates should not require global legacy component styles beyond the base theme styles already loaded everywhere.
 
 ### JavaScript and Animations
 
 Use the Motion-powered architecture defined in [revamp-motion-guidelines.md](revamp-motion-guidelines.md). Motion is the default library for entrance reveals, staggered sequences, and lightweight state transitions. CSS remains responsible for ordinary hover/focus transitions.
+
+The shared revamp JavaScript is currently:
+
+- `assets/js/home-revamp-motion.js`, compiled from `dev/src/home-revamp-motion.js`.
+- `assets/js/home-revamp.js`, used for revamp component interactions and dependent on the motion bundle.
+
+Both scripts are enqueued for `mindfulness_is_revamp_template()`. The filename is historical; treat these as shared revamp scripts until a rename or split is worth the churn.
 
 Keep animation hooks generic and reusable:
 
@@ -95,7 +112,9 @@ Keep animation hooks generic and reusable:
 - `data-motion-reveal-order`
 - `data-product-carousel`
 
-Use Motion's `inView`, `animate`, and `stagger` utilities behind one reusable initializer. Prefer declarative hooks over one-off section scripts. GSAP/ScrollTrigger is an exception for an approved pinned, scrubbed, or unusually complex timeline; it is not the default merely because the legacy theme registers an older version.
+Use Motion's `inView` and `animate` utilities behind one reusable initializer, with bounded per-item delays for staggered entrances. Prefer declarative hooks over one-off section scripts. GSAP/ScrollTrigger is an exception for an approved pinned, scrubbed, or unusually complex timeline; it is not the default merely because the legacy theme registers an older version.
+
+Lenis smooth scroll is initialized by the motion bundle for pages whose body has `ess-revamp-shell`, which comes from `header-revamp.php`. Smooth scroll is therefore expected on the homepage revamp and all product revamp templates. It must remain disabled when `prefers-reduced-motion: reduce` matches.
 
 Motion must preserve server-rendered content, layout dimensions, keyboard behavior, and `prefers-reduced-motion`. Animate `transform` and `opacity`; do not animate layout properties for decorative effects.
 
@@ -125,7 +144,8 @@ Keep the revamp layer isolated from legacy templates and styles:
 
 - templates: `page-*-revamp.php` or product-specific page templates
 - partials: `template-parts/revamp/`
-- styles: revamp-specific Sass compiled to template-specific CSS
+- styles: revamp-specific Sass compiled to revamp CSS
+- scripts: revamp-only scripts enqueued through `mindfulness_is_revamp_template()`
 - assets: `assets/images/revamp/`, `assets/icons/revamp/`, `assets/svg/revamp/`
 
 This keeps the current site stable while homepage and product-page revamps are built and assigned through WordPress admin.
