@@ -67,7 +67,7 @@ function mindfulness_scripts()
 
   // NO CHUNKS AT THE MOMENT
   /* $chunks = wm_grab_chunks();*/
-  $chunks_deps = array('react', 'react-dom', 'Gsap', 'smooth-scroll');
+  $chunks_deps = array('react', 'react-dom', 'Gsap', 'home-revamp-motion');
 
   /* NO CHUNKS AT THE MOMENT
   foreach ($chunks as $chunk) {
@@ -100,9 +100,7 @@ function mindfulness_scripts()
   wp_register_script('Gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js', array(), mindfulness_version(), true);
   wp_register_script('ScrollTrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js', array('Gsap'), mindfulness_version(), true);
   wp_register_script('WmGsap', get_template_directory_uri() . '/assets/js/wm_gsap.js', array('ScrollTrigger'), mindfulness_version(), true);
-  wp_register_script('Lenis', 'https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js', array(), '1.1.13', true);
-  wp_register_script('smooth-scroll', get_template_directory_uri() . '/assets/js/smooth-scroll.js', array('Lenis'), mindfulness_version(), true);
-  wp_register_script('product-paintiq', get_template_directory_uri() . '/assets/js/product-paintiq.js', array('Lenis', 'smooth-scroll'), mindfulness_version(), true);
+  wp_register_script('product-paintiq', get_template_directory_uri() . '/assets/js/product-paintiq.js', array('home-revamp-motion'), mindfulness_version(), true);
 
   // main script
   wp_register_script('ess', get_template_directory_uri() . '/assets/js/index.js', $chunks_deps, mindfulness_version(), true);
@@ -115,8 +113,11 @@ function mindfulness_scripts()
   //wp_enqueue_script('cdn-react');
   //wp_enqueue_script('cdn-react-dom');
   wp_enqueue_script('Gsap');
-  wp_enqueue_script('Lenis');
-  wp_enqueue_script('smooth-scroll');
+
+  // Site-wide smooth scroll (Lenis) + scroll-reveal motion. The bundle
+  // exposes window.essLenis; reveal effects only run where data-motion-*
+  // markup exists, so it is safe (and intended) on every page.
+  wp_enqueue_script('home-revamp-motion');
 
   wp_enqueue_script('ess');
 
@@ -125,7 +126,6 @@ function mindfulness_scripts()
   }
 
   if (mindfulness_is_revamp_template()) {
-    wp_enqueue_script('home-revamp-motion');
     wp_enqueue_script('home-revamp');
   }
 

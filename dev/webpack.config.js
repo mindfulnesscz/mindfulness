@@ -20,7 +20,6 @@ module.exports = {
     'modals' : '/src/modals.tsx',
     'ess-filter' : '/src/posts-filter.js',
     'product-paintiq': './src/product-paintiq.js',
-    'smooth-scroll': './src/smooth-scroll.js',
     'blocks/product-feature-card': './src/blocks/product-feature-card.js'
   },
 

@@ -5,7 +5,7 @@ import Lenis from 'lenis';
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 function initRevampSmoothScroll() {
-  if (!document.body.classList.contains('ess-revamp-shell') || reducedMotion.matches) {
+  if (reducedMotion.matches) {
     return;
   }
 
@@ -16,6 +16,21 @@ function initRevampSmoothScroll() {
     smoothWheel: true,
     stopInertiaOnNavigate: true,
   });
+
+  // Lenis only recalculates its scroll limit on a resize event. Content
+  // that grows after that (lazy-loaded images, late web fonts, etc.)
+  // without a real window resize leaves the limit stale, so scrolling
+  // stops short of the true document end. Watch the document height
+  // directly and nudge Lenis to re-measure whenever it changes.
+  if (window.ResizeObserver) {
+    const resizeObserver = new ResizeObserver(() => lenis.resize());
+    resizeObserver.observe(document.body);
+  }
+
+  // Site-wide handle used by the nav (stop/start/scrollTo) and the
+  // paint-iq parallax (on 'scroll'). Single shared instance — never
+  // instantiate Lenis anywhere else.
+  window.essLenis = lenis;
 
   window.addEventListener('pagehide', () => lenis.destroy(), { once: true });
 }
