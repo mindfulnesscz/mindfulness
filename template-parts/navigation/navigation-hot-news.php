@@ -10,21 +10,21 @@
 
 <div id="hot-news-wrapper" style="position:relative; overflow:hidden; background:#4d4d4d;">
 
-  <a class="hot-news-item" style="color:white; text-decoration:none; display:block; background:#4d4d4d; position:absolute; top:0; left:0; width:100%;" href="https://www.essteyr.com/digital-intelligence-webinars-series/">
+  <a class="hot-news-item" style="color:white; text-decoration:none; display:block; background:#4d4d4d; position:absolute; top:0; left:0; width:100%;" href="#">
     <div id="hot-news">
       <div class="row max-w-1200 m-auto">
         <div class="col-xs-12 center">
-          🔥 <b></b>Next Webinar: TU 2.6. 10 am | AnodeIQ !
+          🔥 <b></b>See you in Berlin: 7-8.7. 2026
         </div>
       </div>
     </div>
   </a>
 
-  <a class="hot-news-item" style="color:white; text-decoration:none; display:block; background:#4d4d4d; position:absolute; top:0; left:0; width:100%;" href="https://www.essteyr.com/career-opportunities/automation-engineer-copy/">
+  <a class="hot-news-item" style="color:white; text-decoration:none; display:block; background:#4d4d4d; position:absolute; top:0; left:0; width:100%;" href="https://www.essteyr.com/career/">
     <div id="hot-news">
       <div class="row max-w-1200 m-auto">
         <div class="col-xs-12 center">
-          🔥 <b>Hot News:</b> Hiring in India: PaintIQ Application Engineer
+          🔥 <b>Hot News:</b> Hiring in India: Lot of positions opened. Check now!
         </div>
       </div>
     </div>

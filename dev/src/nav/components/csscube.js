@@ -159,8 +159,10 @@ export default class CessCube {
   
           e.preventDefault;
 
-          // Re-enable scrolling
+          // Disable scrolling while the cube is on stage
           document.body.style.overflow = 'hidden';
+          if ( window.essLenis )
+            window.essLenis.stop();
 
           if( this.active_link !== undefined && this.active_link !== e.target ) {
             this.active_link.classList.remove( 'active' );
@@ -600,6 +602,8 @@ export default class CessCube {
 
     // Re-enable scrolling on body when cube disapears.
     document.body.style.overflow = 'auto';
+    if ( window.essLenis )
+      window.essLenis.start();
 
 
     window.removeEventListener( 'keydown', this.cubeKeyPressed, true );
@@ -613,7 +617,6 @@ export default class CessCube {
     if( tiny )
       tiny.querySelector( 'h1' ).classList.remove( 'opacity-o' );
         
-
     if( typeof InstallTrigger == 'undefined' )
       this.main_container.classList.remove( 'ess-blured-content' );
 

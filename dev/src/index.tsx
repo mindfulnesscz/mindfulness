@@ -34,7 +34,9 @@ window.MindGlobal.MindCookiesHandler = new MindCookies( './' );
 /**
  * Allows use of ScrollTrigger on gsap for all components (Currently not used at all )
  */
-window.gsap.registerPlugin( window.ScrollTrigger );
+if( window.ScrollTrigger ) {
+  window.gsap.registerPlugin( window.ScrollTrigger );
+}
 
 
 /**
@@ -73,7 +75,6 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
   
 } );
-
 
 
 

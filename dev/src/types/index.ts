@@ -26,6 +26,14 @@ export interface MindGlobalObject {
 }
 
 
+export interface EssLenisInstance {
+  stop (): void
+  start (): void
+  scrollTo ( target: number | string | HTMLElement, options?: Record<string, unknown> ): void
+  on ( event: string, callback: ( ...args: unknown[] ) => void ): void
+  raf ( time: number ): void
+}
+
 declare global {
   interface Window {
     gsap: GSAP
@@ -33,6 +41,7 @@ declare global {
     MobileNav:React.ReactNode
     DesktopNav:React.ReactNode
     MindGlobal:MindGlobalObject
+    essLenis?: EssLenisInstance
   }
 }
 

@@ -18,7 +18,7 @@ get_header(); ?>
 	<div class="ess-tiny-header">
 		<a href="<?php echo get_post_type_archive_link('events'); ?>">
 			<h1 class="ess-cut-corners">
-				Events voeee
+				<?php the_title() ?>
 			</h1>
 			<div class="cl-both"></div>
 		</a>

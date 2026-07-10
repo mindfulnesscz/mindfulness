@@ -1,0 +1,246 @@
+.wp-block-mindfulness-product-feature-card {
+  position: relative;
+  display: block;
+  min-height: 720px;
+  overflow: hidden;
+  color: #fff;
+  background-color: #00152f;
+  text-decoration: none;
+  isolation: isolate;
+}
+
+.wp-block-mindfulness-product-feature-card.has-height-hero {
+  min-height: 88svh;
+}
+
+.wp-block-mindfulness-product-feature-card.has-height-compact {
+  min-height: 560px;
+}
+
+.wp-block-mindfulness-product-feature-card:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.wp-block-mindfulness-product-feature-card:focus-visible {
+  outline: 2px solid #66b1ff;
+  outline-offset: 4px;
+}
+
+.mind-product-card__media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: var(--mind-product-card-image);
+  background-position: var(--mind-product-card-position, center center);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform 600ms ease;
+}
+
+.wp-block-mindfulness-product-feature-card:hover .mind-product-card__media {
+  transform: scale(1.025);
+}
+
+.wp-block-mindfulness-product-feature-card::before,
+.wp-block-mindfulness-product-feature-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.wp-block-mindfulness-product-feature-card::before {
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(0, 13, 43, 0.2) 0%, rgba(0, 13, 43, 0.2) 45%, rgba(0, 13, 43, 0.64) 100%),
+    linear-gradient(90deg, rgba(0, 13, 43, 0.88) 0%, rgba(0, 13, 43, 0.42) 46%, rgba(0, 13, 43, 0.16) 100%);
+}
+
+.wp-block-mindfulness-product-feature-card.has-overlay-medium::before {
+  background:
+    linear-gradient(180deg, rgba(0, 13, 43, 0.12) 0%, rgba(0, 13, 43, 0.16) 45%, rgba(0, 13, 43, 0.5) 100%),
+    linear-gradient(90deg, rgba(0, 13, 43, 0.74) 0%, rgba(0, 13, 43, 0.34) 48%, rgba(0, 13, 43, 0.1) 100%);
+}
+
+.wp-block-mindfulness-product-feature-card.has-overlay-soft::before {
+  background:
+    linear-gradient(180deg, rgba(0, 13, 43, 0.06) 0%, rgba(0, 13, 43, 0.12) 45%, rgba(0, 13, 43, 0.38) 100%),
+    linear-gradient(90deg, rgba(0, 13, 43, 0.62) 0%, rgba(0, 13, 43, 0.26) 48%, rgba(0, 13, 43, 0.06) 100%);
+}
+
+.mind-product-card__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  min-height: inherit;
+  box-sizing: border-box;
+}
+
+.mind-product-card__row {
+  width: 100%;
+  align-items: flex-start;
+}
+
+.mind-product-card__title,
+.mind-product-card__headline,
+.mind-product-card__description,
+.mind-product-card__button {
+  color: #fff;
+  font-family: "essGrotesk", sans-serif;
+}
+
+.mind-product-card__title {
+  display: block;
+  font-size: clamp(4.2rem, 11vw, 12rem);
+  line-height: 0.8;
+  font-weight: 400;
+}
+
+.mind-product-card__copy {
+  max-width: 440px;
+}
+
+.mind-product-card__headline {
+  display: block;
+  margin-bottom: clamp(1rem, 1.8vw, 1.8rem);
+  font-size: clamp(2.1rem, 3.2vw, 4.2rem);
+  line-height: 0.98;
+  font-weight: 400;
+}
+
+.mind-product-card__description {
+  display: block;
+  font-size: clamp(1rem, 1.05vw, 1.2rem);
+  line-height: 1.2;
+}
+
+.mind-product-card__button-wrap {
+  display: block;
+}
+
+.mind-product-card__button.wm-button.spacy {
+  position: relative;
+  display: inline-block;
+  overflow: visible;
+  cursor: pointer;
+  border: none;
+  border-radius: 0;
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: "essGrotesk", sans-serif;
+  font-size: clamp(1.5rem, 2vw, 2.4rem);
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  padding: 1.5rem 2rem;
+  transition: color 0.35s ease, filter 0.35s ease;
+}
+
+.mind-product-card__button.wm-button.spacy::before,
+.mind-product-card__button.wm-button.spacy::after {
+  content: "";
+  position: absolute;
+  width: 140px;
+  height: 56px;
+  opacity: 0.85;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transition: transform 0.45s cubic-bezier(0.34, 1.4, 0.64, 1), opacity 0.35s ease;
+}
+
+.mind-product-card__button.wm-button.spacy::before {
+  top: -2px;
+  left: -27px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40'%3E%3Cpath d='M98 4 L19 4 L2 34' stroke='white' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  transform: scale(0.65);
+  transform-origin: 19% 10%;
+}
+
+.mind-product-card__button.wm-button.spacy::after {
+  right: -27px;
+  bottom: -2px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40'%3E%3Cpath d='M2 36 L81 36 L98 6' stroke='white' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  transform: scale(0.65);
+  transform-origin: 81% 90%;
+}
+
+.wp-block-mindfulness-product-feature-card:hover .mind-product-card__button.wm-button.spacy,
+.mind-product-card__button.wm-button.spacy:hover {
+  background: transparent !important;
+  color: #fff;
+  filter: none;
+  text-decoration: none;
+}
+
+.wp-block-mindfulness-product-feature-card:hover .mind-product-card__button.wm-button.spacy::before,
+.wp-block-mindfulness-product-feature-card:hover .mind-product-card__button.wm-button.spacy::after,
+.mind-product-card__button.wm-button.spacy:hover::before,
+.mind-product-card__button.wm-button.spacy:hover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.mind-product-card__remove-image {
+  margin-top: 0.75rem;
+}
+
+.wp-block-mindfulness-product-feature-card.is-editor-preview {
+  cursor: text;
+}
+
+.wp-block-mindfulness-product-feature-card.is-editor-preview .mind-product-card__button-wrap {
+  pointer-events: none;
+}
+
+@media only screen and (max-width: 781px) {
+  .wp-block-mindfulness-product-feature-card {
+    min-height: 700px;
+  }
+
+  .wp-block-mindfulness-product-feature-card.has-height-hero {
+    min-height: 86svh;
+  }
+
+  .wp-block-mindfulness-product-feature-card.has-height-compact {
+    min-height: 620px;
+  }
+
+  .mind-product-card__inner {
+    align-items: flex-end;
+  }
+
+  .mind-product-card__title {
+    font-size: clamp(4rem, 21vw, 7rem);
+    line-height: 0.86;
+    margin-bottom: 2rem;
+  }
+
+  .mind-product-card__copy {
+    max-width: 28rem;
+    padding-top: calc(1.6rem + 1vw);
+  }
+
+  .mind-product-card__headline {
+    font-size: clamp(2rem, 9vw, 3.2rem);
+  }
+
+  .mind-product-card__description {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  .wp-block-mindfulness-product-feature-card {
+    min-height: 740px;
+  }
+
+  .wp-block-mindfulness-product-feature-card.has-height-compact {
+    min-height: 680px;
+  }
+}

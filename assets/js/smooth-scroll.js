@@ -1,0 +1,2 @@
+!function(){if(window.Lenis&&!window.matchMedia("(prefers-reduced-motion: reduce)").matches){var e=new window.Lenis({smoothWheel:!0,syncTouch:!1});requestAnimationFrame((function n(i){e.raf(i),requestAnimationFrame(n)})),window.ResizeObserver&&new window.ResizeObserver((function(){e.resize()})).observe(document.body),window.essLenis=e}}();
+//# sourceMappingURL=smooth-scroll.js.map

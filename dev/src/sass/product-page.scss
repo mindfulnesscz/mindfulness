@@ -7,7 +7,12 @@
 .product-problems,
 .product-issues,
 .product-specs,
-.product-cta {
+.product-cta,
+.paintiq-solutions,
+.paintiq-benefits,
+.paintiq-process,
+.paintiq-testimonial,
+.paintiq-benchmark {
   overflow: hidden;
 
   .container {
@@ -17,6 +22,7 @@
 
 .product-kicker {
   letter-spacing: 0.16em;
+  line-height: 100%;
 }
 
 .product-hero {
@@ -184,4 +190,597 @@
 
 .gui-background {
   background: url("../images/gui-background.jpg");
+}
+
+.product-hero--paintiq {
+  display: flex;
+  align-items: center;
+  height: 100svh;
+  min-height: 0;
+  max-height: 100svh;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(2, 12, 34, 0.96) 0%,
+      rgba(2, 12, 34, 0.72) 46%,
+      rgba(2, 12, 34, 0.18) 100%
+    ),
+    url("../images/paint-iq-images/paint-iq-hero copy.webp") center right /
+      cover no-repeat;
+
+  > .container {
+    width: 100%;
+  }
+
+  > .container > .row {
+    align-items: center;
+  }
+
+  .product-logo--paintiq {
+    width: 165px;
+  }
+}
+
+.paintiq-section-title {
+  max-width: 90rem;
+  line-height: 1.05;
+  font-size: 38px;
+
+  @media (min-width: vars.$medium-screen-up) {
+    font-size: 52px;
+  }
+
+  @media (min-width: vars.$large-screen-up) {
+    font-size: 68px;
+  }
+}
+
+.paintiq-subtitle {
+  line-height: 1.08;
+  font-size: 24px;
+
+  @media (min-width: vars.$medium-screen-up) {
+    font-size: 36px;
+  }
+}
+
+.paintiq-intro-logo {
+  display: block;
+  width: auto;
+  height: 56px;
+  margin: 0 0 2rem;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.paintiq-intro-visual {
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.paintiq-challenge,
+.paintiq-benefit {
+  max-width: 560px;
+}
+
+.paintiq-challenge {
+  padding-left: 0;
+}
+
+.paintiq-alert-icon {
+  display: block;
+  width: 70px;
+  height: 70px;
+  margin: 0 0 1.25rem;
+  object-fit: contain;
+}
+
+.paintiq-solutions,
+.paintiq-process {
+  color: vars.$white;
+
+  h2,
+  h3,
+  p {
+    color: vars.$white;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.78);
+  }
+}
+
+.paintiq-solutions {
+  position: relative;
+  background-color: #2b2b2b;
+}
+
+.paintiq-solutions > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.paintiq-cube-bg {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  width: 720px;
+  aspect-ratio: 580 / 542;
+  pointer-events: none;
+  transition: none !important;
+  background: url("../images/paint-iq-images/ess-cube.svg") no-repeat center /
+    contain;
+}
+
+.paintiq-cube-bg--left {
+  top: 8rem;
+  left: -260px;
+  width: 384px;
+}
+
+.paintiq-cube-bg--right {
+  right: -300px;
+  bottom: 10rem;
+}
+
+.paintiq-process {
+  background: #2b2b2b;
+}
+
+.paintiq-solution-list {
+  padding-top: 4rem;
+}
+
+.paintiq-solution-slot {
+  margin-bottom: 2.5rem;
+}
+
+.paintiq-solution-card {
+  max-width: none;
+}
+
+.paintiq-solution-image {
+  display: block;
+  width: 75%;
+  height: auto;
+}
+
+.paintiq-benefit-icon {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  margin-right: 1rem;
+  border-radius: 50%;
+  color: vars.$white;
+  background: vars.$primary-color;
+  text-align: center;
+  line-height: 34px;
+  font-weight: 700;
+}
+
+.paintiq-process-logo {
+  display: block;
+  width: auto;
+  max-width: none;
+  height: 76px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.paintiq-process-logo--plus {
+  width: auto;
+  max-width: none;
+}
+
+.paintiq-process-mobile-logo {
+  display: none;
+}
+
+.paintiq-timeline {
+  position: relative;
+}
+
+.paintiq-timeline-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) 64px minmax(200px, 200px) minmax(
+      0,
+      1fr
+    );
+  column-gap: 2.5rem;
+  padding-bottom: 5rem;
+}
+
+.paintiq-step-logo-cell {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.paintiq-step-rail {
+  grid-column: 2;
+  grid-row: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.paintiq-step-rail:before {
+  content: "";
+  position: absolute;
+  top: 17px;
+  bottom: calc(-5rem - 17px);
+  left: 50%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.24);
+  transform: translateX(-50%);
+}
+
+.paintiq-timeline-step:last-child .paintiq-step-rail:before {
+  display: none;
+}
+
+.paintiq-timeline-step:last-child .paintiq-step-rail:after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 34px;
+  bottom: -5rem;
+  left: 50%;
+  width: 3px;
+  background: #2b2b2b;
+  transform: translateX(-50%);
+}
+
+.paintiq-step-marker {
+  position: relative;
+  z-index: 1;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: vars.$white;
+  background: vars.$primary-color;
+  text-align: center;
+  line-height: 34px;
+}
+
+.paintiq-timeline-step--green .paintiq-step-marker {
+  background: colors.color("green", "darken-1");
+}
+
+.paintiq-step-media {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: start;
+  width: 100%;
+}
+
+.paintiq-step-image {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  align-self: start;
+}
+
+.paintiq-step-copy {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+.paintiq-quote {
+  padding: vars.$double-margin vars.$quad-margin;
+  background: colors.color("gray", "lighten-3");
+  border-radius: 8px;
+}
+
+.paintiq-quote cite {
+  color: colors.color("gray", "darken-2");
+  font-style: normal;
+}
+
+.paintiq-benchmark-table {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    border-top: 1px solid vars.$border-default-color;
+  }
+}
+
+.paintiq-benchmark-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    border-bottom: 1px solid vars.$border-default-color;
+  }
+}
+
+.paintiq-benchmark-metric {
+  > strong,
+  > span {
+    display: block;
+  }
+
+  > strong {
+    font-family: vars.$headline-font;
+    font-size: 4.2rem;
+    line-height: 0.95;
+    font-weight: 400;
+  }
+
+  > span {
+    font-family: vars.$headline-font;
+    margin-top: 0.2rem;
+    color: colors.color("gray", "darken-2");
+    font-size: 1.15rem;
+    line-height: 1.25;
+    font-weight: 400;
+  }
+}
+
+.paintiq-cta {
+  min-height: 460px;
+  background:
+    linear-gradient(90deg, rgba(0, 128, 255, 0.92), rgba(0, 128, 255, 0.44)),
+    url("../images/paint-iq-images/CTA Background.webp") center / cover
+      no-repeat;
+}
+
+.paintiq-cta-next {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid vars.$white;
+}
+
+.paintiq-cta-next-kicker {
+  margin: 0 0 2rem;
+  color: vars.$white;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.8rem;
+}
+
+.paintiq-cta-next-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.paintiq-cta-next-step {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding-left: 2.5rem;
+}
+
+.paintiq-cta-next-step:first-child {
+  padding-left: 0;
+}
+
+.paintiq-cta-next-step:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: vars.$white;
+}
+
+.paintiq-cta-next-badge {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 41px;
+  background: url("../images/hexagon.svg") no-repeat center / contain;
+  color: colors.color("essblue", "darken-5");
+  font-family: vars.$headline-font;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.paintiq-cta-next-title {
+  color: vars.$white;
+  font-family: vars.$headline-font;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+.paintiq-cta-next-text {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+@media only screen and (max-width: vars.$large-screen) {
+  .paintiq-timeline {
+    margin-top: 2rem;
+    padding-left: 2.25rem;
+  }
+
+  .paintiq-process-mobile-logo {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: 76px;
+    margin: 0 0 2rem;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .paintiq-process-mobile-logo--plus {
+    margin-top: 2rem;
+  }
+
+  .paintiq-timeline-step {
+    display: block;
+  }
+
+  .paintiq-step-logo-cell {
+    display: none;
+  }
+
+  .paintiq-step-rail {
+    position: absolute;
+    top: 0;
+    left: -2.25rem;
+  }
+
+  .paintiq-step-rail:before,
+  .paintiq-timeline-step:last-child .paintiq-step-rail:after {
+    display: none;
+  }
+
+  .paintiq-step-image {
+    width: 100%;
+    max-width: min(100%, 520px);
+    margin-bottom: 1rem;
+  }
+}
+
+@media only screen and (max-width: vars.$medium-screen) {
+  .paintiq-cube-bg {
+    transform: none;
+  }
+
+  .paintiq-cube-bg--left {
+    width: 280px;
+    left: -150px;
+  }
+
+  .paintiq-cube-bg--right {
+    width: 360px;
+    right: -220px;
+  }
+
+  .product-hero--paintiq {
+    background-position: center;
+  }
+
+  .paintiq-solution-list {
+    padding-top: 2rem;
+  }
+
+  .paintiq-solution-slot {
+    max-width: none;
+    margin-top: 0 !important;
+    margin-bottom: 3rem;
+  }
+
+  .paintiq-step-image {
+    max-width: 260px;
+  }
+
+  .paintiq-benchmark-row {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 2rem 0;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .paintiq-benchmark-metric > strong {
+    font-size: 2.6rem;
+  }
+
+  .paintiq-cta-next-row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .paintiq-cta-next-step {
+    padding-left: 0;
+    padding-top: 2rem;
+  }
+
+  .paintiq-cta-next-step:first-child {
+    padding-top: 0;
+  }
+
+  .paintiq-cta-next-step:not(:first-child)::before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+  }
+}
+
+@media only screen and (min-width: vars.$medium-screen-up) {
+  .paintiq-challenge-grid {
+    width: 66.666%;
+    margin-left: 33.333%;
+  }
+
+  .paintiq-challenge-grid .col-md-6 {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+
+  .paintiq-benefit-grid {
+    width: 66.666%;
+    margin-left: 33.333%;
+  }
+
+  .paintiq-benefit-grid .col-md-4 {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+
+  .paintiq-challenge .paintiq-alert-icon {
+    margin-left: 2rem;
+  }
+
+  .paintiq-solution-slot {
+    flex-basis: 33.333% !important;
+    max-width: 33.333% !important;
+  }
+
+  .paintiq-solution-list {
+    display: block !important;
+  }
+
+  .paintiq-solution-slot--1 {
+    margin-left: 8.333%;
+  }
+
+  .paintiq-solution-slot--2 {
+    margin-left: 33.333%;
+  }
+
+  .paintiq-solution-slot--3 {
+    margin-left: 66.666%;
+  }
+
+  .paintiq-solution-slot--4 {
+    margin-left: 8.333%;
+  }
 }
