@@ -6,9 +6,6 @@ import FooterSlider from './footer-sliders';
 import gsap from 'gsap';
 
 
-gsap.registerPlugin( ScrollToPlugin );
-
-
 /*
 
 
@@ -91,7 +88,11 @@ export default class NavbarToggleCss {
       if ( this.ishomepage ) {
 
 
-        gsap.to( window, { duration: 0.5, scrollTo: 0 } );
+        if ( window.essLenis ) {
+          window.essLenis.scrollTo( 0, { duration: 0.5 } );
+        } else {
+          window.scrollTo( { top: 0, behavior: 'smooth' } );
+        }
 
       } else {
 

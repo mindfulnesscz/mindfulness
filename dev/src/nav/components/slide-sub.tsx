@@ -21,7 +21,7 @@ const slideSub: React.FC<WmMnavSlide> = ( { title, className, callSlide, slideLi
           <WmnavBackArrow className='wmnav-back-arrow' />
         </a>
 
-        <h3 className="col-xs-6 light text-center has-gray-darken-1-color uppercase">{title}</h3>
+        <span className="wmnav-label col-xs-6 light text-center has-gray-darken-1-color uppercase">{title}</span>
         
         
         <div className="col-xs-3"></div>

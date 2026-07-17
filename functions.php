@@ -39,6 +39,8 @@ require_once $inc . 'fn.php'; // useful functions
 
 require_once $inc . 'scripts.php'; // registering and handling javascripts and css
 
+require_once $inc . 'blocks.php'; // Gutenberg blocks
+
 require_once $inc . 'endpoints.php'; // register and callbacks for custom endpoints
 
 require_once $inc . 'widgets.php'; // Registers custom widgets. Currently in footer only

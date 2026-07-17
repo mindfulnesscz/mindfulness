@@ -10,21 +10,21 @@ const AboutSlide: React.FC<WmNavSlideChildren> = ( { homeUrl} ) => {
     <div className={''}>
       <div className='row'>
         <div className='col-xs-12'>
-          <h3 className='text-center'>
+          <p className="wmnav-label text-center m-zero">
             <a className='no-deco light' href={`${homeUrl}/about`}>Who We Are</a>
-          </h3>
-          <h3 className='text-center'>
+          </p>
+          <p className="wmnav-label text-center m-zero">
             <a className='no-deco light' href={`${homeUrl}/news`}>News</a>
-          </h3>
-          <h3 className='text-center'>
+          </p>
+          <p className="wmnav-label text-center m-zero">
             <a className='no-deco light' href={`${homeUrl}/career`}>Career</a>
-          </h3>
-          <h3 className='text-center'>
+          </p>
+          <p className="wmnav-label text-center m-zero">
             <a className='no-deco light' href={`${homeUrl}/ess-events`}>Events</a>
-          </h3>
-          <h3 className='text-center'>
+          </p>
+          <p className="wmnav-label text-center m-zero">
             <a className='no-deco light' href={`${homeUrl}/case-solutions`}>Case Solutions</a>
-          </h3>
+          </p>
         </div>
 
       </div>

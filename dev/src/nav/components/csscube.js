@@ -159,8 +159,10 @@ export default class CessCube {
   
           e.preventDefault;
 
-          // Re-enable scrolling
+          // Disable scrolling while the cube is on stage
           document.body.style.overflow = 'hidden';
+          if ( window.essLenis )
+            window.essLenis.stop();
 
           if( this.active_link !== undefined && this.active_link !== e.target ) {
             this.active_link.classList.remove( 'active' );
@@ -272,8 +274,8 @@ export default class CessCube {
     this.cube_w_shift   = this.cube_width/2; // + maybe unit/this.unit_space_ratio for gap between sides;
     this.cube_h_shift   = this.cube_height/2;
 
-    this.Cube_Style_Sheet.innerHTML += '#csscube-scene #csscube h1 {font-size: '+BigHeader+' } ';
-    this.Cube_Style_Sheet.innerHTML += '#csscube-scene #csscube h2 {font-size: '+SmHeader+' } ';
+    this.Cube_Style_Sheet.innerHTML += '#csscube-scene #csscube .csscube-nav-label {font-size: '+BigHeader+' } ';
+    this.Cube_Style_Sheet.innerHTML += '#csscube-scene #csscube .csscube-panel-label {font-size: '+SmHeader+' } ';
     this.Cube_Style_Sheet.innerHTML += '#csscube-scene #csscube h3 {font-size: '+TinyHeader+' } ';
     this.Cube_Style_Sheet.innerHTML += '#csscube-scene #csscube h4 {font-size: '+SmallestHeader+' } ';
     this.Cube_Style_Sheet.innerHTML += '#csscube-scene{width:'+this.cube_width+'px; height:'+this.cube_height+'px; perspective: '+this.cube_width*5+'px;}';
@@ -600,6 +602,8 @@ export default class CessCube {
 
     // Re-enable scrolling on body when cube disapears.
     document.body.style.overflow = 'auto';
+    if ( window.essLenis )
+      window.essLenis.start();
 
 
     window.removeEventListener( 'keydown', this.cubeKeyPressed, true );
@@ -613,7 +617,6 @@ export default class CessCube {
     if( tiny )
       tiny.querySelector( 'h1' ).classList.remove( 'opacity-o' );
         
-
     if( typeof InstallTrigger == 'undefined' )
       this.main_container.classList.remove( 'ess-blured-content' );
 

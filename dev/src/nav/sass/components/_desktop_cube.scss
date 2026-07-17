@@ -147,13 +147,25 @@ padding: 0;
         position: relative;
         //top: -300px;
 
-        h1 {
+        h1,
+        .csscube-nav-label {
+          display: block;
+          margin: $half-margin 0;
           top: 0;
           left: 0;
           font-family: $headline-font;
           font-weight: light;
           line-height: 0.8;
           text-align: left;
+          font-size: $h1-sm;
+
+          @media (min-width: $medium-screen-up) {
+            font-size: $h1-md;
+          }
+
+          @media (min-width: $large-screen-up) {
+            font-size: $h1-lg;
+          }
         }
 
         a {
@@ -170,7 +182,9 @@ padding: 0;
 
         }
 
-        h2 {
+        h2,
+        .csscube-panel-label {
+          display: block;
           text-align: center;
           font-weight: normal;
         }
@@ -187,7 +201,7 @@ padding: 0;
             padding-top: 0 !important
           }
 
-          a:hover h2 {
+          a:hover .csscube-panel-label {
             color: black
           }
         }
@@ -480,7 +494,7 @@ padding: 0;
   }
 
   #cube-paintshop {
-    background: url('../../../../assets/images/cube/ps-cube-bkg.webp') right center no-repeat white;
+    background: white;
     background-size: contain;
   }
 

@@ -17,6 +17,16 @@ function mindfulness_is_product_template()
   return is_page() && is_string($template_slug) && strpos($template_slug, 'page-product-') === 0;
 }
 
+function mindfulness_is_home_revamp_template()
+{
+  return is_page_template('page-home-revamp.php');
+}
+
+function mindfulness_is_revamp_template()
+{
+  return mindfulness_is_home_revamp_template() || mindfulness_is_product_template();
+}
+
 
 
 function mindfulness_backend_scripts()
@@ -57,7 +67,7 @@ function mindfulness_scripts()
 
   // NO CHUNKS AT THE MOMENT
   /* $chunks = wm_grab_chunks();*/
-  $chunks_deps = array('react', 'react-dom', 'Gsap', 'ScrollTrigger', 'ScrollTo');
+  $chunks_deps = array('react', 'react-dom', 'Gsap', 'home-revamp-motion');
 
   /* NO CHUNKS AT THE MOMENT
   foreach ($chunks as $chunk) {
@@ -78,26 +88,46 @@ function mindfulness_scripts()
     wp_enqueue_style('product-page', get_template_directory_uri() . '/assets/css/product-page.css', array(), mindfulness_version());
   }
 
+  if (mindfulness_is_revamp_template()) {
+    wp_enqueue_style('home-revamp', get_template_directory_uri() . '/assets/css/home-revamp.css', array(), mindfulness_version());
+  }
+
 
 
   // dependencies
   wp_register_script('cdn-react', 'https://unpkg.com/react@18/umd/react.production.min.js', array(), mindfulness_version(), true);
   wp_register_script('cdn-react-dom', 'https://unpkg.com/react-dom@18/umd/react-dom.production.min.js', array('cdn-react'), mindfulness_version(), true);
   wp_register_script('Gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js', array(), mindfulness_version(), true);
-  wp_register_script('ScrollTo', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollToPlugin.min.js', array('Gsap'), mindfulness_version(), true);
   wp_register_script('ScrollTrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js', array('Gsap'), mindfulness_version(), true);
   wp_register_script('WmGsap', get_template_directory_uri() . '/assets/js/wm_gsap.js', array('ScrollTrigger'), mindfulness_version(), true);
+  wp_register_script('product-paintiq', get_template_directory_uri() . '/assets/js/product-paintiq.js', array('home-revamp-motion'), mindfulness_version(), true);
 
   // main script
   wp_register_script('ess', get_template_directory_uri() . '/assets/js/index.js', $chunks_deps, mindfulness_version(), true);
+  $home_revamp_motion_path = get_template_directory() . '/assets/js/home-revamp-motion.js';
+  $home_revamp_motion_version = file_exists($home_revamp_motion_path) ? filemtime($home_revamp_motion_path) : mindfulness_version();
+
+  wp_register_script('home-revamp-motion', get_template_directory_uri() . '/assets/js/home-revamp-motion.js', array(), $home_revamp_motion_version, true);
+  wp_register_script('home-revamp', get_template_directory_uri() . '/assets/js/home-revamp.js', array('home-revamp-motion'), mindfulness_version(), true);
 
   //wp_enqueue_script('cdn-react');
   //wp_enqueue_script('cdn-react-dom');
   wp_enqueue_script('Gsap');
-  wp_enqueue_script('ScrollTo');
-  wp_enqueue_script('ScrollTtrigger');
+
+  // Site-wide smooth scroll (Lenis) + scroll-reveal motion. The bundle
+  // exposes window.essLenis; reveal effects only run where data-motion-*
+  // markup exists, so it is safe (and intended) on every page.
+  wp_enqueue_script('home-revamp-motion');
 
   wp_enqueue_script('ess');
+
+  if (is_page_template('page-product-paint-iq.php')) {
+    wp_enqueue_script('product-paintiq');
+  }
+
+  if (mindfulness_is_revamp_template()) {
+    wp_enqueue_script('home-revamp');
+  }
 
 
   //creates an object 'subscribe_ajax_obj in scope of the subscribe.js script with ajaxurl path to ajax function.. clever and overcomplicated I'd say 

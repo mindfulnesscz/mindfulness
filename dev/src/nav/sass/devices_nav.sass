@@ -51,9 +51,21 @@
   align-content: center
   justify-content: center
 
-  h3
+  h3,
+  .wmnav-label
     text-align: center
     padding: $half-margin
+
+.wmnav-main-slide
+  a .wmnav-label
+    font-family: $headline-font
+    font-size: $h2-sm
+    font-weight: 100
+    margin: $half-margin 0
+    @media (min-width: $medium-screen-up)
+      font-size: $h2-md
+    @media (min-width: $large-screen-up)
+      font-size: $h2-lg
 
 .wmnav-subslide-head
   width: 100%
@@ -61,8 +73,16 @@
   margin-top: 6rem
   align-self: baseline
 
-  &>h3
+  .wmnav-label
     background: white
+    font-family: $headline-font
+    font-size: $h3-sm
+    font-weight: 100
+    margin: $half-margin 0
+    @media (min-width: $medium-screen-up)
+      font-size: $h3-md
+    @media (min-width: $large-screen-up)
+      font-size: $h3-lg
 
 .wmnav-subslide-body
   display: flex

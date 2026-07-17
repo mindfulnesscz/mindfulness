@@ -18,7 +18,9 @@ module.exports = {
     'nav/mobile': './src/nav/mobile.tsx',
     'nav/desktop': './src/nav/desktop.tsx',
     'modals' : '/src/modals.tsx',
-    'ess-filter' : '/src/posts-filter.js'
+    'ess-filter' : '/src/posts-filter.js',
+    'product-paintiq': './src/product-paintiq.js',
+    'blocks/product-feature-card': './src/blocks/product-feature-card.js'
   },
 
   output: {
@@ -31,7 +33,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.js', 'jsx', '.tsx', '.ts', '.scss', '.sass'],
+    extensions: ['.js', '.jsx', '.tsx', '.ts', '.scss', '.sass'],
   },
   externals: {
     'react': 'React',
@@ -98,6 +100,13 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: [
+        '**/*',
+        '!home-revamp.js',
+        '!home-revamp-motion.js',
+        '!home-revamp-motion.js.map',
+      ],
+    }),
   ],
 };

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rellax Isolation Test</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: #f6f7f9;
+      color: #101318;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+
+    body {
+      margin: 0;
+      min-height: 260vh;
+    }
+
+    .test-panel {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      z-index: 10;
+      width: min(360px, calc(100vw - 32px));
+      padding: 16px;
+      background: #fff;
+      border: 1px solid #d9dee7;
+      font-size: 14px;
+    }
+
+    .test-panel h1 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      line-height: 1.2;
+    }
+
+    .test-panel p {
+      margin: 8px 0 0;
+    }
+
+    .test-panel code {
+      padding: 1px 4px;
+      background: #eef1f5;
+      border-radius: 3px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+    }
+
+    .stage {
+      position: relative;
+      min-height: 220vh;
+      overflow: hidden;
+      background: #f6f7f9;
+    }
+
+    .test-block {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border: 2px solid #111827;
+    }
+
+    .test-block--one {
+      top: 62vh;
+      left: 18vw;
+      background: #12b886;
+    }
+
+    .test-block--two {
+      top: 116vh;
+      right: 18vw;
+      background: #3b82f6;
+    }
+
+    .native-marker {
+      position: absolute;
+      left: 50%;
+      top: 150vh;
+      width: 2px;
+      height: 240px;
+      background: #ef4444;
+      transform: translateX(-50%);
+    }
+  </style>
+</head>
+<body>
+  <aside class="test-panel">
+    <h1>Rellax Isolation Test</h1>
+    <p>This file loads only Rellax and two plain blocks. No WordPress, no nav, no theme CSS.</p>
+    <p id="settings"></p>
+    <p>Try <code>?round=false</code>, <code>?speed1=-8</code>, <code>?speed2=4</code>.</p>
+  </aside>
+
+  <main class="stage">
+    <div class="native-marker" aria-hidden="true"></div>
+    <div class="test-block test-block--one rellax-test" aria-label="Rellax test block one"></div>
+    <div class="test-block test-block--two rellax-test" aria-label="Rellax test block two"></div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js"></script>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var round = params.get('round') !== 'false';
+      var speed1 = Number(params.get('speed1') || -4);
+      var speed2 = Number(params.get('speed2') || 3);
+      var blockOne = document.querySelector('.test-block--one');
+      var blockTwo = document.querySelector('.test-block--two');
+      var settings = document.getElementById('settings');
+
+      blockOne.setAttribute('data-rellax-speed', String(speed1));
+      blockTwo.setAttribute('data-rellax-speed', String(speed2));
+      settings.textContent = 'round: ' + round + ', speed1: ' + speed1 + ', speed2: ' + speed2;
+
+      if (!window.Rellax) {
+        settings.textContent += ' - Rellax failed to load.';
+        return;
+      }
+
+      window.rellaxTest = new window.Rellax('.rellax-test', {
+        center: true,
+        round: round,
+        vertical: true,
+        horizontal: false
+      });
+    })();
+  </script>
+</body>
+</html>
