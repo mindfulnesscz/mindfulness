@@ -10,16 +10,6 @@
 
 <div id="hot-news-wrapper" style="position:relative; overflow:hidden; background:#4d4d4d;">
 
-  <a class="hot-news-item" style="color:white; text-decoration:none; display:block; background:#4d4d4d; position:absolute; top:0; left:0; width:100%;" href="#">
-    <div id="hot-news">
-      <div class="row max-w-1200 m-auto">
-        <div class="col-xs-12 center">
-          🔥 <b></b>See you in Berlin: 7-8.7. 2026
-        </div>
-      </div>
-    </div>
-  </a>
-
   <a class="hot-news-item" style="color:white; text-decoration:none; display:block; background:#4d4d4d; position:absolute; top:0; left:0; width:100%;" href="https://www.essteyr.com/career/">
     <div id="hot-news">
       <div class="row max-w-1200 m-auto">
@@ -39,12 +29,22 @@
     var current = 0;
     var dur = 700;
 
+    if (!wrapper || !items.length) {
+      return;
+    }
+
     function syncHeight() {
       wrapper.style.height = items[current].offsetHeight + 'px';
     }
 
-    // Initial height + hide second item
+    // Initial height
     syncHeight();
+
+    // Rotation only works with 2+ banners
+    if (items.length < 2) {
+      return;
+    }
+
     items[1].style.top = -items[1].offsetHeight + 'px';
 
     // Update height on resize (debounced)

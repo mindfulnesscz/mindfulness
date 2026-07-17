@@ -101,7 +101,12 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ['**/*', '!home-revamp.js'],
+      cleanOnceBeforeBuildPatterns: [
+        '**/*',
+        '!home-revamp.js',
+        '!home-revamp-motion.js',
+        '!home-revamp-motion.js.map',
+      ],
     }),
   ],
 };

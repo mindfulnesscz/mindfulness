@@ -12,7 +12,7 @@ const BackServices: React.FC<WmNavSubpage> = ( {homeUrl, templateUrl} ) => {
 
       <div className="css_block css-block-header w_xii h_ii x_o y_o">
         <div>
-          <h1>ess Services</h1>
+          <span className="csscube-nav-label">ESS Services</span>
         </div>
       </div>
 

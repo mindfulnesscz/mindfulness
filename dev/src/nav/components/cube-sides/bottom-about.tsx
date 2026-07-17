@@ -44,22 +44,22 @@ const BottomAbout: React.FC = () => {
 
       <div className="css_block w_vi h_iii x_o y_v css-gray-lighter">
         <a href={`${window.MindGlobal.homeUrl}/about-us`}>
-          <h2>About us</h2>
+          <span className="csscube-panel-label">About us</span>
         </a>
       </div>
       <div className="css_block w_vi h_iii x_vi y_v css-gray-lighter">
         <a href={`${window.MindGlobal.homeUrl}/career`}>
-          <h2>Career</h2>
+          <span className="csscube-panel-label">Career</span>
         </a>
       </div>
       <div className="css_block w_vi h_iii x_o y_viii css-gray-lighter">
         <a href={`${window.MindGlobal.homeUrl}/news`}>
-          <h2>News</h2>
+          <span className="csscube-panel-label">News</span>
         </a>
       </div>
       <div className="css_block w_vi h_iii x_vi y_viii css-gray-lighter">
         <a href={`${window.MindGlobal.homeUrl}/ess-events`}>
-          <h2>Events</h2>
+          <span className="csscube-panel-label">Events</span>
         </a>
       </div>
       <div className="css_block w_xii h_iv x_0 y_xi">

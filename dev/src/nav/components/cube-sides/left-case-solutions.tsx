@@ -30,7 +30,7 @@ const LeftCaseSolutions: React.FC = () => {
     <div id="csscube-left" className='wmcube-side'>
       <div className="css_block css-block-header w_xii h_iii x_o y_o">
         <div>
-          <h1>Case Solutions</h1>
+          <span className="csscube-nav-label">Case Solutions</span>
         </div>
       </div>
       <div className="css_block w_vi h_iv x_o y_iii css-gray">
@@ -59,10 +59,10 @@ const LeftCaseSolutions: React.FC = () => {
       </div>
       <div className="css_block w_xii h_iv x_o y_xi css-gray-lighter">
         <a href={`${window.MindGlobal.homeUrl}/case-solutions`}>
-          <h2 className="has-text-align-right icon-headline medium-icon just-right color-secondary">
+          <span className="csscube-panel-label has-text-align-right icon-headline medium-icon just-right color-secondary">
             <span className="color-primary ess-icon icon_circle_arrow_right"></span>
                   See More Case Solutions
-          </h2>
+          </span>
         </a>
       </div>
 

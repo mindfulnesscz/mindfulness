@@ -12,7 +12,7 @@ const RightProducts: React.FC<WmNavSubpage> = ({homeUrl, templateUrl} ) => {
     <div id="csscube-right" className='wmcube-side'>
       <div className="css_block css-block-header w_xii h_ii x_o y_o">
         <div>
-          <h1>ess Products</h1>
+          <span className="csscube-nav-label">ESS Products</span>
         </div>
       </div>
 
@@ -108,7 +108,7 @@ const RightProducts: React.FC<WmNavSubpage> = ({homeUrl, templateUrl} ) => {
 
       <div className="css_block w_xii h_ii x_o y_xiii  product-block main-product-block ">
         <a className='has-paintshop-lighten-2-background-color' href={`${homeUrl}/alsim-paintshop`}>    
-        <h3> View All</h3>
+        <span className="csscube-panel-label"> View All</span>
         </a>
       </div>
 

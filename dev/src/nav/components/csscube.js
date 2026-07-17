@@ -274,8 +274,8 @@ export default class CessCube {
     this.cube_w_shift   = this.cube_width/2; // + maybe unit/this.unit_space_ratio for gap between sides;
     this.cube_h_shift   = this.cube_height/2;
 
-    this.Cube_Style_Sheet.innerHTML += '#csscube-scene #csscube h1 {font-size: '+BigHeader+' } ';
-    this.Cube_Style_Sheet.innerHTML += '#csscube-scene #csscube h2 {font-size: '+SmHeader+' } ';
+    this.Cube_Style_Sheet.innerHTML += '#csscube-scene #csscube .csscube-nav-label {font-size: '+BigHeader+' } ';
+    this.Cube_Style_Sheet.innerHTML += '#csscube-scene #csscube .csscube-panel-label {font-size: '+SmHeader+' } ';
     this.Cube_Style_Sheet.innerHTML += '#csscube-scene #csscube h3 {font-size: '+TinyHeader+' } ';
     this.Cube_Style_Sheet.innerHTML += '#csscube-scene #csscube h4 {font-size: '+SmallestHeader+' } ';
     this.Cube_Style_Sheet.innerHTML += '#csscube-scene{width:'+this.cube_width+'px; height:'+this.cube_height+'px; perspective: '+this.cube_width*5+'px;}';

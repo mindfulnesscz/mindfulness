@@ -25,6 +25,11 @@
   line-height: 100%;
 }
 
+h2.product-kicker {
+  font-weight: normal;
+  margin: 0;
+}
+
 .product-hero {
   color: vars.$white;
   background:
@@ -57,9 +62,24 @@
     }
   }
 
-  .product-hero-text {
+  .product-hero-text,
+  .product-hero-subtitle {
     color: rgba(255, 255, 255, 0.82);
     max-width: 42rem;
+  }
+
+  .product-hero-subtitle {
+    font-size: vars.$h2-sm;
+    font-weight: 100;
+    line-height: 1.15;
+
+    @media (min-width: vars.$medium-screen-up) {
+      font-size: vars.$h2-md;
+    }
+
+    @media (min-width: vars.$large-screen-up) {
+      font-size: vars.$h2-lg;
+    }
   }
 
   .product-hero-illustration {
@@ -225,8 +245,11 @@
 
 .paintiq-section-title {
   max-width: 90rem;
+  font-family: vars.$headline-font;
+  font-weight: 100;
   line-height: 1.05;
   font-size: 38px;
+  color: vars.$headline-color;
 
   @media (min-width: vars.$medium-screen-up) {
     font-size: 52px;
@@ -244,6 +267,10 @@
   @media (min-width: vars.$medium-screen-up) {
     font-size: 36px;
   }
+}
+
+.paintiq-intro-lead {
+  margin-bottom: 0;
 }
 
 .paintiq-intro-logo {
@@ -476,6 +503,21 @@
   padding: vars.$double-margin vars.$quad-margin;
   background: colors.color("gray", "lighten-3");
   border-radius: 8px;
+}
+
+.paintiq-quote-text {
+  font-family: vars.$headline-font;
+  font-size: vars.$h3-sm;
+  font-weight: 100;
+  line-height: 1.25;
+
+  @media (min-width: vars.$medium-screen-up) {
+    font-size: vars.$h3-md;
+  }
+
+  @media (min-width: vars.$large-screen-up) {
+    font-size: vars.$h3-lg;
+  }
 }
 
 .paintiq-quote cite {

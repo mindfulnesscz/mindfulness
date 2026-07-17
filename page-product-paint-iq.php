@@ -27,7 +27,7 @@ function paintiq_image_dims($filename) {
 $intro_cards = [
   [
     'logo' => 'ess-paint-iq.svg',
-    'title' => 'Set a 5-second scan as your new standard.',
+    'title' => 'Your digital twin starts with a 5-second scan.',
     'text' => 'PaintIQ captures your actual spray pattern, characterises the atomizer, and hands your engineers everything they need to build an optimised robot program and predict film build on the real part geometry.',
     'image' => 'intro-paintiq.webp',
   ],
@@ -54,11 +54,6 @@ $challenges = [
     'title' => 'Daily QC & Manual plate method',
     'text' => 'Three cells, 220 production days, one hour of plate measurement per cell per day. That is 660 operator hours per year spent on a method that gives you one number with no spatial information.',
     'icon' => 'daily-qc.svg',
-  ],
-  [
-    'title' => 'Commissioning & Time to production',
-    'text' => 'Programming a full car body robot path manually takes 120 to 200 hours. Each new colour, each new model, each facelift starts that clock again.',
-    'icon' => 'commissioning.svg',
   ],
   [
     'title' => 'Prototype trials you could skip',
@@ -228,12 +223,12 @@ while (have_posts()) :
             </div>
 
             <h1 class="product-hero-title m-zero">
-              Measure. Optimize.<br>Spray.
+              Measure. Optimize. Spray.
             </h1>
 
-            <p class="product-hero-text text-lg m-vert-base m-hor-zero p-hor-zero">
-              Every prototype trial that could have been avoided is a cost that compounds.
-            </p>
+            <h2 class="product-hero-subtitle m-vert-base m-hor-zero p-hor-zero">
+              Run every prototype trial on your digital twin. Not on your production line.
+            </h2>
 
             <a class="wm-button spacy inverse lg m-top-base" href="<?php echo esc_url(home_url('/consult')); ?>">Book free consultation</a>
           </div>
@@ -253,10 +248,12 @@ while (have_posts()) :
     <div class="container">
       <div class="row p-bot-okta">
         <div class="col-xs-12">
-          <p class="product-kicker has-gray-darken-2-color text-xs uppercase m-zero">Introducing PaintIQ</p>
-          <h2 class="paintiq-section-title m-top-half">
-            PaintIQ checks your spray process automatically. Measure in seconds, optimize without trials, and spray right from the first body.
-          </h2>
+          <p class="paintiq-section-title paintiq-intro-lead m-zero">
+            PaintIQ is a standalone laser system that checks your spray process automatically. Measure in seconds, optimize without trials, and spray right from the first body.
+          </p>
+          <p class="m-top-base m-bot-zero">
+            Explore our <a href="<?php echo esc_url(home_url('/case-solutions')); ?>">case studies</a> or learn about <a href="<?php echo esc_url(home_url('/alsim-paintshop')); ?>">Alsim PaintShop</a>.
+          </p>
         </div>
       </div>
 
@@ -316,8 +313,7 @@ while (have_posts()) :
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
-          <p class="product-kicker has-gray-darken-2-color text-xs uppercase m-zero">Introducing PaintIQ</p>
-          <h2 class="paintiq-section-title m-top-half">Are these challenges <br>slowing you down?</h2>
+          <h2 class="paintiq-section-title m-top-half m-bot-zero">Are these challenges <br>slowing you down?</h2>
         </div>
       </div>
 
@@ -408,6 +404,7 @@ while (have_posts()) :
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
+          <h2 class="paintiq-section-title m-zero m-bot-double">Your spray optimization process</h2>
           <div class="paintiq-timeline">
             <?php foreach ($process_steps as $index => $step) : ?>
               <?php if (0 === $index) : ?>
@@ -454,11 +451,11 @@ while (have_posts()) :
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-md-4">
-          <p class="product-kicker has-gray-darken-2-color text-xs uppercase m-zero">PaintIQ feedback <br>from the pilot customer</p>
+          <h2 class="product-kicker has-gray-darken-2-color text-xs uppercase m-zero">PaintIQ feedback <br>from the pilot customer</h2>
         </div>
         <div class="col-xs-12 col-md-8">
           <blockquote class="paintiq-quote m-zero left">
-            <h2 class="m-zero">“The overall accuracy is approximately about 90%. The ESS software plays a very significant role in guiding the judgment of the trend and uniformity of the film thickness.”</h2>
+            <p class="paintiq-quote-text m-zero">“The overall accuracy is approximately about 90%. The ESS software plays a very significant role in guiding the judgment of the trend and uniformity of the film thickness.”</p>
             <?php /*<cite class="block m-top-base">Balaji Mohan, CTO</cite>*/ ?>
           </blockquote>
         </div>
