@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 concurrency:
   group: production-deploy
@@ -29,22 +30,26 @@ jobs:
       - name: Build assets
         run: npm run build
 
-      - name: Setup SSH key
+      - name: Start SSH agent
+        uses: webfactory/ssh-agent@v0.9.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Add server to known_hosts
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
+          chmod 700 ~/.ssh
+          ssh-keyscan -H "$SSH_HOST" >> ~/.ssh/known_hosts
 
       - name: Deploy to production
         env:
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
           REMOTE_THEME_PATH: ${{ secrets.REMOTE_THEME_PATH }}
-        run: |
-          export GIT_SSH_COMMAND="ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes"
-          export RSYNC_RSH="ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes"
-          bash scripts/deploy.sh
+          RSYNC_RSH: ssh -o StrictHostKeyChecking=yes -o IdentitiesOnly=yes
+        run: bash scripts/deploy.sh
 
       - name: Smoke check
         run: curl -sf --retry 3 --retry-delay 5 https://www.essteyr.com > /dev/null
