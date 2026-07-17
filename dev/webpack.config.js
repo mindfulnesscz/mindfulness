@@ -100,6 +100,8 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ['**/*', '!home-revamp.js'],
+    }),
   ],
 };
