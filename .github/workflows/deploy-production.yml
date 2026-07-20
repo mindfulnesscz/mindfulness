@@ -43,12 +43,20 @@ jobs:
           chmod 700 ~/.ssh
           ssh-keyscan -H "$SSH_HOST" >> ~/.ssh/known_hosts
 
+      - name: Test SSH connection
+        env:
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+        run: |
+          ssh -o StrictHostKeyChecking=yes -o BatchMode=yes -v \
+            "${SSH_USER}@${SSH_HOST}" "echo SSH_OK && whoami && pwd"
+
       - name: Deploy to production
         env:
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
           REMOTE_THEME_PATH: ${{ secrets.REMOTE_THEME_PATH }}
-          RSYNC_RSH: ssh -o StrictHostKeyChecking=yes -o IdentitiesOnly=yes
+          RSYNC_RSH: ssh -o StrictHostKeyChecking=yes
         run: bash scripts/deploy.sh
 
       - name: Smoke check
